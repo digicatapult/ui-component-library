@@ -1,0 +1,12 @@
+{
+  ignores: [
+    "babel-loader",
+    "@storybook/addon-essentials",
+    "@storybook/addon-a11y",
+    "jest-styled-components",
+    "react-test-renderer",
+    "babel-core",
+    "webpack"
+  ],
+  skip-missing: true
+}

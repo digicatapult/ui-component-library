@@ -1,0 +1,14 @@
+{
+  "semi": false,
+  "singleQuote": true,
+  "overrides": [
+    {
+      "files": "*.md",
+      "options": {
+        "printWidth": 120,
+        "useTabs": false,
+        "trailingComma": "none"
+      }
+    }
+  ]
+}

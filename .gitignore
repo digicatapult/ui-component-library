@@ -1,0 +1,16 @@
+node_modules/
+.DS_Store
+yarn-error.log
+
+# Storybook
+storybook-static/
+
+# Build
+lib
+/build
+
+# Testing
+.jest-*
+coverage/
+
+/bin

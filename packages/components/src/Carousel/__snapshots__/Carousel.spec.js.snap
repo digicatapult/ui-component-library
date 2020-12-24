@@ -1,0 +1,165 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Carousel Image Carousel 1`] = `
+.c1 {
+  padding: 16px;
+  color: #fff;
+  border-radius: 4px;
+  background: linear-gradient(to left,#00000000,#00000080);
+  border: none;
+  box-sizing: border-box;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.c1:hover {
+  outline: none;
+  -webkit-filter: brightness(120%);
+  filter: brightness(120%);
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c1:disabled {
+  cursor: default;
+  background-color: #dfdfdf;
+  -webkit-filter: none;
+  filter: none;
+  color: #fff;
+  border: none;
+}
+
+.c5 {
+  padding: 16px;
+  color: #fff;
+  border-radius: 4px;
+  background: linear-gradient(to right,#00000000,#00000080);
+  border: none;
+  box-sizing: border-box;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.c5:hover {
+  outline: none;
+  -webkit-filter: brightness(120%);
+  filter: brightness(120%);
+}
+
+.c5:focus {
+  outline: none;
+}
+
+.c5:disabled {
+  cursor: default;
+  background-color: #dfdfdf;
+  -webkit-filter: none;
+  filter: none;
+  color: #fff;
+  border: none;
+}
+
+.c0 {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  width: 90vw;
+  height: 90vh;
+  overflow: hidden;
+}
+
+.c3 {
+  position: absolute;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: no-wrap;
+  -ms-flex-wrap: no-wrap;
+  flex-wrap: no-wrap;
+  -webkit-transform: translate( -0% );
+  -ms-transform: translate( -0% );
+  transform: translate( -0% );
+  -webkit-transition: -webkit-transform 0.5s;
+  -webkit-transition: transform 0.5s;
+  transition: transform 0.5s;
+}
+
+.c4 {
+  object-fit: cover;
+  width: 90vw;
+  height: 90vh;
+}
+
+.c2 {
+  z-index: 1;
+}
+
+.c2:disabled {
+  background-color: inherit;
+  color: #808080;
+}
+
+<div
+  className="c0"
+  height="90vh"
+  onKeyDown={[Function]}
+  tabIndex="0"
+  width="90vw"
+>
+  <button
+    className="c1 c2"
+    disabled={true}
+    name="previous"
+    onClick={[Function]}
+    size="medium"
+    type="button"
+  >
+    prev
+  </button>
+  <div
+    className="c3"
+    width="90vw"
+  >
+    <div>
+      <img
+        alt="first-mock"
+        className="c4"
+        height="90vh"
+        src="/mock/path/1"
+        width="90vw"
+      />
+    </div>
+    <div>
+      <img
+        alt="second-mock"
+        className="c4"
+        height="90vh"
+        src="mock/path/2"
+        width="90vw"
+      />
+    </div>
+  </div>
+  <button
+    className="c5 c2"
+    disabled={false}
+    name="next"
+    onClick={[Function]}
+    size="medium"
+    type="button"
+  >
+    next
+  </button>
+</div>
+`;

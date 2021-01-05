@@ -93,6 +93,8 @@ You should see a suggestion of changes and a propt asking "Are you sure you want
 
 ##### Guide
 
+Follow [this guide](https://github.com/digicatapult/ui-component-library/pull/1)
+
 Given a version number MAJOR.MINOR.PATCH, increment the:
 MAJOR version when you make incompatible API changes,
 MINOR version when you add functionality in a backwards compatible manner, and

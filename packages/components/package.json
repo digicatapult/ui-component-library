@@ -5,6 +5,9 @@
   "license": "Apache-2.0",
   "main": "lib/index.js",
   "module": "src/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "prop-types": "^15.7.2",
     "styled-components": "^5.0.1"

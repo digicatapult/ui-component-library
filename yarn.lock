@@ -1054,14 +1054,6 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@digicat/components@^0.0.3":
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/@digicat/components/-/components-0.0.3.tgz#16e109cfbf613dc14d8d099ac5c5ed1c35eae5fe"
-  integrity sha512-zwdPVgoQPgeVSXCBAEs/sNdMlvkiLJDN5Bb4czJvCttTAQG97Vjv5KttgPsYU+d72FGkfLhaMb/OBEmI9sYEhA==
-  dependencies:
-    prop-types "^15.7.2"
-    styled-components "^5.0.1"
-
 "@emotion/cache@^10.0.27":
   version "10.0.29"
   resolved "https://registry.yarnpkg.com/@emotion/cache/-/cache-10.0.29.tgz#87e7e64f412c060102d589fe7c6dc042e6f9d1e0"

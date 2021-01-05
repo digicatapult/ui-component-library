@@ -4,7 +4,7 @@ React components built for Digital Catapult projects 🧠
 
 ## Installation
 
-`@digicat/components` are available as an [npm package](https://www.npmjs.com/package/@digicat/components).
+`@digicat/components` are available as an [npm package](https://semver.org/#semantic-versioning-specification-semver).
 
 ```sh
 // with npm
@@ -93,7 +93,7 @@ You should see a suggestion of changes and a propt asking "Are you sure you want
 
 ##### Guide
 
-Follow [this guide](https://github.com/digicatapult/ui-component-library/pull/1)
+Follow [this guide](https://semver.org/#semantic-versioning-specification-semver)
 
 Given a version number MAJOR.MINOR.PATCH, increment the:
 MAJOR version when you make incompatible API changes,

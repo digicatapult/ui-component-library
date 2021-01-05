@@ -1,10 +1,13 @@
 {
   "name": "@digicat/components",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "React components for Digital Catapult projects.",
   "license": "Apache-2.0",
   "main": "lib/index.js",
   "module": "src/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "prop-types": "^15.7.2",
     "styled-components": "^5.0.1"

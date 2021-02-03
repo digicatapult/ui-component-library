@@ -1,13 +1,10 @@
 declare module '@digicat/components' {
+
   interface ButtonProps {
     children?: string
     background?: string
     size?: 'small' | 'medium' | 'large'
     variant?: 'primary' | 'secondary' | 'outlined'
-  }
-
-  interface ImageType = {
-    
   }
 
   interface CarouselProps {
@@ -21,8 +18,6 @@ declare module '@digicat/components' {
   height: PropTypes.string,
   width: PropTypes.string
   }
-
-  
 
   export const Button: (props: ButtonProps) => <JSXElement>
   export const Carousel: (props: CarouselProps) => <JSXElement>

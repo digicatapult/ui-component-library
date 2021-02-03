@@ -1,7 +1,7 @@
 {
   "parser": "babel-eslint",
   "extends": ["airbnb", "prettier"],
-  "plugins": ["react", "prettier", "workspaces", "jest"],
+  "plugins": ["react", "prettier", "workspaces","jest"],
   "rules": {
     "prettier/prettier": 2,
     "react/jsx-filename-extension": 0,
@@ -18,5 +18,16 @@
     "react/no-array-index-key":0,
     "import/no-extraneous-dependencies": 0
   },
+  "overrides" : [
+    {
+      "files": ["**/*.ts"],
+      "plugins": ["@typescript-eslint/eslint-plugin"],
+      "parser": "@typescript-eslint/parser",
+      "extends":["prettier", "plugin:@typescript-eslint/recommended"],
+      "rules": {
+        "prettier/prettier": 2
+      }
+    }
+  ],
   "env": { "es6": true, "jest/globals": true }
 }

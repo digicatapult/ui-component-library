@@ -3,7 +3,7 @@
   "singleQuote": true,
   "overrides": [
     {
-      "files": "*.md",
+      "files": ["*.md", "*.ts"],
       "options": {
         "printWidth": 120,
         "useTabs": false,

@@ -30,7 +30,7 @@ ReactDOM.render(<App />, document.querySelector('#app'))
 
 ## Documentation
 
-Check out our [storybook ](https://digicat-components.netlify.app/) for documentation of individual components.
+Check out our [storybook](https://digicat-components.netlify.app/) for documentation of individual components.
 
 ## Contributing
 
@@ -41,7 +41,7 @@ Read the [contributing guide](/CONTRIBUTING.md) to learn about our development p
 This project is licensed under the terms of the
 [Apache License](/LICENSE).
 
-### Stack
+## Stack
 
 [React](https://reactjs.org/)  
 [Babel](https://babeljs.io/)  
@@ -51,47 +51,87 @@ This project is licensed under the terms of the
 [Storybook](https://storybook.js.org/)  
 [Jest](https://jestjs.io/)
 
-### Installation
+## Installation
 
 Link local packages together and install remaining package dependencies:
 
-```
+```bash
 yarn bootstrap
 ```
 
 Installs with [Lerna bootstrap](https://github.com/lerna/lerna/tree/main/commands/bootstrap#usage)
 
-### Run Storybook
+## Run Storybook
 
+```bash
+cd storybook
 ```
+
+install packages
+
+```bash
+yarn
+```
+
+start storybook
+
+```bash
 yarn start
 ```
 
-### Bumping package versions
+This will open the browser and will run storybook at [localhost:9000](http://localhost:9000/)
+
+## Local linking for development
+
+If you want to link @digicat/components to your project while developing
+
+run
+
+```bash
+yarn prelink
+```
+
+```bash
+cd packages/components
+```
+
+```bash
+yarn link
+```
+
+In your project run the following command
+
+```bash
+yarn link "@digicat/components"
+```
+
+And you should be able to see the changes in your project as you add/change components in this library.
+
+## Bumping package versions
 
 Following [this guide](https://docs.npmjs.com/about-semantic-versioning#incrementing-semantic-versions-in-published-packages)
 
 To see which packages have changed:
 
-```
+```bash
 npx lerna changed
 ```
 
 To see which lines specifically have changed:
 
-```
+```bash
 npx lerna diff
 ```
 
 To bump version of packages changed since the last release
 
-```
+```bash
 npx lerna version
 ```
 
-You should see a suggestion of changes and a propt asking "Are you sure you want to create these versions?"
+You should see a suggestion for changes and a prompt asking "Are you sure you want to create these versions?"
 
-##### Guide
+### Guide
 
 Given a version number MAJOR.MINOR.PATCH, increment the:
 MAJOR version when you make incompatible API changes,
@@ -125,30 +165,36 @@ PATCH version when you make backwards compatible bug fixes.
 
 ### Publishing to NPM
 
-```
+```bash
 lerna publish
 ```
 
 ### Testing
 
+Make sure you have installed all dependencies ( If you linked your project locally, `yarn prelink` has only installed dependencies, make sure you installed devDependencies before running tests)
+
+```bash
+yarn
 ```
+
+```bash
 yarn test
 ```
 
 - Test with coverage report
 
-```
+```bash
 yarn coverage
 ```
 
 - Update snapshots and test
 
-```
+```bash
 yarn test -u
 ```
 
 ### Dependency check
 
-```
+```bash
 yarn depcheck
 ```

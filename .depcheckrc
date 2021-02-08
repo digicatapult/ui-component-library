@@ -6,7 +6,8 @@
     "jest-styled-components",
     "react-test-renderer",
     "babel-core",
-    "webpack"
+    "webpack",
+    "core-js"
   ],
   skip-missing: true
 }

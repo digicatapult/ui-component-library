@@ -1,5 +1,4 @@
-import React from 'react'
-import { Button } from '@digicat/components'
+import { Button } from '../../packages/components'
 
 export default {
   title: 'Button',

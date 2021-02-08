@@ -129,7 +129,7 @@ To bump version of packages changed since the last release
 npx lerna version
 ```
 
-You should see a suggestion of changes and a propt asking "Are you sure you want to create these versions?"
+You should see a suggestion for changes and a prompt asking "Are you sure you want to create these versions?"
 
 ### Guide
 
@@ -171,7 +171,7 @@ lerna publish
 
 ### Testing
 
-Make sure you have installed all dependecies ( If you linked your project locally, `yarn prelink` has only installed dependencies, make sure you installed devDependecies before running tests)
+Make sure you have installed all dependencies ( If you linked your project locally, `yarn prelink` has only installed dependencies, make sure you installed devDependencies before running tests)
 
 ```bash
 yarn

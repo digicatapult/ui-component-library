@@ -30,4 +30,4 @@ ReactDOM.render(<App />, document.querySelector('#app'))
 
 ## Documentation
 
-Check out our [storybook ](https://digicat-components.netlify.app/) for documentation of individual components.
+Check out our [storybook](https://digicat-components.netlify.app/) for documentation of individual components

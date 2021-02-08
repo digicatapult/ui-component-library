@@ -1,12 +1,24 @@
 {
   "parser": "babel-eslint",
-  "extends": ["airbnb", "prettier"],
-  "plugins": ["react", "prettier", "workspaces", "jest"],
+  "extends": [
+    "prettier",
+    "plugin:jsx-a11y/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:jest/recommended",
+    "plugin:jest/style"
+  ],
+  "plugins": [
+    "react",
+    "prettier",
+    "workspaces",
+    "jest",
+    "import",
+    "jsx-a11y",
+    "react-hooks"
+  ],
   "rules": {
     "prettier/prettier": 2,
-    "react/jsx-filename-extension": 0,
     "react/no-unescaped-entities": 0,
-    "react/jsx-props-no-spreading": 0,
     "workspaces/no-relative-imports": 2,
     "workspaces/require-dependency": 1,
     "import/prefer-default-export": 0,
@@ -16,7 +28,10 @@
     "jest/prefer-to-have-length": 1,
     "jest/valid-expect": 2,
     "react/no-array-index-key": 0,
-    "import/no-extraneous-dependencies": 0
+    "import/no-extraneous-dependencies": [
+      "error",
+      { "devDependencies": false, "peerDependencies": true }
+    ]
   },
   "env": { "es6": true, "jest/globals": true }
 }

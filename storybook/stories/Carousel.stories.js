@@ -1,10 +1,9 @@
-import React from 'react'
-import { Carousel } from '@digicat/components'
+import { Carousel } from '../../packages/components'
 
-import first from '../static/carousel-media/1.jpg'
-import second from '../static/carousel-media/2.jpg'
-import third from '../static/carousel-media/3.jpg'
-import fourth from '../static/carousel-media/4.jpg'
+import first from './assets/carousel-media/1.jpg'
+import second from './assets/carousel-media/2.jpg'
+import third from './assets/carousel-media/3.jpg'
+import fourth from './assets/carousel-media/4.jpg'
 
 const images = [
   {

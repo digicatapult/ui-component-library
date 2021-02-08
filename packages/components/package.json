@@ -3,6 +3,7 @@
   "version": "0.0.4",
   "description": "React components for Digital Catapult projects.",
   "license": "Apache-2.0",
+  "modules": "lib/index.js",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "publishConfig": {
@@ -10,13 +11,11 @@
   },
   "dependencies": {
     "prop-types": "^15.7.2",
-    "styled-components": "^5.2.1"
-  },
-  "devDependencies": {
+    "styled-components": "^5.2.1",
     "jest-styled-components": "^7.0.3",
     "react-test-renderer": "^17.0.1"
   },
-   "peerDependencies": {
+  "peerDependencies": {
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   }

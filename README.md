@@ -73,7 +73,7 @@ install packages
 yarn
 ```
 
-start srotybook
+start storybook
 
 ```bash
 yarn start

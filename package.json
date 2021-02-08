@@ -15,7 +15,8 @@
     "coverage": "jest --coverage",
     "depcheck": "depcheck",
     "lint": "eslint .",
-    "test": "jest"
+    "test": "jest",
+    "prelink": "yarn --prod"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.13",

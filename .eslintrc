@@ -30,7 +30,7 @@
     "react/no-array-index-key": 0,
     "import/no-extraneous-dependencies": [
       "error",
-      { "devDependencies": false, "peerDependencies": true }
+      { "devDependencies": true, "peerDependencies": true }
     ]
   },
   "env": { "es6": true, "jest/globals": true }

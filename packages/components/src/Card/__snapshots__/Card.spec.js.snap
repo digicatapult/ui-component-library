@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card default 1`] = `
+.c2 {
+  font-size: 14px;
+}
+
+.c1 {
+  font-size: 16px;
+  margin: 0 0 15px 0;
+}
+
+.c3 {
+  font-size: 14px;
+  padding-top: 1rem;
+  -webkit-line-clamp: 8;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: column nowrap;
+  -ms-flex-flow: column nowrap;
+  flex-flow: column nowrap;
+  margin: 2rem;
+  padding: 10px;
+  margin-bottom: 1rem;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  width: 240px;
+  height: 240px;
+  cursor: pointer;
+}
+
+.c0:hover {
+  box-shadow: 10px 10px 4px rgba(0,0,0,0.25);
+}
+
+<div
+  className="c0"
+  onClick={[Function]}
+>
+  <h2
+    className="c1"
+  >
+    Card story
+  </h2>
+  <div
+    className="c2"
+  >
+    by 
+    Story Writer
+  </div>
+  <div
+    className="c2"
+  >
+    on 
+    <strong>
+      2/12/2021
+    </strong>
+  </div>
+  <div
+    className="c3"
+  >
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+    ...
+  </div>
+</div>
+`;

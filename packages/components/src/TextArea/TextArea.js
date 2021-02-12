@@ -2,6 +2,10 @@ import React from 'react'
 import { PropTypes } from 'prop-types'
 import styled from 'styled-components'
 
+import colors from '../colors'
+
+const { errorRed, black } = colors
+
 const Wrapper = styled.div`
   margin-bottom: 20px;
   display: flex;
@@ -24,7 +28,7 @@ const Label = styled.label`
 `
 
 const StyledTextArea = styled.textarea`
-  border: 1px solid black;
+  border: 1px solid ${black};
   padding: 10px;
 `
 
@@ -33,7 +37,7 @@ const Currency = styled.span`
 `
 
 const ErrorMessage = styled.p`
-  color: #e83f36;
+  color: ${errorRed};
   display: block;
   height: 18px;
   margin: 2px 0;

@@ -2,12 +2,24 @@
 
 exports[`Input default 1`] = `
 .c0 {
+  margin-bottom: 20px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  margin-bottom: 20px;
   font-family: 'Open Sans',sans-serif;
+  min-height: 60px;
+}
+
+.c2 {
+  width: 80%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .c1 {
@@ -15,13 +27,13 @@ exports[`Input default 1`] = `
   max-width: 20%;
   text-transform: uppercase;
   overflow-wrap: break-word;
-  font-weight: 400;
+  font-weight: 600;
 }
 
-.c2 {
-  width: 80%;
+.c3 {
   border: 1px solid black;
   height: 30px;
+  padding: 5px;
 }
 
 <div
@@ -29,22 +41,44 @@ exports[`Input default 1`] = `
 >
   <label
     className="c1"
-  />
-  <input
+    htmlFor="default"
+  >
+    default
+  </label>
+  <div
     className="c2"
     type="text"
-  />
+  >
+    <input
+      className="c3"
+      id="default"
+      type="text"
+    />
+    
+  </div>
 </div>
 `;
 
 exports[`Input monetary 1`] = `
 .c0 {
+  margin-bottom: 20px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  margin-bottom: 20px;
   font-family: 'Open Sans',sans-serif;
+  min-height: 60px;
+}
+
+.c2 {
+  width: 80%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .c1 {
@@ -52,16 +86,16 @@ exports[`Input monetary 1`] = `
   max-width: 20%;
   text-transform: uppercase;
   overflow-wrap: break-word;
-  font-weight: 400;
-}
-
-.c2 {
-  width: 80%;
-  border: 1px solid black;
-  height: 30px;
+  font-weight: 600;
 }
 
 .c3 {
+  border: 1px solid black;
+  height: 30px;
+  padding: 5px;
+}
+
+.c4 {
   margin-left: 5px;
 }
 
@@ -70,25 +104,35 @@ exports[`Input monetary 1`] = `
 >
   <label
     className="c1"
-  />
-  <div
-    style={
-      Object {
-        "alignItems": "center",
-        "display": "flex",
-        "flexDirection": "row",
-      }
-    }
+    htmlFor="value"
   >
-    <input
-      className="c2"
-      type="number"
-    />
-    <span
-      className="c3"
+    money related
+  </label>
+  <div
+    className="c2"
+    type="text"
+  >
+    <div
+      style={
+        Object {
+          "alignItems": "center",
+          "display": "flex",
+          "flexDirection": "row",
+        }
+      }
     >
-      GBP
-    </span>
+      <input
+        className="c3"
+        id="value"
+        type="number"
+      />
+      <span
+        className="c4"
+      >
+        GBP
+      </span>
+    </div>
+    
   </div>
 </div>
 `;

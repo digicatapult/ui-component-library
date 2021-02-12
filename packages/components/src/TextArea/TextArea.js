@@ -9,8 +9,8 @@ const Wrapper = styled.div`
   min-height: 60px;
 `
 
-const InputWrapper = styled.div`
-  width: ${({ type }) => (type === 'date' ? '15%' : '80%')};
+const AreaWrapper = styled.div`
+  width: 80%;
   display: flex;
   flex-direction: column;
 `
@@ -23,10 +23,9 @@ const Label = styled.label`
   font-weight: 600;
 `
 
-const StyledInput = styled.input`
+const StyledTextArea = styled.textarea`
   border: 1px solid black;
-  height: 30px;
-  padding: 5px;
+  padding: 10px;
 `
 
 const Currency = styled.span`
@@ -41,39 +40,24 @@ const ErrorMessage = styled.p`
   font-size: 12px;
 `
 
-const MonetaryInput = ({ id, ...rest }) => (
-  <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-    <StyledInput id={id} type="number" {...rest} />
-    <Currency>GBP</Currency>
-  </div>
-)
-
-const Input = ({ label, id, monetary, type, error, ...rest }) => (
+const TextArea = ({ label, id, error, ...rest }) => (
   <Wrapper>
     <Label htmlFor={id}>{label}</Label>
-    <InputWrapper type={type}>
-      {monetary ? (
-        <MonetaryInput id={id} {...rest} />
-      ) : (
-        <StyledInput id={id} type={type} {...rest} />
-      )}
+    <AreaWrapper>
+      <StyledTextArea id={id} rows={15} cols={100} {...rest} />
       {error && <ErrorMessage>{error}</ErrorMessage>}
-    </InputWrapper>
+    </AreaWrapper>
   </Wrapper>
 )
 
-Input.defaultProps = {
-  type: 'text',
-  monetary: false,
+TextArea.defaultProps = {
   error: ''
 }
 
-Input.propTypes = {
+TextArea.propTypes = {
   label: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
-  error: PropTypes.string,
-  type: PropTypes.string,
-  monetary: PropTypes.bool
+  error: PropTypes.string
 }
 
-export default Input
+export default TextArea

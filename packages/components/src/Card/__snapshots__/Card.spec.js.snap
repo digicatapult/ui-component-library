@@ -44,7 +44,6 @@ exports[`Card default 1`] = `
 
 <div
   className="c0"
-  onClick={[Function]}
 >
   <h2
     className="c1"
@@ -62,7 +61,7 @@ exports[`Card default 1`] = `
   >
     on 
     <strong>
-      2/15/2021
+      12/17/1995
     </strong>
   </div>
   <div

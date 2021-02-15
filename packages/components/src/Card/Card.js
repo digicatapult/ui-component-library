@@ -46,31 +46,24 @@ const Container = styled.div`
   cursor: pointer;
 `
 
-const Card = ({ data, handleClick }) => {
+const Card = ({ title, name, date, description, ...rest }) => {
   return (
-    <Container onClick={handleClick}>
-      <Title>{data.title}</Title>
-      <Text>by {data.editors && data.editors[0].firstName}</Text>
+    <Container {...rest}>
+      <Title>{title}</Title>
+      <Text>by {name}</Text>
       <Text>
-        on <strong>{new Date(data.start).toLocaleDateString()}</strong>
+        on <strong>{new Date(date).toLocaleDateString()}</strong>
       </Text>
-      <Description>{data.description?.slice(0, 100).trim()}...</Description>
+      <Description>{description?.slice(0, 100).trim()}...</Description>
     </Container>
   )
 }
 
 Card.propTypes = {
-  data: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    editors: PropTypes.arrayOf(
-      PropTypes.shape({
-        firstName: PropTypes.string.isRequired
-      })
-    ),
-    start: PropTypes.number.isRequired,
-    description: PropTypes.string.isRequired
-  }),
-  handleClick: PropTypes.func.isRequired
+  title: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  date: PropTypes.instanceOf(Date),
+  description: PropTypes.string.isRequired
 }
 
 export default Card

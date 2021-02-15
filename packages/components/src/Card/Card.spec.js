@@ -12,7 +12,7 @@ describe('Card', () => {
           data={{
             title: 'Card story',
             editors: [{ firstName: 'Story Writer' }],
-            start: Date.now(),
+            start: 1613384947838,
             description:
               'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Est ullamcorper eget nulla facilisi etiam dignissim diam quis. Sem et tortor consequat id porta. Viverra nam libero justo laoreet sit.'
           }}

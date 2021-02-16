@@ -141,7 +141,7 @@ PATCH version when you make backwards compatible bug fixes.
 **PATCH bump examples:**
 
 - Updating docs
-- Refactoring while keeping the same usage, for instance, renaming files and things that do not affect behavior
+- Refactoring while keeping the same usage, for instance, renaming files and things that do not affect behaviour
 - Fixing typos of variable or type names
 - Upgrading dependencies with minor or patch releases
 
@@ -155,7 +155,7 @@ PATCH version when you make backwards compatible bug fixes.
 
 **MAJOR bump examples:**
 
-- Anything that breaks existing behavior
+- Anything that breaks existing behaviour
 - Changing the styling of a component with any visually noticeable change that will break the desired UI.
 - Upgrading dependencies by major versions only if:
   - The component library somehow exposed the internals of the dependency upgraded (hence it becomes a public API change)

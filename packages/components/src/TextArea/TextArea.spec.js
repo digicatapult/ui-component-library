@@ -2,11 +2,11 @@ import React from 'react'
 import renderer from 'react-test-renderer'
 import 'jest-styled-components'
 
-import Button from '.'
+import TextArea from '.'
 
-describe('Button', () => {
+describe('TextArea', () => {
   test('default', () => {
-    const tree = renderer.create(<Button>Test</Button>).toJSON()
+    const tree = renderer.create(<TextArea label="label" id="test" />).toJSON()
     expect(tree).toMatchSnapshot()
   })
 })

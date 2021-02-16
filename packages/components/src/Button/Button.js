@@ -2,60 +2,38 @@ import React from 'react'
 import { PropTypes } from 'prop-types'
 import styled from 'styled-components'
 
-const colors = {
-  primaryBlue: '#1976d2'
-}
+import colors from '../colors'
+
+const { white, black, grey } = colors
 
 const StyledButton = styled.button`
-  padding: ${({ size }) =>
-    (size === 'small' && '8px') ||
-    (size === 'medium' && '16px') ||
-    (size === 'large' && '24px') ||
-    '16px'};
-  color: ${({ variant }) =>
-    variant === 'primary' ? '#fff' : colors.primaryBlue};
-  border-radius: 4px;
-  background: ${({ background, variant }) =>
-    variant === 'primary' ? background : 'none'};
-  border: ${({ variant }) =>
-    variant === 'outlined' ? `1px solid ${colors.primaryBlue}` : 'none'};
-  box-sizing: border-box;
+  border: ${({ outlined }) => (outlined ? `1px solid ${black}` : 'none')};
+  background-color: ${({ outlined, text, disabled }) =>
+    (disabled && grey) || (outlined && white) || (text && white) || black};
+  color: ${({ outlined, text }) => (outlined || text ? black : white)};
   text-transform: uppercase;
-  cursor: pointer;
-  :hover {
-    outline: none;
-    filter: brightness(120%);
-  }
-  :focus {
-    outline: none;
-  }
-  :disabled {
-    cursor: default;
-    background-color: #dfdfdf;
-    filter: none;
-    color: #fff;
-    border: none;
-  }
+  font-weight: 600;
+  min-width: ${({ text }) => (text ? '10px' : '160px')};
+  height: 45px;
+  cursor: ${({ disabled }) => (disabled ? 'default' : 'pointer')};
 `
 
-const Button = ({ variant, children, size, background, ...rest }) => (
-  <StyledButton size={size} background={background} variant={variant} {...rest}>
+const Button = ({ children, outlined, text, ...rest }) => (
+  <StyledButton outlined={outlined} text={text} {...rest}>
     {children}
   </StyledButton>
 )
 
 Button.defaultProps = {
-  children: 'Button',
-  size: 'medium',
-  background: colors.primaryBlue,
-  variant: 'primary'
+  children: 'button',
+  outlined: false,
+  text: false
 }
 
 Button.propTypes = {
   children: PropTypes.string,
-  background: PropTypes.string,
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
-  variant: PropTypes.oneOf(['primary', 'secondary', 'outlined'])
+  outlined: PropTypes.bool,
+  text: PropTypes.bool
 }
 
 export default Button

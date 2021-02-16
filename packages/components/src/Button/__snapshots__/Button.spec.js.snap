@@ -1,39 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Button primary 1`] = `
+exports[`Button default 1`] = `
 .c0 {
-  padding: 16px;
-  color: #fff;
-  border-radius: 4px;
-  background: #1976d2;
   border: none;
-  box-sizing: border-box;
+  background-color: #000000;
+  color: #FFFFFF;
   text-transform: uppercase;
+  font-weight: 600;
+  min-width: 160px;
+  height: 45px;
   cursor: pointer;
-}
-
-.c0:hover {
-  outline: none;
-  -webkit-filter: brightness(120%);
-  filter: brightness(120%);
-}
-
-.c0:focus {
-  outline: none;
-}
-
-.c0:disabled {
-  cursor: default;
-  background-color: #dfdfdf;
-  -webkit-filter: none;
-  filter: none;
-  color: #fff;
-  border: none;
 }
 
 <button
   className="c0"
-  size="medium"
 >
   Test
 </button>

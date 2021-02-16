@@ -10,13 +10,8 @@ export default {
       description:
         'Style object will be passed as inline style as default behaviour of react elements. You can also use styled-components instead of this property which will also overwrite the default styles.'
     },
-    outlined: {
-      name: 'outlined',
-      description: 'has borders only'
-    },
-    text: {
-      name: 'text',
-      description: 'has no background and no borders'
+    variant: {
+      name: 'variant'
     }
   }
 }
@@ -27,10 +22,10 @@ export const Primary = Template.bind({})
 Primary.args = {}
 
 export const Outlined = Template.bind({})
-Outlined.args = { outlined: true }
+Outlined.args = { variant: 'outlined' }
 
 export const Text = Template.bind({})
-Text.args = { text: true }
+Text.args = { variant: 'text' }
 
 export const Disabled = Template.bind({})
 Disabled.args = { disabled: true }

@@ -62,7 +62,7 @@ const Card = ({ title, name, date, description, ...rest }) => {
 Card.propTypes = {
   title: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  date: PropTypes.instanceOf(Date),
+  date: PropTypes.instanceOf(Date).isRequired,
   description: PropTypes.string.isRequired
 }
 

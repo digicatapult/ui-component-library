@@ -18,3 +18,61 @@ exports[`Button default 1`] = `
   Test
 </button>
 `;
+
+exports[`Button disabled 1`] = `
+.c0 {
+  border: none;
+  background-color: #D1D1D1;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  font-weight: 600;
+  min-width: 160px;
+  height: 45px;
+  cursor: default;
+}
+
+<button
+  className="c0"
+  disabled={true}
+>
+  Test
+</button>
+`;
+
+exports[`Button outlined 1`] = `
+.c0 {
+  border: 1px solid #000000;
+  background-color: #FFFFFF;
+  color: #000000;
+  text-transform: uppercase;
+  font-weight: 600;
+  min-width: 160px;
+  height: 45px;
+  cursor: pointer;
+}
+
+<button
+  className="c0"
+>
+  Test
+</button>
+`;
+
+exports[`Button text 1`] = `
+.c0 {
+  border: none;
+  background-color: #FFFFFF;
+  color: #000000;
+  text-transform: uppercase;
+  font-weight: 600;
+  min-width: 10px;
+  height: 45px;
+  cursor: pointer;
+}
+
+<button
+  className="c0"
+>
+  Test
+</button>
+`;

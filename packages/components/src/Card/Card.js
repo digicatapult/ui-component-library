@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 import colors from '../colors'
 
-const { black } = colors
+const { black, grey } = colors
 
 const Text = styled.div`
   font-size: 14px;
@@ -38,7 +38,8 @@ const Container = styled.div`
   padding: 10px;
   margin-bottom: 1rem;
 
-  border: 1px solid ${black};
+  border: 2px solid ${grey};
+  border-radius: 5px;
   box-sizing: border-box;
 
   width: 240px;

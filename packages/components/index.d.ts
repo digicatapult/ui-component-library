@@ -5,11 +5,6 @@ declare module '@digicat/components' {
   }
 
   interface InputProps {
-    label: string
-    id: string
-    error?: string
-    type?: string
-    monetary?: bool
   }
   
   interface CardProps {

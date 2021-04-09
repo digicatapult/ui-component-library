@@ -3,6 +3,7 @@
 exports[`Button default 1`] = `
 .c0 {
   border: none;
+  border-radius: 5px;
   background-color: #000000;
   color: #FFFFFF;
   text-transform: uppercase;
@@ -10,6 +11,11 @@ exports[`Button default 1`] = `
   min-width: 160px;
   height: 45px;
   cursor: pointer;
+}
+
+.c0:disabled {
+  cursor: default;
+  background-color: #f0f0f0 color:#6b7882;
 }
 
 <button
@@ -22,13 +28,19 @@ exports[`Button default 1`] = `
 exports[`Button disabled 1`] = `
 .c0 {
   border: none;
-  background-color: #D1D1D1;
+  border-radius: 5px;
+  background-color: #000000;
   color: #FFFFFF;
   text-transform: uppercase;
   font-weight: 600;
   min-width: 160px;
   height: 45px;
+  cursor: pointer;
+}
+
+.c0:disabled {
   cursor: default;
+  background-color: #f0f0f0 color:#6b7882;
 }
 
 <button
@@ -42,6 +54,7 @@ exports[`Button disabled 1`] = `
 exports[`Button outlined 1`] = `
 .c0 {
   border: 1px solid #000000;
+  border-radius: 5px;
   background-color: #FFFFFF;
   color: #000000;
   text-transform: uppercase;
@@ -49,6 +62,11 @@ exports[`Button outlined 1`] = `
   min-width: 160px;
   height: 45px;
   cursor: pointer;
+}
+
+.c0:disabled {
+  cursor: default;
+  background-color: white color:#6b7882;
 }
 
 <button
@@ -61,6 +79,7 @@ exports[`Button outlined 1`] = `
 exports[`Button text 1`] = `
 .c0 {
   border: none;
+  border-radius: 5px;
   background-color: #FFFFFF;
   color: #000000;
   text-transform: uppercase;
@@ -68,6 +87,11 @@ exports[`Button text 1`] = `
   min-width: 10px;
   height: 45px;
   cursor: pointer;
+}
+
+.c0:disabled {
+  cursor: default;
+  background-color: white color:#6b7882;
 }
 
 <button

@@ -105,6 +105,11 @@ In your project run the following command
 yarn link "@digicat/components"
 ```
 
+In the root directory /ui-component-library run: 
+```bash
+yarn build:watch
+```
+
 And you should be able to see the changes in your project as you add/change components in this library.
 
 ## Bumping package versions

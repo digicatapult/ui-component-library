@@ -9,8 +9,8 @@ const { white, black, grey } = colors
 const StyledButton = styled.button`
   border: ${({ variant }) =>
     variant === 'outlined' ? `1px solid ${black}` : 'none'};
-  background-color: ${({ variant, disabled }) =>
-    (disabled && grey) ||
+  border-radius: 5px;
+  background-color: ${({ variant }) =>
     (variant === 'outlined' && white) ||
     (variant === 'text' && white) ||
     black};
@@ -20,7 +20,13 @@ const StyledButton = styled.button`
   font-weight: 600;
   min-width: ${({ variant }) => (variant === 'text' ? '10px' : '160px')};
   height: 45px;
-  cursor: ${({ disabled }) => (disabled ? 'default' : 'pointer')};
+  cursor: pointer;
+  &: disabled {
+    cursor: default;
+    background-color: ${({ variant }) =>
+      variant === 'outlined' || variant === 'text' ? 'white' : '#f0f0f0'} 
+    color: #6b7882;
+  }
 `
 
 const Button = ({ children, variant, ...rest }) => (

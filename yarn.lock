@@ -907,9 +907,9 @@
     "exec-sh" "^0.3.2"
     "minimist" "^1.2.0"
 
-"@digicat/components@file:/Users/MAddis/Documents/Code/Hydrogen/ui-component-library/packages/components":
+"@digicatapult/components@file:/Users/MAddis/Documents/Code/Hydrogen/ui-component-library/packages/components":
   "resolved" "file:packages/components"
-  "version" "0.0.8"
+  "version" "0.1.0"
   dependencies:
     "prop-types" "^15.7.2"
     "styled-components" "^5.2.1"

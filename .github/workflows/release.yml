@@ -127,6 +127,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
           scope: '@digicatapult'
       - name: Install packages
+        run: cd storybook
         run: npm ci
       - name: Publish to npmjs packages
         run: npm publish --access public

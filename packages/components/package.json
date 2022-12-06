@@ -6,6 +6,10 @@
   "modules": "lib/index.js",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/digicatapult/ui-component-library.git"
+  },
   "publishConfig": {
     "access": "public"
   },

@@ -126,11 +126,10 @@ jobs:
           node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
           scope: '@digicatapult'
-      - name: Change Folder
-        run: cd packages/components
-      - name: Install packages
-        run: npm ci
       - name: Publish to npmjs packages
-        run: npm publish --access public
+        run: |
+          cd packages/components
+          npm ci
+          npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

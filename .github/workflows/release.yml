@@ -127,7 +127,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
           scope: '@digicatapult'
       - name: Change Folder
-        run: cd storybook
+        run: cd packages/components
       - name: Install packages
         run: npm ci
       - name: Publish to npmjs packages

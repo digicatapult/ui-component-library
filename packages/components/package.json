@@ -1,8 +1,9 @@
 {
-  "name": "@digicat/components",
-  "version": "0.0.8",
+  "name": "@digicatapult/components",
+  "version": "0.1.0",
   "description": "React components for Digital Catapult projects.",
   "license": "Apache-2.0",
+  "private": "false",
   "modules": "lib/index.js",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",

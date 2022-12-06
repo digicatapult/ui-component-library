@@ -1,4 +1,4 @@
-declare module '@digicat/components' {
+declare module '@digicatapult/components' {
 
   interface ButtonProps {
     variant: 'contained' | 'outlined' | 'text'

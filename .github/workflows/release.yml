@@ -1,6 +1,8 @@
 name: Build and Tests
 
-on: [push]
+on:
+  push:
+    branches: ['main']
 
 jobs:
   preconditions:

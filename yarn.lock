@@ -909,7 +909,7 @@
 
 "@digicatapult/components@file:/Users/MAddis/Documents/Code/Hydrogen/ui-component-library/packages/components":
   "resolved" "file:packages/components"
-  "version" "0.1.1"
+  "version" "0.1.2"
   dependencies:
     "prop-types" "^15.7.2"
     "styled-components" "^5.2.1"

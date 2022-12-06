@@ -1,4 +1,4 @@
-import { TestComponent } from '../../packages/components/src/TestComponent/TestComponent'
+import { TestComponent } from '../../packages/components/src/TestComponent'
 
 export default {
   title: 'Test Component',

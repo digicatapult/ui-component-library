@@ -1,7 +1,6 @@
 {
   "name": "@digicat/ui-component-library",
   "version": "0.1.0",
-  "private": false,
   "description": "UI Component Library",
   "author": "Digital Catapult (https://www.digicatapult.org.uk)",
   "license": "Apache-2.0",

@@ -11,6 +11,8 @@
     "@storybook/builder-webpack5": "^6.5.14",
     "@storybook/manager-webpack5": "^6.5.14",
     "@storybook/react": "^6.5.14",
+    "@types/prop-types": "^15.7.5",
+    "@types/styled-components": "^5.1.26",
     "babel-loader": "^8.2.2"
   },
   "dependencies": {

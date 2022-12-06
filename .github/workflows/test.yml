@@ -5,23 +5,6 @@ on:
     branches-ignore: ['main']
 
 jobs:
-  preconditions:
-    runs-on: ubuntu-latest
-    outputs:
-      repo_name: ${{ steps.repo_ids.outputs.REPO_NAME }}
-      org_name: ${{ steps.repo_ids.outputs.ORG_NAME }}
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - name: Check npmjs token
-        run: |
-          if [ -z "${{ secrets.NPM_TOKEN }}"]; then
-            echo "Must provide a NPM_TOKEN secret in order to run release workflow"
-            exit 1
-          fi
-
   lint:
     name: Run lint
     runs-on: ubuntu-latest

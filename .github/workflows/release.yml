@@ -107,9 +107,7 @@ jobs:
         run: yarn build
       - name: Test
         run: yarn test
-      publish-npm:
 
-  
   publish-npm:
     name: 'Publish package to NPMJS'
     needs:

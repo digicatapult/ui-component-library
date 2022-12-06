@@ -10,7 +10,7 @@ jobs:
       - uses: actions/checkout@master
       - uses: actions/setup-node@master
         with:
-          node-version: 12.x
+          node-version: 16.x
       - name: Cache Node.js modules
         uses: actions/cache@v1
         with:
@@ -32,7 +32,7 @@ jobs:
       - uses: actions/checkout@master
       - uses: actions/setup-node@master
         with:
-          node-version: 12.x
+          node-version: 16.x
       - name: Cache Node.js modules
         uses: actions/cache@v1
         with:
@@ -52,7 +52,7 @@ jobs:
       - uses: actions/checkout@master
       - uses: actions/setup-node@master
         with:
-          node-version: 12.x
+          node-version: 16.x
       - name: Cache Node.js modules
         uses: actions/cache@v1
         with:

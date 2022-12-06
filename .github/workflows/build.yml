@@ -45,6 +45,29 @@ jobs:
         run: yarn
       - name: Dependency Check
         run: yarn run depcheck
+  check-version:
+    name: 'Check version'
+    runs-on: ubuntu-latest
+    outputs:
+      is_new_version: ${{ steps.get_version.outputs.IS_NEW_VERSION }}
+      version: ${{ steps.get_version.outputs.VERSION }}
+      build_date: ${{ steps.get_version.outputs.BUILD_DATE }}
+      is_prerelease: ${{ steps.get_version.outputs.IS_PRERELEASE }}
+
+    steps:
+      - uses: actions/checkout@v3
+      - run: git fetch --depth=1 --tags origin
+      - name: Install yq
+        run: sudo snap install yq
+      - name: Check Build Version
+        id: get_version
+        run: ./scripts/check-version.sh
+        shell: bash
+      - name: Skipping release as version has not increased
+        if: steps.get_version.outputs.IS_NEW_VERSION != 'true'
+        shell: bash
+        run: |
+          echo "Skipping release as current version has already been published"
   test:
     name: Run tests
     runs-on: ubuntu-latest

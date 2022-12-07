@@ -14,7 +14,7 @@ declare module '@digicatapult/components' {
     description: string
   }
 
-  export const Button: (props: ButtonProps) => <JSXElement>
-  export const Input: (props: InputProps) => <JSXElement>
-  export const Card: (props: CardProps) => <JSXElement>
+  export const Button: (props: ButtonProps) => JSXElement
+  export const Input: (props: InputProps) => JSXElement
+  export const Card: (props: CardProps) => JSXElement
 }

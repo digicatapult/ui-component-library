@@ -3,7 +3,6 @@
     "babel-loader",
     "@storybook/addon-essentials",
     "@storybook/addon-a11y",
-    "@types/react",
     "jest-styled-components",
     "react-test-renderer",
     "babel-core",

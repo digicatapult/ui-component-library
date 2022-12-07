@@ -1,4 +1,4 @@
-declare module '@digicat/components' {
+declare module '@digicatapult/components' {
 
   interface ButtonProps {
     variant: 'contained' | 'outlined' | 'text'
@@ -14,7 +14,7 @@ declare module '@digicat/components' {
     description: string
   }
 
-  export const Button: (props: ButtonProps) => JSXElement
-  export const Input: (props: InputProps) => JSXElement
-  export const Card: (props: CardProps) => JSXElement
+  export const Button: (props: ButtonProps) => <JSXElement>
+  export const Input: (props: InputProps) => <JSXElement>
+  export const Card: (props: CardProps) => <JSXElement>
 }

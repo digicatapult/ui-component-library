@@ -4,14 +4,14 @@ React components built for Digital Catapult projects 🧠
 
 ## Installation
 
-`@digicat/components` are available as an [npm package](https://www.npmjs.com/package/@digicat/components).
+`@digicatapult/components` are available as an [npm package](https://www.npmjs.com/package/@digicatapult/components).
 
 ```sh
 // with npm
-npm install @digicat/components
+npm install @digicatapult/components
 
 // with yarn
-yarn add @digicat/components
+yarn add @digicatapult/components
 ```
 
 ## Usage
@@ -19,7 +19,7 @@ yarn add @digicat/components
 ```jsx
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Button } from '@digicat/components'
+import { Button } from '@digicatapult/components'
 
 function App() {
   return <Button>hello</Button>

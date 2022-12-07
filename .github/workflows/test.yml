@@ -1,0 +1,90 @@
+name: Build and Tests
+
+on:
+  push:
+    branches-ignore: ['main']
+
+jobs:
+  lint:
+    name: Run lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@master
+        with:
+          node-version: 16.x
+      - name: Cache Node.js modules
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm # npm cache files are stored in `~/.npm` on Linux/macOS
+          key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-node-
+            ${{ runner.OS }}-
+      - name: Install Packages
+        run: npm ci
+      - name: Lint
+        run: npm run lint
+  dependency-check:
+    name: Run dependency check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@master
+        with:
+          node-version: 16.x
+      - name: Cache Node.js modules
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm # npm cache files are stored in `~/.npm` on Linux/macOS
+          key: ${{ runner.OS }}-node-${{ hashFiles('**/package-json.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-node-
+            ${{ runner.OS }}-
+      - name: Install Packages
+        run: npm ci
+      - name: Dependency Check
+        run: npm run depcheck
+  check-version:
+    name: 'Check version'
+    runs-on: ubuntu-latest
+    outputs:
+      is_new_version: ${{ steps.get_version.outputs.IS_NEW_VERSION }}
+      version: ${{ steps.get_version.outputs.VERSION }}
+      build_date: ${{ steps.get_version.outputs.BUILD_DATE }}
+      is_prerelease: ${{ steps.get_version.outputs.IS_PRERELEASE }}
+
+    steps:
+      - uses: actions/checkout@v3
+      - run: git fetch --depth=1 --tags origin
+      - name: Install yq
+        run: sudo snap install yq
+      - name: Check Build Version
+        id: get_version
+        run: ./scripts/check-version.sh
+        shell: bash
+      - name: Skipping release as version has not increased
+        if: steps.get_version.outputs.IS_NEW_VERSION != 'true'
+        shell: bash
+        run: |
+          echo "Skipping release as current version has already been published"
+  test:
+    name: Run tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@master
+        with:
+          node-version: 16.x
+      - name: Cache Node.js modules
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm # npm cache files are stored in `~/.npm` on Linux/macOS
+          key: ${{ runner.OS }}-node-${{ hashFiles('**/package-json.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-node-
+            ${{ runner.OS }}-
+      - name: Install Packages
+        run: npm ci
+      - name: Test
+        run: npm run test

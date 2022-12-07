@@ -1,8 +1,23 @@
 name: Build and Tests
 
-on: [push]
+on:
+  push:
+    branches: ['main']
 
 jobs:
+  preconditions:
+    runs-on: ubuntu-latest
+    outputs:
+      repo_name: ${{ steps.repo_ids.outputs.REPO_NAME }}
+      org_name: ${{ steps.repo_ids.outputs.ORG_NAME }}
+    steps:
+      - name: Check npmjs token
+        run: |
+          if [ -z "${{ secrets.NPM_TOKEN }}"]; then
+            echo "Must provide a NPM_TOKEN secret in order to run release workflow"
+            exit 1
+          fi
+
   lint:
     name: Run lint
     runs-on: ubuntu-latest
@@ -14,15 +29,17 @@ jobs:
       - name: Cache Node.js modules
         uses: actions/cache@v1
         with:
-          path: ~/.npm # npm cache files are stored in `~/.npm` on Linux/macOS
-          key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
+          path: ~/.yarn # yarn cache files are stored in `~/.yarn` on Linux/macOS
+          key: ${{ runner.OS }}-node-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.OS }}-node-
             ${{ runner.OS }}-
       - name: Install Packages
-        run: npm ci
+        run: yarn
+      - name: Build
+        run: yarn build
       - name: Lint
-        run: npm run lint
+        run: yarn run lint
   dependency-check:
     name: Run dependency check
     runs-on: ubuntu-latest
@@ -34,15 +51,15 @@ jobs:
       - name: Cache Node.js modules
         uses: actions/cache@v1
         with:
-          path: ~/.npm # npm cache files are stored in `~/.npm` on Linux/macOS
-          key: ${{ runner.OS }}-node-${{ hashFiles('**/package-json.json') }}
+          path: ~/.yarn # yarn cache files are stored in `~/.yarn` on Linux/macOS
+          key: ${{ runner.OS }}-node-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.OS }}-node-
             ${{ runner.OS }}-
       - name: Install Packages
-        run: npm ci
+        run: yarn
       - name: Dependency Check
-        run: npm run depcheck
+        run: yarn run depcheck
   check-version:
     name: 'Check version'
     runs-on: ubuntu-latest
@@ -77,12 +94,40 @@ jobs:
       - name: Cache Node.js modules
         uses: actions/cache@v1
         with:
-          path: ~/.npm # npm cache files are stored in `~/.npm` on Linux/macOS
-          key: ${{ runner.OS }}-node-${{ hashFiles('**/package-json.json') }}
+          path: ~/.yarn # yarn cache files are stored in `~/.yarn` on Linux/macOS
+          key: ${{ runner.OS }}-node-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.OS }}-node-
             ${{ runner.OS }}-
       - name: Install Packages
-        run: npm ci
+        run: yarn
+      - name: Build
+        run: yarn build
       - name: Test
-        run: npm run test
+        run: yarn test
+
+  publish-npm:
+    name: 'Publish package to NPMJS'
+    needs:
+      - preconditions
+      - lint
+      - dependency-check
+      - test
+      - check-version
+    runs-on: ubuntu-latest
+    if: ${{ needs.check-version.outputs.is_new_version == 'true' }}
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+          scope: '@digicatapult'
+      - name: Publish to npmjs packages
+        run: |
+          cd packages/components
+          npm ci
+          npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

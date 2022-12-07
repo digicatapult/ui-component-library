@@ -1,6 +1,6 @@
 {
   "name": "@digicat/ui-component-library",
-  "version": "0.0.2",
+  "version": "0.1.3",
   "private": true,
   "description": "UI Component Library",
   "author": "Digital Catapult (https://www.digicatapult.org.uk)",
@@ -29,7 +29,6 @@
     "babel-plugin-styled-components": "^1.12.0"
   },
   "devDependencies": {
-    "@types/react": "^18.0.26",
     "core-js": "^3.8.3",
     "depcheck": "^1.3.1",
     "eslint": "^7.14.0",

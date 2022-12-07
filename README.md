@@ -4,14 +4,14 @@ React components built for Digital Catapult projects 🧠
 
 ## Installation
 
-`@digicat/components` are available as an [npm package](https://www.npmjs.com/package/@digicat/components).
+`@digicatapult/components` are available as an [npm package](https://www.npmjs.com/package/@digicatapult/components).
 
 ```sh
 // with npm
-npm install @digicat/components
+npm install @digicatapult/components
 
 // with yarn
-yarn add @digicat/components
+yarn add @digicatapult/components
 ```
 
 ## Usage
@@ -19,7 +19,7 @@ yarn add @digicat/components
 ```jsx
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Button } from '@digicat/components'
+import { Button } from '@digicatapult/components'
 
 function App() {
   return <Button>hello</Button>
@@ -82,7 +82,7 @@ This will open the browser and will run storybook at [localhost:9000](http://loc
 
 ## Local linking for development
 
-If you want to link @digicat/components to your project while developing
+If you want to link @digicatapult/components to your project while developing
 
 run
 
@@ -101,7 +101,7 @@ npm run link
 In your project run the following command
 
 ```bash
-npm run link "@digicat/components"
+npm link "@digicatapult/components"
 ```
 
 In the root directory /ui-component-library run:

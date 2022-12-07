@@ -14,17 +14,15 @@ jobs:
       - name: Cache Node.js modules
         uses: actions/cache@v1
         with:
-          path: ~/.yarn # yarn cache files are stored in `~/.yarn` on Linux/macOS
-          key: ${{ runner.OS }}-node-${{ hashFiles('**/yarn.lock') }}
+          path: ~/.npm # npm cache files are stored in `~/.npm` on Linux/macOS
+          key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.OS }}-node-
             ${{ runner.OS }}-
       - name: Install Packages
-        run: yarn
-      - name: Build
-        run: yarn build
+        run: npm ci
       - name: Lint
-        run: yarn run lint
+        run: npm run lint
   dependency-check:
     name: Run dependency check
     runs-on: ubuntu-latest
@@ -36,15 +34,15 @@ jobs:
       - name: Cache Node.js modules
         uses: actions/cache@v1
         with:
-          path: ~/.yarn # yarn cache files are stored in `~/.yarn` on Linux/macOS
-          key: ${{ runner.OS }}-node-${{ hashFiles('**/yarn.lock') }}
+          path: ~/.npm # npm cache files are stored in `~/.npm` on Linux/macOS
+          key: ${{ runner.OS }}-node-${{ hashFiles('**/package-json.json') }}
           restore-keys: |
             ${{ runner.OS }}-node-
             ${{ runner.OS }}-
       - name: Install Packages
-        run: yarn
+        run: npm ci
       - name: Dependency Check
-        run: yarn run depcheck
+        run: npm run depcheck
   check-version:
     name: 'Check version'
     runs-on: ubuntu-latest
@@ -79,14 +77,12 @@ jobs:
       - name: Cache Node.js modules
         uses: actions/cache@v1
         with:
-          path: ~/.yarn # yarn cache files are stored in `~/.yarn` on Linux/macOS
-          key: ${{ runner.OS }}-node-${{ hashFiles('**/yarn.lock') }}
+          path: ~/.npm # npm cache files are stored in `~/.npm` on Linux/macOS
+          key: ${{ runner.OS }}-node-${{ hashFiles('**/package-json.json') }}
           restore-keys: |
             ${{ runner.OS }}-node-
             ${{ runner.OS }}-
       - name: Install Packages
-        run: yarn
-      - name: Build
-        run: yarn build
+        run: npm ci
       - name: Test
-        run: yarn test
+        run: npm run test

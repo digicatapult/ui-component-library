@@ -46,7 +46,6 @@ This project is licensed under the terms of the
 [React](https://reactjs.org/)  
 [Babel](https://babeljs.io/)  
 [Lerna](https://lerna.js.org/)  
-[Yarn Workspaces](https://classic.yarnpkg.com/en/docs/workspaces/)  
 [styled-components](https://styled-components.com/)  
 [Storybook](https://storybook.js.org/)  
 [Jest](https://jestjs.io/)
@@ -56,7 +55,7 @@ This project is licensed under the terms of the
 Link local packages together and install remaining package dependencies:
 
 ```bash
-yarn bootstrap
+npm run bootstrap
 ```
 
 Installs with [Lerna bootstrap](https://github.com/lerna/lerna/tree/main/commands/bootstrap#usage)
@@ -70,13 +69,13 @@ cd storybook
 install packages
 
 ```bash
-yarn
+npm install
 ```
 
 start storybook
 
 ```bash
-yarn start
+npm run start
 ```
 
 This will open the browser and will run storybook at [localhost:9000](http://localhost:9000/)
@@ -88,7 +87,7 @@ If you want to link @digicatapult/components to your project while developing
 run
 
 ```bash
-yarn prelink
+npm run prelink
 ```
 
 ```bash
@@ -96,19 +95,19 @@ cd packages/components
 ```
 
 ```bash
-yarn link
+npm run link
 ```
 
 In your project run the following command
 
 ```bash
-yarn link "@digicatapult/components"
+npm link "@digicatapult/components"
 ```
 
 In the root directory /ui-component-library run:
 
 ```bash
-yarn build:watch
+npm run build:watch
 ```
 
 And you should be able to see the changes in your project as you add/change components in this library.
@@ -177,30 +176,30 @@ lerna publish
 
 ### Testing
 
-Make sure you have installed all dependencies ( If you linked your project locally, `yarn prelink` has only installed dependencies, make sure you installed devDependencies before running tests)
+Make sure you have installed all dependencies ( If you linked your project locally, `npm run prelink` has only installed dependencies, make sure you installed devDependencies before running tests)
 
 ```bash
-yarn
+npm
 ```
 
 ```bash
-yarn test
+npm run test
 ```
 
 - Test with coverage report
 
 ```bash
-yarn coverage
+npm run coverage
 ```
 
 - Update snapshots and test
 
 ```bash
-yarn test -u
+npm run test -u
 ```
 
 ### Dependency check
 
 ```bash
-yarn depcheck
+npm run depcheck
 ```

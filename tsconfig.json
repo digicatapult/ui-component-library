@@ -16,5 +16,5 @@
     "resolveJsonModule": true,
     "typeRoots": ["./node_modules/@types", "./@types"]
   },
-  "include": ["@types/**/*.ts", "packages/components/**/*.js", "packages/components/**/*.ts", "packages/components/**/*.tsx", "script/**/*.ts"]
+  "include": ["@types/**/*.ts", "packages/components/**/*.js", "packages/components/**/*.ts", "packages/components/**/*.tsx"]
 }

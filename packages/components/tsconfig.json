@@ -1,19 +1,6 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "target": "esnext",
-    "module": "ES2022",
-    "allowJs": true,
-    "checkJs": false,
-    "jsx": "react-jsx",
-    "declaration": true,
-    "strict": true,
-    "moduleResolution": "NodeNext",
-    "rootDirs": ["src"],
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true,
-    "typeRoots": ["./node_modules/@types", "./@types"],
     "outDir": "lib"
   },
   "include": ["@types/**/*.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.tsx"],

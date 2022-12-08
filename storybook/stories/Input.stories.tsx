@@ -31,7 +31,7 @@ export const Molecule = () => (
         Repeat Password<span style={{ color: 'red' }}>*</span>
       </label>
       <Input required id="input4" />
-      <Button type="submit">Submit</Button>
+      <Button type="submit" variant="contained">Submit</Button>
     </form>
   </Mol>
 )

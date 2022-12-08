@@ -15,4 +15,5 @@
     "resolveJsonModule": true,
     "typeRoots": ["./node_modules/@types", "./@types"],
   },
+  "exclude": ["packages/**"]
 }

@@ -1,4 +1,4 @@
-import { Button } from '../../packages/components/src'
+import { Button } from '@digicatapult/components'
 
 export default {
   title: 'Button',
@@ -8,15 +8,15 @@ export default {
     style: {
       name: 'style',
       description:
-        'Style object will be passed as inline style as default behaviour of react elements. You can also use styled-components instead of this property which will also overwrite the default styles.'
+        'Style object will be passed as inline style as default behaviour of react elements. You can also use styled-components instead of this property which will also overwrite the default styles.',
     },
     variant: {
-      name: 'variant'
-    }
-  }
+      name: 'variant',
+    },
+  },
 }
 
-const Template = args => <Button {...args} />
+const Template = (args) => <Button {...args} />
 
 export const Primary = Template.bind({})
 Primary.args = {}

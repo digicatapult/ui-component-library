@@ -24,7 +24,7 @@ const StyledButton = styled.button`
   &: disabled {
     cursor: default;
     background-color: ${({ variant }) =>
-      variant === 'outlined' || variant === 'text' ? 'white' : '#f0f0f0'} 
+      variant === 'outlined' || variant === 'text' ? 'white' : '#f0f0f0'}
     color: #6b7882;
   }
 `
@@ -37,15 +37,15 @@ const Button = ({ children, variant, ...rest }) => (
 
 Button.defaultProps = {
   children: 'button',
-  variant: 'contained'
+  variant: 'contained',
 }
 
 Button.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
+    PropTypes.node,
   ]).isRequired,
-  variant: PropTypes.oneOf(['contained', 'outlined', 'text'])
+  variant: PropTypes.oneOf(['contained', 'outlined', 'text']),
 }
 
 export default Button

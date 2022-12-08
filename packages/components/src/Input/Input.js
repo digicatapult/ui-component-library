@@ -14,18 +14,18 @@ const StyledInput = styled.input`
   min-width: 350px;
 `
 
-const Input = props => <StyledInput {...props} />
+const Input = (props) => <StyledInput {...props} />
 
 Input.defaultProps = {
   type: 'text',
   monetary: false,
-  error: ''
+  error: '',
 }
 
 Input.propTypes = {
   id: PropTypes.string.isRequired,
   error: PropTypes.string,
-  type: PropTypes.string
+  type: PropTypes.string,
 }
 
 export default Input

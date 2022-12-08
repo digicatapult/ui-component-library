@@ -12,6 +12,6 @@ const StyledTextArea = styled.textarea`
   border-radius: 5px;
 `
 
-const TextArea = props => <StyledTextArea {...props} />
+const TextArea = (props) => <StyledTextArea {...props} />
 
 export default TextArea

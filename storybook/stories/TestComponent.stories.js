@@ -1,8 +1,8 @@
-import TestComponent from '../../packages/components/src/TestComponent'
+import TestComponent from '@digicatapult/components'
 
 export default {
   title: 'Test Component',
-  component: TestComponent
+  component: TestComponent,
 }
 
 export const DefaultStoryExpanded = () => {

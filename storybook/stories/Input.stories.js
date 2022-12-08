@@ -1,14 +1,14 @@
 import styled from 'styled-components'
 
-import { Input, Button } from '../../packages/components/src'
+import { Input, Button } from '@digicatapult/components'
 
 export default {
   title: 'Input',
   component: Input,
-  argTypes: {}
+  argTypes: {},
 }
 
-const Template = args => <Input {...args} />
+const Template = (args) => <Input {...args} />
 
 export const Default = Template.bind({})
 Default.args = {}

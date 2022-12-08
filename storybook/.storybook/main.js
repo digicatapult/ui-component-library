@@ -7,7 +7,9 @@ module.exports = {
   core: {
     builder: 'webpack5'
   },
+  framework: '@storybook/react',
   typescript: {
+    check: false,
     reactDocgen: 'react-docgen-typescript',
     reactDocgenTypescriptOptions: {
       compilerOptions: {

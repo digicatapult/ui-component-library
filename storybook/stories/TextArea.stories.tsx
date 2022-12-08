@@ -1,4 +1,5 @@
 import { TextArea } from '@digicatapult/components'
+import { Story } from "@storybook/react";
 
 export default {
   title: 'TextArea',
@@ -6,12 +7,12 @@ export default {
   argTypes: {},
 }
 
-const Template = (args) => <TextArea {...args} />
+const Template = (args: any) => <TextArea {...args} />
 
-export const Default = Template.bind({})
+export const Default: Story = Template.bind({})
 Default.args = { label: 'label', id: 'default' }
 
-export const ErrorMessage = Template.bind({})
+export const ErrorMessage: Story = Template.bind({})
 ErrorMessage.args = {
   label: 'label',
   id: 'error-message',

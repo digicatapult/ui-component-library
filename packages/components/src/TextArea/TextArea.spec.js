@@ -2,7 +2,7 @@ import React from 'react'
 import renderer from 'react-test-renderer'
 import 'jest-styled-components'
 
-import TextArea from '.'
+import TextArea from './index'
 
 describe('TextArea', () => {
   test('default', () => {

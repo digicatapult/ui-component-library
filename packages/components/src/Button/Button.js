@@ -38,6 +38,7 @@ const Button = ({ children, variant, ...rest }) => (
 Button.defaultProps = {
   children: 'button',
   variant: 'contained',
+  type: 'button'
 }
 
 Button.propTypes = {
@@ -46,6 +47,7 @@ Button.propTypes = {
     PropTypes.node,
   ]).isRequired,
   variant: PropTypes.oneOf(['contained', 'outlined', 'text']),
+  type: PropTypes.oneOf(['button', 'submit', 'reset'])
 }
 
 export default Button

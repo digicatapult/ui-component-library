@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Story } from "@storybook/react";
 
 import { Input, Button } from '@digicatapult/components'
 
@@ -8,9 +9,9 @@ export default {
   argTypes: {},
 }
 
-const Template = (args) => <Input {...args} />
+const Template = (args: any) => <Input {...args} />
 
-export const Default = Template.bind({})
+export const Default: Story = Template.bind({})
 Default.args = {}
 
 export const Molecule = () => (

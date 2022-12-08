@@ -1,4 +1,5 @@
 import { Button } from '@digicatapult/components'
+import { Story } from "@storybook/react"
 
 export default {
   title: 'Button',
@@ -16,16 +17,16 @@ export default {
   },
 }
 
-const Template = (args) => <Button {...args} />
+const Template = (args: any) => <Button {...args} />
 
-export const Primary = Template.bind({})
+export const Primary: Story = Template.bind({})
 Primary.args = {}
 
-export const Outlined = Template.bind({})
+export const Outlined: Story = Template.bind({})
 Outlined.args = { variant: 'outlined' }
 
-export const Text = Template.bind({})
+export const Text: Story = Template.bind({})
 Text.args = { variant: 'text' }
 
-export const Disabled = Template.bind({})
+export const Disabled: Story = Template.bind({})
 Disabled.args = { disabled: true }

@@ -3,5 +3,6 @@
   "compilerOptions": {
     "outDir": "lib"
   },
-  "include": ["@types/**/*.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.tsx"]
+  "include": ["@types/**/*.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.tsx"],
+  "exclude": ["src/**/*.spec.js"]
 }

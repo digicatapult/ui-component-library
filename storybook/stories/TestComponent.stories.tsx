@@ -1,4 +1,4 @@
-import TestComponent from '@digicatapult/components'
+import { TestComponent } from '@digicatapult/components'
 import { Story } from "@storybook/react"
 
 export default {

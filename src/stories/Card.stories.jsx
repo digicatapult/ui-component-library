@@ -8,11 +8,11 @@ export default {
   argTypes: {},
 }
 
-const Template = (args: any) => <Card {...args} />
+const Template = (args) => <Card {...args} />
 
 const date = new Date()
 
-export const Default: Story = Template.bind({})
+export const Default = Template.bind({})
 Default.args = {
   title: 'Title',
   name: 'First Name',
@@ -21,7 +21,7 @@ Default.args = {
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
 }
 
-export const Multiple = (args: any) => (
+export const Multiple = (args) => (
   <div style={{ display: 'flex', flexFlow: 'row wrap' }}>
     <Card
       title="Card story"

@@ -10,9 +10,9 @@ export default {
   argTypes: {},
 }
 
-const Template = (args: any) => <Input {...args} />
+const Template = (args) => <Input {...args} />
 
-export const Default: Story = Template.bind({})
+export const Default = Template.bind({})
 Default.args = {}
 
 export const Molecule = () => (

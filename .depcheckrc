@@ -4,6 +4,7 @@
     "@storybook/addon-essentials",
     "@storybook/addon-a11y",
     "@types/react",
+    "@types/styled-components",
     "jest-styled-components",
     "react-test-renderer",
     "babel-core",

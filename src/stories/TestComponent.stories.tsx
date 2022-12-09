@@ -1,3 +1,4 @@
+import React from 'react'
 import { TestComponent } from '../index.js'
 import { Story } from "@storybook/react"
 

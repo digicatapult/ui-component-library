@@ -53,10 +53,7 @@ const Card = ({ title, name, date, locale, description, ...rest }) => {
       <Title>{title}</Title>
       <Text>by {name}</Text>
       <Text>
-        on{' '}
-        <strong>
-          {new Date(date).toLocaleDateString(locale || undefined)}
-        </strong>
+        on <strong>{new Date(date).toLocaleDateString(locale)}</strong>
       </Text>
       <Description>{description?.slice(0, 100).trim()}...</Description>
     </Container>

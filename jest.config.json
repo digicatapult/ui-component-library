@@ -1,7 +1,7 @@
 {
   "cacheDirectory": ".jest-cache",
   "coverageDirectory": ".jest-coverage",
-  "coveragePathIgnorePatterns": ["<rootDir>/packages/(?:.+?)/lib/"],
+  "coveragePathIgnorePatterns": ["<rootDir>/lib/"],
   "coverageReporters": ["html", "text"],
   "coverageThreshold": {
     "global": {

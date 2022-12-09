@@ -124,10 +124,9 @@ jobs:
           node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
           scope: '@digicatapult'
+      - name: Install Packages
+        run: nmp ci
       - name: Publish to npmjs packages
-        run: |
-          cd packages/components
-          npm ci
-          npm publish --access public
+        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

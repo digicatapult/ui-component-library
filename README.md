@@ -4,14 +4,11 @@ React components built for Digital Catapult projects 🧠
 
 ## Installation
 
-`@digicatapult/components` are available as an [npm package](https://www.npmjs.com/package/@digicatapult/components).
+`@digicatapult/ui-component-library` are available as an [npm package](https://www.npmjs.com/package/@digicatapult/ui-component-library).
 
 ```sh
 // with npm
-npm install @digicatapult/components
-
-// with yarn
-yarn add @digicatapult/components
+npm install @digicatapult/ui-component-library
 ```
 
 ## Usage
@@ -19,7 +16,7 @@ yarn add @digicatapult/components
 ```jsx
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Button } from '@digicatapult/components'
+import { Button } from '@digicatapult/ui-component-library'
 
 function App() {
   return <Button>hello</Button>
@@ -43,55 +40,36 @@ This project is licensed under the terms of the
 
 ## Stack
 
-[React](https://reactjs.org/)  
-[Babel](https://babeljs.io/)  
-[Lerna](https://lerna.js.org/)  
-[styled-components](https://styled-components.com/)  
-[Storybook](https://storybook.js.org/)  
+[React](https://reactjs.org/)
+[typescript](https://www.typescriptlang.org/)
+[styled-components](https://styled-components.com/)
+[Storybook](https://storybook.js.org/)
 [Jest](https://jestjs.io/)
 
-## Installation
-
-Link local packages together and install remaining package dependencies:
-
-```bash
-npm run bootstrap
-```
-
-Installs with [Lerna bootstrap](https://github.com/lerna/lerna/tree/main/commands/bootstrap#usage)
-
-## Run Storybook
-
-```bash
-cd storybook
-```
-
-install packages
+## Dependency Installation
 
 ```bash
 npm install
 ```
 
+## Run Storybook
+
 start storybook
 
 ```bash
-npm run start
+npm run storybook
 ```
 
 This will open the browser and will run storybook at [localhost:9000](http://localhost:9000/)
 
 ## Local linking for development
 
-If you want to link @digicatapult/components to your project while developing
+If you want to link @digicatapult/ui-component-library to your project while developing
 
 run
 
 ```bash
-npm run prelink
-```
-
-```bash
-cd packages/components
+npm run build:watch
 ```
 
 ```bash
@@ -101,13 +79,7 @@ npm run link
 In your project run the following command
 
 ```bash
-npm link "@digicatapult/components"
-```
-
-In the root directory /ui-component-library run:
-
-```bash
-npm run build:watch
+npm link "@digicatapult/ui-component-library"
 ```
 
 And you should be able to see the changes in your project as you add/change components in this library.
@@ -115,26 +87,6 @@ And you should be able to see the changes in your project as you add/change comp
 ## Bumping package versions
 
 Following [this guide](https://docs.npmjs.com/about-semantic-versioning#incrementing-semantic-versions-in-published-packages)
-
-To see which packages have changed:
-
-```bash
-npx lerna changed
-```
-
-To see which lines specifically have changed:
-
-```bash
-npx lerna diff
-```
-
-To bump version of packages changed since the last release
-
-```bash
-npx lerna version
-```
-
-You should see a suggestion for changes and a prompt asking "Are you sure you want to create these versions?"
 
 ### Guide
 
@@ -167,12 +119,6 @@ PATCH version when you make backwards compatible bug fixes.
   - The component library needs to change its public API in a non-backward compatible way to adapt to the dependency upgraded.
     > If none of the above (for instance a bump in the package.json and rebuild without changes for a non-exported dependency), it should be a patch release.
 - Changes/fixes/new features around security breaches.
-
-### Publishing to NPM
-
-```bash
-lerna publish
-```
 
 ### Testing
 

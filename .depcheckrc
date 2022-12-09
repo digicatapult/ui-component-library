@@ -1,22 +1,13 @@
 {
   ignores: [
-    "babel-loader",
     "@storybook/addon-essentials",
     "@storybook/addon-a11y",
-    "@types/*",
-    "jest-styled-components",
-    "react-test-renderer",
-    "babel-core",
-    "webpack",
-    "core-js",
     "@storybook/addon-actions",
     "@storybook/addon-links",
     "@storybook/builder-webpack5",
     "@storybook/manager-webpack5",
     "@storybook/source-loader",
-    "@types/jest",
-    "@types/prop-types",
-    "@types/react-test-renderer",
+    "@types/*",
     "jest-environment-jsdom"
   ]
 }

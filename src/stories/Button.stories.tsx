@@ -1,4 +1,4 @@
-import { Button } from '@digicatapult/components'
+import { Button } from '../index.js'
 import { Story } from "@storybook/react"
 
 export default {

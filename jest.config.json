@@ -12,7 +12,8 @@
     }
   },
   "preset": "ts-jest",
-  "testPathIgnorePatterns": ["<rootDir>/packages/(?:.+?)/lib/"],
+  "testPathIgnorePatterns": ["<rootDir>/lib/"],
+  "testEnvironment": "jsdom",
   "transform": {
     "^.+\\.[tj]sx?$": [
       "ts-jest",

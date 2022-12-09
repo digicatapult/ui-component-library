@@ -8,7 +8,15 @@
     "react-test-renderer",
     "babel-core",
     "webpack",
-    "core-js"
-  ],
-  skip-missing: true
+    "core-js",
+    "@storybook/addon-actions",
+    "@storybook/addon-links",
+    "@storybook/builder-webpack5",
+    "@storybook/manager-webpack5",
+    "@storybook/source-loader",
+    "@types/jest",
+    "@types/prop-types",
+    "@types/react-test-renderer",
+    "jest-environment-jsdom"
+  ]
 }

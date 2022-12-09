@@ -2,7 +2,7 @@ import React from 'react'
 import { PropTypes } from 'prop-types'
 import styled from 'styled-components'
 
-import colors from '../colors'
+import colors from '../colors.ts'
 
 const { white, black, grey } = colors
 
@@ -38,7 +38,6 @@ const Button = ({ children, variant, ...rest }) => (
 Button.defaultProps = {
   children: 'button',
   variant: 'contained',
-  type: 'button'
 }
 
 Button.propTypes = {
@@ -47,7 +46,6 @@ Button.propTypes = {
     PropTypes.node,
   ]).isRequired,
   variant: PropTypes.oneOf(['contained', 'outlined', 'text']),
-  type: PropTypes.oneOf(['button', 'submit', 'reset'])
 }
 
 export default Button

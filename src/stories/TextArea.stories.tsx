@@ -1,4 +1,4 @@
-import { TextArea } from '@digicatapult/components'
+import { TextArea } from '../index.js'
 import { Story } from "@storybook/react";
 
 export default {

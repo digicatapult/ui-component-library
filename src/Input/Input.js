@@ -2,7 +2,7 @@ import React from 'react'
 import { PropTypes } from 'prop-types'
 import styled from 'styled-components'
 
-import colors from '../colors'
+import colors from '../colors.ts'
 
 const { errorRed, grey } = colors
 
@@ -27,7 +27,6 @@ Input.propTypes = {
   error: PropTypes.string,
   type: PropTypes.string,
   placeholder: PropTypes.string,
-  required: PropTypes.boolean
 }
 
 export default Input

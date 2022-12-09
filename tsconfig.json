@@ -8,12 +8,14 @@
     "declaration": true,
     "strict": true,
     "moduleResolution": "NodeNext",
+    "outDir": "lib",
     "rootDirs": ["src"],
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
-    "typeRoots": ["./node_modules/@types", "./@types"],
+    "typeRoots": ["./node_modules/@types", "./@types"]
   },
-  "exclude": ["packages/**"]
+  "include": ["@types/**/*.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.tsx"],
+  "exclude": ["src/**/*.spec.js"]
 }

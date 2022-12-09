@@ -2,7 +2,7 @@ import React from 'react'
 import { PropTypes } from 'prop-types'
 import styled from 'styled-components'
 
-import colors from '../colors'
+import colors from '../colors.ts'
 
 const { black, grey } = colors
 
@@ -47,13 +47,16 @@ const Container = styled.div`
   cursor: pointer;
 `
 
-const Card = ({ title, name, date, description, ...rest }) => {
+const Card = ({ title, name, date, locale, description, ...rest }) => {
   return (
     <Container {...rest}>
       <Title>{title}</Title>
       <Text>by {name}</Text>
       <Text>
-        on <strong>{new Date(date).toLocaleDateString()}</strong>
+        on{' '}
+        <strong>
+          {new Date(date).toLocaleDateString(locale || undefined)}
+        </strong>
       </Text>
       <Description>{description?.slice(0, 100).trim()}...</Description>
     </Container>
@@ -65,6 +68,7 @@ Card.propTypes = {
   name: PropTypes.string.isRequired,
   date: PropTypes.instanceOf(Date).isRequired,
   description: PropTypes.string.isRequired,
+  locale: PropTypes.string,
 }
 
 export default Card

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { Story } from "@storybook/react";
 
-import { Input, Button } from '@digicatapult/components'
+import { Input, Button } from '../index.js'
 
 export default {
   title: 'Input',

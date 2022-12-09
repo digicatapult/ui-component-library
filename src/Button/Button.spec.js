@@ -2,7 +2,9 @@ import React from 'react'
 import renderer from 'react-test-renderer'
 import 'jest-styled-components'
 
-import Button from '.'
+import Button from './index.js'
+
+import styled from 'styled-components'
 
 describe('Button', () => {
   test('default', () => {

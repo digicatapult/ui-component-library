@@ -1,4 +1,4 @@
-import { Card } from '@digicatapult/components'
+import { Card } from '../index.js'
 import { Story } from "@storybook/react";
 
 export default {

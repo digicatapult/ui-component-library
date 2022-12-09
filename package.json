@@ -1,11 +1,14 @@
 {
   "name": "@digicatapult/ui-component-library",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "UI Component Library",
   "author": "Digital Catapult (https://www.digicatapult.org.uk)",
   "license": "Apache-2.0",
   "type": "module",
   "main": "lib/index.js",
+  "files": [
+    "/lib"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/digicatapult/ui-component-library.git"

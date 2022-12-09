@@ -126,6 +126,8 @@ jobs:
           scope: '@digicatapult'
       - name: Install Packages
         run: npm ci
+      - name: Build
+        run: npm run build
       - name: Publish to npmjs packages
         run: npm publish --access public
         env:

@@ -1,5 +1,5 @@
 {
-  "parser": "babel-eslint",
+  "parser": "@typescript-eslint/parser",
   "extends": [
     "prettier",
     "plugin:jsx-a11y/recommended",
@@ -8,6 +8,7 @@
     "plugin:jest/style"
   ],
   "plugins": [
+    "@typescript-eslint",
     "react",
     "prettier",
     "workspaces",

@@ -100,7 +100,7 @@ jobs:
             ${{ runner.OS }}-node-
             ${{ runner.OS }}-
       - name: Install Packages
-        run: nmp ci
+        run: npm ci
       - name: Build
         run: npm run build
       - name: Test
@@ -125,7 +125,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
           scope: '@digicatapult'
       - name: Install Packages
-        run: nmp ci
+        run: npm ci
       - name: Publish to npmjs packages
         run: npm publish --access public
         env:

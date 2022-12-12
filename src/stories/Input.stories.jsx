@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Story } from "@storybook/react";
+import { Story } from '@storybook/react'
 
 import { Input, Button } from '../index.js'
 
@@ -32,7 +32,9 @@ export const Molecule = () => (
         Repeat Password<span style={{ color: 'red' }}>*</span>
       </label>
       <Input required id="input4" />
-      <Button type="submit" variant="contained">Submit</Button>
+      <Button type="submit" variant="contained">
+        Submit
+      </Button>
     </form>
   </Mol>
 )

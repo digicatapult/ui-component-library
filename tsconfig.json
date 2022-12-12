@@ -1,13 +1,13 @@
 {
   "compilerOptions": {
     "target": "esnext",
-    "module": "ES2022",
+    "module": "commonjs",
     "allowJs": true,
     "checkJs": false,
-    "jsx": "react-jsx",
+    "jsx": "preserve",
     "declaration": true,
     "strict": true,
-    "moduleResolution": "NodeNext",
+    "moduleResolution": "node",
     "outDir": "lib",
     "rootDirs": ["src"],
     "esModuleInterop": true,

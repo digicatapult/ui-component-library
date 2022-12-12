@@ -1,0 +1,186 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Grid responsive 1`] = `
+.c1 {
+  grid-area: header;
+}
+
+.c3 {
+  grid-area: sidebar;
+}
+
+.c5 {
+  grid-area: main;
+}
+
+.c7 {
+  grid-area: footer;
+}
+
+.c0 {
+  display: grid;
+  grid-template-areas: "header""sidebar""main""footer";
+  grid-template-rows: minmax(50px,auto);
+  grid-template-columns: auto;
+  gap: 5px;
+}
+
+.c4 {
+  background: blue;
+  min-width: 50px;
+  min-height: 50px;
+  height: 100%;
+}
+
+.c2 {
+  background: red;
+  min-height: 50px;
+}
+
+.c8 {
+  background: green;
+  min-height: 50px;
+}
+
+.c6 {
+  background: cyan;
+  min-width: 80%;
+  min-height: 600px;
+}
+
+@media (min-width:500px) {
+  .c0 {
+    grid-template-areas: "sidebar header header""sidebar main main""footer footer footer";
+    grid-template-rows: minmax(5%,10%) 1fr minmax(5%,10%);
+    grid-template-columns: minmax(10%,20%) 1fr 1fr;
+    gap: 20px;
+  }
+}
+
+<div
+  className="c0"
+  rows={
+    [
+      "minmax(50px, auto)",
+    ]
+  }
+>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2"
+    />
+  </div>
+  <div
+    className="c3"
+  >
+    <div
+      className="c4"
+    />
+  </div>
+  <div
+    className="c5"
+  >
+    <div
+      className="c6"
+    />
+  </div>
+  <div
+    className="c7"
+  >
+    <div
+      className="c8"
+    />
+  </div>
+</div>
+`;
+
+exports[`Grid simple 1`] = `
+.c1 {
+  grid-area: header;
+}
+
+.c3 {
+  grid-area: sidebar;
+}
+
+.c5 {
+  grid-area: main;
+}
+
+.c7 {
+  grid-area: footer;
+}
+
+.c0 {
+  display: grid;
+  grid-template-areas: "sidebar header header""sidebar main main""footer footer footer";
+  grid-template-rows: minmax(5%,10%) 1fr minmax(5%,10%);
+  grid-template-columns: minmax(10%,20%) 1fr 1fr;
+  gap: 0px;
+}
+
+.c4 {
+  background: blue;
+  min-width: 50px;
+  min-height: 50px;
+  height: 100%;
+}
+
+.c2 {
+  background: red;
+  min-height: 50px;
+}
+
+.c8 {
+  background: green;
+  min-height: 50px;
+}
+
+.c6 {
+  background: cyan;
+  min-width: 80%;
+  min-height: 600px;
+}
+
+<div
+  className="c0"
+  rows={
+    [
+      "minmax(5%, 10%)",
+      "1fr",
+      "minmax(5%, 10%)",
+    ]
+  }
+>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2"
+    />
+  </div>
+  <div
+    className="c3"
+  >
+    <div
+      className="c4"
+    />
+  </div>
+  <div
+    className="c5"
+  >
+    <div
+      className="c6"
+    />
+  </div>
+  <div
+    className="c7"
+  >
+    <div
+      className="c8"
+    />
+  </div>
+</div>
+`;

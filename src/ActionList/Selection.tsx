@@ -1,19 +1,26 @@
 import React from 'react'
-import {CheckIcon} from '@primer/octicons-react'
-import {ListContext, ActionListProps} from './List'
-import {GroupContext, ActionListGroupProps} from './Group'
-import {ActionListItemProps} from './shared'
-import {LeadingVisualContainer} from './Visuals'
+import { CheckIcon } from '@primer/octicons-react'
+import { ListContext, ActionListProps } from './List'
+import { GroupContext, ActionListGroupProps } from './Group'
+import { ActionListItemProps } from './shared'
+import { LeadingVisualContainer } from './Visuals'
 
 type SelectionProps = Pick<ActionListItemProps, 'selected'>
-export const Selection: React.FC<React.PropsWithChildren<SelectionProps>> = ({selected}) => {
-  const {selectionVariant: listSelectionVariant} = React.useContext(ListContext)
-  const {selectionVariant: groupSelectionVariant} = React.useContext(GroupContext)
+export const Selection: React.FC<React.PropsWithChildren<SelectionProps>> = ({
+  selected,
+}) => {
+  const { selectionVariant: listSelectionVariant } =
+    React.useContext(ListContext)
+  const { selectionVariant: groupSelectionVariant } =
+    React.useContext(GroupContext)
 
   /** selectionVariant in Group can override the selectionVariant in List root */
   /** fallback to selectionVariant from container menu if any (ActionMenu, SelectPanel ) */
-  let selectionVariant: ActionListProps['selectionVariant'] | ActionListGroupProps['selectionVariant']
-  if (typeof groupSelectionVariant !== 'undefined') selectionVariant = groupSelectionVariant
+  let selectionVariant:
+    | ActionListProps['selectionVariant']
+    | ActionListGroupProps['selectionVariant']
+  if (typeof groupSelectionVariant !== 'undefined')
+    selectionVariant = groupSelectionVariant
   else selectionVariant = listSelectionVariant
 
   if (!selectionVariant) {
@@ -21,7 +28,7 @@ export const Selection: React.FC<React.PropsWithChildren<SelectionProps>> = ({se
     // fail loudly instead of silently ignoring
     if (selected) {
       throw new Error(
-        'For Item to be selected, ActionList or ActionList.Group needs to have a selectionVariant defined',
+        'For Item to be selected, ActionList or ActionList.Group needs to have a selectionVariant defined'
       )
     } else {
       return null
@@ -29,7 +36,11 @@ export const Selection: React.FC<React.PropsWithChildren<SelectionProps>> = ({se
   }
 
   if (selectionVariant === 'single') {
-    return <LeadingVisualContainer>{selected && <CheckIcon />}</LeadingVisualContainer>
+    return (
+      <LeadingVisualContainer>
+        {selected && <CheckIcon />}
+      </LeadingVisualContainer>
+    )
   }
 
   /**
@@ -53,7 +64,13 @@ export const Selection: React.FC<React.PropsWithChildren<SelectionProps>> = ({se
         },
       }}
     >
-      <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+      >
         <rect x="2" y="2" width="12" height="12" rx="4"></rect>
         <path
           fillRule="evenodd"

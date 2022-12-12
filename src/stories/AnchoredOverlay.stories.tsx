@@ -1,16 +1,16 @@
-import React, {useEffect, useRef, useState} from 'react'
-import {Meta} from '@storybook/react'
+import React, { useEffect, useRef, useState } from 'react'
+import { Meta } from '@storybook/react'
 
-import {BaseStyles, Box, ThemeProvider} from '..'
+import { BaseStyles, Box, ThemeProvider } from '..'
 import Heading from '../Heading'
-import {Button} from '../Button'
-import {AnchoredOverlay} from '../AnchoredOverlay'
-import {registerPortalRoot} from '../Portal'
+import { Button } from '../Button'
+import { AnchoredOverlay } from '../AnchoredOverlay'
+import { registerPortalRoot } from '../Portal'
 
 export default {
   title: 'Behaviors/AnchoredOverlay',
   decorators: [
-    Story => {
+    (Story) => {
       return (
         <ThemeProvider>
           <BaseStyles>
@@ -22,7 +22,7 @@ export default {
   ],
 } as Meta
 
-const HeaderAndLayout = ({children}: {children: JSX.Element}) => {
+const HeaderAndLayout = ({ children }: { children: JSX.Element }) => {
   const scrollingElementRef = useRef<HTMLDivElement>(null)
   useEffect(() => {
     if (scrollingElementRef.current) {
@@ -30,9 +30,25 @@ const HeaderAndLayout = ({children}: {children: JSX.Element}) => {
     }
   }, [scrollingElementRef])
   return (
-    <Box position="absolute" top={0} right={0} bottom={0} left={0} padding={4} backgroundColor="lavenderblush">
+    <Box
+      position="absolute"
+      top={0}
+      right={0}
+      bottom={0}
+      left={0}
+      padding={4}
+      backgroundColor="lavenderblush"
+    >
       <Heading>Header or some such</Heading>
-      <Box position="absolute" top={10} right={4} bottom={4} left={4} overflow="scroll" backgroundColor="powderblue">
+      <Box
+        position="absolute"
+        top={10}
+        right={4}
+        bottom={4}
+        left={4}
+        overflow="scroll"
+        backgroundColor="powderblue"
+      >
         {children}
         <Box ref={scrollingElementRef} position="absolute" top={0} left={0} />
       </Box>
@@ -40,7 +56,11 @@ const HeaderAndLayout = ({children}: {children: JSX.Element}) => {
   )
 }
 
-const ButtonWithAnchoredOverlay = ({portalContainerName}: {portalContainerName?: string}) => {
+const ButtonWithAnchoredOverlay = ({
+  portalContainerName,
+}: {
+  portalContainerName?: string
+}) => {
   const [open, setOpen] = useState(false)
 
   return (
@@ -50,10 +70,16 @@ const ButtonWithAnchoredOverlay = ({portalContainerName}: {portalContainerName?:
       onClose={() => setOpen(false)}
       width="small"
       height="auto"
-      renderAnchor={props => <Button {...props}>Kitten, please</Button>}
-      overlayProps={{portalContainerName}}
+      renderAnchor={(props) => <Button {...props}>Kitten, please</Button>}
+      overlayProps={{ portalContainerName }}
     >
-      <Box width="100%" height="100%" backgroundColor="thistle" display="flex" flexDirection="column">
+      <Box
+        width="100%"
+        height="100%"
+        backgroundColor="thistle"
+        display="flex"
+        flexDirection="column"
+      >
         <img src={`//placekitten.com/200/300`} alt="kitten" />
       </Box>
     </AnchoredOverlay>

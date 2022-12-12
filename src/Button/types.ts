@@ -1,7 +1,7 @@
-import React, {ComponentPropsWithRef} from 'react'
+import React, { ComponentPropsWithRef } from 'react'
 import styled from 'styled-components'
-import {IconProps} from '@primer/octicons-react'
-import sx, {SxProp} from '../sx'
+import { IconProps } from '@primer/octicons-react'
+import sx, { SxProp } from '../sx'
 import getGlobalFocusStyles from '../_getGlobalFocusStyles'
 
 export const StyledButton = styled.button<SxProp>`
@@ -19,8 +19,8 @@ export type Size = 'small' | 'medium' | 'large'
 type StyledButtonProps = Omit<ComponentPropsWithRef<typeof StyledButton>, 'as'>
 
 type ButtonA11yProps =
-  | {'aria-label': string; 'aria-labelledby'?: never}
-  | {'aria-label'?: never; 'aria-labelledby': string}
+  | { 'aria-label': string; 'aria-labelledby'?: never }
+  | { 'aria-label'?: never; 'aria-labelledby': string }
 
 export type ButtonBaseProps = {
   /**

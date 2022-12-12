@@ -1,12 +1,12 @@
-import React, {MouseEventHandler, useCallback, useEffect} from 'react'
-import styled, {css} from 'styled-components'
-import {variant} from 'styled-system'
+import React, { MouseEventHandler, useCallback, useEffect } from 'react'
+import styled, { css } from 'styled-components'
+import { variant } from 'styled-system'
 import Box from './Box'
 import Spinner from './Spinner'
 import Text from './Text'
-import {get} from './constants'
-import {useProvidedStateOrCreate} from './hooks'
-import sx, {BetterSystemStyleObject, SxProp} from './sx'
+import { get } from './constants'
+import { useProvidedStateOrCreate } from './hooks'
+import sx, { BetterSystemStyleObject, SxProp } from './sx'
 import VisuallyHidden from './_VisuallyHidden'
 
 const TRANSITION_DURATION = '80ms'
@@ -53,9 +53,11 @@ type SwitchButtonProps = {
   size?: SwitchProps['size']
 } & SxProp
 
-type InnerIconProps = {size?: SwitchProps['size']}
+type InnerIconProps = { size?: SwitchProps['size'] }
 
-const CircleIcon: React.FC<React.PropsWithChildren<InnerIconProps>> = ({size}) => (
+const CircleIcon: React.FC<React.PropsWithChildren<InnerIconProps>> = ({
+  size,
+}) => (
   <svg
     width={size === 'small' ? '12' : '16'}
     height={size === 'small' ? '12' : '16'}
@@ -63,10 +65,15 @@ const CircleIcon: React.FC<React.PropsWithChildren<InnerIconProps>> = ({size}) =
     fill="currentColor"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <path fillRule="evenodd" d="M8 12.5a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12Z" />
+    <path
+      fillRule="evenodd"
+      d="M8 12.5a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12Z"
+    />
   </svg>
 )
-const LineIcon: React.FC<React.PropsWithChildren<InnerIconProps>> = ({size}) => (
+const LineIcon: React.FC<React.PropsWithChildren<InnerIconProps>> = ({
+  size,
+}) => (
   <svg
     width={size === 'small' ? '12' : '16'}
     height={size === 'small' ? '12' : '16'}
@@ -74,7 +81,10 @@ const LineIcon: React.FC<React.PropsWithChildren<InnerIconProps>> = ({size}) => 
     fill="currentColor"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <path fillRule="evenodd" d="M8 2a.75.75 0 0 1 .75.75v11.5a.75.75 0 0 1-1.5 0V2.75A.75.75 0 0 1 8 2Z" />
+    <path
+      fillRule="evenodd"
+      d="M8 2a.75.75 0 0 1 .75.75v11.5a.75.75 0 0 1-1.5 0V2.75A.75.75 0 0 1 8 2Z"
+    />
   </svg>
 )
 
@@ -118,7 +128,7 @@ const SwitchButton = styled.button<SwitchButtonProps>`
     }
   }
 
-  ${props => {
+  ${(props) => {
     if (props.disabled) {
       return css`
         background-color: ${get('colors.canvas.subtle')};
@@ -169,14 +179,21 @@ const SwitchButton = styled.button<SwitchButtonProps>`
   ${sizeVariants}
 `
 
-const ToggleKnob = styled.div<{checked?: boolean; disabled?: boolean}>`
+const ToggleKnob = styled.div<{ checked?: boolean; disabled?: boolean }>`
   background-color: ${get('colors.btn.bg')};
   border-width: 1px;
   border-style: solid;
-  border-color: ${props => (props.disabled ? get('colors.border.default') : get('colors.switchTrack.border'))};
-  border-radius: calc(${get('radii.2')} - 1px); /* -1px to account for 1px border around the control */
-  box-shadow: ${props =>
-    props.disabled ? 'none' : `${props.theme?.shadows?.shadow.medium}, ${props.theme?.shadows?.btn.insetShadow}`};
+  border-color: ${(props) =>
+    props.disabled
+      ? get('colors.border.default')
+      : get('colors.switchTrack.border')};
+  border-radius: calc(
+    ${get('radii.2')} - 1px
+  ); /* -1px to account for 1px border around the control */
+  box-shadow: ${(props) =>
+    props.disabled
+      ? 'none'
+      : `${props.theme?.shadows?.shadow.medium}, ${props.theme?.shadows?.btn.insetShadow}`};
   width: 50%;
   position: absolute;
   top: -1px;
@@ -184,14 +201,15 @@ const ToggleKnob = styled.div<{checked?: boolean; disabled?: boolean}>`
   transition-property: transform;
   transition-duration: ${TRANSITION_DURATION};
   transition-timing-function: ${EASE_OUT_QUAD_CURVE};
-  transform: ${props => `translateX(${props.checked ? 'calc(100% + 1px)' : '-1px'})`};
+  transform: ${(props) =>
+    `translateX(${props.checked ? 'calc(100% + 1px)' : '-1px'})`};
   z-index: 1;
 
   @media (prefers-reduced-motion) {
     transition: none;
   }
 
-  ${props => {
+  ${(props) => {
     if (props.checked) {
       return css`
         background-color: ${props.disabled
@@ -225,16 +243,20 @@ const Switch: React.FC<React.PropsWithChildren<SwitchProps>> = ({
   sx: sxProp,
 }) => {
   const isControlled = typeof checked !== 'undefined'
-  const [isOn, setIsOn] = useProvidedStateOrCreate<boolean>(checked, onChange, Boolean(defaultChecked))
+  const [isOn, setIsOn] = useProvidedStateOrCreate<boolean>(
+    checked,
+    onChange,
+    Boolean(defaultChecked)
+  )
   const acceptsInteraction = !disabled && !loading
   const handleToggleClick: MouseEventHandler = useCallback(
-    e => {
+    (e) => {
       if (!isControlled) {
         setIsOn(!isOn)
       }
       onClick && onClick(e)
     },
-    [onClick, isControlled, isOn, setIsOn],
+    [onClick, isControlled, isOn, setIsOn]
   )
 
   useEffect(() => {
@@ -256,7 +278,7 @@ const Switch: React.FC<React.PropsWithChildren<SwitchProps>> = ({
         fontSize={size === 'small' ? 0 : 1}
         mx={2}
         aria-hidden="true"
-        sx={{position: 'relative'}}
+        sx={{ position: 'relative' }}
       >
         <Box textAlign="right" sx={isOn ? null : hiddenTextStyles}>
           On
@@ -277,7 +299,14 @@ const Switch: React.FC<React.PropsWithChildren<SwitchProps>> = ({
         disabled={!acceptsInteraction}
       >
         <VisuallyHidden>{isOn ? 'On' : 'Off'}</VisuallyHidden>
-        <Box aria-hidden="true" display="flex" alignItems="center" width="100%" height="100%" overflow="hidden">
+        <Box
+          aria-hidden="true"
+          display="flex"
+          alignItems="center"
+          width="100%"
+          height="100%"
+          overflow="hidden"
+        >
           <Box
             flexGrow={1}
             flexShrink={0}
@@ -307,7 +336,12 @@ const Switch: React.FC<React.PropsWithChildren<SwitchProps>> = ({
             <CircleIcon size={size} />
           </Box>
         </Box>
-        <ToggleKnob aria-hidden="true" className="Toggle-knob" disabled={!acceptsInteraction} checked={isOn} />
+        <ToggleKnob
+          aria-hidden="true"
+          className="Toggle-knob"
+          disabled={!acceptsInteraction}
+          checked={isOn}
+        />
       </SwitchButton>
     </Box>
   )

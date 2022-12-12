@@ -1,11 +1,11 @@
 import classnames from 'classnames'
-import {To} from 'history'
+import { To } from 'history'
 import React from 'react'
 import styled from 'styled-components'
 import Box from './Box'
-import {get} from './constants'
-import sx, {SxProp} from './sx'
-import {ComponentProps} from './utils/types'
+import { get } from './constants'
+import sx, { SxProp } from './sx'
+import { ComponentProps } from './utils/types'
 
 const SELECTED_CLASS = 'selected'
 
@@ -42,8 +42,14 @@ export type BreadcrumbsProps = React.PropsWithChildren<
   } & SxProp
 >
 
-function Breadcrumbs({className, children, sx: sxProp}: React.PropsWithChildren<BreadcrumbsProps>) {
-  const wrappedChildren = React.Children.map(children, child => <Wrapper>{child}</Wrapper>)
+function Breadcrumbs({
+  className,
+  children,
+  sx: sxProp,
+}: React.PropsWithChildren<BreadcrumbsProps>) {
+  const wrappedChildren = React.Children.map(children, (child) => (
+    <Wrapper>{child}</Wrapper>
+  ))
   return (
     <BreadcrumbsBase className={className} aria-label="Breadcrumbs" sx={sxProp}>
       <Box as="ol" my={0} pl={0}>
@@ -58,7 +64,7 @@ type StyledBreadcrumbsItemProps = {
   selected?: boolean
 } & SxProp
 
-const BreadcrumbsItem = styled.a.attrs<StyledBreadcrumbsItemProps>(props => ({
+const BreadcrumbsItem = styled.a.attrs<StyledBreadcrumbsItemProps>((props) => ({
   activeClassName: typeof props.to === 'string' ? 'selected' : '',
   className: classnames(props.selected && SELECTED_CLASS, props.className),
   'aria-current': props.selected ? 'page' : null,
@@ -82,12 +88,12 @@ Breadcrumbs.displayName = 'Breadcrumbs'
 BreadcrumbsItem.displayName = 'Breadcrumbs.Item'
 
 export type BreadcrumbsItemProps = ComponentProps<typeof BreadcrumbsItem>
-export default Object.assign(Breadcrumbs, {Item: BreadcrumbsItem})
+export default Object.assign(Breadcrumbs, { Item: BreadcrumbsItem })
 
 /**
  * @deprecated Use the `Breadcrumbs` component instead (i.e. `<Breadcrumb>` → `<Breadcrumbs>`)
  */
-export const Breadcrumb = Object.assign(Breadcrumbs, {Item: BreadcrumbsItem})
+export const Breadcrumb = Object.assign(Breadcrumbs, { Item: BreadcrumbsItem })
 
 /**
  * @deprecated Use the `BreadcrumbsProps` type instead

@@ -1,5 +1,5 @@
-import React, {HTMLProps, useEffect, useState} from 'react'
-import styled, {keyframes, css} from 'styled-components'
+import React, { HTMLProps, useEffect, useState } from 'react'
+import styled, { keyframes, css } from 'styled-components'
 import Box from './Box'
 
 interface Props extends HTMLProps<HTMLDivElement> {
@@ -18,9 +18,12 @@ const fadeIn = keyframes`
   `
 // using easeOutQuint easing fn https://easings.net/#easeOutQuint
 const AnimatedElement = styled.div<Props>`
-  animation: ${props => props.show && css`170ms ${fadeIn} cubic-bezier(0.44, 0.74, 0.36, 1);`};
+  animation: ${(props) =>
+    props.show && css`170ms ${fadeIn} cubic-bezier(0.44, 0.74, 0.36, 1);`};
 `
-const ValidationAnimationContainer: React.FC<React.PropsWithChildren<Props>> = ({show, children}) => {
+const ValidationAnimationContainer: React.FC<
+  React.PropsWithChildren<Props>
+> = ({ show, children }) => {
   const [shouldRender, setRender] = useState(show)
 
   useEffect(() => {

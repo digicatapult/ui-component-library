@@ -1,5 +1,5 @@
-import theme from './theme-preval'
-import {KeyPaths} from './utils/types/KeyPaths'
+import theme from './theme.json'
+import { KeyPaths } from './utils/types/KeyPaths'
 
 export default theme
 

@@ -1,8 +1,8 @@
-import styled, {css} from 'styled-components'
-import React, {TextareaHTMLAttributes, ReactElement} from 'react'
-import {TextInputBaseWrapper} from './_TextInputWrapper'
-import {FormValidationStatus} from './utils/types/FormValidationStatus'
-import sx, {SxProp} from './sx'
+import styled, { css } from 'styled-components'
+import React, { TextareaHTMLAttributes, ReactElement } from 'react'
+import { TextInputBaseWrapper } from './_TextInputWrapper'
+import { FormValidationStatus } from './utils/types/FormValidationStatus'
+import sx, { SxProp } from './sx'
 
 export const DEFAULT_TEXTAREA_ROWS = 7
 export const DEFAULT_TEXTAREA_COLS = 30
@@ -42,13 +42,13 @@ const StyledTextarea = styled.textarea<TextareaProps>`
     outline: 0;
   }
 
-  ${props =>
+  ${(props) =>
     props.resize &&
     css`
       resize: ${props.resize};
     `}
 
-  ${props =>
+  ${(props) =>
     props.disabled &&
     css`
       resize: none;
@@ -75,10 +75,15 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
       block,
       ...rest
     }: TextareaProps,
-    ref,
+    ref
   ): ReactElement => {
     return (
-      <TextInputBaseWrapper sx={sxProp} validationStatus={validationStatus} disabled={disabled} block={block}>
+      <TextInputBaseWrapper
+        sx={sxProp}
+        validationStatus={validationStatus}
+        disabled={disabled}
+        block={block}
+      >
         <StyledTextarea
           value={value}
           resize={resize}
@@ -93,7 +98,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
         />
       </TextInputBaseWrapper>
     )
-  },
+  }
 )
 
 Textarea.displayName = 'Textarea'

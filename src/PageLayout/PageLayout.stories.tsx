@@ -1,14 +1,14 @@
 import React from 'react'
-import {Meta, Story} from '@storybook/react'
-import {Box, BranchName, Heading, Link, StateLabel, TabNav, Text} from '..'
-import {Placeholder} from '../Placeholder'
-import {PageLayout} from './PageLayout'
+import { Meta, Story } from '@storybook/react'
+import { Box, BranchName, Heading, Link, StateLabel, TabNav, Text } from '..'
+import { Placeholder } from '../Placeholder'
+import { PageLayout } from './PageLayout'
 
 const meta: Meta = {
   title: 'Components/PageLayout',
   parameters: {
     layout: 'fullscreen',
-    controls: {expanded: true},
+    controls: { expanded: true },
   },
   args: {
     // Debug controls
@@ -57,31 +57,31 @@ const meta: Meta = {
     // Debug controls
     'Render header?': {
       type: 'boolean',
-      table: {category: 'Debug'},
+      table: { category: 'Debug' },
     },
     'Render pane?': {
       type: 'boolean',
-      table: {category: 'Debug'},
+      table: { category: 'Debug' },
     },
     'Render footer?': {
       type: 'boolean',
-      table: {category: 'Debug'},
+      table: { category: 'Debug' },
     },
     'Header placeholder height': {
       type: 'number',
-      table: {category: 'Debug'},
+      table: { category: 'Debug' },
     },
     'Pane placeholder height': {
       type: 'number',
-      table: {category: 'Debug'},
+      table: { category: 'Debug' },
     },
     'Content placeholder height': {
       type: 'number',
-      table: {category: 'Debug'},
+      table: { category: 'Debug' },
     },
     'Footer placeholder height': {
       type: 'number',
-      table: {category: 'Debug'},
+      table: { category: 'Debug' },
     },
 
     // PageLayout prop controls
@@ -90,32 +90,32 @@ const meta: Meta = {
         name: 'enum',
         value: ['full', 'medium', 'large', 'xlarge'],
       },
-      control: {type: 'radio'},
-      table: {category: 'PageLayout props'},
+      control: { type: 'radio' },
+      table: { category: 'PageLayout props' },
     },
     padding: {
       type: {
         name: 'enum',
         value: ['none', 'condensed', 'normal'],
       },
-      control: {type: 'radio'},
-      table: {category: 'PageLayout props'},
+      control: { type: 'radio' },
+      table: { category: 'PageLayout props' },
     },
     rowGap: {
       type: {
         name: 'enum',
         value: ['none', 'condensed', 'normal'],
       },
-      control: {type: 'radio'},
-      table: {category: 'PageLayout props'},
+      control: { type: 'radio' },
+      table: { category: 'PageLayout props' },
     },
     columnGap: {
       type: {
         name: 'enum',
         value: ['none', 'condensed', 'normal'],
       },
-      control: {type: 'radio'},
-      table: {category: 'PageLayout props'},
+      control: { type: 'radio' },
+      table: { category: 'PageLayout props' },
     },
 
     // Header prop controls
@@ -160,20 +160,20 @@ const meta: Meta = {
         name: 'enum',
         value: ['none', 'condensed', 'normal'],
       },
-      control: {type: 'radio'},
-      table: {category: 'Header props'},
+      control: { type: 'radio' },
+      table: { category: 'Header props' },
     },
     'Header.hidden.regular': {
       type: 'boolean',
-      table: {category: 'Header props'},
+      table: { category: 'Header props' },
     },
     'Header.hidden.narrow': {
       type: 'boolean',
-      table: {category: 'Header props'},
+      table: { category: 'Header props' },
     },
     'Header.hidden.wide': {
       type: 'boolean',
-      table: {category: 'Header props'},
+      table: { category: 'Header props' },
     },
 
     // Content prop controls
@@ -182,28 +182,28 @@ const meta: Meta = {
         name: 'enum',
         value: ['full', 'medium', 'large', 'xlarge'],
       },
-      control: {type: 'radio'},
-      table: {category: 'Content props'},
+      control: { type: 'radio' },
+      table: { category: 'Content props' },
     },
     'Content.padding': {
       type: {
         name: 'enum',
         value: ['none', 'condensed', 'normal'],
       },
-      control: {type: 'radio'},
-      table: {category: 'Content props'},
+      control: { type: 'radio' },
+      table: { category: 'Content props' },
     },
     'Content.hidden.regular': {
       type: 'boolean',
-      table: {category: 'Content props'},
+      table: { category: 'Content props' },
     },
     'Content.hidden.narrow': {
       type: 'boolean',
-      table: {category: 'Content props'},
+      table: { category: 'Content props' },
     },
     'Content.hidden.wide': {
       type: 'boolean',
-      table: {category: 'Content props'},
+      table: { category: 'Content props' },
     },
 
     // Pane prop controls
@@ -212,72 +212,72 @@ const meta: Meta = {
         name: 'enum',
         value: ['start', 'end'],
       },
-      control: {type: 'radio'},
-      table: {category: 'Pane props'},
+      control: { type: 'radio' },
+      table: { category: 'Pane props' },
     },
     'Pane.position.narrow': {
       type: {
         name: 'enum',
         value: ['start', 'end'],
       },
-      control: {type: 'radio'},
-      table: {category: 'Pane props'},
+      control: { type: 'radio' },
+      table: { category: 'Pane props' },
     },
     'Pane.position.wide': {
       type: {
         name: 'enum',
         value: ['start', 'end'],
       },
-      control: {type: 'radio'},
-      table: {category: 'Pane props'},
+      control: { type: 'radio' },
+      table: { category: 'Pane props' },
     },
     'Pane.width': {
       type: {
         name: 'enum',
         value: ['small', 'medium', 'large'],
       },
-      control: {type: 'radio'},
-      table: {category: 'Pane props'},
+      control: { type: 'radio' },
+      table: { category: 'Pane props' },
     },
     'Pane.sticky': {
       type: 'boolean',
-      table: {category: 'Pane props'},
+      table: { category: 'Pane props' },
     },
     'Pane.resizable': {
       type: 'boolean',
-      table: {category: 'Pane props'},
+      table: { category: 'Pane props' },
     },
     'Pane.padding': {
       type: {
         name: 'enum',
         value: ['none', 'condensed', 'normal'],
       },
-      control: {type: 'radio'},
-      table: {category: 'Pane props'},
+      control: { type: 'radio' },
+      table: { category: 'Pane props' },
     },
     'Pane.divider.regular': {
       type: {
         name: 'enum',
         value: ['none', 'line'],
       },
-      control: {type: 'radio'},
-      table: {category: 'Pane props'},
+      control: { type: 'radio' },
+      table: { category: 'Pane props' },
     },
     'Pane.divider.narrow': {
       type: {
         name: 'enum',
         value: ['none', 'line', 'filled'],
       },
-      control: {type: 'radio'},
-      table: {category: 'Pane props'},
+      control: { type: 'radio' },
+      table: { category: 'Pane props' },
     },
     'Pane.divider.wide': {
       type: {
         name: 'enum',
         value: ['none', 'line'],
       },
-      control: {type: 'radio'},
-      table: {category: 'Pane props'},
+      control: { type: 'radio' },
+      table: { category: 'Pane props' },
     },
 
     // Footer prop controls
@@ -322,25 +322,25 @@ const meta: Meta = {
         name: 'enum',
         value: ['none', 'condensed', 'normal'],
       },
-      control: {type: 'radio'},
-      table: {category: 'Footer props'},
+      control: { type: 'radio' },
+      table: { category: 'Footer props' },
     },
     'Footer.hidden.regular': {
       type: 'boolean',
-      table: {category: 'Footer props'},
+      table: { category: 'Footer props' },
     },
     'Footer.hidden.narrow': {
       type: 'boolean',
-      table: {category: 'Footer props'},
+      table: { category: 'Footer props' },
     },
     'Footer.hidden.wide': {
       type: 'boolean',
-      table: {category: 'Footer props'},
+      table: { category: 'Footer props' },
     },
   },
 }
 
-const Template: Story = args => (
+const Template: Story = (args) => (
   <PageLayout
     containerWidth={args.containerWidth}
     padding={args.padding}
@@ -362,7 +362,10 @@ const Template: Story = args => (
           wide: args['Header.hidden.wide'],
         }}
       >
-        <Placeholder height={args['Header placeholder height']} label="Header" />
+        <Placeholder
+          height={args['Header placeholder height']}
+          label="Header"
+        />
       </PageLayout.Header>
     ) : null}
     <PageLayout.Content
@@ -374,7 +377,10 @@ const Template: Story = args => (
         wide: args['Content.hidden.wide'],
       }}
     >
-      <Placeholder height={args['Content placeholder height']} label="Content" />
+      <Placeholder
+        height={args['Content placeholder height']}
+        label="Content"
+      />
     </PageLayout.Content>
     {args['Render pane?'] ? (
       <PageLayout.Pane
@@ -415,7 +421,10 @@ const Template: Story = args => (
           wide: args['Footer.hidden.wide'],
         }}
       >
-        <Placeholder height={args['Footer placeholder height']} label="Footer" />
+        <Placeholder
+          height={args['Footer placeholder height']}
+          label="Footer"
+        />
       </PageLayout.Footer>
     ) : null}
   </PageLayout>
@@ -426,18 +435,20 @@ export const Default = Template.bind({})
 export const PullRequestPage = () => (
   <PageLayout>
     <PageLayout.Header>
-      <Box sx={{display: 'flex', flexDirection: 'column', gap: 3}}>
+      <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
         <Box>
-          <Heading as="h1" sx={{fontWeight: 'normal'}}>
-            Input validation styles <Text sx={{color: 'fg.muted', fontWeight: 'light'}}>#1831</Text>
+          <Heading as="h1" sx={{ fontWeight: 'normal' }}>
+            Input validation styles{' '}
+            <Text sx={{ color: 'fg.muted', fontWeight: 'light' }}>#1831</Text>
           </Heading>
-          <Box sx={{display: 'flex', gap: 2, alignItems: 'center'}}>
+          <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
             <StateLabel status="pullOpened">Open</StateLabel>
-            <Text sx={{fontSize: 1, color: 'fg.muted'}}>
-              <Link href="#" muted sx={{fontWeight: 'bold'}}>
+            <Text sx={{ fontSize: 1, color: 'fg.muted' }}>
+              <Link href="#" muted sx={{ fontWeight: 'bold' }}>
                 mperrotti
               </Link>{' '}
-              wants to merge 3 commits into <BranchName href="#">main</BranchName> from{' '}
+              wants to merge 3 commits into{' '}
+              <BranchName href="#">main</BranchName> from{' '}
               <BranchName href="#">mp/validation-styles</BranchName>
             </Text>
           </Box>
@@ -453,7 +464,14 @@ export const PullRequestPage = () => (
       </Box>
     </PageLayout.Header>
     <PageLayout.Content>
-      <Box sx={{border: '1px solid', borderRadius: 2, borderColor: 'border.default', height: 200}}></Box>
+      <Box
+        sx={{
+          border: '1px solid',
+          borderRadius: 2,
+          borderColor: 'border.default',
+          height: 200,
+        }}
+      ></Box>
       <Box
         sx={{
           maxWidth: '100%',
@@ -466,66 +484,111 @@ export const PullRequestPage = () => (
           borderRadius: 2,
         }}
       >
-        This box has really long content. If it is too long, it will cause x overflow and should show a scrollbar. When
-        this overflows, it should not break to overall page layout!
+        This box has really long content. If it is too long, it will cause x
+        overflow and should show a scrollbar. When this overflows, it should not
+        break to overall page layout!
       </Box>
     </PageLayout.Content>
     <PageLayout.Pane>
-      <Box sx={{display: 'flex', flexDirection: 'column', gap: 3}}>
+      <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
         <Box>
-          <Text sx={{fontSize: 0, fontWeight: 'bold', display: 'block', color: 'fg.muted'}}>Assignees</Text>
-          <Text sx={{fontSize: 0, color: 'fg.muted', lineHeight: 'condensed'}}>
+          <Text
+            sx={{
+              fontSize: 0,
+              fontWeight: 'bold',
+              display: 'block',
+              color: 'fg.muted',
+            }}
+          >
+            Assignees
+          </Text>
+          <Text
+            sx={{ fontSize: 0, color: 'fg.muted', lineHeight: 'condensed' }}
+          >
             No one –{' '}
             <Link href="#" muted>
               assign yourself
             </Link>
           </Text>
         </Box>
-        <Box role="separator" sx={{width: '100%', height: 1, backgroundColor: 'border.default'}}></Box>
+        <Box
+          role="separator"
+          sx={{ width: '100%', height: 1, backgroundColor: 'border.default' }}
+        ></Box>
         <Box>
-          <Text sx={{fontSize: 0, fontWeight: 'bold', display: 'block', color: 'fg.muted'}}>Labels</Text>
-          <Text sx={{fontSize: 0, color: 'fg.muted', lineHeight: 'condensed'}}>None yet</Text>
+          <Text
+            sx={{
+              fontSize: 0,
+              fontWeight: 'bold',
+              display: 'block',
+              color: 'fg.muted',
+            }}
+          >
+            Labels
+          </Text>
+          <Text
+            sx={{ fontSize: 0, color: 'fg.muted', lineHeight: 'condensed' }}
+          >
+            None yet
+          </Text>
         </Box>
       </Box>
     </PageLayout.Pane>
   </PageLayout>
 )
 
-export const StickyPane: Story = args => (
-  <PageLayout rowGap="none" columnGap="none" padding="none" containerWidth="full">
+export const StickyPane: Story = (args) => (
+  <PageLayout
+    rowGap="none"
+    columnGap="none"
+    padding="none"
+    containerWidth="full"
+  >
     <PageLayout.Header padding="normal" divider="line">
       <Placeholder label="Header" height={64} />
     </PageLayout.Header>
     <PageLayout.Content padding="normal" width="large">
-      <Box sx={{display: 'grid', gap: 3}}>
-        {Array.from({length: args.numParagraphsInContent}).map((_, i) => {
+      <Box sx={{ display: 'grid', gap: 3 }}>
+        {Array.from({ length: args.numParagraphsInContent }).map((_, i) => {
           const testId = `content${i}`
           return (
-            <Box key={i} as="p" sx={{margin: 0}}>
+            <Box key={i} as="p" sx={{ margin: 0 }}>
               <span data-testid={testId}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam at enim id lorem tempus egestas a non
-                ipsum. Maecenas imperdiet ante quam, at varius lorem molestie vel. Sed at eros consequat, varius tellus
-                et, auctor felis. Donec pulvinar lacinia urna nec commodo. Phasellus at imperdiet risus. Donec sit amet
-                massa purus. Nunc sem lectus, bibendum a sapien nec, tristique tempus felis. Ut porttitor auctor tellus
-                in imperdiet. Ut blandit tincidunt augue, quis fringilla nunc tincidunt sed. Vestibulum auctor euismod
-                nisi. Nullam tincidunt est in mi tincidunt dictum. Sed consectetur aliquet velit ut ornare.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam at
+                enim id lorem tempus egestas a non ipsum. Maecenas imperdiet
+                ante quam, at varius lorem molestie vel. Sed at eros consequat,
+                varius tellus et, auctor felis. Donec pulvinar lacinia urna nec
+                commodo. Phasellus at imperdiet risus. Donec sit amet massa
+                purus. Nunc sem lectus, bibendum a sapien nec, tristique tempus
+                felis. Ut porttitor auctor tellus in imperdiet. Ut blandit
+                tincidunt augue, quis fringilla nunc tincidunt sed. Vestibulum
+                auctor euismod nisi. Nullam tincidunt est in mi tincidunt
+                dictum. Sed consectetur aliquet velit ut ornare.
               </span>
             </Box>
           )
         })}
       </Box>
     </PageLayout.Content>
-    <PageLayout.Pane position="start" resizable padding="normal" divider="line" sticky={args.sticky}>
-      <Box sx={{display: 'grid', gap: 3}}>
-        {Array.from({length: args.numParagraphsInPane}).map((_, i) => {
+    <PageLayout.Pane
+      position="start"
+      resizable
+      padding="normal"
+      divider="line"
+      sticky={args.sticky}
+    >
+      <Box sx={{ display: 'grid', gap: 3 }}>
+        {Array.from({ length: args.numParagraphsInPane }).map((_, i) => {
           const testId = `paragraph${i}`
           return (
-            <Box key={i} as="p" sx={{margin: 0}}>
+            <Box key={i} as="p" sx={{ margin: 0 }}>
               <span data-testid={testId}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam at enim id lorem tempus egestas a non
-                ipsum. Maecenas imperdiet ante quam, at varius lorem molestie vel. Sed at eros consequat, varius tellus
-                et, auctor felis. Donec pulvinar lacinia urna nec commodo. Phasellus at imperdiet risus. Donec sit amet
-                massa purus.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam at
+                enim id lorem tempus egestas a non ipsum. Maecenas imperdiet
+                ante quam, at varius lorem molestie vel. Sed at eros consequat,
+                varius tellus et, auctor felis. Donec pulvinar lacinia urna nec
+                commodo. Phasellus at imperdiet risus. Donec sit amet massa
+                purus.
               </span>
             </Box>
           )
@@ -556,36 +619,54 @@ StickyPane.argTypes = {
   },
 }
 
-export const NestedScrollContainer: Story = args => (
-  <Box sx={{display: 'grid', gridTemplateRows: 'auto 1fr auto', height: '100vh'}}>
+export const NestedScrollContainer: Story = (args) => (
+  <Box
+    sx={{ display: 'grid', gridTemplateRows: 'auto 1fr auto', height: '100vh' }}
+  >
     <Placeholder label="Above scroll container" height={120} />
-    <Box sx={{overflow: 'auto'}}>
-      <PageLayout rowGap="none" columnGap="none" padding="none" containerWidth="full">
+    <Box sx={{ overflow: 'auto' }}>
+      <PageLayout
+        rowGap="none"
+        columnGap="none"
+        padding="none"
+        containerWidth="full"
+      >
         <PageLayout.Header padding="normal" divider="line">
           <Placeholder label="Header" height={64} />
         </PageLayout.Header>
         <PageLayout.Content padding="normal" width="large">
-          <Box sx={{display: 'grid', gap: 3}}>
-            {Array.from({length: args.numParagraphsInContent}).map((_, i) => (
-              <Box key={i} as="p" sx={{margin: 0}}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam at enim id lorem tempus egestas a non
-                ipsum. Maecenas imperdiet ante quam, at varius lorem molestie vel. Sed at eros consequat, varius tellus
-                et, auctor felis. Donec pulvinar lacinia urna nec commodo. Phasellus at imperdiet risus. Donec sit amet
-                massa purus. Nunc sem lectus, bibendum a sapien nec, tristique tempus felis. Ut porttitor auctor tellus
-                in imperdiet. Ut blandit tincidunt augue, quis fringilla nunc tincidunt sed. Vestibulum auctor euismod
-                nisi. Nullam tincidunt est in mi tincidunt dictum. Sed consectetur aliquet velit ut ornare.
+          <Box sx={{ display: 'grid', gap: 3 }}>
+            {Array.from({ length: args.numParagraphsInContent }).map((_, i) => (
+              <Box key={i} as="p" sx={{ margin: 0 }}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam at
+                enim id lorem tempus egestas a non ipsum. Maecenas imperdiet
+                ante quam, at varius lorem molestie vel. Sed at eros consequat,
+                varius tellus et, auctor felis. Donec pulvinar lacinia urna nec
+                commodo. Phasellus at imperdiet risus. Donec sit amet massa
+                purus. Nunc sem lectus, bibendum a sapien nec, tristique tempus
+                felis. Ut porttitor auctor tellus in imperdiet. Ut blandit
+                tincidunt augue, quis fringilla nunc tincidunt sed. Vestibulum
+                auctor euismod nisi. Nullam tincidunt est in mi tincidunt
+                dictum. Sed consectetur aliquet velit ut ornare.
               </Box>
             ))}
           </Box>
         </PageLayout.Content>
-        <PageLayout.Pane position="start" padding="normal" divider="line" sticky>
-          <Box sx={{display: 'grid', gap: 3}}>
-            {Array.from({length: args.numParagraphsInPane}).map((_, i) => (
-              <Box key={i} as="p" sx={{margin: 0}}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam at enim id lorem tempus egestas a non
-                ipsum. Maecenas imperdiet ante quam, at varius lorem molestie vel. Sed at eros consequat, varius tellus
-                et, auctor felis. Donec pulvinar lacinia urna nec commodo. Phasellus at imperdiet risus. Donec sit amet
-                massa purus.
+        <PageLayout.Pane
+          position="start"
+          padding="normal"
+          divider="line"
+          sticky
+        >
+          <Box sx={{ display: 'grid', gap: 3 }}>
+            {Array.from({ length: args.numParagraphsInPane }).map((_, i) => (
+              <Box key={i} as="p" sx={{ margin: 0 }}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam at
+                enim id lorem tempus egestas a non ipsum. Maecenas imperdiet
+                ante quam, at varius lorem molestie vel. Sed at eros consequat,
+                varius tellus et, auctor felis. Donec pulvinar lacinia urna nec
+                commodo. Phasellus at imperdiet risus. Donec sit amet massa
+                purus.
               </Box>
             ))}
           </Box>
@@ -613,7 +694,7 @@ NestedScrollContainer.argTypes = {
   },
 }
 
-export const CustomStickyHeader: Story = args => (
+export const CustomStickyHeader: Story = (args) => (
   // a box to create a sticky top element that will be on the consumer side and outside of the PageLayout component
   <Box data-testid="story-window">
     <Box
@@ -633,37 +714,55 @@ export const CustomStickyHeader: Story = args => (
     >
       Custom sticky header
     </Box>
-    <PageLayout rowGap="none" columnGap="none" padding="none" containerWidth="full">
+    <PageLayout
+      rowGap="none"
+      columnGap="none"
+      padding="none"
+      containerWidth="full"
+    >
       <PageLayout.Content padding="normal" width="large">
-        <Box sx={{display: 'grid', gap: 3}} data-testid="scrollContainer">
-          {Array.from({length: args.numParagraphsInContent}).map((_, i) => {
+        <Box sx={{ display: 'grid', gap: 3 }} data-testid="scrollContainer">
+          {Array.from({ length: args.numParagraphsInContent }).map((_, i) => {
             const testId = `content${i}`
             return (
-              <Box key={i} as="p" sx={{margin: 0}}>
+              <Box key={i} as="p" sx={{ margin: 0 }}>
                 <span data-testid={testId}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae orci et magna consectetur
-                  ullamcorper eget ac purus. Nam at enim id lorem tempus egestas a non ipsum. Maecenas imperdiet ante
-                  quam, at varius lorem molestie vel. Sed at eros consequat, varius tellus et, auctor felis. Donec
-                  pulvinar lacinia urna nec commodo. Phasellus at imperdiet risus. Donec sit amet massa purus. Nunc sem
-                  lectus, bibendum a sapien nec, tristique tempus felis. Ut porttitor auctor tellus in imperdiet. Ut
-                  blandit tincidunt augue, quis fringilla nunc tincidunt sed. Vestibulum auctor euismod nisi. Nullam
-                  tincidunt est in mi tincidunt dictum. Sed consectetur aliquet velit ut ornare.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
+                  vitae orci et magna consectetur ullamcorper eget ac purus. Nam
+                  at enim id lorem tempus egestas a non ipsum. Maecenas
+                  imperdiet ante quam, at varius lorem molestie vel. Sed at eros
+                  consequat, varius tellus et, auctor felis. Donec pulvinar
+                  lacinia urna nec commodo. Phasellus at imperdiet risus. Donec
+                  sit amet massa purus. Nunc sem lectus, bibendum a sapien nec,
+                  tristique tempus felis. Ut porttitor auctor tellus in
+                  imperdiet. Ut blandit tincidunt augue, quis fringilla nunc
+                  tincidunt sed. Vestibulum auctor euismod nisi. Nullam
+                  tincidunt est in mi tincidunt dictum. Sed consectetur aliquet
+                  velit ut ornare.
                 </span>
               </Box>
             )
           })}
         </Box>
       </PageLayout.Content>
-      <PageLayout.Pane position="start" padding="normal" divider="line" sticky offsetHeader={args.offsetHeader}>
-        <Box sx={{display: 'grid', gap: 3}}>
-          {Array.from({length: args.numParagraphsInPane}).map((_, i) => {
+      <PageLayout.Pane
+        position="start"
+        padding="normal"
+        divider="line"
+        sticky
+        offsetHeader={args.offsetHeader}
+      >
+        <Box sx={{ display: 'grid', gap: 3 }}>
+          {Array.from({ length: args.numParagraphsInPane }).map((_, i) => {
             const testId = `paragraph${i}`
             return (
-              <Box key={i} as="p" sx={{margin: 0}}>
+              <Box key={i} as="p" sx={{ margin: 0 }}>
                 <span data-testid={testId}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam at enim id lorem tempus egestas a non
-                  ipsum. Maecenas imperdiet ante quam, at varius lorem molestie vel. Sed at eros consequat, varius
-                  tellus et, auctor felis. Donec pulvinar lacinia urna nec commodo. Phasellus at imperdiet risus. Donec
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
+                  at enim id lorem tempus egestas a non ipsum. Maecenas
+                  imperdiet ante quam, at varius lorem molestie vel. Sed at eros
+                  consequat, varius tellus et, auctor felis. Donec pulvinar
+                  lacinia urna nec commodo. Phasellus at imperdiet risus. Donec
                   sit amet massa purus.
                 </span>
               </Box>
@@ -718,19 +817,31 @@ export const ResizablePane: Story = () => (
 )
 
 export const ScrollContainerWithinPageLayoutPane: Story = () => (
-  <Box sx={{display: 'grid', gridTemplateRows: 'auto 1fr auto', height: '100vh'}}>
-    <Box sx={{overflow: 'auto'}}>
+  <Box
+    sx={{ display: 'grid', gridTemplateRows: 'auto 1fr auto', height: '100vh' }}
+  >
+    <Box sx={{ overflow: 'auto' }}>
       <Placeholder label="Above inner scroll container" height={120} />
-      <PageLayout rowGap="none" columnGap="none" padding="none" containerWidth="full">
-        <PageLayout.Pane position="start" padding="normal" divider="line" sticky>
-          <Box sx={{overflow: 'auto'}}>
+      <PageLayout
+        rowGap="none"
+        columnGap="none"
+        padding="none"
+        containerWidth="full"
+      >
+        <PageLayout.Pane
+          position="start"
+          padding="normal"
+          divider="line"
+          sticky
+        >
+          <Box sx={{ overflow: 'auto' }}>
             <PageLayout.Pane padding="normal">
               <Placeholder label="Inner scroll container" height={800} />
             </PageLayout.Pane>
           </Box>
         </PageLayout.Pane>
         <PageLayout.Content padding="normal" width="large">
-          <Box sx={{display: 'grid'}}>
+          <Box sx={{ display: 'grid' }}>
             <Placeholder label="Page content" height={1600} />
           </Box>
         </PageLayout.Content>

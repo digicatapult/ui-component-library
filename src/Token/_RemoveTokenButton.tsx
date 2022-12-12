@@ -1,11 +1,11 @@
 import React from 'react'
-import {XIcon} from '@primer/octicons-react'
-import styled, {css} from 'styled-components'
-import {variant} from 'styled-system'
-import {get} from '../constants'
-import sx, {SxProp} from '../sx'
-import {ComponentProps} from '../utils/types'
-import {tokenSizes, TokenSizeKeys, defaultTokenSize} from './TokenBase'
+import { XIcon } from '@primer/octicons-react'
+import styled, { css } from 'styled-components'
+import { variant } from 'styled-system'
+import { get } from '../constants'
+import sx, { SxProp } from '../sx'
+import { ComponentProps } from '../utils/types'
+import { tokenSizes, TokenSizeKeys, defaultTokenSize } from './TokenBase'
 
 interface TokenButtonProps {
   borderOffset?: number
@@ -13,7 +13,7 @@ interface TokenButtonProps {
   isParentInteractive?: boolean
 }
 
-const variants = variant<{height: string; width: string}, TokenSizeKeys>({
+const variants = variant<{ height: string; width: string }, TokenSizeKeys>({
   prop: 'size',
   variants: {
     small: {
@@ -40,7 +40,8 @@ const variants = variant<{height: string; width: string}, TokenSizeKeys>({
   },
 })
 
-const getTokenButtonIconSize = (size?: TokenSizeKeys) => parseInt(tokenSizes[size || defaultTokenSize], 10) * 0.75
+const getTokenButtonIconSize = (size?: TokenSizeKeys) =>
+  parseInt(tokenSizes[size || defaultTokenSize], 10) * 0.75
 
 const StyledTokenButton = styled.span<TokenButtonProps & SxProp>`
   background-color: transparent;
@@ -54,12 +55,13 @@ const StyledTokenButton = styled.span<TokenButtonProps & SxProp>`
   appearance: none;
   text-decoration: none;
   padding: 0;
-  transform: ${props => `translate(${props.borderOffset}px, -${props.borderOffset}px)`};
+  transform: ${(props) =>
+    `translate(${props.borderOffset}px, -${props.borderOffset}px)`};
   align-self: baseline;
   border: 0;
   border-radius: 999px;
 
-  ${props => {
+  ${(props) => {
     switch (props.size) {
       case 'large':
       case 'extralarge':
@@ -89,12 +91,9 @@ const StyledTokenButton = styled.span<TokenButtonProps & SxProp>`
   ${sx}
 `
 
-const RemoveTokenButton: React.FC<React.PropsWithChildren<ComponentProps<typeof StyledTokenButton>>> = ({
-  'aria-label': ariaLabel,
-  isParentInteractive,
-  size,
-  ...rest
-}) => {
+const RemoveTokenButton: React.FC<
+  React.PropsWithChildren<ComponentProps<typeof StyledTokenButton>>
+> = ({ 'aria-label': ariaLabel, isParentInteractive, size, ...rest }) => {
   delete rest.children
 
   return (

@@ -1,9 +1,9 @@
 import styled from 'styled-components'
-import {get} from './constants'
+import { get } from './constants'
 import StyledOcticon from './StyledOcticon'
-import sx, {SxProp} from './sx'
+import sx, { SxProp } from './sx'
 import isNumeric from './utils/isNumeric'
-import {ComponentProps} from './utils/types'
+import { ComponentProps } from './utils/types'
 
 const variantSizes = {
   small: 56,
@@ -17,7 +17,7 @@ type StyledCircleBadgeProps = {
   size?: number
 } & SxProp
 
-const sizeStyles = ({size, variant = 'medium'}: StyledCircleBadgeProps) => {
+const sizeStyles = ({ size, variant = 'medium' }: StyledCircleBadgeProps) => {
   const calc = isNumeric(size) ? size : variantSizes[variant]
   return {
     width: calc,
@@ -26,7 +26,7 @@ const sizeStyles = ({size, variant = 'medium'}: StyledCircleBadgeProps) => {
 }
 
 const CircleBadge = styled.div<StyledCircleBadgeProps>`
-  display: ${props => (props.inline ? 'inline-flex' : 'flex')};
+  display: ${(props) => (props.inline ? 'inline-flex' : 'flex')};
   align-items: center;
   justify-content: center;
   background-color: ${get('colors.canvas.default')};
@@ -50,4 +50,4 @@ CircleBadgeIcon.displayName = 'CircleBadge.Icon'
 
 export type CircleBadgeProps = ComponentProps<typeof CircleBadge>
 export type CircleBadgeIconProps = ComponentProps<typeof CircleBadgeIcon>
-export default Object.assign(CircleBadge, {Icon: CircleBadgeIcon})
+export default Object.assign(CircleBadge, { Icon: CircleBadgeIcon })

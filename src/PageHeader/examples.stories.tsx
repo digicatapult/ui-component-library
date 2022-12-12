@@ -1,6 +1,15 @@
 import React from 'react'
-import {Meta} from '@storybook/react'
-import {Button, IconButton, Breadcrumbs, Link, Text, StateLabel, BranchName, Box} from '..'
+import { Meta } from '@storybook/react'
+import {
+  Button,
+  IconButton,
+  Breadcrumbs,
+  Link,
+  Text,
+  StateLabel,
+  BranchName,
+  Box,
+} from '..'
 import {
   KebabHorizontalIcon,
   GitBranchIcon,
@@ -12,15 +21,15 @@ import {
   ArrowRightIcon,
 } from '@primer/octicons-react'
 
-import {PageHeader} from './PageHeader'
+import { PageHeader } from './PageHeader'
 import Hidden from '../Hidden'
-import {UnderlineNav} from '../UnderlineNav2'
+import { UnderlineNav } from '../UnderlineNav2'
 
 const meta: Meta = {
   title: 'Drafts/Components/PageHeader/Examples',
   parameters: {
     layout: 'fullscreen',
-    controls: {expanded: true},
+    controls: { expanded: true },
   },
   args: {},
 }
@@ -81,10 +90,12 @@ const setViewportParamToNarrow = {
   },
 }
 export const Webhooks = () => (
-  <Box sx={{padding: 3}}>
+  <Box sx={{ padding: 3 }}>
     <PageHeader>
       <PageHeader.ContextArea>
-        <PageHeader.ParentLink href="http://github.com">Repository settings</PageHeader.ParentLink>
+        <PageHeader.ParentLink href="http://github.com">
+          Repository settings
+        </PageHeader.ParentLink>
       </PageHeader.ContextArea>
       <PageHeader.TitleArea>
         <PageHeader.Title as="h2">Webhooks</PageHeader.Title>
@@ -110,14 +121,17 @@ export const WebhooksOnNarrowViewport = () => {
 WebhooksOnNarrowViewport.parameters = setViewportParamToNarrow
 
 export const PullRequestPage = () => (
-  <Box sx={{padding: 3}}>
+  <Box sx={{ padding: 3 }}>
     <PageHeader>
       <PageHeader.ContextArea>
-        <PageHeader.ParentLink href="http://github.com">Pull requests</PageHeader.ParentLink>
+        <PageHeader.ParentLink href="http://github.com">
+          Pull requests
+        </PageHeader.ParentLink>
       </PageHeader.ContextArea>
       <PageHeader.TitleArea>
         <PageHeader.Title as="h2">
-          PageHeader component initial layout explorations extra long pull request title
+          PageHeader component initial layout explorations extra long pull
+          request title
         </PageHeader.Title>
         <PageHeader.Actions>
           <Hidden on={['regular', 'wide']}>
@@ -134,16 +148,19 @@ export const PullRequestPage = () => (
       <PageHeader.Description>
         <StateLabel status="pullOpened">Open</StateLabel>
         <Hidden on={['narrow']}>
-          <Text sx={{fontSize: 1, color: 'fg.muted'}}>
-            <Link href="#" muted sx={{fontWeight: 'bold'}}>
+          <Text sx={{ fontSize: 1, color: 'fg.muted' }}>
+            <Link href="#" muted sx={{ fontWeight: 'bold' }}>
               broccolinisoup
             </Link>{' '}
-            wants to merge 3 commits into <BranchName href="#">main</BranchName> from{' '}
-            <BranchName href="#">broccolinisoup/switch-to-new-underlineNav</BranchName>
+            wants to merge 3 commits into <BranchName href="#">main</BranchName>{' '}
+            from{' '}
+            <BranchName href="#">
+              broccolinisoup/switch-to-new-underlineNav
+            </BranchName>
           </Text>
         </Hidden>
         <Hidden on={['regular', 'wide']}>
-          <Text sx={{fontSize: 1, color: 'fg.muted'}}>
+          <Text sx={{ fontSize: 1, color: 'fg.muted' }}>
             <BranchName href="#">main</BranchName>
             <ArrowRightIcon />
             <BranchName href="#">page-header-initial</BranchName>
@@ -152,7 +169,11 @@ export const PullRequestPage = () => (
       </PageHeader.Description>
       <PageHeader.Navigation>
         <UnderlineNav aria-label="Pull Request">
-          <UnderlineNav.Item icon={CommentDiscussionIcon} counter="12" aria-current="page">
+          <UnderlineNav.Item
+            icon={CommentDiscussionIcon}
+            counter="12"
+            aria-current="page"
+          >
             Conversation
           </UnderlineNav.Item>
           <UnderlineNav.Item counter={3} icon={CommitIcon}>
@@ -177,7 +198,7 @@ export const PullRequestPageOnNarrowViewport = () => {
 PullRequestPageOnNarrowViewport.parameters = setViewportParamToNarrow
 
 export const FilesPage = () => (
-  <Box sx={{padding: 3}}>
+  <Box sx={{ padding: 3 }}>
     <PageHeader>
       <PageHeader.ContextArea>
         <PageHeader.ParentLink>Files</PageHeader.ParentLink>
@@ -185,7 +206,11 @@ export const FilesPage = () => (
           <Button size="small" leadingIcon={GitBranchIcon}>
             Main
           </Button>
-          <IconButton size="small" aria-label="More" icon={KebabHorizontalIcon} />
+          <IconButton
+            size="small"
+            aria-label="More"
+            icon={KebabHorizontalIcon}
+          />
         </PageHeader.ContextAreaActions>
       </PageHeader.ContextArea>
       <PageHeader.TitleArea>

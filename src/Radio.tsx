@@ -1,8 +1,13 @@
 import styled from 'styled-components'
-import React, {ChangeEventHandler, InputHTMLAttributes, ReactElement, useContext} from 'react'
-import sx, {SxProp} from './sx'
-import {FormValidationStatus} from './utils/types/FormValidationStatus'
-import {RadioGroupContext} from './RadioGroup'
+import React, {
+  ChangeEventHandler,
+  InputHTMLAttributes,
+  ReactElement,
+  useContext,
+} from 'react'
+import sx, { SxProp } from './sx'
+import { FormValidationStatus } from './utils/types/FormValidationStatus'
+import { RadioGroupContext } from './RadioGroup'
 import getGlobalFocusStyles from './_getGlobalFocusStyles'
 
 export type RadioProps = {
@@ -41,7 +46,7 @@ export type RadioProps = {
 const StyledRadio = styled.input`
   cursor: pointer;
 
-  ${props => props.disabled && `cursor: not-allowed;`}
+  ${(props) => props.disabled && `cursor: not-allowed;`}
   ${getGlobalFocusStyles(0)};
 
   ${sx}
@@ -52,11 +57,21 @@ const StyledRadio = styled.input`
  */
 const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
   (
-    {checked, disabled, name: nameProp, onChange, sx: sxProp, required, validationStatus, value, ...rest}: RadioProps,
-    ref,
+    {
+      checked,
+      disabled,
+      name: nameProp,
+      onChange,
+      sx: sxProp,
+      required,
+      validationStatus,
+      value,
+      ...rest
+    }: RadioProps,
+    ref
   ): ReactElement => {
     const radioGroupContext = useContext(RadioGroupContext)
-    const handleOnChange: ChangeEventHandler<HTMLInputElement> = e => {
+    const handleOnChange: ChangeEventHandler<HTMLInputElement> = (e) => {
       radioGroupContext?.onChange && radioGroupContext.onChange(e)
       onChange && onChange(e)
     }
@@ -65,7 +80,7 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
     if (!name) {
       // eslint-disable-next-line no-console
       console.warn(
-        'A radio input must have a `name` attribute. Pass `name` as a prop directly to each Radio, or nest them in a `RadioGroup` component with a `name` prop',
+        'A radio input must have a `name` attribute. Pass `name` as a prop directly to each Radio, or nest them in a `RadioGroup` component with a `name` prop'
       )
     }
 
@@ -87,7 +102,7 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
         {...rest}
       />
     )
-  },
+  }
 )
 
 Radio.displayName = 'Radio'

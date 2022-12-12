@@ -10,20 +10,28 @@ import {
   GearIcon,
   ArrowRightIcon,
 } from '@primer/octicons-react'
-import {Meta} from '@storybook/react'
-import React, {useCallback, useState, useRef} from 'react'
+import { Meta } from '@storybook/react'
+import React, { useCallback, useState, useRef } from 'react'
 import styled from 'styled-components'
-import {ThemeProvider} from '../..'
-import Link, {LinkProps} from '../../Link'
-import {ActionMenu, ActionMenuProps, ActionList, DropdownButton, Button} from '../../deprecated'
-import {ItemProps} from '../../deprecated/ActionList'
+import { ThemeProvider } from '../..'
+import Link, { LinkProps } from '../../Link'
+import {
+  ActionMenu,
+  ActionMenuProps,
+  ActionList,
+  DropdownButton,
+  Button,
+} from '../../deprecated'
+import { ItemProps } from '../../deprecated/ActionList'
 import BaseStyles from '../../BaseStyles'
 
 const meta: Meta = {
   title: 'Deprecated components/ActionMenu',
   component: ActionMenu,
   decorators: [
-    (Story: React.ComponentType<React.PropsWithChildren<unknown>>): JSX.Element => (
+    (
+      Story: React.ComponentType<React.PropsWithChildren<unknown>>
+    ): JSX.Element => (
       <ThemeProvider>
         <BaseStyles>
           <Story />
@@ -70,7 +78,8 @@ export function ActionsStory(): JSX.Element {
             {
               leadingVisual: PlusCircleIcon,
               text: 'Create new Codespace',
-              description: 'Create a brand new Codespace with a fresh image and checkout this branch.',
+              description:
+                'Create a brand new Codespace with a fresh image and checkout this branch.',
               descriptionVariant: 'block',
               trailingText: '⌘C',
             },
@@ -99,10 +108,15 @@ export function SimpleListStory(): JSX.Element {
             'data-test-id': 'some_test_id',
           }}
           items={[
-            {text: 'New file', trailingText: '⌘O', disabled: true, leadingVisual: ProjectIcon},
+            {
+              text: 'New file',
+              trailingText: '⌘O',
+              disabled: true,
+              leadingVisual: ProjectIcon,
+            },
             ActionList.Divider,
-            {text: 'Copy link', trailingText: 'ctrl+C'},
-            {text: 'Edit file', trailingText: '⌘E'},
+            { text: 'Copy link', trailingText: 'ctrl+C' },
+            { text: 'Edit file', trailingText: '⌘E' },
             {
               text: 'Delete file',
               variant: 'danger',
@@ -138,10 +152,15 @@ export function ExternalOpenState(): JSX.Element {
           open={open}
           setOpen={setOpen}
           items={[
-            {text: 'New file', trailingText: '⌘O', disabled: true, leadingVisual: ProjectIcon},
+            {
+              text: 'New file',
+              trailingText: '⌘O',
+              disabled: true,
+              leadingVisual: ProjectIcon,
+            },
             ActionList.Divider,
-            {text: 'Copy link', trailingText: 'ctrl+C'},
-            {text: 'Edit file', trailingText: '⌘E'},
+            { text: 'Copy link', trailingText: 'ctrl+C' },
+            { text: 'Edit file', trailingText: '⌘E' },
             {
               text: 'Delete file',
               variant: 'danger',
@@ -169,20 +188,33 @@ export function ComplexListStory(): JSX.Element {
           onAction={onAction}
           anchorContent="Menu"
           groupMetadata={[
-            {groupId: '0'},
-            {groupId: '1', header: {title: 'Live query', variant: 'subtle'}},
-            {groupId: '2', header: {title: 'Layout', variant: 'subtle'}},
-            {groupId: '3', renderItem: props => <ActionList.Item style={{fontWeight: 'bold'}} {...props} />},
-            {groupId: '4'},
+            { groupId: '0' },
+            {
+              groupId: '1',
+              header: { title: 'Live query', variant: 'subtle' },
+            },
+            { groupId: '2', header: { title: 'Layout', variant: 'subtle' } },
+            {
+              groupId: '3',
+              renderItem: (props) => (
+                <ActionList.Item style={{ fontWeight: 'bold' }} {...props} />
+              ),
+            },
+            { groupId: '4' },
           ]}
           items={[
-            {leadingVisual: TypographyIcon, text: 'Rename', groupId: '0'},
-            {leadingVisual: VersionsIcon, text: 'Duplicate', groupId: '0'},
+            { leadingVisual: TypographyIcon, text: 'Rename', groupId: '0' },
+            { leadingVisual: VersionsIcon, text: 'Duplicate', groupId: '0' },
             {
               leadingVisual: SearchIcon,
               text: 'repo:github/github',
               groupId: '1',
-              renderItem: props => <ActionList.Item style={{color: 'rebeccapurple'}} {...props} />,
+              renderItem: (props) => (
+                <ActionList.Item
+                  style={{ color: 'rebeccapurple' }}
+                  {...props}
+                />
+              ),
               trailingVisual: () => (
                 <>
                   ⌘S
@@ -194,14 +226,20 @@ export function ComplexListStory(): JSX.Element {
               leadingVisual: SearchIcon,
               text: 'repo:github/github',
               groupId: '1',
-              renderItem: props => <ActionList.Item style={{color: 'rebeccapurple'}} {...props} />,
+              renderItem: (props) => (
+                <ActionList.Item
+                  style={{ color: 'rebeccapurple' }}
+                  {...props}
+                />
+              ),
               trailingText: '⌘S', // backward compatible
               trailingIcon: ArrowRightIcon, // backward compatible
             },
             {
               leadingVisual: NoteIcon,
               text: 'Table',
-              description: 'Information-dense table optimized for operations across teams',
+              description:
+                'Information-dense table optimized for operations across teams',
               descriptionVariant: 'block',
               groupId: '2',
             },
@@ -217,8 +255,12 @@ export function ComplexListStory(): JSX.Element {
               text: 'Save sort and filters to current view',
               groupId: '3',
             },
-            {leadingVisual: FilterIcon, text: 'Save sort and filters to new view', groupId: '3'},
-            {leadingVisual: GearIcon, text: 'View settings', groupId: '4'},
+            {
+              leadingVisual: FilterIcon,
+              text: 'Save sort and filters to new view',
+              groupId: '3',
+            },
+            { leadingVisual: GearIcon, text: 'View settings', groupId: '4' },
           ]}
         />
       </ErsatzOverlay>
@@ -228,7 +270,9 @@ export function ComplexListStory(): JSX.Element {
 ComplexListStory.storyName = 'Complex List'
 
 export function CustomTrigger(): JSX.Element {
-  const customAnchor = (props: LinkProps) => <Link {...props} sx={{cursor: 'pointer'}} />
+  const customAnchor = (props: LinkProps) => (
+    <Link {...props} sx={{ cursor: 'pointer' }} />
+  )
   const [option, setOption] = useState('Select an option')
   const onAction = useCallback((itemProps: ItemProps) => {
     setOption(itemProps.text || '')
@@ -243,11 +287,11 @@ export function CustomTrigger(): JSX.Element {
           anchorContent="Menu"
           renderAnchor={customAnchor}
           items={[
-            {text: 'New file'},
+            { text: 'New file' },
             ActionList.Divider,
-            {text: 'Copy link'},
-            {text: 'Edit file'},
-            {text: 'Delete file', variant: 'danger'},
+            { text: 'Copy link' },
+            { text: 'Edit file' },
+            { text: 'Delete file', variant: 'danger' },
           ]}
         />
       </ErsatzOverlay>
@@ -270,21 +314,21 @@ export function ActionMenuWithExternalAnchor(): JSX.Element {
         open={isOpen}
         setOpen={setIsOpen}
         items={[
-          {text: 'New file'},
+          { text: 'New file' },
           ActionList.Divider,
-          {text: 'Copy link'},
-          {text: 'Edit file'},
-          {text: 'Delete file', variant: 'danger'},
+          { text: 'Copy link' },
+          { text: 'Edit file' },
+          { text: 'Delete file', variant: 'danger' },
         ]}
       />
     </>
   )
 }
 
-const DoubleClickableAnchor: Exclude<ActionMenuProps['renderAnchor'], null | undefined> = ({
-  onClick: callback,
-  ...rest
-}) => {
+const DoubleClickableAnchor: Exclude<
+  ActionMenuProps['renderAnchor'],
+  null | undefined
+> = ({ onClick: callback, ...rest }) => {
   const onClick = useCallback(
     (event: React.MouseEvent<HTMLButtonElement>) => {
       if (event.detail === 2) {
@@ -292,7 +336,7 @@ const DoubleClickableAnchor: Exclude<ActionMenuProps['renderAnchor'], null | und
       }
       callback?.(event)
     },
-    [callback],
+    [callback]
   )
   return <DropdownButton onClick={onClick} {...rest} />
 }
@@ -316,7 +360,8 @@ export function ActionMenuWithDoubleClickStory(): JSX.Element {
             {
               leadingVisual: PlusCircleIcon,
               text: 'Create new Codespace',
-              description: 'Create a brand new Codespace with a fresh image and checkout this branch.',
+              description:
+                'Create a brand new Codespace with a fresh image and checkout this branch.',
               descriptionVariant: 'block',
               trailingText: '⌘C',
             },
@@ -326,4 +371,5 @@ export function ActionMenuWithDoubleClickStory(): JSX.Element {
     </>
   )
 }
-ActionMenuWithDoubleClickStory.storyName = 'ActionMenu with double-clickable anchor'
+ActionMenuWithDoubleClickStory.storyName =
+  'ActionMenu with double-clickable anchor'

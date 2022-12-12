@@ -1,3 +1,3 @@
-import {Hidden} from './Hidden'
+import { Hidden } from './Hidden'
 
 export default Hidden

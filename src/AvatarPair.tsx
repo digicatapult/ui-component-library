@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import Avatar, {AvatarProps} from './Avatar'
-import {get} from './constants'
-import Box, {BoxProps} from './Box'
+import Avatar, { AvatarProps } from './Avatar'
+import { get } from './constants'
+import Box, { BoxProps } from './Box'
 
 const ChildAvatar = styled(Avatar)`
   position: absolute;
@@ -13,14 +13,16 @@ const ChildAvatar = styled(Avatar)`
 
 export type AvatarPairProps = BoxProps
 
-const AvatarPair = ({children, ...rest}: AvatarPairProps) => {
+const AvatarPair = ({ children, ...rest }: AvatarPairProps) => {
   const avatars = React.Children.map(children, (child, i) => {
     if (!React.isValidElement(child)) {
       return child
     }
 
     if (i === 0) {
-      return React.cloneElement(child as React.ReactElement<AvatarProps>, {size: 40})
+      return React.cloneElement(child as React.ReactElement<AvatarProps>, {
+        size: 40,
+      })
     }
 
     return <ChildAvatar bg="canvas.default" {...child.props} size={20} />

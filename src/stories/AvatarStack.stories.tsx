@@ -1,15 +1,17 @@
 import AvatarStack from '../AvatarStack'
 import Avatar from '../Avatar'
-import {Meta} from '@storybook/react'
+import { Meta } from '@storybook/react'
 import React from 'react'
-import {ThemeProvider} from '..'
+import { ThemeProvider } from '..'
 import BaseStyles from '../BaseStyles'
 
 const meta: Meta = {
   title: 'Components/AvatarStack',
   component: AvatarStack,
   decorators: [
-    (Story: React.ComponentType<React.PropsWithChildren<unknown>>): JSX.Element => (
+    (
+      Story: React.ComponentType<React.PropsWithChildren<unknown>>
+    ): JSX.Element => (
       <ThemeProvider>
         <BaseStyles>
           <Story />
@@ -28,10 +30,22 @@ export default meta
 export function AvatarStackStory(): JSX.Element {
   return (
     <AvatarStack>
-      <Avatar alt="Primer logo" src="https://avatars.githubusercontent.com/primer" />
-      <Avatar alt="GitHub logo" src="https://avatars.githubusercontent.com/github" />
-      <Avatar alt="Atom logo" src="https://avatars.githubusercontent.com/atom" />
-      <Avatar alt="GitHub Desktop logo" src="https://avatars.githubusercontent.com/desktop" />
+      <Avatar
+        alt="Primer logo"
+        src="https://avatars.githubusercontent.com/primer"
+      />
+      <Avatar
+        alt="GitHub logo"
+        src="https://avatars.githubusercontent.com/github"
+      />
+      <Avatar
+        alt="Atom logo"
+        src="https://avatars.githubusercontent.com/atom"
+      />
+      <Avatar
+        alt="GitHub Desktop logo"
+        src="https://avatars.githubusercontent.com/desktop"
+      />
     </AvatarStack>
   )
 }

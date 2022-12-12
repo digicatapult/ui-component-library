@@ -1,5 +1,5 @@
 import React from 'react'
-import {useForceUpdate} from './use-force-update'
+import { useForceUpdate } from './use-force-update'
 import useLayoutEffect from './useIsomorphicLayoutEffect'
 
 /** createSlots is a factory that can create a
@@ -36,10 +36,10 @@ const createSlots = <SlotNames extends string>(slotNames: SlotNames[]) => {
       context?: ContextProps['context']
       children: (slots: Slots) => React.ReactNode
     }>
-  > = ({context = defaultContext, children}) => {
+  > = ({ context = defaultContext, children }) => {
     // initialise slots
     const slotsDefinition: Slots = {}
-    slotNames.map(name => (slotsDefinition[name] = null))
+    slotNames.map((name) => (slotsDefinition[name] = null))
     const slotsRef = React.useRef<Slots>(slotsDefinition)
 
     const rerenderWithSlots = useForceUpdate()
@@ -58,7 +58,7 @@ const createSlots = <SlotNames extends string>(slotNames: SlotNames[]) => {
         // don't render until the component mounts = all slots are registered
         if (isMounted) rerenderWithSlots()
       },
-      [isMounted, rerenderWithSlots],
+      [isMounted, rerenderWithSlots]
     )
 
     // Slot can be removed from the tree as well,
@@ -68,7 +68,7 @@ const createSlots = <SlotNames extends string>(slotNames: SlotNames[]) => {
         slotsRef.current[name] = null
         rerenderWithSlots()
       },
-      [rerenderWithSlots],
+      [rerenderWithSlots]
     )
 
     /**
@@ -78,7 +78,9 @@ const createSlots = <SlotNames extends string>(slotNames: SlotNames[]) => {
     const slots = slotsRef.current
 
     return (
-      <SlotsContext.Provider value={{registerSlot, unregisterSlot, context}}>{children(slots)}</SlotsContext.Provider>
+      <SlotsContext.Provider value={{ registerSlot, unregisterSlot, context }}>
+        {children(slots)}
+      </SlotsContext.Provider>
     )
   }
 
@@ -87,18 +89,22 @@ const createSlots = <SlotNames extends string>(slotNames: SlotNames[]) => {
       name: SlotNames
       children: React.ReactNode
     }>
-  > = ({name, children}) => {
-    const {registerSlot, unregisterSlot, context} = React.useContext(SlotsContext)
+  > = ({ name, children }) => {
+    const { registerSlot, unregisterSlot, context } =
+      React.useContext(SlotsContext)
 
     useLayoutEffect(() => {
-      registerSlot(name, typeof children === 'function' ? children(context) : children)
+      registerSlot(
+        name,
+        typeof children === 'function' ? children(context) : children
+      )
       return () => unregisterSlot(name)
     }, [name, children, registerSlot, unregisterSlot, context])
 
     return null
   }
 
-  return {Slots, Slot}
+  return { Slots, Slot }
 }
 
 export default createSlots

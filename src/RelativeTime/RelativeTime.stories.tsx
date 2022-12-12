@@ -1,6 +1,6 @@
 import RelativeTime from './RelativeTime'
 import React from 'react'
-import {Meta, Story} from '@storybook/react'
+import { Meta, Story } from '@storybook/react'
 
 const meta: Meta = {
   title: 'Components/RelativeTime',
@@ -10,7 +10,8 @@ const meta: Meta = {
     controls: {
       // StoryBook infers from type info of the component which includes CE Lifecycle,
       // SX props, and methods we want to otherwise ignore
-      exclude: /^(getFormatted.*|datetime|sx|as|theme|forwardedAs|.*Callback|update)$/g,
+      exclude:
+        /^(getFormatted.*|datetime|sx|as|theme|forwardedAs|.*Callback|update)$/g,
     },
   },
   args: {
@@ -112,7 +113,15 @@ const meta: Meta = {
     timeZoneName: {
       type: {
         name: 'enum',
-        value: ['', 'long', 'short', 'longOffset', 'shortOffset', 'longGeneric', 'shortGeneric'],
+        value: [
+          '',
+          'long',
+          'short',
+          'longOffset',
+          'shortOffset',
+          'longGeneric',
+          'shortGeneric',
+        ],
       },
       control: {
         type: 'select',
@@ -130,29 +139,37 @@ const meta: Meta = {
   },
 }
 
-export const Default: Story = args => {
-  const {date, ...rest} = args
+export const Default: Story = (args) => {
+  const { date, ...rest } = args
   return <RelativeTime {...rest} date={new Date(date)} />
 }
 
-export const MicroFormat: Story = args => {
-  const {date, ...rest} = args
+export const MicroFormat: Story = (args) => {
+  const { date, ...rest } = args
   return <RelativeTime {...rest} date={new Date(date)} format="micro" />
 }
-MicroFormat.args = {tense: 'past'}
-MicroFormat.argTypes = {format: {control: false}}
+MicroFormat.args = { tense: 'past' }
+MicroFormat.argTypes = { format: { control: false } }
 
-export const RecentTime: Story = args => {
-  const {...rest} = args
+export const RecentTime: Story = (args) => {
+  const { ...rest } = args
   return <RelativeTime {...rest} date={new Date()} />
 }
-RecentTime.argTypes = {date: {control: false}}
+RecentTime.argTypes = { date: { control: false } }
 
-export const CountDownTimer: Story = args => {
-  const {...rest} = args
+export const CountDownTimer: Story = (args) => {
+  const { ...rest } = args
   return <RelativeTime {...rest} />
 }
-CountDownTimer.args = {date: new Date('2038-01-19T03:14:08Z'), format: 'elapsed', day: '', month: ''}
-CountDownTimer.argTypes = {date: {control: false}, format: {control: false}}
+CountDownTimer.args = {
+  date: new Date('2038-01-19T03:14:08Z'),
+  format: 'elapsed',
+  day: '',
+  month: '',
+}
+CountDownTimer.argTypes = {
+  date: { control: false },
+  format: { control: false },
+}
 
 export default meta

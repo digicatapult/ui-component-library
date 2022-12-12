@@ -1,7 +1,7 @@
-import {Meta, Story} from '@storybook/react'
+import { Meta, Story } from '@storybook/react'
 import React from 'react'
-import {PageLayout} from '../PageLayout'
-import {NavList} from './NavList'
+import { PageLayout } from '../PageLayout'
+import { NavList } from './NavList'
 
 const meta: Meta = {
   title: 'Components/NavList',
@@ -47,8 +47,11 @@ export const WithSubItems: Story = () => (
   </PageLayout>
 )
 
-type ReactRouterLikeLinkProps = {to: string; children: React.ReactNode}
-const ReactRouterLikeLink = React.forwardRef<HTMLAnchorElement, ReactRouterLikeLinkProps>(({to, ...props}, ref) => {
+type ReactRouterLikeLinkProps = { to: string; children: React.ReactNode }
+const ReactRouterLikeLink = React.forwardRef<
+  HTMLAnchorElement,
+  ReactRouterLikeLinkProps
+>(({ to, ...props }, ref) => {
   // eslint-disable-next-line jsx-a11y/anchor-has-content
   return <a ref={ref} href={to} {...props} />
 })
@@ -72,17 +75,23 @@ export const WithReactRouterLink = () => (
   </PageLayout>
 )
 
-type NextJSLinkProps = {href: string; children: React.ReactNode}
+type NextJSLinkProps = { href: string; children: React.ReactNode }
 
 const NextJSLikeLink = React.forwardRef<HTMLAnchorElement, NextJSLinkProps>(
-  ({href, children}, ref): React.ReactElement => {
+  ({ href, children }, ref): React.ReactElement => {
     const child = React.Children.only(children)
     const childProps = {
       ref,
       href,
     }
-    return <>{React.isValidElement(child) ? React.cloneElement(child, childProps) : null}</>
-  },
+    return (
+      <>
+        {React.isValidElement(child)
+          ? React.cloneElement(child, childProps)
+          : null}
+      </>
+    )
+  }
 )
 
 export const WithNextJSLink = () => (

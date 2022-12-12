@@ -1,9 +1,9 @@
-import {themeGet} from '@styled-system/theme-get'
+import { themeGet } from '@styled-system/theme-get'
 // eslint-disable-next-line import/no-namespace
 import * as styledSystem from 'styled-system'
 import theme from './theme'
 
-const {get: getKey, compose, system} = styledSystem
+const { get: getKey, compose, system } = styledSystem
 
 export const get = (key: string) => themeGet(key, getKey(theme, key))
 
@@ -20,9 +20,9 @@ export interface SystemCommonProps
 
 const whiteSpace = system({
   whiteSpace: {
-    property: 'whiteSpace',
+    property: 'whiteSpace'
     // cssProperty: 'whiteSpace',
-  },
+  }
 })
 
 export const TYPOGRAPHY = compose(styledSystem.typography, whiteSpace)

@@ -12,9 +12,9 @@ import {
   ShieldLockIcon,
   GearIcon,
 } from '@primer/octicons-react'
-import {Meta} from '@storybook/react'
-import {UnderlineNav} from './index'
-import {INITIAL_VIEWPORTS} from '@storybook/addon-viewport'
+import { Meta } from '@storybook/react'
+import { UnderlineNav } from './index'
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
 
 export default {
   title: 'Drafts/Components/UnderlineNav/Features',
@@ -61,20 +61,46 @@ export const withCounterLabels = () => {
   )
 }
 
-const items: {navigation: string; icon: React.FC<IconProps>; counter?: number | string; href?: string}[] = [
-  {navigation: 'Code', icon: CodeIcon, href: '#code'},
-  {navigation: 'Issues', icon: IssueOpenedIcon, counter: '12K', href: '#issues'},
-  {navigation: 'Pull Requests', icon: GitPullRequestIcon, counter: 13, href: '#pull-requests'},
-  {navigation: 'Discussions', icon: CommentDiscussionIcon, counter: 5, href: '#discussions'},
-  {navigation: 'Actions', icon: PlayIcon, counter: 4, href: '#actions'},
-  {navigation: 'Projects', icon: ProjectIcon, counter: 9, href: '#projects'},
-  {navigation: 'Insights', icon: GraphIcon, counter: '0', href: '#insights'},
-  {navigation: 'Settings', icon: GearIcon, counter: 10, href: '#settings'},
-  {navigation: 'Security', icon: ShieldLockIcon, href: '#security'},
+const items: {
+  navigation: string
+  icon: React.FC<IconProps>
+  counter?: number | string
+  href?: string
+}[] = [
+  { navigation: 'Code', icon: CodeIcon, href: '#code' },
+  {
+    navigation: 'Issues',
+    icon: IssueOpenedIcon,
+    counter: '12K',
+    href: '#issues',
+  },
+  {
+    navigation: 'Pull Requests',
+    icon: GitPullRequestIcon,
+    counter: 13,
+    href: '#pull-requests',
+  },
+  {
+    navigation: 'Discussions',
+    icon: CommentDiscussionIcon,
+    counter: 5,
+    href: '#discussions',
+  },
+  { navigation: 'Actions', icon: PlayIcon, counter: 4, href: '#actions' },
+  { navigation: 'Projects', icon: ProjectIcon, counter: 9, href: '#projects' },
+  { navigation: 'Insights', icon: GraphIcon, counter: '0', href: '#insights' },
+  { navigation: 'Settings', icon: GearIcon, counter: 10, href: '#settings' },
+  { navigation: 'Security', icon: ShieldLockIcon, href: '#security' },
 ]
 
-export const OverflowTemplate = ({initialSelectedIndex = 1}: {initialSelectedIndex?: number}) => {
-  const [selectedIndex, setSelectedIndex] = React.useState<number | null>(initialSelectedIndex)
+export const OverflowTemplate = ({
+  initialSelectedIndex = 1,
+}: {
+  initialSelectedIndex?: number
+}) => {
+  const [selectedIndex, setSelectedIndex] = React.useState<number | null>(
+    initialSelectedIndex
+  )
   return (
     <UnderlineNav aria-label="Repository">
       {items.map((item, index) => (
@@ -82,7 +108,7 @@ export const OverflowTemplate = ({initialSelectedIndex = 1}: {initialSelectedInd
           key={item.navigation}
           icon={item.icon}
           aria-current={index === selectedIndex ? 'page' : undefined}
-          onSelect={event => {
+          onSelect={(event) => {
             event.preventDefault()
             setSelectedIndex(index)
           }}
@@ -120,7 +146,10 @@ export const CountersLoadingState = () => {
   const [selectedIndex, setSelectedIndex] = React.useState<number | null>(1)
 
   return (
-    <UnderlineNav aria-label="Repository with loading counters" loadingCounters={true}>
+    <UnderlineNav
+      aria-label="Repository with loading counters"
+      loadingCounters={true}
+    >
       {items.map((item, index) => (
         <UnderlineNav.Item
           key={item.navigation}

@@ -1,6 +1,6 @@
-import css, {SystemCssProperties, SystemStyleObject} from '@styled-system/css'
-import {ThemeColorPaths, ThemeShadowPaths} from './theme'
-import {ColorProps, ShadowProps} from 'styled-system'
+import css, { SystemCssProperties, SystemStyleObject } from '@styled-system/css'
+import { ThemeColorPaths, ThemeShadowPaths } from './theme'
+import { ColorProps, ShadowProps } from 'styled-system'
 import merge from 'deepmerge'
 
 export type BetterCssProperties = {
@@ -30,4 +30,4 @@ const sx = (props: SxProp) => css(props.sx)
 
 export default sx
 
-export {merge}
+export { merge }

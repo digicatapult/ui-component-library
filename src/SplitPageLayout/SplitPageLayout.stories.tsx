@@ -1,52 +1,52 @@
 import React from 'react'
-import {Meta, Story} from '@storybook/react'
-import {Box, Button, Heading, Text} from '..'
-import {NavList} from '../NavList'
-import {Placeholder} from '../Placeholder'
-import {SplitPageLayout} from '../SplitPageLayout'
+import { Meta, Story } from '@storybook/react'
+import { Box, Button, Heading, Text } from '..'
+import { NavList } from '../NavList'
+import { Placeholder } from '../Placeholder'
+import { SplitPageLayout } from '../SplitPageLayout'
 
 const meta: Meta = {
   title: 'Components/SplitPageLayout',
   parameters: {
     layout: 'fullscreen',
-    controls: {expanded: true},
+    controls: { expanded: true },
   },
   argTypes: {
     // Debug controls
     'Render header?': {
       type: 'boolean',
       defaultValue: true,
-      table: {category: 'Debug'},
+      table: { category: 'Debug' },
     },
     'Render pane?': {
       type: 'boolean',
       defaultValue: true,
-      table: {category: 'Debug'},
+      table: { category: 'Debug' },
     },
     'Render footer?': {
       type: 'boolean',
       defaultValue: true,
-      table: {category: 'Debug'},
+      table: { category: 'Debug' },
     },
     'Header placeholder height': {
       type: 'number',
       defaultValue: 64,
-      table: {category: 'Debug'},
+      table: { category: 'Debug' },
     },
     'Pane placeholder height': {
       type: 'number',
       defaultValue: 200,
-      table: {category: 'Debug'},
+      table: { category: 'Debug' },
     },
     'Content placeholder height': {
       type: 'number',
       defaultValue: 400,
-      table: {category: 'Debug'},
+      table: { category: 'Debug' },
     },
     'Footer placeholder height': {
       type: 'number',
       defaultValue: 64,
-      table: {category: 'Debug'},
+      table: { category: 'Debug' },
     },
 
     // Header prop controls
@@ -95,23 +95,23 @@ const meta: Meta = {
         value: ['none', 'condensed', 'normal'],
       },
       defaultValue: 'normal',
-      control: {type: 'radio'},
-      table: {category: 'Header props'},
+      control: { type: 'radio' },
+      table: { category: 'Header props' },
     },
     'Header.hidden.regular': {
       type: 'boolean',
       defaultValue: false,
-      table: {category: 'Header props'},
+      table: { category: 'Header props' },
     },
     'Header.hidden.narrow': {
       type: 'boolean',
       defaultValue: false,
-      table: {category: 'Header props'},
+      table: { category: 'Header props' },
     },
     'Header.hidden.wide': {
       type: 'boolean',
       defaultValue: false,
-      table: {category: 'Header props'},
+      table: { category: 'Header props' },
     },
 
     // Content prop controls
@@ -121,8 +121,8 @@ const meta: Meta = {
         value: ['full', 'medium', 'large', 'xlarge'],
       },
       defaultValue: 'xlarge',
-      control: {type: 'radio'},
-      table: {category: 'Content props'},
+      control: { type: 'radio' },
+      table: { category: 'Content props' },
     },
     'Content.padding': {
       type: {
@@ -130,23 +130,23 @@ const meta: Meta = {
         value: ['none', 'condensed', 'normal'],
       },
       defaultValue: 'normal',
-      control: {type: 'radio'},
-      table: {category: 'Content props'},
+      control: { type: 'radio' },
+      table: { category: 'Content props' },
     },
     'Content.hidden.regular': {
       type: 'boolean',
       defaultValue: false,
-      table: {category: 'Content props'},
+      table: { category: 'Content props' },
     },
     'Content.hidden.narrow': {
       type: 'boolean',
       defaultValue: false,
-      table: {category: 'Content props'},
+      table: { category: 'Content props' },
     },
     'Content.hidden.wide': {
       type: 'boolean',
       defaultValue: false,
-      table: {category: 'Content props'},
+      table: { category: 'Content props' },
     },
 
     // Pane prop controls
@@ -156,8 +156,8 @@ const meta: Meta = {
         value: ['start', 'end'],
       },
       defaultValue: 'start',
-      control: {type: 'radio'},
-      table: {category: 'Pane props'},
+      control: { type: 'radio' },
+      table: { category: 'Pane props' },
     },
     'Pane.position.narrow': {
       type: {
@@ -165,8 +165,8 @@ const meta: Meta = {
         value: ['start', 'end'],
       },
       defaultValue: 'start',
-      control: {type: 'radio'},
-      table: {category: 'Pane props'},
+      control: { type: 'radio' },
+      table: { category: 'Pane props' },
     },
     'Pane.position.wide': {
       type: {
@@ -174,8 +174,8 @@ const meta: Meta = {
         value: ['start', 'end'],
       },
       defaultValue: 'start',
-      control: {type: 'radio'},
-      table: {category: 'Pane props'},
+      control: { type: 'radio' },
+      table: { category: 'Pane props' },
     },
     'Pane.width': {
       type: {
@@ -183,18 +183,18 @@ const meta: Meta = {
         value: ['small', 'medium', 'large'],
       },
       defaultValue: 'medium',
-      control: {type: 'radio'},
-      table: {category: 'Pane props'},
+      control: { type: 'radio' },
+      table: { category: 'Pane props' },
     },
     'Pane.sticky': {
       type: 'boolean',
       defaultValue: true,
-      table: {category: 'Pane props'},
+      table: { category: 'Pane props' },
     },
     'Pane.resizable': {
       type: 'boolean',
       defaultValue: false,
-      table: {category: 'Pane props'},
+      table: { category: 'Pane props' },
     },
     'Pane.padding': {
       type: {
@@ -202,8 +202,8 @@ const meta: Meta = {
         value: ['none', 'condensed', 'normal'],
       },
       defaultValue: 'normal',
-      control: {type: 'radio'},
-      table: {category: 'Pane props'},
+      control: { type: 'radio' },
+      table: { category: 'Pane props' },
     },
     'Pane.divider.regular': {
       type: {
@@ -211,8 +211,8 @@ const meta: Meta = {
         value: ['none', 'line'],
       },
       defaultValue: 'line',
-      control: {type: 'radio'},
-      table: {category: 'Pane props'},
+      control: { type: 'radio' },
+      table: { category: 'Pane props' },
     },
     'Pane.divider.narrow': {
       type: {
@@ -220,8 +220,8 @@ const meta: Meta = {
         value: ['none', 'line', 'filled'],
       },
       defaultValue: 'line',
-      control: {type: 'radio'},
-      table: {category: 'Pane props'},
+      control: { type: 'radio' },
+      table: { category: 'Pane props' },
     },
     'Pane.divider.wide': {
       type: {
@@ -229,8 +229,8 @@ const meta: Meta = {
         value: ['none', 'line'],
       },
       defaultValue: 'line',
-      control: {type: 'radio'},
-      table: {category: 'Pane props'},
+      control: { type: 'radio' },
+      table: { category: 'Pane props' },
     },
 
     // Footer prop controls
@@ -279,28 +279,28 @@ const meta: Meta = {
         value: ['none', 'condensed', 'normal'],
       },
       defaultValue: 'normal',
-      control: {type: 'radio'},
-      table: {category: 'Footer props'},
+      control: { type: 'radio' },
+      table: { category: 'Footer props' },
     },
     'Footer.hidden.regular': {
       type: 'boolean',
       defaultValue: false,
-      table: {category: 'Footer props'},
+      table: { category: 'Footer props' },
     },
     'Footer.hidden.narrow': {
       type: 'boolean',
       defaultValue: false,
-      table: {category: 'Footer props'},
+      table: { category: 'Footer props' },
     },
     'Footer.hidden.wide': {
       type: 'boolean',
       defaultValue: false,
-      table: {category: 'Footer props'},
+      table: { category: 'Footer props' },
     },
   },
 }
 
-const Template: Story = args => (
+const Template: Story = (args) => (
   <SplitPageLayout sx={args.sx}>
     {args['Render header?'] ? (
       <SplitPageLayout.Header
@@ -316,7 +316,10 @@ const Template: Story = args => (
           wide: args['Header.hidden.wide'],
         }}
       >
-        <Placeholder height={args['Header placeholder height']} label="Header" />
+        <Placeholder
+          height={args['Header placeholder height']}
+          label="Header"
+        />
       </SplitPageLayout.Header>
     ) : null}
     <SplitPageLayout.Content
@@ -328,7 +331,10 @@ const Template: Story = args => (
         wide: args['Content.hidden.wide'],
       }}
     >
-      <Placeholder height={args['Content placeholder height']} label="Content" />
+      <Placeholder
+        height={args['Content placeholder height']}
+        label="Content"
+      />
     </SplitPageLayout.Content>
     {args['Render pane?'] ? (
       <SplitPageLayout.Pane
@@ -369,7 +375,10 @@ const Template: Story = args => (
           wide: args['Footer.hidden.wide'],
         }}
       >
-        <Placeholder height={args['Footer placeholder height']} label="Footer" />
+        <Placeholder
+          height={args['Footer placeholder height']}
+          label="Footer"
+        />
       </SplitPageLayout.Footer>
     ) : null}
   </SplitPageLayout>
@@ -390,7 +399,10 @@ export const SettingsPage = () => (
       </NavList>
     </SplitPageLayout.Pane>
     <SplitPageLayout.Content>
-      <Heading as="h2" sx={{fontSize: 4, fontWeight: 'normal', color: 'danger.fg', mb: 2}}>
+      <Heading
+        as="h2"
+        sx={{ fontSize: 4, fontWeight: 'normal', color: 'danger.fg', mb: 2 }}
+      >
         Danger zone
       </Heading>
       <Box
@@ -405,11 +417,13 @@ export const SettingsPage = () => (
           gap: 3,
         }}
       >
-        <Box sx={{display: 'grid', gap: 1}}>
-          <Text sx={{fontSize: 1, fontWeight: 'bold', color: 'danger.fg'}}>Delete account</Text>
-          <Text sx={{fontSize: 1, color: 'fg.muted'}}>
-            Are you sure you don&apos;t want to just downgrade your account to a free account? We won&apos;t charge your
-            credit card anymore.
+        <Box sx={{ display: 'grid', gap: 1 }}>
+          <Text sx={{ fontSize: 1, fontWeight: 'bold', color: 'danger.fg' }}>
+            Delete account
+          </Text>
+          <Text sx={{ fontSize: 1, color: 'fg.muted' }}>
+            Are you sure you don&apos;t want to just downgrade your account to a
+            free account? We won&apos;t charge your credit card anymore.
           </Text>
         </Box>
         <Button variant="danger">Delete account</Button>

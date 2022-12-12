@@ -1,18 +1,22 @@
-import React, {useCallback, useEffect, useRef, useState} from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
-import Button, {ButtonPrimary, ButtonDanger, ButtonProps} from '../deprecated/Button'
+import Button, {
+  ButtonPrimary,
+  ButtonDanger,
+  ButtonProps,
+} from '../deprecated/Button'
 import Box from '../Box'
-import {get} from '../constants'
-import {useOnEscapePress, useProvidedRefOrCreate} from '../hooks'
-import {useFocusTrap} from '../hooks/useFocusTrap'
-import sx, {SxProp} from '../sx'
+import { get } from '../constants'
+import { useOnEscapePress, useProvidedRefOrCreate } from '../hooks'
+import { useFocusTrap } from '../hooks/useFocusTrap'
+import sx, { SxProp } from '../sx'
 import StyledOcticon from '../StyledOcticon'
-import {XIcon} from '@primer/octicons-react'
-import {useFocusZone} from '../hooks/useFocusZone'
-import {FocusKeys} from '@primer/behaviors'
+import { XIcon } from '@primer/octicons-react'
+import { useFocusZone } from '../hooks/useFocusZone'
+import { FocusKeys } from '@primer/behaviors'
 import Portal from '../Portal'
-import {useRefObjectAsForwardedRef} from '../hooks/useRefObjectAsForwardedRef'
-import {useSSRSafeId} from '@react-aria/ssr'
+import { useRefObjectAsForwardedRef } from '../hooks/useRefObjectAsForwardedRef'
+import { useSSRSafeId } from '@react-aria/ssr'
 
 const ANIMATION_DURATION = '200ms'
 
@@ -67,7 +71,9 @@ export interface DialogProps {
    *
    * Warning: using a custom renderer may violate Primer UX principles.
    */
-  renderHeader?: React.FunctionComponent<React.PropsWithChildren<DialogHeaderProps>>
+  renderHeader?: React.FunctionComponent<
+    React.PropsWithChildren<DialogHeaderProps>
+  >
 
   /**
    * Provide a custom render function for the dialog body. This content is
@@ -152,7 +158,8 @@ const Backdrop = styled('div')`
   align-items: center;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.4);
-  animation: dialog-backdrop-appear ${ANIMATION_DURATION} ${get('animation.easeOutCubic')};
+  animation: dialog-backdrop-appear ${ANIMATION_DURATION}
+    ${get('animation.easeOutCubic')};
 
   @keyframes dialog-backdrop-appear {
     0% {
@@ -193,11 +200,12 @@ const StyledDialog = styled.div<StyledDialogProps>`
   min-width: 296px;
   max-width: calc(100vw - 64px);
   max-height: calc(100vh - 64px);
-  width: ${props => widthMap[props.width ?? ('xlarge' as const)]};
-  height: ${props => heightMap[props.height ?? ('auto' as const)]};
+  width: ${(props) => widthMap[props.width ?? ('xlarge' as const)]};
+  height: ${(props) => heightMap[props.height ?? ('auto' as const)]};
   border-radius: 12px;
   opacity: 1;
-  animation: overlay--dialog-appear ${ANIMATION_DURATION} ${get('animation.easeOutCubic')};
+  animation: overlay--dialog-appear ${ANIMATION_DURATION}
+    ${get('animation.easeOutCubic')};
 
   @keyframes overlay--dialog-appear {
     0% {
@@ -228,18 +236,26 @@ const DefaultHeader: React.FC<React.PropsWithChildren<DialogHeaderProps>> = ({
       <Box display="flex">
         <Box display="flex" px={2} py="6px" flexDirection="column" flexGrow={1}>
           <Dialog.Title id={dialogLabelId}>{title ?? 'Dialog'}</Dialog.Title>
-          {subtitle && <Dialog.Subtitle id={dialogDescriptionId}>{subtitle}</Dialog.Subtitle>}
+          {subtitle && (
+            <Dialog.Subtitle id={dialogDescriptionId}>
+              {subtitle}
+            </Dialog.Subtitle>
+          )}
         </Box>
         <Dialog.CloseButton onClose={onCloseClick} />
       </Box>
     </Dialog.Header>
   )
 }
-const DefaultBody: React.FC<React.PropsWithChildren<DialogProps>> = ({children}) => {
+const DefaultBody: React.FC<React.PropsWithChildren<DialogProps>> = ({
+  children,
+}) => {
   return <Dialog.Body>{children}</Dialog.Body>
 }
-const DefaultFooter: React.FC<React.PropsWithChildren<DialogProps>> = ({footerButtons}) => {
-  const {containerRef: footerRef} = useFocusZone({
+const DefaultFooter: React.FC<React.PropsWithChildren<DialogProps>> = ({
+  footerButtons,
+}) => {
+  const { containerRef: footerRef } = useFocusZone({
     bindKeys: FocusKeys.ArrowHorizontal | FocusKeys.Tab,
     focusInStrategy: 'closest',
   })
@@ -250,7 +266,10 @@ const DefaultFooter: React.FC<React.PropsWithChildren<DialogProps>> = ({footerBu
   ) : null
 }
 
-const _Dialog = React.forwardRef<HTMLDivElement, React.PropsWithChildren<DialogProps>>((props, forwardedRef) => {
+const _Dialog = React.forwardRef<
+  HTMLDivElement,
+  React.PropsWithChildren<DialogProps>
+>((props, forwardedRef) => {
   const {
     title = 'Dialog',
     subtitle = '',
@@ -271,19 +290,30 @@ const _Dialog = React.forwardRef<HTMLDivElement, React.PropsWithChildren<DialogP
       footerButton.ref = autoFocusedFooterButtonRef
     }
   }
-  const defaultedProps = {...props, title, subtitle, role, dialogLabelId, dialogDescriptionId}
+  const defaultedProps = {
+    ...props,
+    title,
+    subtitle,
+    role,
+    dialogLabelId,
+    dialogDescriptionId,
+  }
 
   const dialogRef = useRef<HTMLDivElement>(null)
   useRefObjectAsForwardedRef(forwardedRef, dialogRef)
   const backdropRef = useRef<HTMLDivElement>(null)
-  useFocusTrap({containerRef: dialogRef, restoreFocusOnCleanUp: true, initialFocusRef: autoFocusedFooterButtonRef})
+  useFocusTrap({
+    containerRef: dialogRef,
+    restoreFocusOnCleanUp: true,
+    initialFocusRef: autoFocusedFooterButtonRef,
+  })
 
   useOnEscapePress(
     (event: KeyboardEvent) => {
       onClose('escape')
       event.preventDefault()
     },
-    [onClose],
+    [onClose]
   )
 
   const header = (renderHeader ?? DefaultHeader)(defaultedProps)
@@ -368,8 +398,12 @@ const buttonTypes = {
   primary: ButtonPrimary,
   danger: ButtonDanger,
 }
-const Buttons: React.FC<React.PropsWithChildren<{buttons: DialogButtonProps[]}>> = ({buttons}) => {
-  const autoFocusRef = useProvidedRefOrCreate<HTMLButtonElement>(buttons.find(button => button.autoFocus)?.ref)
+const Buttons: React.FC<
+  React.PropsWithChildren<{ buttons: DialogButtonProps[] }>
+> = ({ buttons }) => {
+  const autoFocusRef = useProvidedRefOrCreate<HTMLButtonElement>(
+    buttons.find((button) => button.autoFocus)?.ref
+  )
   let autoFocusCount = 0
   const [hasRendered, setHasRendered] = useState(0)
   useEffect(() => {
@@ -384,14 +418,23 @@ const Buttons: React.FC<React.PropsWithChildren<{buttons: DialogButtonProps[]}>>
   return (
     <>
       {buttons.map((dialogButtonProps, index) => {
-        const {content, buttonType = 'normal', autoFocus = false, ...buttonProps} = dialogButtonProps
+        const {
+          content,
+          buttonType = 'normal',
+          autoFocus = false,
+          ...buttonProps
+        } = dialogButtonProps
         const ButtonElement = buttonTypes[buttonType]
         return (
           <ButtonElement
             key={index}
             {...buttonProps}
             variant={buttonType}
-            ref={autoFocus && autoFocusCount === 0 ? (autoFocusCount++, autoFocusRef) : null}
+            ref={
+              autoFocus && autoFocusCount === 0
+                ? (autoFocusCount++, autoFocusRef)
+                : null
+            }
           >
             {content}
           </ButtonElement>
@@ -411,7 +454,9 @@ const DialogCloseButton = styled(Button)`
   line-height: normal;
   box-shadow: none;
 `
-const CloseButton: React.FC<React.PropsWithChildren<{onClose: () => void}>> = ({onClose}) => {
+const CloseButton: React.FC<
+  React.PropsWithChildren<{ onClose: () => void }>
+> = ({ onClose }) => {
   return (
     <DialogCloseButton aria-label="Close" onClick={onClose}>
       <StyledOcticon icon={XIcon} />

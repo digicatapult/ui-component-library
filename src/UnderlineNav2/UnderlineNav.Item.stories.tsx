@@ -1,15 +1,19 @@
 import React from 'react'
-import {Meta, Story} from '@storybook/react'
-import {UnderlineNav} from './index'
-import {UnderlineNavItem} from './UnderlineNavItem'
-import {CodeIcon, GitPullRequestIcon, PeopleIcon} from '@primer/octicons-react'
-import {OcticonArgType} from '../utils/story-helpers'
+import { Meta, Story } from '@storybook/react'
+import { UnderlineNav } from './index'
+import { UnderlineNavItem } from './UnderlineNavItem'
+import {
+  CodeIcon,
+  GitPullRequestIcon,
+  PeopleIcon,
+} from '@primer/octicons-react'
+import { OcticonArgType } from '../utils/story-helpers'
 
 export default {
   title: 'Drafts/Components/UnderlineNav/UnderlineNav.Item',
   component: UnderlineNavItem,
   decorators: [
-    Story => {
+    (Story) => {
       return (
         <UnderlineNav aria-label="Repository">
           <Story />
@@ -39,7 +43,7 @@ export default {
   },
 } as Meta<typeof UnderlineNavItem>
 
-export const Playground: Story = args => {
+export const Playground: Story = (args) => {
   return (
     <UnderlineNavItem aria-current="page" {...args}>
       {args.children}

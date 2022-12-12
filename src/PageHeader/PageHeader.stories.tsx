@@ -1,7 +1,16 @@
 import React from 'react'
-import {Meta, Story} from '@storybook/react'
-import {Button, IconButton, Breadcrumbs, Link, Text, StateLabel, BranchName, Box} from '..'
-import {UnderlineNav} from '../UnderlineNav2'
+import { Meta, Story } from '@storybook/react'
+import {
+  Button,
+  IconButton,
+  Breadcrumbs,
+  Link,
+  Text,
+  StateLabel,
+  BranchName,
+  Box,
+} from '..'
+import { UnderlineNav } from '../UnderlineNav2'
 import Label from '../Label'
 import {
   KebabHorizontalIcon,
@@ -17,16 +26,16 @@ import {
   ArrowRightIcon,
   SidebarExpandIcon,
 } from '@primer/octicons-react'
-import {OcticonArgType} from '../utils/story-helpers'
+import { OcticonArgType } from '../utils/story-helpers'
 
-import {PageHeader} from './PageHeader'
+import { PageHeader } from './PageHeader'
 import Hidden from '../Hidden'
 
 const meta: Meta = {
   title: 'Drafts/Components/PageHeader',
   parameters: {
     layout: 'fullscreen',
-    controls: {expanded: true},
+    controls: { expanded: true },
   },
   args: {
     hasContextArea: false,
@@ -52,22 +61,23 @@ const meta: Meta = {
       type: 'boolean',
       table: {
         category: 'ContextArea Slot',
-        type: {summary: 'string'},
+        type: { summary: 'string' },
       },
       description:
         'ContextArea is only visible on narrow viewports by default to provide user context of where they are at their journey.',
     },
     ParentLink: {
       type: 'string',
-      if: {arg: 'hasContextArea'},
+      if: { arg: 'hasContextArea' },
       table: {
         category: 'ContextArea Slot',
       },
-      description: 'The default way to let users navigate up in the hierarchy on Narrow viewports.',
+      description:
+        'The default way to let users navigate up in the hierarchy on Narrow viewports.',
     },
     hasParentLink: {
       type: 'boolean',
-      if: {arg: 'hasContextArea'},
+      if: { arg: 'hasContextArea' },
       table: {
         category: 'ContextArea Slot',
       },
@@ -75,7 +85,7 @@ const meta: Meta = {
     },
     hasContextBar: {
       type: 'boolean',
-      if: {arg: 'hasContextArea'},
+      if: { arg: 'hasContextArea' },
       table: {
         category: 'ContextArea Slot',
       },
@@ -84,7 +94,7 @@ const meta: Meta = {
     },
     hasContextAreaAction: {
       type: 'boolean',
-      if: {arg: 'hasContextArea'},
+      if: { arg: 'hasContextArea' },
       table: {
         category: 'ContextArea Slot',
       },
@@ -183,11 +193,14 @@ const meta: Meta = {
   },
 }
 
-const Template: Story = args => (
-  <Box sx={{padding: 3}}>
+const Template: Story = (args) => (
+  <Box sx={{ padding: 3 }}>
     <PageHeader>
       <PageHeader.ContextArea hidden={!args.hasContextArea}>
-        <PageHeader.ParentLink href="http://github.com" hidden={!args.hasParentLink}>
+        <PageHeader.ParentLink
+          href="http://github.com"
+          hidden={!args.hasParentLink}
+        >
           {args.ParentLink}
         </PageHeader.ParentLink>
 
@@ -206,7 +219,11 @@ const Template: Story = args => (
           <Button size="small" leadingIcon={GitBranchIcon}>
             Main
           </Button>
-          <IconButton size="small" aria-label="More" icon={KebabHorizontalIcon} />
+          <IconButton
+            size="small"
+            aria-label="More"
+            icon={KebabHorizontalIcon}
+          />
         </PageHeader.ContextAreaActions>
       </PageHeader.ContextArea>
       <PageHeader.TitleArea
@@ -219,7 +236,9 @@ const Template: Story = args => (
         <PageHeader.LeadingAction hidden={!args.hasLeadingAction}>
           <IconButton icon={SidebarExpandIcon} variant="invisible" />{' '}
         </PageHeader.LeadingAction>
-        <PageHeader.LeadingVisual hidden={!args.hasLeadingVisual}>{<args.LeadingVisual />}</PageHeader.LeadingVisual>
+        <PageHeader.LeadingVisual hidden={!args.hasLeadingVisual}>
+          {<args.LeadingVisual />}
+        </PageHeader.LeadingVisual>
         <PageHeader.Title as={args['Title.as']} hidden={!args.hasTitle}>
           {args.Title}
         </PageHeader.Title>
@@ -243,16 +262,19 @@ const Template: Story = args => (
       <PageHeader.Description hidden={!args.hasDescription}>
         <StateLabel status="pullOpened">Open</StateLabel>
         <Hidden on={['narrow']}>
-          <Text sx={{fontSize: 1, color: 'fg.muted'}}>
-            <Link href="#" muted sx={{fontWeight: 'bold'}}>
+          <Text sx={{ fontSize: 1, color: 'fg.muted' }}>
+            <Link href="#" muted sx={{ fontWeight: 'bold' }}>
               broccolinisoup
             </Link>{' '}
-            wants to merge 3 commits into <BranchName href="#">main</BranchName> from{' '}
-            <BranchName href="#">broccolinisoup/switch-to-new-underlineNav</BranchName>
+            wants to merge 3 commits into <BranchName href="#">main</BranchName>{' '}
+            from{' '}
+            <BranchName href="#">
+              broccolinisoup/switch-to-new-underlineNav
+            </BranchName>
           </Text>
         </Hidden>
         <Hidden on={['regular', 'wide']}>
-          <Text sx={{fontSize: 1, color: 'fg.muted'}}>
+          <Text sx={{ fontSize: 1, color: 'fg.muted' }}>
             <BranchName href="#">main</BranchName>
             <ArrowRightIcon />
             <BranchName href="#">page-header-initial</BranchName>
@@ -261,7 +283,11 @@ const Template: Story = args => (
       </PageHeader.Description>
       <PageHeader.Navigation hidden={!args.hasNavigation}>
         <UnderlineNav aria-label="Pull Request">
-          <UnderlineNav.Item icon={CommentDiscussionIcon} counter="12" aria-current="page">
+          <UnderlineNav.Item
+            icon={CommentDiscussionIcon}
+            counter="12"
+            aria-current="page"
+          >
             Conversation
           </UnderlineNav.Item>
           <UnderlineNav.Item counter={3} icon={CommitIcon}>

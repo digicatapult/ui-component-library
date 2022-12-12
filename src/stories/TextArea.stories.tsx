@@ -1,8 +1,12 @@
 import React from 'react'
-import {Meta} from '@storybook/react'
+import { Meta } from '@storybook/react'
 
-import {Box, FormControl, Textarea, TextareaProps, ThemeProvider} from '..'
-import {DEFAULT_TEXTAREA_COLS, DEFAULT_TEXTAREA_RESIZE, DEFAULT_TEXTAREA_ROWS} from '../Textarea'
+import { Box, FormControl, Textarea, TextareaProps, ThemeProvider } from '..'
+import {
+  DEFAULT_TEXTAREA_COLS,
+  DEFAULT_TEXTAREA_RESIZE,
+  DEFAULT_TEXTAREA_ROWS,
+} from '../Textarea'
 import {
   FormControlArgs,
   formControlArgTypes,
@@ -14,10 +18,10 @@ export default {
   title: 'Components/Forms/Textarea',
   component: Textarea,
   decorators: [
-    Story => {
+    (Story) => {
       return (
         <ThemeProvider>
-            <Box paddingTop={5}>{Story()}</Box>
+          <Box paddingTop={5}>{Story()}</Box>
         </ThemeProvider>
       )
     },
@@ -33,20 +37,20 @@ export default {
   },
   argTypes: {
     block: {
-      control: {type: 'boolean'},
+      control: { type: 'boolean' },
     },
     cols: {
-      control: {type: 'number'},
+      control: { type: 'number' },
     },
     disabled: {
-      control: {type: 'boolean'},
+      control: { type: 'boolean' },
     },
     resize: {
       options: ['none', 'both', 'horizontal', 'vertical'],
-      control: {type: 'radio'},
+      control: { type: 'radio' },
     },
     rows: {
-      control: {type: 'number'},
+      control: { type: 'number' },
     },
     sx: {
       table: {
@@ -55,22 +59,26 @@ export default {
     },
     validationStatus: {
       options: ['error', 'success', 'warning'],
-      control: {type: 'radio'},
+      control: { type: 'radio' },
     },
     ...formControlArgTypes,
   },
 } as Meta
 
 export const TextareaStory = (args: FormControlArgs<TextareaProps>) => {
-  const {parentArgs, labelArgs, captionArgs, validationArgs} = getFormControlArgsByChildComponent(args)
+  const { parentArgs, labelArgs, captionArgs, validationArgs } =
+    getFormControlArgsByChildComponent(args)
   return (
-    <Box as="form" sx={{p: 3}}>
+    <Box as="form" sx={{ p: 3 }}>
       <FormControl {...parentArgs}>
         <FormControl.Label {...labelArgs} />
         <Textarea id="textarea" {...args} />
         {captionArgs.children && <FormControl.Caption {...captionArgs} />}
         {validationArgs.children && validationArgs.variant && (
-          <FormControl.Validation {...validationArgs} variant={validationArgs.variant} />
+          <FormControl.Validation
+            {...validationArgs}
+            variant={validationArgs.variant}
+          />
         )}
       </FormControl>
     </Box>

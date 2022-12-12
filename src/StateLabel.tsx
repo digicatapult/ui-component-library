@@ -9,11 +9,11 @@ import {
 } from '@primer/octicons-react'
 import React from 'react'
 import styled from 'styled-components'
-import {variant} from 'styled-system'
-import {get} from './constants'
+import { variant } from 'styled-system'
+import { get } from './constants'
 import StyledOcticon from './StyledOcticon'
-import sx, {SxProp} from './sx'
-import {ComponentProps} from './utils/types'
+import sx, { SxProp } from './sx'
+import { ComponentProps } from './utils/types'
 
 const octiconMap = {
   issueOpened: IssueOpenedIcon,
@@ -100,12 +100,23 @@ const StateLabelBase = styled.span<StyledStateLabelBaseProps>`
 
 export type StateLabelProps = ComponentProps<typeof StateLabelBase>
 
-function StateLabel({children, status, variant: variantProp, ...rest}: StateLabelProps) {
-  const octiconProps = variantProp === 'small' ? {width: '1em'} : {}
+function StateLabel({
+  children,
+  status,
+  variant: variantProp,
+  ...rest
+}: StateLabelProps) {
+  const octiconProps = variantProp === 'small' ? { width: '1em' } : {}
   return (
     <StateLabelBase {...rest} variant={variantProp} status={status}>
       {/* eslint-disable-next-line @typescript-eslint/no-unnecessary-condition */}
-      {status && <StyledOcticon {...octiconProps} icon={octiconMap[status] || QuestionIcon} sx={{mr: 1}} />}
+      {status && (
+        <StyledOcticon
+          {...octiconProps}
+          icon={octiconMap[status] || QuestionIcon}
+          sx={{ mr: 1 }}
+        />
+      )}
       {children}
     </StateLabelBase>
   )

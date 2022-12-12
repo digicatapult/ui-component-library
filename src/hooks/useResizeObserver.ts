@@ -1,4 +1,4 @@
-import {RefObject, useRef} from 'react'
+import { RefObject, useRef } from 'react'
 import useLayoutEffect from '../utils/useIsomorphicLayoutEffect'
 
 // https://gist.github.com/strothj/708afcf4f01dd04de8f49c92e88093c3
@@ -21,7 +21,7 @@ export function useResizeObserver<T extends HTMLElement>(callback: ResizeObserve
       return
     }
 
-    const observer = new ResizeObserver(entries => {
+    const observer = new ResizeObserver((entries) => {
       savedCallback.current(entries)
     })
 

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import {variant} from 'styled-system'
-import sx, {SxProp, BetterSystemStyleObject} from './sx'
-import {get} from './constants'
+import { variant } from 'styled-system'
+import sx, { SxProp, BetterSystemStyleObject } from './sx'
+import { get } from './constants'
 
 export type LabelProps = {
   /** The color of the label */
@@ -87,8 +87,8 @@ const Label = styled.span<LabelProps>`
   font-size: ${get('fontSizes.0')};
   line-height: 1;
   white-space: nowrap;
-  ${variant({variants})};
-  ${variant({prop: 'size', variants: sizes})};
+  ${variant({ variants })};
+  ${variant({ prop: 'size', variants: sizes })};
   ${sx};
 `
 

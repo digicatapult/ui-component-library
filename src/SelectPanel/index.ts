@@ -1,2 +1,2 @@
-export {SelectPanel} from './SelectPanel'
-export type {SelectPanelProps} from './SelectPanel'
+export { SelectPanel } from './SelectPanel'
+export type { SelectPanelProps } from './SelectPanel'

@@ -1,14 +1,14 @@
 import React from 'react'
-import {Meta, Story} from '@storybook/react'
-import {UnderlineNav} from './index'
-import {UnderlineNavItem} from './UnderlineNavItem'
+import { Meta, Story } from '@storybook/react'
+import { UnderlineNav } from './index'
+import { UnderlineNavItem } from './UnderlineNavItem'
 
 const excludedControlKeys = ['sx', 'as', 'variant', 'align', 'afterSelect']
 
 export default {
   title: 'Drafts/Components/UnderlineNav',
   component: UnderlineNav,
-  subcomponents: {UnderlineNavItem},
+  subcomponents: { UnderlineNavItem },
   parameters: {
     controls: {
       expanded: true,
@@ -35,12 +35,16 @@ export default {
   },
 } as Meta<typeof UnderlineNav>
 
-export const Playground: Story = args => {
+export const Playground: Story = (args) => {
   const children = ['Code', 'Pull requests', 'Actions', 'Projects', 'Wiki']
   return (
     <UnderlineNav {...args}>
       {children.map((child: string, index: number) => (
-        <UnderlineNavItem key={index} href="#" aria-current={index === 0 ? 'page' : undefined}>
+        <UnderlineNavItem
+          key={index}
+          href="#"
+          aria-current={index === 0 ? 'page' : undefined}
+        >
           {child}
         </UnderlineNavItem>
       ))}

@@ -3,7 +3,7 @@ export function buildPaginationModel(
   currentPage: number,
   showPages: boolean,
   marginPageCount: number,
-  surroundingPageCount: number,
+  surroundingPageCount: number
 ) {
   const pages = []
 
@@ -114,8 +114,16 @@ export function buildPaginationModel(
     }
   }
 
-  const prev = {type: 'PREV', num: currentPage - 1, disabled: currentPage === 1}
-  const next = {type: 'NEXT', num: currentPage + 1, disabled: currentPage === pageCount}
+  const prev = {
+    type: 'PREV',
+    num: currentPage - 1,
+    disabled: currentPage === 1,
+  }
+  const next = {
+    type: 'NEXT',
+    num: currentPage + 1,
+    disabled: currentPage === pageCount,
+  }
   return [prev, ...pages, next]
 }
 
@@ -129,7 +137,7 @@ type PageType = {
 export function buildComponentData(
   page: PageType,
   hrefBuilder: (n: number) => string,
-  onClick: (e: React.MouseEvent) => void,
+  onClick: (e: React.MouseEvent) => void
 ) {
   const props = {}
   let content = ''
@@ -140,7 +148,7 @@ export function buildComponentData(
       key = 'page-prev'
       content = 'Previous'
       if (page.disabled) {
-        Object.assign(props, {as: 'span', 'aria-disabled': 'true'})
+        Object.assign(props, { as: 'span', 'aria-disabled': 'true' })
       } else {
         Object.assign(props, {
           rel: 'prev',
@@ -155,7 +163,7 @@ export function buildComponentData(
       key = 'page-next'
       content = 'Next'
       if (page.disabled) {
-        Object.assign(props, {as: 'span', 'aria-disabled': 'true'})
+        Object.assign(props, { as: 'span', 'aria-disabled': 'true' })
       } else {
         Object.assign(props, {
           rel: 'next',
@@ -170,18 +178,22 @@ export function buildComponentData(
       key = `page-${page.num}`
       content = String(page.num)
       if (page.selected) {
-        Object.assign(props, {as: 'em', 'aria-current': 'page'})
+        Object.assign(props, { as: 'em', 'aria-current': 'page' })
       } else {
-        Object.assign(props, {href: hrefBuilder(page.num), 'aria-label': `Page ${page.num}`, onClick})
+        Object.assign(props, {
+          href: hrefBuilder(page.num),
+          'aria-label': `Page ${page.num}`,
+          onClick,
+        })
       }
       break
     }
     case 'BREAK': {
       key = `page-${page.num}-break`
       content = '…'
-      Object.assign(props, {as: 'span', 'aria-disabled': true})
+      Object.assign(props, { as: 'span', 'aria-disabled': true })
     }
   }
 
-  return {props, key, content}
+  return { props, key, content }
 }

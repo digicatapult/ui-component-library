@@ -1,9 +1,9 @@
 import classnames from 'classnames'
 import React from 'react'
 import styled from 'styled-components'
-import {get} from './constants'
+import { get } from './constants'
 import Box from './Box'
-import sx, {SxProp} from './sx'
+import sx, { SxProp } from './sx'
 
 type StyledAvatarStackWrapperProps = {
   count?: number
@@ -13,7 +13,8 @@ const AvatarStackWrapper = styled.span<StyledAvatarStackWrapperProps>`
   display: flex;
   position: relative;
   height: 20px;
-  min-width: ${props => (props.count === 1 ? '20px' : props.count === 2 ? '30px' : '38px')};
+  min-width: ${(props) =>
+    props.count === 1 ? '20px' : props.count === 2 ? '30px' : '38px'};
 
   .pc-AvatarItem {
     flex-shrink: 0;
@@ -22,8 +23,8 @@ const AvatarStackWrapper = styled.span<StyledAvatarStackWrapperProps>`
     box-shadow: 0 0 0 1px ${get('colors.canvas.default')};
     position: relative;
     overflow: hidden;
-    transition: margin 0.2s ease-in-out, opacity 0.2s ease-in-out, visibility 0.2s ease-in-out,
-      box-shadow 0.1s ease-in-out;
+    transition: margin 0.2s ease-in-out, opacity 0.2s ease-in-out,
+      visibility 0.2s ease-in-out, box-shadow 0.1s ease-in-out;
 
     &:first-child {
       margin-left: 0;
@@ -116,7 +117,7 @@ const AvatarStackWrapper = styled.span<StyledAvatarStackWrapperProps>`
   ${sx};
 `
 const transformChildren = (children: React.ReactNode) => {
-  return React.Children.map(children, child => {
+  return React.Children.map(children, (child) => {
     if (!React.isValidElement(child)) return child
     return React.cloneElement(child, {
       ...child.props,
@@ -130,7 +131,11 @@ export type AvatarStackProps = {
   children: React.ReactNode
 } & SxProp
 
-const AvatarStack = ({children, alignRight, sx: sxProp}: AvatarStackProps) => {
+const AvatarStack = ({
+  children,
+  alignRight,
+  sx: sxProp,
+}: AvatarStackProps) => {
   const count = React.Children.count(children)
   const wrapperClassNames = classnames({
     'pc-AvatarStack--two': count === 2,
@@ -139,7 +144,12 @@ const AvatarStack = ({children, alignRight, sx: sxProp}: AvatarStackProps) => {
   })
   return (
     <AvatarStackWrapper count={count} className={wrapperClassNames} sx={sxProp}>
-      <Box position="absolute" display="flex" width="38px" className="pc-AvatarStackBody">
+      <Box
+        position="absolute"
+        display="flex"
+        width="38px"
+        className="pc-AvatarStackBody"
+      >
         {transformChildren(children)}
       </Box>
     </AvatarStackWrapper>

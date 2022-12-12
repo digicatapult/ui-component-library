@@ -1,16 +1,26 @@
-import {FocusKeys} from '@primer/behaviors'
-import {isFocusable} from '@primer/behaviors/utils'
-import {omit} from '@styled-system/props'
-import React, {FocusEventHandler, KeyboardEventHandler, MouseEventHandler, RefObject, useRef, useState} from 'react'
+import { FocusKeys } from '@primer/behaviors'
+import { isFocusable } from '@primer/behaviors/utils'
+import { omit } from '@styled-system/props'
+import React, {
+  FocusEventHandler,
+  KeyboardEventHandler,
+  MouseEventHandler,
+  RefObject,
+  useRef,
+  useState,
+} from 'react'
 import Box from './Box'
-import {useRefObjectAsForwardedRef} from './hooks/useRefObjectAsForwardedRef'
-import {useFocusZone} from './hooks/useFocusZone'
+import { useRefObjectAsForwardedRef } from './hooks/useRefObjectAsForwardedRef'
+import { useFocusZone } from './hooks/useFocusZone'
 import Text from './Text'
-import {TextInputProps} from './TextInput'
+import { TextInputProps } from './TextInput'
 import Token from './Token/Token'
-import {TokenSizeKeys} from './Token/TokenBase'
+import { TokenSizeKeys } from './Token/TokenBase'
 import TextInputInnerVisualSlot from './_TextInputInnerVisualSlot'
-import TextInputWrapper, {textInputHorizPadding, TextInputSizes} from './_TextInputWrapper'
+import TextInputWrapper, {
+  textInputHorizPadding,
+  TextInputSizes,
+} from './_TextInputWrapper'
 import UnstyledTextInput from './_UnstyledTextInput'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -18,11 +28,15 @@ type AnyReactComponent = React.ComponentType<React.PropsWithChildren<any>>
 
 // NOTE: if these props or their JSDoc comments are updated, be sure to also update
 // the prop table in docs/content/TextInputTokens.mdx
-export type TextInputWithTokensProps<TokenComponentType extends AnyReactComponent = typeof Token> = {
+export type TextInputWithTokensProps<
+  TokenComponentType extends AnyReactComponent = typeof Token
+> = {
   /**
    * The array of tokens to render
    */
-  tokens: TokenComponentType extends React.ComponentType<React.PropsWithChildren<infer TokenProps>>
+  tokens: TokenComponentType extends React.ComponentType<
+    React.PropsWithChildren<infer TokenProps>
+  >
     ? TokenProps[]
     : never
   /**
@@ -65,7 +79,9 @@ const overflowCountFontSizeMap: Record<TokenSizeKeys, number> = {
 }
 
 // using forwardRef is important so that other components (ex. Autocomplete) can use the ref
-function TextInputWithTokensInnerComponent<TokenComponentType extends AnyReactComponent>(
+function TextInputWithTokensInnerComponent<
+  TokenComponentType extends AnyReactComponent
+>(
   {
     icon: IconComponent,
     leadingVisual: LeadingVisual,
@@ -92,21 +108,25 @@ function TextInputWithTokensInnerComponent<TokenComponentType extends AnyReactCo
     visibleTokenCount,
     ...rest
   }: TextInputWithTokensProps<TokenComponentType>,
-  forwardedRef: React.ForwardedRef<HTMLInputElement>,
+  forwardedRef: React.ForwardedRef<HTMLInputElement>
 ) {
-  const {onBlur, onFocus, onKeyDown, ...inputPropsRest} = omit(rest)
+  const { onBlur, onFocus, onKeyDown, ...inputPropsRest } = omit(rest)
   const ref = useRef<HTMLInputElement>(null)
   useRefObjectAsForwardedRef(forwardedRef, ref)
-  const [selectedTokenIndex, setSelectedTokenIndex] = useState<number | undefined>()
-  const [tokensAreTruncated, setTokensAreTruncated] = useState<boolean>(Boolean(visibleTokenCount))
-  const {containerRef} = useFocusZone(
+  const [selectedTokenIndex, setSelectedTokenIndex] = useState<
+    number | undefined
+  >()
+  const [tokensAreTruncated, setTokensAreTruncated] = useState<boolean>(
+    Boolean(visibleTokenCount)
+  )
+  const { containerRef } = useFocusZone(
     {
       focusOutBehavior: 'wrap',
       bindKeys: FocusKeys.ArrowHorizontal | FocusKeys.HomeAndEnd,
-      focusableElementFilter: element => {
+      focusableElementFilter: (element) => {
         return !element.getAttributeNames().includes('aria-hidden')
       },
-      getNextFocusable: direction => {
+      getNextFocusable: (direction) => {
         if (!selectedTokenIndex && selectedTokenIndex !== 0) {
           return undefined
         }
@@ -128,7 +148,7 @@ function TextInputWithTokensInnerComponent<TokenComponentType extends AnyReactCo
         return containerRef.current?.children[nextIndex] as HTMLElement
       },
     },
-    [selectedTokenIndex],
+    [selectedTokenIndex]
   )
 
   const handleTokenRemove = (tokenId: string | number) => {
@@ -136,14 +156,18 @@ function TextInputWithTokensInnerComponent<TokenComponentType extends AnyReactCo
 
     // HACK: wait a tick for the token node to be removed from the DOM
     setTimeout(() => {
-      const nextElementToFocus = containerRef.current?.children[selectedTokenIndex || 0] as HTMLElement | undefined
+      const nextElementToFocus = containerRef.current?.children[
+        selectedTokenIndex || 0
+      ] as HTMLElement | undefined
 
       // when removing the first token by keying "Backspace" or "Delete",
       // `nextFocusableElement` is the div that wraps the input
       const firstFocusable =
         nextElementToFocus && isFocusable(nextElementToFocus)
           ? nextElementToFocus
-          : (Array.from(containerRef.current?.children || []) as HTMLElement[]).find(el => isFocusable(el))
+          : (
+              Array.from(containerRef.current?.children || []) as HTMLElement[]
+            ).find((el) => isFocusable(el))
 
       if (firstFocusable) {
         firstFocusable.focus()
@@ -154,9 +178,10 @@ function TextInputWithTokensInnerComponent<TokenComponentType extends AnyReactCo
     }, 0)
   }
 
-  const handleTokenFocus: (tokenIndex: number) => FocusEventHandler = tokenIndex => () => {
-    setSelectedTokenIndex(tokenIndex)
-  }
+  const handleTokenFocus: (tokenIndex: number) => FocusEventHandler =
+    (tokenIndex) => () => {
+      setSelectedTokenIndex(tokenIndex)
+    }
 
   const handleTokenBlur: FocusEventHandler = () => {
     setSelectedTokenIndex(undefined)
@@ -165,38 +190,44 @@ function TextInputWithTokensInnerComponent<TokenComponentType extends AnyReactCo
     // this prevents the tokens from hiding when the user is moving focus between tokens,
     // but still hides the tokens when the user blurs the token by tabbing out or clicking somewhere else on the page
     setTimeout(() => {
-      if (!containerRef.current?.contains(document.activeElement) && visibleTokenCount) {
+      if (
+        !containerRef.current?.contains(document.activeElement) &&
+        visibleTokenCount
+      ) {
         setTokensAreTruncated(true)
       }
     }, 0)
   }
 
-  const handleTokenKeyUp: KeyboardEventHandler = event => {
+  const handleTokenKeyUp: KeyboardEventHandler = (event) => {
     if (event.key === 'Escape') {
       ref.current?.focus()
     }
   }
 
-  const handleInputFocus: FocusEventHandler = event => {
+  const handleInputFocus: FocusEventHandler = (event) => {
     onFocus && onFocus(event)
     setSelectedTokenIndex(undefined)
     visibleTokenCount && setTokensAreTruncated(false)
   }
 
-  const handleInputBlur: FocusEventHandler = event => {
+  const handleInputBlur: FocusEventHandler = (event) => {
     onBlur && onBlur(event)
 
     // HACK: wait a tick and check the focused element before hiding truncated tokens
     // this prevents the tokens from hiding when the user is moving focus from the input to a token,
     // but still hides the tokens when the user blurs the input by tabbing out or clicking somewhere else on the page
     setTimeout(() => {
-      if (!containerRef.current?.contains(document.activeElement) && visibleTokenCount) {
+      if (
+        !containerRef.current?.contains(document.activeElement) &&
+        visibleTokenCount
+      ) {
         setTokensAreTruncated(true)
       }
     }, 0)
   }
 
-  const handleInputKeyDown: KeyboardEventHandler = e => {
+  const handleInputKeyDown: KeyboardEventHandler = (e) => {
     if (onKeyDown) {
       onKeyDown(e)
     }
@@ -231,11 +262,13 @@ function TextInputWithTokensInnerComponent<TokenComponentType extends AnyReactCo
     ref.current?.focus()
   }
 
-  const preventTokenClickPropagation: MouseEventHandler = event => {
+  const preventTokenClickPropagation: MouseEventHandler = (event) => {
     event.stopPropagation()
   }
 
-  const visibleTokens = tokensAreTruncated ? tokens.slice(0, visibleTokenCount) : tokens
+  const visibleTokens = tokensAreTruncated
+    ? tokens.slice(0, visibleTokenCount)
+    : tokens
   const inputSizeMap: Record<TokenSizeKeys, TextInputSizes> = {
     small: 'small',
     medium: 'small',
@@ -244,9 +277,13 @@ function TextInputWithTokensInnerComponent<TokenComponentType extends AnyReactCo
     xlarge: 'medium', // will eventually replace "extralarge" per this ADR: https://github.com/github/primer/blob/main/adrs/2022-02-09-size-naming-guidelines.md
   }
   const showLeadingLoadingIndicator =
-    loading && (loaderPosition === 'leading' || Boolean(LeadingVisual && loaderPosition !== 'trailing'))
+    loading &&
+    (loaderPosition === 'leading' ||
+      Boolean(LeadingVisual && loaderPosition !== 'trailing'))
   const showTrailingLoadingIndicator =
-    loading && (loaderPosition === 'trailing' || (loaderPosition === 'auto' && !LeadingVisual))
+    loading &&
+    (loaderPosition === 'trailing' ||
+      (loaderPosition === 'auto' && !LeadingVisual))
 
   return (
     <TextInputWrapper
@@ -255,7 +292,9 @@ function TextInputWithTokensInnerComponent<TokenComponentType extends AnyReactCo
       contrast={contrast}
       disabled={disabled}
       hasLeadingVisual={Boolean(LeadingVisual || showLeadingLoadingIndicator)}
-      hasTrailingVisual={Boolean(TrailingVisual || showTrailingLoadingIndicator)}
+      hasTrailingVisual={Boolean(
+        TrailingVisual || showTrailingLoadingIndicator
+      )}
       width={widthProp}
       minWidth={minWidthProp}
       maxWidth={maxWidthProp}
@@ -289,13 +328,19 @@ function TextInputWithTokensInnerComponent<TokenComponentType extends AnyReactCo
         ...sxProp,
       }}
     >
-      {IconComponent && !LeadingVisual && <IconComponent className="TextInput-icon" />}
+      {IconComponent && !LeadingVisual && (
+        <IconComponent className="TextInput-icon" />
+      )}
       <TextInputInnerVisualSlot
         hasLoadingIndicator={typeof loading === 'boolean'}
         visualPosition="leading"
         showLoadingIndicator={showLeadingLoadingIndicator}
       >
-        {typeof LeadingVisual === 'function' ? <LeadingVisual /> : LeadingVisual}
+        {typeof LeadingVisual === 'function' ? (
+          <LeadingVisual />
+        ) : (
+          LeadingVisual
+        )}
       </TextInputInnerVisualSlot>
       <Box
         ref={containerRef as RefObject<HTMLDivElement>}
@@ -327,13 +372,13 @@ function TextInputWithTokensInnerComponent<TokenComponentType extends AnyReactCo
             onBlur={handleInputBlur}
             onKeyDown={handleInputKeyDown}
             type="text"
-            sx={{height: '100%'}}
+            sx={{ height: '100%' }}
             aria-invalid={validationStatus === 'error' ? 'true' : 'false'}
             {...inputPropsRest}
           />
         </Box>
         {TokenComponent
-          ? visibleTokens.map(({id, ...tokenRest}, i) => (
+          ? visibleTokens.map(({ id, ...tokenRest }, i) => (
               <TokenComponent
                 key={id}
                 onFocus={handleTokenFocus(i)}
@@ -352,7 +397,10 @@ function TextInputWithTokensInnerComponent<TokenComponentType extends AnyReactCo
             ))
           : null}
         {tokensAreTruncated && tokens.length - visibleTokens.length ? (
-          <Text color="fg.muted" fontSize={size && overflowCountFontSizeMap[size]}>
+          <Text
+            color="fg.muted"
+            fontSize={size && overflowCountFontSizeMap[size]}
+          >
             +{tokens.length - visibleTokens.length}
           </Text>
         ) : null}
@@ -362,7 +410,11 @@ function TextInputWithTokensInnerComponent<TokenComponentType extends AnyReactCo
         visualPosition="trailing"
         showLoadingIndicator={showTrailingLoadingIndicator}
       >
-        {typeof TrailingVisual === 'function' ? <TrailingVisual /> : TrailingVisual}
+        {typeof TrailingVisual === 'function' ? (
+          <TrailingVisual />
+        ) : (
+          TrailingVisual
+        )}
       </TextInputInnerVisualSlot>
     </TextInputWrapper>
   )

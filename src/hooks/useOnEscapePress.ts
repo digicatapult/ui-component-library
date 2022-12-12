@@ -1,4 +1,4 @@
-import {useEffect, useCallback, useMemo} from 'react'
+import { useEffect, useCallback, useMemo } from 'react'
 
 /**
  * Calls all handlers in reverse order
@@ -16,7 +16,7 @@ function handleEscape(event: KeyboardEvent) {
 
 type KeyboardEventCallback = (event: KeyboardEvent) => void
 
-const registry: {[id: number]: KeyboardEventCallback} = {}
+const registry: { [id: number]: KeyboardEventCallback } = {}
 
 function register(id: number, handler: KeyboardEventCallback): void {
   registry[id] = handler
@@ -52,16 +52,16 @@ let handlerId = 0
  */
 export const useOnEscapePress = (
   onEscape: (e: KeyboardEvent) => void,
-  callbackDependencies: React.DependencyList = [onEscape],
+  callbackDependencies: React.DependencyList = [onEscape]
 ): void => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const escapeCallback = useCallback(onEscape, callbackDependencies)
 
   const handler = useCallback<KeyboardEventCallback>(
-    event => {
+    (event) => {
       if (event.key === 'Escape') escapeCallback(event)
     },
-    [escapeCallback],
+    [escapeCallback]
   )
 
   const id = useMemo(() => handlerId++, [])

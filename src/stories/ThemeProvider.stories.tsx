@@ -1,14 +1,14 @@
 import React from 'react'
-import {Meta, Story} from '@storybook/react'
+import { Meta, Story } from '@storybook/react'
 
-import {ThemeProvider, BaseStyles, Box, themeGet, useTheme} from '..'
-import {ThemeProviderProps} from '../ThemeProvider'
-import {createGlobalStyle} from 'styled-components'
+import { ThemeProvider, BaseStyles, Box, themeGet, useTheme } from '..'
+import { ThemeProviderProps } from '../ThemeProvider'
+import { createGlobalStyle } from 'styled-components'
 
 export default {
   title: 'Behaviors/ThemeProvider',
   component: ThemeProvider,
-  parameters: {disableThemeDecorator: true},
+  parameters: { disableThemeDecorator: true },
   argTypes: {
     theme: {
       table: {
@@ -25,11 +25,11 @@ const GlobalStyle = createGlobalStyle`
 `
 
 function ActiveColorScheme() {
-  const {colorScheme} = useTheme()
+  const { colorScheme } = useTheme()
   return <span>Active color scheme: {colorScheme}</span>
 }
 
-export const Default: Story<ThemeProviderProps> = args => {
+export const Default: Story<ThemeProviderProps> = (args) => {
   return (
     <ThemeProvider {...args}>
       <GlobalStyle />
@@ -66,7 +66,7 @@ function NightMode() {
 }
 
 function InverseMode() {
-  const {resolvedColorMode} = useTheme()
+  const { resolvedColorMode } = useTheme()
   return (
     <ThemeProvider colorMode={resolvedColorMode === 'day' ? 'night' : 'day'}>
       <Box
@@ -85,7 +85,7 @@ function InverseMode() {
   )
 }
 
-export const Nested: Story<ThemeProviderProps> = args => {
+export const Nested: Story<ThemeProviderProps> = (args) => {
   return (
     <ThemeProvider {...args}>
       <GlobalStyle />
@@ -99,10 +99,12 @@ export const Nested: Story<ThemeProviderProps> = args => {
 }
 
 const AutoContents = () => {
-  const {colorMode, resolvedColorMode} = useTheme()
+  const { colorMode, resolvedColorMode } = useTheme()
 
   return (
-    <Box sx={{padding: 10, backgroundColor: 'canvas.inset', color: 'fg.default'}}>
+    <Box
+      sx={{ padding: 10, backgroundColor: 'canvas.inset', color: 'fg.default' }}
+    >
       colorMode: {colorMode} <br />
       resolvedColorMode: {resolvedColorMode} <br />
     </Box>

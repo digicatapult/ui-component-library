@@ -1,16 +1,18 @@
-import {IconProps} from '@primer/octicons-react'
+import { IconProps } from '@primer/octicons-react'
 import React from 'react'
-import Box, {BoxProps} from './Box'
+import Box, { BoxProps } from './Box'
 
 export type CircleOcticonProps = {
   as?: React.ElementType
   size?: number
-  icon: React.ComponentType<React.PropsWithChildren<{size?: IconProps['size']}>>
+  icon: React.ComponentType<
+    React.PropsWithChildren<{ size?: IconProps['size'] }>
+  >
 } & BoxProps
 
 function CircleOcticon(props: CircleOcticonProps) {
-  const {size, as} = props
-  const {icon: IconComponent, bg, ...rest} = props
+  const { size, as } = props
+  const { icon: IconComponent, bg, ...rest } = props
   return (
     <Box
       as={as}

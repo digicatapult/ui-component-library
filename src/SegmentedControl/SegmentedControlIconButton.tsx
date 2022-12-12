@@ -1,8 +1,11 @@
-import React, {ButtonHTMLAttributes} from 'react'
-import {IconProps} from '@primer/octicons-react'
+import React, { ButtonHTMLAttributes } from 'react'
+import { IconProps } from '@primer/octicons-react'
 import styled from 'styled-components'
-import sx, {merge, SxProp} from '../sx'
-import {getSegmentedControlButtonStyles, getSegmentedControlListItemStyles} from './getSegmentedControlStyles'
+import sx, { merge, SxProp } from '../sx'
+import {
+  getSegmentedControlButtonStyles,
+  getSegmentedControlListItemStyles,
+} from './getSegmentedControlStyles'
 import Tooltip from '../Tooltip'
 import Box from '../Box'
 
@@ -27,7 +30,9 @@ const SegmentedControlIconButtonStyled = styled.button`
 //
 // See Slack thread: https://github.slack.com/archives/C02NUUQ9C30/p1656444474509599
 //
-export const SegmentedControlIconButton: React.FC<React.PropsWithChildren<SegmentedControlIconButtonProps>> = ({
+export const SegmentedControlIconButton: React.FC<
+  React.PropsWithChildren<SegmentedControlIconButtonProps>
+> = ({
   'aria-label': ariaLabel,
   icon: Icon,
   selected,
@@ -39,7 +44,7 @@ export const SegmentedControlIconButton: React.FC<React.PropsWithChildren<Segmen
       width: '32px', // TODO: use primitive `control.medium.size` when it is available
       ...getSegmentedControlListItemStyles(),
     },
-    sxProp as SxProp,
+    sxProp as SxProp
   )
 
   return (
@@ -47,7 +52,7 @@ export const SegmentedControlIconButton: React.FC<React.PropsWithChildren<Segmen
       <Tooltip text={ariaLabel}>
         <SegmentedControlIconButtonStyled
           aria-pressed={selected}
-          sx={getSegmentedControlButtonStyles({selected, isIconOnly: true})}
+          sx={getSegmentedControlButtonStyles({ selected, isIconOnly: true })}
           {...rest}
         >
           <span className="segmentedControl-content">

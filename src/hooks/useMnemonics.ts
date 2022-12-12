@@ -1,6 +1,6 @@
 import React from 'react'
-import {iterateFocusableElements} from '@primer/behaviors/utils'
-import {useProvidedRefOrCreate} from './useProvidedRefOrCreate'
+import { iterateFocusableElements } from '@primer/behaviors/utils'
+import { useProvidedRefOrCreate } from './useProvidedRefOrCreate'
 
 /*
  * A mnemonic indicates to the user which key to press (single)
@@ -18,7 +18,7 @@ export const useMnemonics = (open: boolean, providedRef?: React.RefObject<HTMLEl
 
       const focusableItems = [...iterateFocusableElements(container)]
 
-      focusableItems.map(item => {
+      focusableItems.map((item) => {
         // if item already has aria-keyshortcuts defined by user, skip
         if (item.getAttribute('aria-keyshortcuts')) return
 
@@ -26,7 +26,7 @@ export const useMnemonics = (open: boolean, providedRef?: React.RefObject<HTMLEl
         if (firstLetter) item.setAttribute('aria-keyshortcuts', firstLetter)
       })
     },
-    [open, containerRef],
+    [open, containerRef]
   )
 
   React.useEffect(
@@ -55,11 +55,11 @@ export const useMnemonics = (open: boolean, providedRef?: React.RefObject<HTMLEl
 
         const focusableItems = [...iterateFocusableElements(container)]
 
-        const itemsMatchingKey = focusableItems.filter(item => {
+        const itemsMatchingKey = focusableItems.filter((item) => {
           const keyshortcuts = item
             .getAttribute('aria-keyshortcuts')
             ?.split(' ')
-            .map(shortcut => shortcut.toLowerCase())
+            .map((shortcut) => shortcut.toLowerCase())
           return keyshortcuts && keyshortcuts.includes(query)
         })
 
@@ -79,12 +79,12 @@ export const useMnemonics = (open: boolean, providedRef?: React.RefObject<HTMLEl
       container.addEventListener('keydown', handler)
       return () => container.removeEventListener('keydown', handler)
     },
-    [open, containerRef],
+    [open, containerRef]
   )
 
   const isAlphabetKey = (event: KeyboardEvent) => {
     return event.key.length === 1 && /[a-z\d]/i.test(event.key)
   }
 
-  return {containerRef}
+  return { containerRef }
 }

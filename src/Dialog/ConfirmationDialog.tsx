@@ -1,12 +1,17 @@
-import React, {useCallback} from 'react'
+import React, { useCallback } from 'react'
 import ReactDOM from 'react-dom'
 import styled from 'styled-components'
 import Box from '../Box'
-import {ThemeProvider, useTheme, ThemeProviderProps} from '../ThemeProvider'
-import {FocusKeys} from '@primer/behaviors'
-import {get} from '../constants'
-import {Dialog, DialogProps, DialogHeaderProps, DialogButtonProps} from '../Dialog/Dialog'
-import {useFocusZone} from '../hooks/useFocusZone'
+import { ThemeProvider, useTheme, ThemeProviderProps } from '../ThemeProvider'
+import { FocusKeys } from '@primer/behaviors'
+import { get } from '../constants'
+import {
+  Dialog,
+  DialogProps,
+  DialogHeaderProps,
+  DialogButtonProps,
+} from '../Dialog/Dialog'
+import { useFocusZone } from '../hooks/useFocusZone'
 
 /**
  * Props to customize the ConfirmationDialog.
@@ -16,7 +21,9 @@ export interface ConfirmationDialogProps {
    * Required. This callback is invoked when a gesture to close the dialog
    * is performed. The first argument indicates the gesture.
    */
-  onClose: (gesture: 'confirm' | 'cancel' | 'close-button' | 'cancel' | 'escape') => void
+  onClose: (
+    gesture: 'confirm' | 'cancel' | 'close-button' | 'cancel' | 'escape'
+  ) => void
 
   /**
    * Required. The title of the ConfirmationDialog. This is usually a brief
@@ -45,14 +52,16 @@ const StyledConfirmationHeader = styled.div`
   display: flex;
   flex-direction: row;
 `
-const StyledTitle = styled(Box).attrs({as: 'h1'})`
+const StyledTitle = styled(Box).attrs({ as: 'h1' })`
   font-size: ${get('fontSizes.3')};
   font-weight: ${get('fontWeights.bold')};
   padding: 6px ${get('space.2')};
   flex-grow: 1;
   margin: 0; /* override default margin */
 `
-const ConfirmationHeader: React.FC<React.PropsWithChildren<DialogHeaderProps>> = ({title, onClose, dialogLabelId}) => {
+const ConfirmationHeader: React.FC<
+  React.PropsWithChildren<DialogHeaderProps>
+> = ({ title, onClose, dialogLabelId }) => {
   const onCloseClick = useCallback(() => {
     onClose('close-button')
   }, [onClose])
@@ -69,7 +78,9 @@ const StyledConfirmationBody = styled(Box)`
   color: ${get('colors.fg.muted')};
   flex-grow: 1;
 `
-const ConfirmationBody: React.FC<React.PropsWithChildren<DialogProps>> = ({children}) => {
+const ConfirmationBody: React.FC<React.PropsWithChildren<DialogProps>> = ({
+  children,
+}) => {
   return <StyledConfirmationBody>{children}</StyledConfirmationBody>
 }
 const StyledConfirmationFooter = styled(Box)`
@@ -81,14 +92,18 @@ const StyledConfirmationFooter = styled(Box)`
   justify-content: end;
   padding: ${get('space.1')} ${get('space.3')} ${get('space.3')};
 `
-const ConfirmationFooter: React.FC<React.PropsWithChildren<DialogProps>> = ({footerButtons}) => {
-  const {containerRef: footerRef} = useFocusZone({
+const ConfirmationFooter: React.FC<React.PropsWithChildren<DialogProps>> = ({
+  footerButtons,
+}) => {
+  const { containerRef: footerRef } = useFocusZone({
     bindKeys: FocusKeys.ArrowHorizontal | FocusKeys.Tab,
     focusInStrategy: 'closest',
   })
   // Must have exactly 2 buttons!
   return (
-    <StyledConfirmationFooter ref={footerRef as React.RefObject<HTMLDivElement>}>
+    <StyledConfirmationFooter
+      ref={footerRef as React.RefObject<HTMLDivElement>}
+    >
       <Dialog.Buttons buttons={footerButtons ?? []} />
     </StyledConfirmationFooter>
   )
@@ -100,7 +115,9 @@ const ConfirmationFooter: React.FC<React.PropsWithChildren<DialogProps>> = ({foo
  * two buttons: one to cancel the action and one to confirm it. No custom
  * rendering capabilities are provided for ConfirmationDialog.
  */
-export const ConfirmationDialog: React.FC<React.PropsWithChildren<ConfirmationDialogProps>> = props => {
+export const ConfirmationDialog: React.FC<
+  React.PropsWithChildren<ConfirmationDialogProps>
+> = (props) => {
   const {
     onClose,
     title,
@@ -145,12 +162,17 @@ export const ConfirmationDialog: React.FC<React.PropsWithChildren<ConfirmationDi
   )
 }
 
-export type ConfirmOptions = Omit<ConfirmationDialogProps, 'onClose'> & {content: React.ReactNode}
-async function confirm(themeProps: ThemeProviderProps, options: ConfirmOptions): Promise<boolean> {
-  const {content, ...confirmationDialogProps} = options
-  return new Promise(resolve => {
+export type ConfirmOptions = Omit<ConfirmationDialogProps, 'onClose'> & {
+  content: React.ReactNode
+}
+async function confirm(
+  themeProps: ThemeProviderProps,
+  options: ConfirmOptions
+): Promise<boolean> {
+  const { content, ...confirmationDialogProps } = options
+  return new Promise((resolve) => {
     const hostElement = document.createElement('div')
-    const onClose: ConfirmationDialogProps['onClose'] = gesture => {
+    const onClose: ConfirmationDialogProps['onClose'] = (gesture) => {
       ReactDOM.unmountComponentAtNode(hostElement)
       if (gesture === 'confirm') {
         resolve(true)
@@ -164,7 +186,7 @@ async function confirm(themeProps: ThemeProviderProps, options: ConfirmOptions):
           {content}
         </ConfirmationDialog>
       </ThemeProvider>,
-      hostElement,
+      hostElement
     )
   })
 }
@@ -175,13 +197,18 @@ async function confirm(themeProps: ThemeProviderProps, options: ConfirmOptions):
  * resolved with `true` or `false` depending on whether or not the confirm button was used.
  */
 export function useConfirm() {
-  const {theme, colorMode, dayScheme, nightScheme} = useTheme()
+  const { theme, colorMode, dayScheme, nightScheme } = useTheme()
   const result = useCallback(
     (options: ConfirmOptions) => {
-      const themeProps: ThemeProviderProps = {theme, colorMode, dayScheme, nightScheme}
+      const themeProps: ThemeProviderProps = {
+        theme,
+        colorMode,
+        dayScheme,
+        nightScheme,
+      }
       return confirm(themeProps, options)
     },
-    [theme, colorMode, dayScheme, nightScheme],
+    [theme, colorMode, dayScheme, nightScheme]
   )
   return result
 }

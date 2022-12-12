@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import sx, {SxProp} from './sx'
-import {ComponentProps} from './utils/types'
+import sx, { SxProp } from './sx'
+import { ComponentProps } from './utils/types'
 
 const sizeMap = {
   small: '16px',
@@ -14,7 +14,7 @@ export interface SpinnerInternalProps {
   size?: keyof typeof sizeMap
 }
 
-function Spinner({size: sizeKey = 'medium', ...props}: SpinnerInternalProps) {
+function Spinner({ size: sizeKey = 'medium', ...props }: SpinnerInternalProps) {
   const size = sizeMap[sizeKey]
 
   return (

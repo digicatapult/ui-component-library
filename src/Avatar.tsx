@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import {get} from './constants'
-import sx, {SxProp} from './sx'
-import {ComponentProps} from './utils/types'
+import { get } from './constants'
+import sx, { SxProp } from './sx'
+import { ComponentProps } from './utils/types'
 
 type StyledAvatarProps = {
   /** Sets the width and height of the avatar. */
@@ -14,7 +14,7 @@ type StyledAvatarProps = {
   alt?: string
 } & SxProp
 
-function getBorderRadius({size, square}: StyledAvatarProps) {
+function getBorderRadius({ size, square }: StyledAvatarProps) {
   if (square) {
     return size && size <= 24 ? '4px' : '6px'
   } else {
@@ -22,7 +22,7 @@ function getBorderRadius({size, square}: StyledAvatarProps) {
   }
 }
 
-const Avatar = styled.img.attrs<StyledAvatarProps>(props => ({
+const Avatar = styled.img.attrs<StyledAvatarProps>((props) => ({
   height: props.size,
   width: props.size,
 }))<StyledAvatarProps>`
@@ -30,7 +30,7 @@ const Avatar = styled.img.attrs<StyledAvatarProps>(props => ({
   overflow: hidden; // Ensure page layout in Firefox should images fail to load
   line-height: ${get('lineHeights.condensedUltra')};
   vertical-align: middle;
-  border-radius: ${props => getBorderRadius(props)};
+  border-radius: ${(props) => getBorderRadius(props)};
   box-shadow: 0 0 0 1px ${get('colors.avatar.border')};
   ${sx}
 `

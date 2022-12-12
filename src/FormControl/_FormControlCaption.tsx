@@ -1,12 +1,14 @@
 import React from 'react'
-import {SxProp} from '../sx'
+import { SxProp } from '../sx'
 import InputCaption from '../_InputCaption'
-import {FormControlContext} from './FormControl'
-import {Slot} from './slots'
+import { FormControlContext } from './FormControl'
+import { Slot } from './slots'
 
-const FormControlCaption: React.FC<React.PropsWithChildren<{id?: string} & SxProp>> = ({children, sx, id}) => (
+const FormControlCaption: React.FC<
+  React.PropsWithChildren<{ id?: string } & SxProp>
+> = ({ children, sx, id }) => (
   <Slot name="Caption">
-    {({captionId, disabled}: FormControlContext) => (
+    {({ captionId, disabled }: FormControlContext) => (
       <InputCaption id={id || captionId} disabled={disabled} sx={sx}>
         {children}
       </InputCaption>

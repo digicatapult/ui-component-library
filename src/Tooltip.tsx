@@ -1,9 +1,9 @@
 import classnames from 'classnames'
 import React from 'react'
 import styled from 'styled-components'
-import {get} from './constants'
-import sx, {SxProp} from './sx'
-import {ComponentProps} from './utils/types'
+import { get } from './constants'
+import sx, { SxProp } from './sx'
+import { ComponentProps } from './utils/types'
 
 const TooltipBase = styled.span<SxProp>`
   position: relative;
@@ -241,13 +241,22 @@ export type TooltipProps = {
   wrap?: boolean
 } & ComponentProps<typeof TooltipBase>
 
-function Tooltip({direction = 'n', children, className, text, noDelay, align, wrap, ...rest}: TooltipProps) {
+function Tooltip({
+  direction = 'n',
+  children,
+  className,
+  text,
+  noDelay,
+  align,
+  wrap,
+  ...rest
+}: TooltipProps) {
   const classes = classnames(
     className,
     `tooltipped-${direction}`,
     align && `tooltipped-align-${align}-2`,
     noDelay && 'tooltipped-no-delay',
-    wrap && 'tooltipped-multiline',
+    wrap && 'tooltipped-multiline'
   )
   return (
     <TooltipBase role="tooltip" aria-label={text} {...rest} className={classes}>

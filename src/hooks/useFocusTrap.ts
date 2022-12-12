@@ -1,6 +1,6 @@
 import React from 'react'
-import {focusTrap} from '@primer/behaviors'
-import {useProvidedRefOrCreate} from './useProvidedRefOrCreate'
+import { focusTrap } from '@primer/behaviors'
+import { useProvidedRefOrCreate } from './useProvidedRefOrCreate'
 
 export interface FocusTrapHookSettings {
   /**
@@ -35,8 +35,8 @@ export interface FocusTrapHookSettings {
  */
 export function useFocusTrap(
   settings?: FocusTrapHookSettings,
-  dependencies: React.DependencyList = [],
-): {containerRef: React.RefObject<HTMLElement>; initialFocusRef: React.RefObject<HTMLElement>} {
+  dependencies: React.DependencyList = []
+): { containerRef: React.RefObject<HTMLElement>; initialFocusRef: React.RefObject<HTMLElement> } {
   const containerRef = useProvidedRefOrCreate(settings?.containerRef)
   const initialFocusRef = useProvidedRefOrCreate(settings?.initialFocusRef)
   const disabled = settings?.disabled
@@ -73,8 +73,8 @@ export function useFocusTrap(
       }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [containerRef, initialFocusRef, disabled, ...dependencies],
+    [containerRef, initialFocusRef, disabled, ...dependencies]
   )
 
-  return {containerRef, initialFocusRef}
+  return { containerRef, initialFocusRef }
 }

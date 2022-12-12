@@ -1,9 +1,12 @@
-import React, {ButtonHTMLAttributes} from 'react'
-import {IconProps} from '@primer/octicons-react'
+import React, { ButtonHTMLAttributes } from 'react'
+import { IconProps } from '@primer/octicons-react'
 import styled from 'styled-components'
 import Box from '../Box'
-import sx, {merge, SxProp} from '../sx'
-import {getSegmentedControlButtonStyles, getSegmentedControlListItemStyles} from './getSegmentedControlStyles'
+import sx, { merge, SxProp } from '../sx'
+import {
+  getSegmentedControlButtonStyles,
+  getSegmentedControlListItemStyles,
+} from './getSegmentedControlStyles'
 
 export type SegmentedControlButtonProps = {
   /** The visible label rendered in the button */
@@ -21,7 +24,9 @@ const SegmentedControlButtonStyled = styled.button`
   ${sx};
 `
 
-const SegmentedControlButton: React.FC<React.PropsWithChildren<SegmentedControlButtonProps>> = ({
+const SegmentedControlButton: React.FC<
+  React.PropsWithChildren<SegmentedControlButtonProps>
+> = ({
   children,
   leadingIcon: LeadingIcon,
   selected,
@@ -34,7 +39,7 @@ const SegmentedControlButton: React.FC<React.PropsWithChildren<SegmentedControlB
     <Box as="li" sx={mergedSx}>
       <SegmentedControlButtonStyled
         aria-current={selected}
-        sx={getSegmentedControlButtonStyles({selected, children})}
+        sx={getSegmentedControlButtonStyles({ selected, children })}
         {...rest}
       >
         <span className="segmentedControl-content">

@@ -1,10 +1,15 @@
 import styled from 'styled-components'
-import {useProvidedRefOrCreate} from './hooks'
-import React, {ChangeEventHandler, InputHTMLAttributes, ReactElement, useContext} from 'react'
-import sx, {SxProp} from './sx'
+import { useProvidedRefOrCreate } from './hooks'
+import React, {
+  ChangeEventHandler,
+  InputHTMLAttributes,
+  ReactElement,
+  useContext,
+} from 'react'
+import sx, { SxProp } from './sx'
 import useLayoutEffect from './utils/useIsomorphicLayoutEffect'
-import {FormValidationStatus} from './utils/types/FormValidationStatus'
-import {CheckboxGroupContext} from './CheckboxGroupContext'
+import { FormValidationStatus } from './utils/types/FormValidationStatus'
+import { CheckboxGroupContext } from './CheckboxGroupContext'
 import getGlobalFocusStyles from './_getGlobalFocusStyles'
 
 export type CheckboxProps = {
@@ -39,7 +44,7 @@ export type CheckboxProps = {
 const StyledCheckbox = styled.input`
   cursor: pointer;
 
-  ${props => props.disabled && `cursor: not-allowed;`}
+  ${(props) => props.disabled && `cursor: not-allowed;`}
   ${getGlobalFocusStyles(0)};
 
   ${sx}
@@ -50,12 +55,24 @@ const StyledCheckbox = styled.input`
  */
 const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
   (
-    {checked, indeterminate, disabled, onChange, sx: sxProp, required, validationStatus, value, ...rest}: CheckboxProps,
-    ref,
+    {
+      checked,
+      indeterminate,
+      disabled,
+      onChange,
+      sx: sxProp,
+      required,
+      validationStatus,
+      value,
+      ...rest
+    }: CheckboxProps,
+    ref
   ): ReactElement => {
-    const checkboxRef = useProvidedRefOrCreate(ref as React.RefObject<HTMLInputElement>)
+    const checkboxRef = useProvidedRefOrCreate(
+      ref as React.RefObject<HTMLInputElement>
+    )
     const checkboxGroupContext = useContext(CheckboxGroupContext)
-    const handleOnChange: ChangeEventHandler<HTMLInputElement> = e => {
+    const handleOnChange: ChangeEventHandler<HTMLInputElement> = (e) => {
       checkboxGroupContext.onChange && checkboxGroupContext.onChange(e)
       onChange && onChange(e)
     }
@@ -84,7 +101,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
         {...rest}
       />
     )
-  },
+  }
 )
 
 Checkbox.displayName = 'Checkbox'

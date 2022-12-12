@@ -4,22 +4,22 @@ import {
   FileDirectoryFillIcon,
   FileDirectoryOpenFillIcon,
 } from '@primer/octicons-react'
-import {useSSRSafeId} from '@react-aria/ssr'
+import { useSSRSafeId } from '@react-aria/ssr'
 import classnames from 'classnames'
 import React from 'react'
-import styled, {keyframes} from 'styled-components'
-import {get} from '../constants'
-import {ConfirmationDialog} from '../Dialog/ConfirmationDialog'
-import {useControllableState} from '../hooks/useControllableState'
+import styled, { keyframes } from 'styled-components'
+import { get } from '../constants'
+import { ConfirmationDialog } from '../Dialog/ConfirmationDialog'
+import { useControllableState } from '../hooks/useControllableState'
 import useSafeTimeout from '../hooks/useSafeTimeout'
 import Spinner from '../Spinner'
-import sx, {SxProp} from '../sx'
+import sx, { SxProp } from '../sx'
 import Text from '../Text'
 import createSlots from '../utils/create-slots'
 import VisuallyHidden from '../_VisuallyHidden'
-import {getAccessibleName} from './shared'
-import {getFirstChildElement, useRovingTabIndex} from './useRovingTabIndex'
-import {useTypeahead} from './useTypeahead'
+import { getAccessibleName } from './shared'
+import { getFirstChildElement, useRovingTabIndex } from './useRovingTabIndex'
+import { useTypeahead } from './useTypeahead'
 
 // ----------------------------------------------------------------------------
 // Context
@@ -32,7 +32,7 @@ const RootContext = React.createContext<{
   expandedStateCache: React.RefObject<Map<string, boolean> | null>
 }>({
   announceUpdate: () => {},
-  expandedStateCache: {current: new Map()},
+  expandedStateCache: { current: new Map() },
 })
 
 const ItemContext = React.createContext<{
@@ -101,7 +101,9 @@ const UlBox = styled.ul<SxProp>`
     --toggle-width: 1rem; /* 16px */
     position: relative;
     display: grid;
-    grid-template-columns: calc(calc(var(--level) - 1) * (var(--toggle-width) / 2)) var(--toggle-width) 1fr;
+    grid-template-columns:
+      calc(calc(var(--level) - 1) * (var(--toggle-width) / 2))
+      var(--toggle-width) 1fr;
     grid-template-areas: 'spacer toggle content';
     width: 100%;
     min-height: 2rem; /* 32px */
@@ -134,7 +136,8 @@ const UlBox = styled.ul<SxProp>`
     }
   }
 
-  .PRIVATE_TreeView-item[aria-current='true'] > .PRIVATE_TreeView-item-container {
+  .PRIVATE_TreeView-item[aria-current='true']
+    > .PRIVATE_TreeView-item-container {
     background-color: ${get('colors.actionListItem.default.selectedBg')};
 
     /* Current item indicator */
@@ -244,17 +247,21 @@ const UlBox = styled.ul<SxProp>`
   ${sx}
 `
 
-const Root: React.FC<TreeViewProps> = ({'aria-label': ariaLabel, 'aria-labelledby': ariaLabelledby, children}) => {
+const Root: React.FC<TreeViewProps> = ({
+  'aria-label': ariaLabel,
+  'aria-labelledby': ariaLabelledby,
+  children,
+}) => {
   const containerRef = React.useRef<HTMLUListElement>(null)
   const [ariaLiveMessage, setAriaLiveMessage] = React.useState('')
   const announceUpdate = React.useCallback((message: string) => {
     setAriaLiveMessage(message)
   }, [])
 
-  useRovingTabIndex({containerRef})
+  useRovingTabIndex({ containerRef })
   useTypeahead({
     containerRef,
-    onFocusChange: element => {
+    onFocusChange: (element) => {
       if (element instanceof HTMLElement) {
         element.focus()
       }
@@ -278,7 +285,12 @@ const Root: React.FC<TreeViewProps> = ({'aria-label': ariaLabel, 'aria-labelledb
         <VisuallyHidden role="status" aria-live="polite" aria-atomic="true">
           {ariaLiveMessage}
         </VisuallyHidden>
-        <UlBox ref={containerRef} role="tree" aria-label={ariaLabel} aria-labelledby={ariaLabelledby}>
+        <UlBox
+          ref={containerRef}
+          role="tree"
+          aria-label={ariaLabel}
+          aria-labelledby={ariaLabelledby}
+        >
           {children}
         </UlBox>
       </>
@@ -299,10 +311,12 @@ export type TreeViewItemProps = {
   defaultExpanded?: boolean
   expanded?: boolean
   onExpandedChange?: (expanded: boolean) => void
-  onSelect?: (event: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLElement>) => void
+  onSelect?: (
+    event: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLElement>
+  ) => void
 }
 
-const {Slots, Slot} = createSlots(['LeadingVisual', 'TrailingVisual'])
+const { Slots, Slot } = createSlots(['LeadingVisual', 'TrailingVisual'])
 
 const Item = React.forwardRef<HTMLElement, TreeViewItemProps>(
   (
@@ -316,9 +330,9 @@ const Item = React.forwardRef<HTMLElement, TreeViewItemProps>(
       onSelect,
       children,
     },
-    ref,
+    ref
   ) => {
-    const {expandedStateCache} = React.useContext(RootContext)
+    const { expandedStateCache } = React.useContext(RootContext)
     const labelId = useSSRSafeId()
     const leadingVisualId = useSSRSafeId()
     const trailingVisualId = useSSRSafeId()
@@ -328,12 +342,15 @@ const Item = React.forwardRef<HTMLElement, TreeViewItemProps>(
       // We check the cache first, and then fall back to the defaultExpanded prop.
       // If defaultExpanded is not provided, we default to false unless the item
       // is the current item, in which case we default to true.
-      defaultValue: () => expandedStateCache.current?.get(itemId) ?? defaultExpanded ?? isCurrentItem,
+      defaultValue: () =>
+        expandedStateCache.current?.get(itemId) ??
+        defaultExpanded ??
+        isCurrentItem,
       value: expanded,
       onChange: onExpandedChange,
     })
-    const {level} = React.useContext(ItemContext)
-    const {hasSubTree, subTree, childrenWithoutSubTree} = useSubTree(children)
+    const { level } = React.useContext(ItemContext)
+    const { hasSubTree, subTree, childrenWithoutSubTree } = useSubTree(children)
     const [isSubTreeEmpty, setIsSubTreeEmpty] = React.useState(!hasSubTree)
 
     // Set the expanded state and cache it
@@ -342,7 +359,7 @@ const Item = React.forwardRef<HTMLElement, TreeViewItemProps>(
         setIsExpanded(newIsExpanded)
         expandedStateCache.current?.set(itemId, newIsExpanded)
       },
-      [itemId, setIsExpanded, expandedStateCache],
+      [itemId, setIsExpanded, expandedStateCache]
     )
 
     // Expand or collapse the subtree
@@ -351,7 +368,7 @@ const Item = React.forwardRef<HTMLElement, TreeViewItemProps>(
         setIsExpandedWithCache(!isExpanded)
         event?.stopPropagation()
       },
-      [isExpanded, setIsExpandedWithCache],
+      [isExpanded, setIsExpandedWithCache]
     )
 
     const handleKeyDown = React.useCallback(
@@ -376,7 +393,7 @@ const Item = React.forwardRef<HTMLElement, TreeViewItemProps>(
             break
         }
       },
-      [onSelect, setIsExpandedWithCache, toggle],
+      [onSelect, setIsExpandedWithCache, toggle]
     )
 
     return (
@@ -405,9 +422,12 @@ const Item = React.forwardRef<HTMLElement, TreeViewItemProps>(
           aria-expanded={isSubTreeEmpty ? undefined : isExpanded}
           aria-current={isCurrentItem ? 'true' : undefined}
           onKeyDown={handleKeyDown}
-          onFocus={event => {
+          onFocus={(event) => {
             // Scroll the first child into view when the item receives focus
-            event.currentTarget.firstElementChild?.scrollIntoView({block: 'nearest', inline: 'nearest'})
+            event.currentTarget.firstElementChild?.scrollIntoView({
+              block: 'nearest',
+              inline: 'nearest',
+            })
 
             // Prevent focus event from bubbling up to parent items
             event.stopPropagation()
@@ -422,7 +442,7 @@ const Item = React.forwardRef<HTMLElement, TreeViewItemProps>(
               contentVisibility: containIntrinsicSize ? 'auto' : undefined,
               containIntrinsicSize,
             }}
-            onClick={event => {
+            onClick={(event) => {
               if (onSelect) {
                 onSelect(event)
               } else {
@@ -430,7 +450,7 @@ const Item = React.forwardRef<HTMLElement, TreeViewItemProps>(
               }
             }}
           >
-            <div style={{gridArea: 'spacer', display: 'flex'}}>
+            <div style={{ gridArea: 'spacer', display: 'flex' }}>
               <LevelIndicatorLines level={level} />
             </div>
             {hasSubTree ? (
@@ -439,23 +459,29 @@ const Item = React.forwardRef<HTMLElement, TreeViewItemProps>(
                 className={classnames(
                   'PRIVATE_TreeView-item-toggle',
                   onSelect && 'PRIVATE_TreeView-item-toggle--hover',
-                  level === 1 && 'PRIVATE_TreeView-item-toggle--end',
+                  level === 1 && 'PRIVATE_TreeView-item-toggle--end'
                 )}
-                onClick={event => {
+                onClick={(event) => {
                   if (onSelect) {
                     toggle(event)
                   }
                 }}
               >
-                {isExpanded ? <ChevronDownIcon size={12} /> : <ChevronRightIcon size={12} />}
+                {isExpanded ? (
+                  <ChevronDownIcon size={12} />
+                ) : (
+                  <ChevronRightIcon size={12} />
+                )}
               </div>
             ) : null}
             <div id={labelId} className="PRIVATE_TreeView-item-content">
               <Slots>
-                {slots => (
+                {(slots) => (
                   <>
                     {slots.LeadingVisual}
-                    <span className="PRIVATE_TreeView-item-content-text">{childrenWithoutSubTree}</span>
+                    <span className="PRIVATE_TreeView-item-content-text">
+                      {childrenWithoutSubTree}
+                    </span>
                     {slots.TrailingVisual}
                   </>
                 )}
@@ -466,14 +492,14 @@ const Item = React.forwardRef<HTMLElement, TreeViewItemProps>(
         </li>
       </ItemContext.Provider>
     )
-  },
+  }
 )
 
 /** Lines to indicate the depth of an item in a TreeView */
-const LevelIndicatorLines: React.FC<{level: number}> = ({level}) => {
+const LevelIndicatorLines: React.FC<{ level: number }> = ({ level }) => {
   return (
-    <div style={{width: '100%', display: 'flex'}}>
-      {Array.from({length: level - 1}).map((_, index) => (
+    <div style={{ width: '100%', display: 'flex' }}>
+      {Array.from({ length: level - 1 }).map((_, index) => (
         <div key={index} className="PRIVATE_TreeView-item-level-line" />
       ))}
     </div>
@@ -496,11 +522,16 @@ export type TreeViewSubTreeProps = {
   count?: number
 }
 
-const SubTree: React.FC<TreeViewSubTreeProps> = ({count, state, children}) => {
-  const {announceUpdate} = React.useContext(RootContext)
-  const {itemId, isExpanded, isSubTreeEmpty, setIsSubTreeEmpty} = React.useContext(ItemContext)
+const SubTree: React.FC<TreeViewSubTreeProps> = ({
+  count,
+  state,
+  children,
+}) => {
+  const { announceUpdate } = React.useContext(RootContext)
+  const { itemId, isExpanded, isSubTreeEmpty, setIsSubTreeEmpty } =
+    React.useContext(ItemContext)
   const [isLoadingItemVisible, setIsLoadingItemVisible] = React.useState(false)
-  const {safeSetTimeout} = useSafeTimeout()
+  const { safeSetTimeout } = useSafeTimeout()
   const loadingItemRef = React.useRef<HTMLElement>(null)
   const ref = React.useRef<HTMLElement>(null)
 
@@ -525,7 +556,7 @@ const SubTree: React.FC<TreeViewSubTreeProps> = ({count, state, children}) => {
 
       if (!parentItem) return
 
-      const {current: node} = ref
+      const { current: node } = ref
       const parentName = getAccessibleName(parentItem)
 
       safeSetTimeout(() => {
@@ -549,7 +580,8 @@ const SubTree: React.FC<TreeViewSubTreeProps> = ({count, state, children}) => {
     // If we're not in the loading state, but we're still showing a loading indicator,
     // hide the loading indicator and move focus if necessary
     if (state !== 'loading' && isLoadingItemVisible) {
-      const isLoadingItemFocused = document.activeElement === loadingItemRef.current
+      const isLoadingItemFocused =
+        document.activeElement === loadingItemRef.current
 
       setIsLoadingItemVisible(false)
 
@@ -585,7 +617,11 @@ const SubTree: React.FC<TreeViewSubTreeProps> = ({count, state, children}) => {
       // @ts-ignore Box doesn't have type support for `ref` used in combination with `as`
       ref={ref}
     >
-      {isLoadingItemVisible ? <LoadingItem ref={loadingItemRef} count={count} /> : children}
+      {isLoadingItemVisible ? (
+        <LoadingItem ref={loadingItemRef} count={count} />
+      ) : (
+        children
+      )}
     </ul>
   )
 }
@@ -597,7 +633,9 @@ const shimmer = keyframes`
   to { mask-position: 0%; }
 `
 
-const SkeletonItem = styled.span.attrs({className: 'PRIVATE_TreeView-item-skeleton'})`
+const SkeletonItem = styled.span.attrs({
+  className: 'PRIVATE_TreeView-item-skeleton',
+})`
   display: flex;
   align-items: center;
   column-gap: 0.5rem;
@@ -666,38 +704,40 @@ type LoadingItemProps = {
   count?: number
 }
 
-const LoadingItem = React.forwardRef<HTMLElement, LoadingItemProps>(({count}, ref) => {
-  const itemId = useSSRSafeId()
+const LoadingItem = React.forwardRef<HTMLElement, LoadingItemProps>(
+  ({ count }, ref) => {
+    const itemId = useSSRSafeId()
 
-  if (count) {
+    if (count) {
+      return (
+        <Item id={itemId} ref={ref}>
+          {Array.from({ length: count }).map((_, i) => {
+            return <SkeletonItem aria-hidden={true} key={i} />
+          })}
+          <div className="PRIVATE_VisuallyHidden">Loading {count} items</div>
+        </Item>
+      )
+    }
+
     return (
       <Item id={itemId} ref={ref}>
-        {Array.from({length: count}).map((_, i) => {
-          return <SkeletonItem aria-hidden={true} key={i} />
-        })}
-        <div className="PRIVATE_VisuallyHidden">Loading {count} items</div>
+        <LeadingVisual>
+          <Spinner size="small" />
+        </LeadingVisual>
+        <Text sx={{ color: 'fg.muted' }}>Loading...</Text>
       </Item>
     )
   }
-
-  return (
-    <Item id={itemId} ref={ref}>
-      <LeadingVisual>
-        <Spinner size="small" />
-      </LeadingVisual>
-      <Text sx={{color: 'fg.muted'}}>Loading...</Text>
-    </Item>
-  )
-})
+)
 
 function useSubTree(children: React.ReactNode) {
   return React.useMemo(() => {
     const subTree = React.Children.toArray(children).find(
-      child => React.isValidElement(child) && child.type === SubTree,
+      (child) => React.isValidElement(child) && child.type === SubTree
     )
 
     const childrenWithoutSubTree = React.Children.toArray(children).filter(
-      child => !(React.isValidElement(child) && child.type === SubTree),
+      (child) => !(React.isValidElement(child) && child.type === SubTree)
     )
 
     return {
@@ -712,18 +752,27 @@ function useSubTree(children: React.ReactNode) {
 // TreeView.LeadingVisual and TreeView.TrailingVisual
 
 export type TreeViewVisualProps = {
-  children: React.ReactNode | ((props: {isExpanded: boolean}) => React.ReactNode)
+  children:
+    | React.ReactNode
+    | ((props: { isExpanded: boolean }) => React.ReactNode)
   // Provide an accessible name for the visual. This should provide information
   // about what the visual indicates or represents
   label?: string
 }
 
-const LeadingVisual: React.FC<TreeViewVisualProps> = props => {
-  const {isExpanded, leadingVisualId} = React.useContext(ItemContext)
-  const children = typeof props.children === 'function' ? props.children({isExpanded}) : props.children
+const LeadingVisual: React.FC<TreeViewVisualProps> = (props) => {
+  const { isExpanded, leadingVisualId } = React.useContext(ItemContext)
+  const children =
+    typeof props.children === 'function'
+      ? props.children({ isExpanded })
+      : props.children
   return (
     <Slot name="LeadingVisual">
-      <div className="PRIVATE_VisuallyHidden" aria-hidden={true} id={leadingVisualId}>
+      <div
+        className="PRIVATE_VisuallyHidden"
+        aria-hidden={true}
+        id={leadingVisualId}
+      >
         {props.label}
       </div>
       <div className="PRIVATE_TreeView-item-visual" aria-hidden={true}>
@@ -735,12 +784,19 @@ const LeadingVisual: React.FC<TreeViewVisualProps> = props => {
 
 LeadingVisual.displayName = 'TreeView.LeadingVisual'
 
-const TrailingVisual: React.FC<TreeViewVisualProps> = props => {
-  const {isExpanded, trailingVisualId} = React.useContext(ItemContext)
-  const children = typeof props.children === 'function' ? props.children({isExpanded}) : props.children
+const TrailingVisual: React.FC<TreeViewVisualProps> = (props) => {
+  const { isExpanded, trailingVisualId } = React.useContext(ItemContext)
+  const children =
+    typeof props.children === 'function'
+      ? props.children({ isExpanded })
+      : props.children
   return (
     <Slot name="TrailingVisual">
-      <div className="PRIVATE_VisuallyHidden" aria-hidden={true} id={trailingVisualId}>
+      <div
+        className="PRIVATE_VisuallyHidden"
+        aria-hidden={true}
+        id={trailingVisualId}
+      >
         {props.label}
       </div>
       <div className="PRIVATE_TreeView-item-visual" aria-hidden={true}>
@@ -756,7 +812,7 @@ TrailingVisual.displayName = 'TreeView.TrailingVisual'
 // TreeView.DirectoryIcon
 
 const DirectoryIcon = () => {
-  const {isExpanded} = React.useContext(ItemContext)
+  const { isExpanded } = React.useContext(ItemContext)
   const Icon = isExpanded ? FileDirectoryOpenFillIcon : FileDirectoryFillIcon
   return (
     <div className="PRIVATE_TreeView-directory-icon">
@@ -775,13 +831,27 @@ export type TreeViewErrorDialogProps = {
   onDismiss?: () => void
 }
 
-const ErrorDialog: React.FC<TreeViewErrorDialogProps> = ({title = 'Error', children, onRetry, onDismiss}) => {
-  const {itemId, setIsExpanded} = React.useContext(ItemContext)
+const ErrorDialog: React.FC<TreeViewErrorDialogProps> = ({
+  title = 'Error',
+  children,
+  onRetry,
+  onDismiss,
+}) => {
+  const { itemId, setIsExpanded } = React.useContext(ItemContext)
   return (
     // eslint-disable-next-line jsx-a11y/no-static-element-interactions
     <div
-      onKeyDown={event => {
-        if (['Backspace', 'ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Enter'].includes(event.key)) {
+      onKeyDown={(event) => {
+        if (
+          [
+            'Backspace',
+            'ArrowLeft',
+            'ArrowRight',
+            'ArrowUp',
+            'ArrowDown',
+            'Enter',
+          ].includes(event.key)
+        ) {
           // Prevent keyboard events from bubbling up to the TreeView
           // and interfering with keyboard navigation
           event.stopPropagation()
@@ -790,7 +860,7 @@ const ErrorDialog: React.FC<TreeViewErrorDialogProps> = ({title = 'Error', child
     >
       <ConfirmationDialog
         title={title}
-        onClose={gesture => {
+        onClose={(gesture) => {
           // Focus parent item after the dialog is closed
           setTimeout(() => {
             const parentElement = document.getElementById(itemId)

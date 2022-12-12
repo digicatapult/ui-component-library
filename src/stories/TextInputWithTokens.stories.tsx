@@ -1,9 +1,11 @@
-import React, {useCallback, useState} from 'react'
-import {Meta} from '@storybook/react'
-import {CheckIcon, NumberIcon} from '@primer/octicons-react'
+import React, { useCallback, useState } from 'react'
+import { Meta } from '@storybook/react'
+import { CheckIcon, NumberIcon } from '@primer/octicons-react'
 
-import {BaseStyles, Box, FormControl, ThemeProvider} from '..'
-import TextInputWithTokens, {TextInputWithTokensProps} from '../TextInputWithTokens'
+import { BaseStyles, Box, FormControl, ThemeProvider } from '..'
+import TextInputWithTokens, {
+  TextInputWithTokensProps,
+} from '../TextInputWithTokens'
 import IssueLabelToken from '../Token/IssueLabelToken'
 import {
   FormControlArgs,
@@ -15,17 +17,25 @@ import {
   textInputWithTokensArgTypes,
 } from '../utils/story-helpers'
 
-const excludedControls = ['tokens', 'onTokenRemove', 'tokenComponent', ...textInputExcludedControlKeys]
+const excludedControls = [
+  'tokens',
+  'onTokenRemove',
+  'tokenComponent',
+  ...textInputExcludedControlKeys,
+]
 
 export default {
   title: 'Components/Forms/TextInputWithTokens',
   component: TextInputWithTokens,
   decorators: [
-    Story => {
+    (Story) => {
       const [lastKey, setLastKey] = useState('none')
-      const reportKey = useCallback((event: React.KeyboardEvent<HTMLDivElement>) => {
-        setLastKey(event.key)
-      }, [])
+      const reportKey = useCallback(
+        (event: React.KeyboardEvent<HTMLDivElement>) => {
+          setLastKey(event.key)
+        },
+        []
+      )
 
       return (
         <ThemeProvider>
@@ -51,97 +61,138 @@ export default {
     ...textInputWithTokensArgTypes,
     ...formControlArgTypes,
   },
-  parameters: {controls: {exclude: excludedControls}},
+  parameters: { controls: { exclude: excludedControls } },
 } as Meta
 
 const mockTokens = [
-  {text: 'zero', id: 0},
-  {text: 'one', id: 1},
-  {text: 'two', id: 2},
-  {text: 'three', id: 3},
-  {text: 'four', id: 4},
-  {text: 'five', id: 5},
-  {text: 'six', id: 6},
-  {text: 'seven', id: 7},
-  {text: 'twenty', id: 20},
-  {text: 'twentyone', id: 21},
+  { text: 'zero', id: 0 },
+  { text: 'one', id: 1 },
+  { text: 'two', id: 2 },
+  { text: 'three', id: 3 },
+  { text: 'four', id: 4 },
+  { text: 'five', id: 5 },
+  { text: 'six', id: 6 },
+  { text: 'seven', id: 7 },
+  { text: 'twenty', id: 20 },
+  { text: 'twentyone', id: 21 },
 ]
 
 export const Default = (args: FormControlArgs<TextInputWithTokensProps>) => {
-  const {parentArgs, labelArgs, captionArgs, validationArgs} = getFormControlArgsByChildComponent(args)
+  const { parentArgs, labelArgs, captionArgs, validationArgs } =
+    getFormControlArgsByChildComponent(args)
   const [tokens, setTokens] = useState([...mockTokens].slice(0, 3))
-  const onTokenRemove: (tokenId: string | number) => void = tokenId => {
-    setTokens(tokens.filter(token => token.id !== tokenId))
+  const onTokenRemove: (tokenId: string | number) => void = (tokenId) => {
+    setTokens(tokens.filter((token) => token.id !== tokenId))
   }
 
   return (
     <FormControl {...parentArgs}>
       <FormControl.Label {...labelArgs} />
-      <TextInputWithTokens {...args} tokens={tokens} onTokenRemove={onTokenRemove} />
+      <TextInputWithTokens
+        {...args}
+        tokens={tokens}
+        onTokenRemove={onTokenRemove}
+      />
       {captionArgs.children && <FormControl.Caption {...captionArgs} />}
       {validationArgs.children && validationArgs.variant && (
-        <FormControl.Validation {...validationArgs} variant={validationArgs.variant} />
+        <FormControl.Validation
+          {...validationArgs}
+          variant={validationArgs.variant}
+        />
       )}
     </FormControl>
   )
 }
 
-export const WithLeadingVisual = (args: FormControlArgs<TextInputWithTokensProps>) => {
-  const {parentArgs, labelArgs, captionArgs, validationArgs} = getFormControlArgsByChildComponent(args)
+export const WithLeadingVisual = (
+  args: FormControlArgs<TextInputWithTokensProps>
+) => {
+  const { parentArgs, labelArgs, captionArgs, validationArgs } =
+    getFormControlArgsByChildComponent(args)
   const [tokens, setTokens] = useState([...mockTokens].slice(0, 3))
-  const onTokenRemove: (tokenId: string | number) => void = tokenId => {
-    setTokens(tokens.filter(token => token.id !== tokenId))
+  const onTokenRemove: (tokenId: string | number) => void = (tokenId) => {
+    setTokens(tokens.filter((token) => token.id !== tokenId))
   }
 
   return (
     <FormControl {...parentArgs}>
       <FormControl.Label {...labelArgs} />
-      <TextInputWithTokens {...args} leadingVisual={NumberIcon} tokens={tokens} onTokenRemove={onTokenRemove} />
+      <TextInputWithTokens
+        {...args}
+        leadingVisual={NumberIcon}
+        tokens={tokens}
+        onTokenRemove={onTokenRemove}
+      />
       {captionArgs.children && <FormControl.Caption {...captionArgs} />}
       {validationArgs.children && validationArgs.variant && (
-        <FormControl.Validation {...validationArgs} variant={validationArgs.variant} />
+        <FormControl.Validation
+          {...validationArgs}
+          variant={validationArgs.variant}
+        />
       )}
     </FormControl>
   )
 }
 
-export const WithTrailingVisual = (args: FormControlArgs<TextInputWithTokensProps>) => {
-  const {parentArgs, labelArgs, captionArgs, validationArgs} = getFormControlArgsByChildComponent(args)
+export const WithTrailingVisual = (
+  args: FormControlArgs<TextInputWithTokensProps>
+) => {
+  const { parentArgs, labelArgs, captionArgs, validationArgs } =
+    getFormControlArgsByChildComponent(args)
   const [tokens, setTokens] = useState([...mockTokens].slice(0, 3))
-  const onTokenRemove: (tokenId: string | number) => void = tokenId => {
-    setTokens(tokens.filter(token => token.id !== tokenId))
+  const onTokenRemove: (tokenId: string | number) => void = (tokenId) => {
+    setTokens(tokens.filter((token) => token.id !== tokenId))
   }
 
   return (
-    <Box as="form" sx={{p: 3}}>
+    <Box as="form" sx={{ p: 3 }}>
       <FormControl {...parentArgs}>
         <FormControl.Label {...labelArgs} />
-        <TextInputWithTokens {...args} trailingVisual={CheckIcon} tokens={tokens} onTokenRemove={onTokenRemove} />
+        <TextInputWithTokens
+          {...args}
+          trailingVisual={CheckIcon}
+          tokens={tokens}
+          onTokenRemove={onTokenRemove}
+        />
         {captionArgs.children && <FormControl.Caption {...captionArgs} />}
         {validationArgs.children && validationArgs.variant && (
-          <FormControl.Validation {...validationArgs} variant={validationArgs.variant} />
+          <FormControl.Validation
+            {...validationArgs}
+            variant={validationArgs.variant}
+          />
         )}
       </FormControl>
     </Box>
   )
 }
 
-export const WithLoadingIndicator = (args: FormControlArgs<TextInputWithTokensProps>) => {
+export const WithLoadingIndicator = (
+  args: FormControlArgs<TextInputWithTokensProps>
+) => {
   const [tokens, setTokens] = useState([...mockTokens].slice(0, 3))
-  const onTokenRemove: (tokenId: string | number) => void = tokenId => {
-    setTokens(tokens.filter(token => token.id !== tokenId))
+  const onTokenRemove: (tokenId: string | number) => void = (tokenId) => {
+    setTokens(tokens.filter((token) => token.id !== tokenId))
   }
 
   return (
-    <Box display="grid" sx={{gap: 3}} as="form">
+    <Box display="grid" sx={{ gap: 3 }} as="form">
       <FormControl>
         <FormControl.Label>No visual</FormControl.Label>
-        <TextInputWithTokens {...args} tokens={tokens} onTokenRemove={onTokenRemove} />
+        <TextInputWithTokens
+          {...args}
+          tokens={tokens}
+          onTokenRemove={onTokenRemove}
+        />
       </FormControl>
 
       <FormControl>
         <FormControl.Label>Leading visual</FormControl.Label>
-        <TextInputWithTokens {...args} tokens={tokens} onTokenRemove={onTokenRemove} leadingVisual={NumberIcon} />
+        <TextInputWithTokens
+          {...args}
+          tokens={tokens}
+          onTokenRemove={onTokenRemove}
+          leadingVisual={NumberIcon}
+        />
       </FormControl>
 
       <FormControl>
@@ -163,29 +214,45 @@ WithLoadingIndicator.args = {
 }
 WithLoadingIndicator.parameters = {
   controls: {
-    exclude: [...excludedControls, 'loaderPosition', ...Object.keys(formControlArgTypes), 'children'],
+    exclude: [
+      ...excludedControls,
+      'loaderPosition',
+      ...Object.keys(formControlArgTypes),
+      'children',
+    ],
   },
 }
 
-export const UsingIssueLabelTokens = (args: FormControlArgs<TextInputWithTokensProps>) => {
-  const {parentArgs, labelArgs, captionArgs, validationArgs} = getFormControlArgsByChildComponent(args)
+export const UsingIssueLabelTokens = (
+  args: FormControlArgs<TextInputWithTokensProps>
+) => {
+  const { parentArgs, labelArgs, captionArgs, validationArgs } =
+    getFormControlArgsByChildComponent(args)
   const [tokens, setTokens] = useState([
-    {text: 'enhancement', id: 1, fillColor: '#a2eeef'},
-    {text: 'bug', id: 2, fillColor: '#d73a4a'},
-    {text: 'good first issue', id: 3, fillColor: '#0cf478'},
+    { text: 'enhancement', id: 1, fillColor: '#a2eeef' },
+    { text: 'bug', id: 2, fillColor: '#d73a4a' },
+    { text: 'good first issue', id: 3, fillColor: '#0cf478' },
   ])
-  const onTokenRemove: (tokenId: string | number) => void = tokenId => {
-    setTokens(tokens.filter(token => token.id !== tokenId))
+  const onTokenRemove: (tokenId: string | number) => void = (tokenId) => {
+    setTokens(tokens.filter((token) => token.id !== tokenId))
   }
 
   return (
-    <Box as="form" sx={{p: 3}}>
+    <Box as="form" sx={{ p: 3 }}>
       <FormControl {...parentArgs}>
         <FormControl.Label {...labelArgs} />
-        <TextInputWithTokens {...args} tokenComponent={IssueLabelToken} tokens={tokens} onTokenRemove={onTokenRemove} />
+        <TextInputWithTokens
+          {...args}
+          tokenComponent={IssueLabelToken}
+          tokens={tokens}
+          onTokenRemove={onTokenRemove}
+        />
         {captionArgs.children && <FormControl.Caption {...captionArgs} />}
         {validationArgs.children && validationArgs.variant && (
-          <FormControl.Validation {...validationArgs} variant={validationArgs.variant} />
+          <FormControl.Validation
+            {...validationArgs}
+            variant={validationArgs.variant}
+          />
         )}
       </FormControl>
     </Box>
@@ -193,14 +260,15 @@ export const UsingIssueLabelTokens = (args: FormControlArgs<TextInputWithTokensP
 }
 
 export const Unstyled = (args: FormControlArgs<TextInputWithTokensProps>) => {
-  const {parentArgs, labelArgs, captionArgs, validationArgs} = getFormControlArgsByChildComponent(args)
+  const { parentArgs, labelArgs, captionArgs, validationArgs } =
+    getFormControlArgsByChildComponent(args)
   const [tokens, setTokens] = useState([...mockTokens].slice(0, 2))
-  const onTokenRemove: (tokenId: string | number) => void = tokenId => {
-    setTokens(tokens.filter(token => token.id !== tokenId))
+  const onTokenRemove: (tokenId: string | number) => void = (tokenId) => {
+    setTokens(tokens.filter((token) => token.id !== tokenId))
   }
 
   return (
-    <Box as="form" sx={{p: 3}}>
+    <Box as="form" sx={{ p: 3 }}>
       <FormControl {...parentArgs}>
         <FormControl.Label {...labelArgs} />
         <TextInputWithTokens
@@ -220,7 +288,10 @@ export const Unstyled = (args: FormControlArgs<TextInputWithTokensProps>) => {
         />
         {captionArgs.children && <FormControl.Caption {...captionArgs} />}
         {validationArgs.children && validationArgs.variant && (
-          <FormControl.Validation {...validationArgs} variant={validationArgs.variant} />
+          <FormControl.Validation
+            {...validationArgs}
+            variant={validationArgs.variant}
+          />
         )}
       </FormControl>
     </Box>
@@ -228,5 +299,5 @@ export const Unstyled = (args: FormControlArgs<TextInputWithTokensProps>) => {
 }
 
 Unstyled.parameters = {
-  controls: {exclude: [...excludedControls, 'maxHeight', 'validationStatus']},
+  controls: { exclude: [...excludedControls, 'maxHeight', 'validationStatus'] },
 }

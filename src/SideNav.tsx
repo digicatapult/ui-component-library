@@ -1,14 +1,14 @@
-import {To} from 'history'
+import { To } from 'history'
 
-import {get} from './constants'
-import styled, {css} from 'styled-components'
+import { get } from './constants'
+import styled, { css } from 'styled-components'
 
 import Box from './Box'
-import {ComponentProps} from './utils/types'
+import { ComponentProps } from './utils/types'
 import Link from './Link'
 import React from 'react'
 import classnames from 'classnames'
-import sx, {SxProp} from './sx'
+import sx, { SxProp } from './sx'
 
 type SideNavBaseProps = {
   variant?: 'lightweight' | 'normal'
@@ -18,7 +18,13 @@ type SideNavBaseProps = {
   'aria-label'?: string
 }
 
-function SideNavBase({variant, className, bordered, children, 'aria-label': ariaLabel}: SideNavBaseProps) {
+function SideNavBase({
+  variant,
+  className,
+  bordered,
+  children,
+  'aria-label': ariaLabel,
+}: SideNavBaseProps) {
   const variantClassName = variant === 'lightweight' ? 'lightweight' : 'normal'
   const newClassName = classnames(className, `variant-${variantClassName}`)
 
@@ -40,7 +46,7 @@ function SideNavBase({variant, className, bordered, children, 'aria-label': aria
 const SideNav = styled(SideNavBase)<SxProp>`
   background-color: ${get('colors.canvas.subtle')};
 
-  ${props =>
+  ${(props) =>
     props.bordered &&
     css`
       // Remove duplicate borders from nested SideNavs
@@ -71,19 +77,19 @@ const CommonAccessibilityVariantLightWeightStyles = css`
   text-decoration: none;
 `
 
-const SideNavLink = styled(Link).attrs<StyledSideNavLinkProps>(props => {
+const SideNavLink = styled(Link).attrs<StyledSideNavLinkProps>((props) => {
   const isReactRouter = typeof props.to === 'string'
   if (isReactRouter || props.selected) {
     // according to their docs, NavLink supports aria-current:
     // https://reacttraining.com/react-router/web/api/NavLink/aria-current-string
-    return {'aria-current': 'page'}
+    return { 'aria-current': 'page' }
   } else {
     return {}
   }
 })<StyledSideNavLinkProps & SxProp>`
   position: relative;
   display: block;
-  ${props =>
+  ${(props) =>
     props.variant === 'full' &&
     css`
       display: flex;
@@ -186,4 +192,4 @@ export type SideNavProps = ComponentProps<typeof SideNav>
 export type SideNavLinkProps = ComponentProps<typeof SideNavLink>
 
 /** @deprecated Use [NavList](https://primer.style/react/NavList) instead */
-export default Object.assign(SideNav, {Link: SideNavLink})
+export default Object.assign(SideNav, { Link: SideNavLink })

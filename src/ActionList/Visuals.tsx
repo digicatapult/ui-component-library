@@ -1,12 +1,14 @@
 import React from 'react'
 import Box from '../Box'
-import {SxProp, merge} from '../sx'
-import {get} from '../constants'
-import {getVariantStyles, Slot, ItemContext, TEXT_ROW_HEIGHT} from './shared'
+import { SxProp, merge } from '../sx'
+import { get } from '../constants'
+import { getVariantStyles, Slot, ItemContext, TEXT_ROW_HEIGHT } from './shared'
 
 type VisualProps = SxProp & React.HTMLAttributes<HTMLSpanElement>
 
-export const LeadingVisualContainer: React.FC<React.PropsWithChildren<VisualProps>> = ({sx = {}, ...props}) => {
+export const LeadingVisualContainer: React.FC<
+  React.PropsWithChildren<VisualProps>
+> = ({ sx = {}, ...props }) => {
   return (
     <Box
       as="span"
@@ -21,7 +23,7 @@ export const LeadingVisualContainer: React.FC<React.PropsWithChildren<VisualProp
           flexShrink: 0,
           marginRight: 2,
         },
-        sx as SxProp,
+        sx as SxProp
       )}
       {...props}
     />
@@ -29,17 +31,20 @@ export const LeadingVisualContainer: React.FC<React.PropsWithChildren<VisualProp
 }
 
 export type ActionListLeadingVisualProps = VisualProps
-export const LeadingVisual: React.FC<React.PropsWithChildren<VisualProps>> = ({sx = {}, ...props}) => {
+export const LeadingVisual: React.FC<React.PropsWithChildren<VisualProps>> = ({
+  sx = {},
+  ...props
+}) => {
   return (
     <Slot name="LeadingVisual">
-      {({variant, disabled}: ItemContext) => (
+      {({ variant, disabled }: ItemContext) => (
         <LeadingVisualContainer
           sx={merge(
             {
               color: getVariantStyles(variant, disabled).iconColor,
-              svg: {fontSize: 0},
+              svg: { fontSize: 0 },
             },
-            sx as SxProp,
+            sx as SxProp
           )}
           {...props}
         >
@@ -51,10 +56,13 @@ export const LeadingVisual: React.FC<React.PropsWithChildren<VisualProps>> = ({s
 }
 
 export type ActionListTrailingVisualProps = VisualProps
-export const TrailingVisual: React.FC<React.PropsWithChildren<VisualProps>> = ({sx = {}, ...props}) => {
+export const TrailingVisual: React.FC<React.PropsWithChildren<VisualProps>> = ({
+  sx = {},
+  ...props
+}) => {
   return (
     <Slot name="TrailingVisual">
-      {({variant, disabled}: ItemContext) => (
+      {({ variant, disabled }: ItemContext) => (
         <Box
           as="span"
           sx={merge(
@@ -65,7 +73,7 @@ export const TrailingVisual: React.FC<React.PropsWithChildren<VisualProps>> = ({
               marginLeft: 2,
               fontWeight: 'initial',
             },
-            sx as SxProp,
+            sx as SxProp
           )}
           {...props}
         >

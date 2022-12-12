@@ -1,9 +1,9 @@
 import React from 'react'
-import {Story, Meta} from '@storybook/react'
-import {SegmentedControl} from '.'
+import { Story, Meta } from '@storybook/react'
+import { SegmentedControl } from '.'
 import SegmentedControlIconButton from './SegmentedControlIconButton'
 import SegmentedControlButton from './SegmentedControlButton'
-import {EyeIcon, FileCodeIcon, PeopleIcon} from '@primer/octicons-react'
+import { EyeIcon, FileCodeIcon, PeopleIcon } from '@primer/octicons-react'
 
 type ResponsiveVariantOptions = 'dropdown' | 'hideLabels' | 'default'
 type Args = {
@@ -21,13 +21,22 @@ const excludedControlKeys = ['variant']
 
 const variantOptions = ['dropdown', 'hideLabels', 'default']
 
-const parseVariantFromArgs = ({variantAtNarrow, variantAtRegular, variantAtWide}: Args) => ({
+const parseVariantFromArgs = ({
+  variantAtNarrow,
+  variantAtRegular,
+  variantAtWide,
+}: Args) => ({
   narrow: variantAtNarrow,
   regular: variantAtRegular,
   wide: variantAtWide,
 })
 
-const parseFullWidthFromArgs = ({fullWidth, fullWidthAtNarrow, fullWidthAtRegular, fullWidthAtWide}: Args) =>
+const parseFullWidthFromArgs = ({
+  fullWidth,
+  fullWidthAtNarrow,
+  fullWidthAtRegular,
+  fullWidthAtWide,
+}: Args) =>
   fullWidth
     ? fullWidth
     : {
@@ -39,7 +48,7 @@ const parseFullWidthFromArgs = ({fullWidth, fullWidthAtNarrow, fullWidthAtRegula
 export default {
   title: 'Components/SegmentedControl',
   component: SegmentedControl,
-  subcomponents: {SegmentedControlButton, SegmentedControlIconButton},
+  subcomponents: { SegmentedControlButton, SegmentedControlIconButton },
   args: {
     fullWidth: false,
     fullWidthAtNarrow: false,
@@ -102,17 +111,21 @@ export default {
       options: variantOptions,
     },
   },
-  parameters: {controls: {exclude: excludedControlKeys}},
+  parameters: { controls: { exclude: excludedControlKeys } },
 } as Meta<typeof SegmentedControl>
 
-export const Playground: Story<Args> = args => (
+export const Playground: Story<Args> = (args) => (
   <SegmentedControl
     aria-label="File view"
     fullWidth={parseFullWidthFromArgs(args)}
     variant={parseVariantFromArgs(args)}
     size={args.size}
   >
-    <SegmentedControl.Button selected aria-label={'Preview'} leadingIcon={EyeIcon}>
+    <SegmentedControl.Button
+      selected
+      aria-label={'Preview'}
+      leadingIcon={EyeIcon}
+    >
       Preview
     </SegmentedControl.Button>
     <SegmentedControl.Button aria-label={'Raw'} leadingIcon={FileCodeIcon}>

@@ -1,13 +1,13 @@
-import React, {forwardRef, useRef} from 'react'
+import React, { forwardRef, useRef } from 'react'
 import styled from 'styled-components'
 import ButtonClose from './deprecated/Button/ButtonClose'
-import {get} from './constants'
+import { get } from './constants'
 import Box from './Box'
 import useDialog from './hooks/useDialog'
-import sx, {SxProp} from './sx'
+import sx, { SxProp } from './sx'
 import Text from './Text'
-import {ComponentProps} from './utils/types'
-import {useRefObjectAsForwardedRef} from './hooks/useRefObjectAsForwardedRef'
+import { ComponentProps } from './utils/types'
+import { useRefObjectAsForwardedRef } from './hooks/useRefObjectAsForwardedRef'
 
 const noop = () => null
 
@@ -27,7 +27,8 @@ const DialogBase = styled.div<StyledDialogBaseProps>`
   z-index: 999;
   margin: 10vh auto;
   background-color: ${get('colors.canvas.default')};
-  width: ${props => (props.narrow ? '320px' : props.wide ? '640px' : '440px')};
+  width: ${(props) =>
+    props.narrow ? '320px' : props.wide ? '640px' : '440px'};
   outline: none;
 
   @media screen and (max-width: 750px) {
@@ -53,17 +54,33 @@ const DialogHeaderBase = styled(Box)<SxProp>`
 `
 export type DialogHeaderProps = ComponentProps<typeof DialogHeaderBase>
 
-function DialogHeader({theme, children, backgroundColor = 'gray.1', ...rest}: DialogHeaderProps) {
-  if (React.Children.toArray(children).every(ch => typeof ch === 'string')) {
+function DialogHeader({
+  theme,
+  children,
+  backgroundColor = 'gray.1',
+  ...rest
+}: DialogHeaderProps) {
+  if (React.Children.toArray(children).every((ch) => typeof ch === 'string')) {
     children = (
-      <Text theme={theme} color="fg.default" fontSize={1} fontWeight="bold" fontFamily="sans-serif">
+      <Text
+        theme={theme}
+        color="fg.default"
+        fontSize={1}
+        fontWeight="bold"
+        fontFamily="sans-serif"
+      >
         {children}
       </Text>
     )
   }
 
   return (
-    <DialogHeaderBase theme={theme} p={3} backgroundColor={backgroundColor} {...rest}>
+    <DialogHeaderBase
+      theme={theme}
+      p={3}
+      backgroundColor={backgroundColor}
+      {...rest}
+    >
       {children}
     </DialogHeaderBase>
   )
@@ -93,7 +110,17 @@ type InternalDialogProps = {
 } & ComponentProps<typeof DialogBase>
 
 const Dialog = forwardRef<HTMLDivElement, InternalDialogProps>(
-  ({children, onDismiss = noop, isOpen, initialFocusRef, returnFocusRef, ...props}, forwardedRef) => {
+  (
+    {
+      children,
+      onDismiss = noop,
+      isOpen,
+      initialFocusRef,
+      returnFocusRef,
+      ...props
+    },
+    forwardedRef
+  ) => {
     const overlayRef = useRef(null)
     const modalRef = useRef<HTMLDivElement>(null)
     useRefObjectAsForwardedRef(forwardedRef, modalRef)
@@ -106,7 +133,7 @@ const Dialog = forwardRef<HTMLDivElement, InternalDialogProps>(
       }
     }
 
-    const {getDialogProps} = useDialog({
+    const { getDialogProps } = useDialog({
       modalRef,
       onDismiss: onCloseClick,
       isOpen,
@@ -118,17 +145,24 @@ const Dialog = forwardRef<HTMLDivElement, InternalDialogProps>(
     return isOpen ? (
       <>
         <Overlay ref={overlayRef} />
-        <DialogBase tabIndex={-1} ref={modalRef} role="dialog" aria-modal="true" {...props} {...getDialogProps()}>
+        <DialogBase
+          tabIndex={-1}
+          ref={modalRef}
+          role="dialog"
+          aria-modal="true"
+          {...props}
+          {...getDialogProps()}
+        >
           <ButtonClose
             ref={closeButtonRef}
             onClick={onCloseClick}
-            sx={{position: 'absolute', top: '16px', right: '16px'}}
+            sx={{ position: 'absolute', top: '16px', right: '16px' }}
           />
           {children}
         </DialogBase>
       </>
     ) : null
-  },
+  }
 )
 
 DialogHeader.defaultProps = {
@@ -143,4 +177,4 @@ DialogHeader.displayName = 'Dialog.Header'
 Dialog.displayName = 'Dialog'
 
 export type DialogProps = ComponentProps<typeof Dialog>
-export default Object.assign(Dialog, {Header: DialogHeader})
+export default Object.assign(Dialog, { Header: DialogHeader })

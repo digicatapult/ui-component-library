@@ -1,8 +1,8 @@
 import classnames from 'classnames'
 import styled from 'styled-components'
-import {get} from './constants'
-import sx, {SxProp} from './sx'
-import {ComponentProps} from './utils/types'
+import { get } from './constants'
+import sx, { SxProp } from './sx'
+import { ComponentProps } from './utils/types'
 
 type CaretPosition =
   | 'top'
@@ -24,14 +24,14 @@ type StyledPopoverProps = {
   open?: boolean
 } & SxProp
 
-const Popover = styled.div.attrs<StyledPopoverProps>(({className, caret}) => {
+const Popover = styled.div.attrs<StyledPopoverProps>(({ className, caret }) => {
   return {
     className: classnames(className, `caret-pos--${caret}`),
   }
 })<StyledPopoverProps>`
-  position: ${props => (props.relative ? 'relative' : 'absolute')};
+  position: ${(props) => (props.relative ? 'relative' : 'absolute')};
   z-index: 100;
-  display: ${props => (props.open ? 'block' : 'none')};
+  display: ${(props) => (props.open ? 'block' : 'none')};
   ${sx};
 `
 
@@ -222,4 +222,4 @@ PopoverContent.displayName = 'Popover.Content'
 
 export type PopoverProps = ComponentProps<typeof Popover>
 export type PopoverContentProps = ComponentProps<typeof PopoverContent>
-export default Object.assign(Popover, {Content: PopoverContent})
+export default Object.assign(Popover, { Content: PopoverContent })

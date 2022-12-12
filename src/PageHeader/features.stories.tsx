@@ -1,15 +1,20 @@
 import React from 'react'
-import {Meta} from '@storybook/react'
-import {IconButton, ActionMenu, ActionList, Box} from '..'
-import {PencilIcon, KebabHorizontalIcon, ArchiveIcon, TrashIcon} from '@primer/octicons-react'
+import { Meta } from '@storybook/react'
+import { IconButton, ActionMenu, ActionList, Box } from '..'
+import {
+  PencilIcon,
+  KebabHorizontalIcon,
+  ArchiveIcon,
+  TrashIcon,
+} from '@primer/octicons-react'
 
-import {PageHeader} from './PageHeader'
+import { PageHeader } from './PageHeader'
 
 const meta: Meta = {
   title: 'Drafts/Components/PageHeader/Features',
   parameters: {
     layout: 'fullscreen',
-    controls: {expanded: true},
+    controls: { expanded: true },
   },
   args: {},
 }
@@ -60,16 +65,22 @@ const PrimerViewports = {
 }
 
 export const TitleWithTrailingAction = () => (
-  <Box sx={{padding: 3}}>
+  <Box sx={{ padding: 3 }}>
     <PageHeader>
       <PageHeader.ContextArea>
-        <PageHeader.ParentLink href="http://github.com">Projects</PageHeader.ParentLink>
+        <PageHeader.ParentLink href="http://github.com">
+          Projects
+        </PageHeader.ParentLink>
       </PageHeader.ContextArea>
       <PageHeader.TitleArea>
         <PageHeader.Title>Primer Backlog</PageHeader.Title>
 
         <PageHeader.TrailingAction>
-          <IconButton icon={PencilIcon} variant="invisible" label="Rename Title" />
+          <IconButton
+            icon={PencilIcon}
+            variant="invisible"
+            label="Rename Title"
+          />
         </PageHeader.TrailingAction>
         <PageHeader.Actions
           hidden={{

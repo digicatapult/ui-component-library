@@ -1,30 +1,34 @@
-import {useRef, useCallback} from 'react'
+import { useRef, useCallback } from 'react'
 declare let __DEV__: boolean
 
-type DeprecationType = {name: string; message: string; version: string}
+type DeprecationType = { name: string; message: string; version: string }
 
 const noop = () => {}
 // eslint-disable-next-line import/no-mutable-exports
-let deprecate: ({name, message, version}: DeprecationType) => void | (() => void) = noop
+let deprecate: ({
+  name,
+  message,
+  version,
+}: DeprecationType) => void | (() => void) = noop
 
 if (__DEV__) {
-  deprecate = ({name, message, version}: DeprecationType) => {
-    Deprecations.deprecate({name, message, version})
+  deprecate = ({ name, message, version }: DeprecationType) => {
+    Deprecations.deprecate({ name, message, version })
   }
 }
 
-export {deprecate}
+export { deprecate }
 
 // eslint-disable-next-line import/no-mutable-exports
 let useDeprecation = null
 
 if (__DEV__) {
-  useDeprecation = ({name, message, version}: DeprecationType) => {
+  useDeprecation = ({ name, message, version }: DeprecationType) => {
     const ref = useRef(false)
     const logDeprecation = useCallback(() => {
       if (!ref.current) {
         ref.current = true
-        deprecate({name, message, version})
+        deprecate({ name, message, version })
       }
     }, [name, message, version])
 
@@ -36,7 +40,7 @@ if (__DEV__) {
   }
 }
 
-export {useDeprecation}
+export { useDeprecation }
 
 export class Deprecations {
   static instance: Deprecations | null = null
@@ -54,12 +58,12 @@ export class Deprecations {
     this.deprecations = []
   }
 
-  static deprecate({name, message, version}: DeprecationType) {
+  static deprecate({ name, message, version }: DeprecationType) {
     const msg = `WARNING! ${name} is deprecated and will be removed in version ${version}. ${message}`
     // eslint-disable-next-line no-console
     console.warn(msg)
 
-    this.get().deprecations.push({name, message, version})
+    this.get().deprecations.push({ name, message, version })
   }
 
   static getDeprecations() {

@@ -6,7 +6,9 @@ const isObject = require('lodash.isobject')
 const chroma = require('chroma-js')
 
 function fontStack(fonts) {
-  return fonts.map(font => (font.includes(' ') ? `"${font}"` : font)).join(', ')
+  return fonts
+    .map((font) => (font.includes(' ') ? `"${font}"` : font))
+    .join(', ')
 }
 
 // The following functions are a temporary measure for splitting shadow values out from the colors object.
@@ -14,7 +16,10 @@ function fontStack(fonts) {
 // will not be needed.
 
 function isShadowValue(value) {
-  return typeof value === 'string' && /(inset\s|)([0-9.]+(\w*)\s){1,4}(rgb[a]?\(.*\)|\w+)/.test(value)
+  return (
+    typeof value === 'string' &&
+    /(inset\s|)([0-9.]+(\w*)\s){1,4}(rgb[a]?\(.*\)|\w+)/.test(value)
+  )
 }
 
 function isColorValue(value) {
@@ -44,13 +49,13 @@ function filterObject(obj, predicate) {
 
 function partitionColors(colors) {
   return {
-    colors: filterObject(colors, value => isColorValue(value)),
-    shadows: filterObject(colors, value => isShadowValue(value)),
+    colors: filterObject(colors, (value) => isColorValue(value)),
+    shadows: filterObject(colors, (value) => isShadowValue(value)),
   }
 }
 
 function omitScale(obj) {
-  const {scale, ...rest} = obj
+  const { scale, ...rest } = obj
   return rest
 }
 

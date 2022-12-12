@@ -1,15 +1,15 @@
-import React, {useCallback, useEffect} from 'react'
-import {Meta} from '@storybook/react'
-import styled, {createGlobalStyle} from 'styled-components'
+import React, { useCallback, useEffect } from 'react'
+import { Meta } from '@storybook/react'
+import styled, { createGlobalStyle } from 'styled-components'
 
-import {BaseStyles, Box, Button, Flash, Text, ThemeProvider} from '..'
-import {useFocusTrap} from '../hooks/useFocusTrap'
-import {themeGet} from '@styled-system/theme-get'
+import { BaseStyles, Box, Button, Flash, Text, ThemeProvider } from '..'
+import { useFocusTrap } from '../hooks/useFocusTrap'
+import { themeGet } from '@styled-system/theme-get'
 
 export default {
   title: 'Hooks/useFocusTrap',
   decorators: [
-    Story => {
+    (Story) => {
       return (
         <ThemeProvider>
           <BaseStyles>
@@ -41,15 +41,15 @@ const MarginButton = styled(Button)`
 
 export const FocusTrap = () => {
   const [trapEnabled, setTrapEnabled] = React.useState(false)
-  const {containerRef} = useFocusTrap({disabled: !trapEnabled})
+  const { containerRef } = useFocusTrap({ disabled: !trapEnabled })
 
   const spaceListener = React.useCallback(
-    event => {
+    (event) => {
       if (event.key === ' ') {
         setTrapEnabled(!trapEnabled)
       }
     },
-    [trapEnabled],
+    [trapEnabled]
   )
 
   useEffect(() => {
@@ -75,7 +75,9 @@ export const FocusTrap = () => {
           borderStyle="solid"
           borderRadius={2}
         >
-          <strong>Trap zone! Press SPACE to {trapEnabled ? 'deactivate' : 'activate'}.</strong>
+          <strong>
+            Trap zone! Press SPACE to {trapEnabled ? 'deactivate' : 'activate'}.
+          </strong>
           <Box display="flex" flexDirection="column" alignItems="flex-start">
             <MarginButton>Durian</MarginButton>
             <MarginButton>Elderberry</MarginButton>
@@ -92,15 +94,18 @@ export const FocusTrap = () => {
 
 export const RestoreFocus = () => {
   const [trapEnabled, setTrapEnabled] = React.useState(false)
-  const {containerRef} = useFocusTrap({disabled: !trapEnabled, restoreFocusOnCleanUp: true})
+  const { containerRef } = useFocusTrap({
+    disabled: !trapEnabled,
+    restoreFocusOnCleanUp: true,
+  })
 
   const spaceListener = React.useCallback(
-    event => {
+    (event) => {
       if (event.key === ' ') {
         setTrapEnabled(!trapEnabled)
       }
     },
-    [trapEnabled],
+    [trapEnabled]
   )
 
   useEffect(() => {
@@ -126,7 +131,9 @@ export const RestoreFocus = () => {
           borderStyle="solid"
           borderRadius={2}
         >
-          <strong>Trap zone! Press SPACE to {trapEnabled ? 'deactivate' : 'activate'}.</strong>
+          <strong>
+            Trap zone! Press SPACE to {trapEnabled ? 'deactivate' : 'activate'}.
+          </strong>
           <Box display="flex" flexDirection="column" alignItems="flex-start">
             <MarginButton>Durian</MarginButton>
             <MarginButton>Elderberry</MarginButton>
@@ -143,15 +150,17 @@ export const RestoreFocus = () => {
 
 export const CustomInitialFocus = () => {
   const [trapEnabled, setTrapEnabled] = React.useState(false)
-  const {containerRef, initialFocusRef} = useFocusTrap({disabled: !trapEnabled})
+  const { containerRef, initialFocusRef } = useFocusTrap({
+    disabled: !trapEnabled,
+  })
 
   const spaceListener = React.useCallback(
-    event => {
+    (event) => {
       if (event.key === ' ') {
         setTrapEnabled(!trapEnabled)
       }
     },
-    [trapEnabled],
+    [trapEnabled]
   )
 
   useEffect(() => {
@@ -165,9 +174,10 @@ export const CustomInitialFocus = () => {
     <>
       <HelperGlobalStyling />
       <Box display="flex" flexDirection="column" alignItems="flex-start">
-        <Flash sx={{mb: 3}}>
-          This story is the same as the `Focus Trap` story, except, when the trap zone is activated, the
-          &ldquo;Elderberry&rdquo; button will receive the initial focus (if the trap zone container does not already
+        <Flash sx={{ mb: 3 }}>
+          This story is the same as the `Focus Trap` story, except, when the
+          trap zone is activated, the &ldquo;Elderberry&rdquo; button will
+          receive the initial focus (if the trap zone container does not already
           have focus).
         </Flash>
         <MarginButton>Apple</MarginButton>
@@ -182,10 +192,16 @@ export const CustomInitialFocus = () => {
           borderStyle="solid"
           borderRadius={2}
         >
-          <strong>Trap zone! Press SPACE to {trapEnabled ? 'deactivate' : 'activate'}.</strong>
+          <strong>
+            Trap zone! Press SPACE to {trapEnabled ? 'deactivate' : 'activate'}.
+          </strong>
           <Box display="flex" flexDirection="column" alignItems="flex-start">
             <MarginButton>Durian</MarginButton>
-            <MarginButton ref={initialFocusRef as React.RefObject<HTMLButtonElement>}>Elderberry</MarginButton>
+            <MarginButton
+              ref={initialFocusRef as React.RefObject<HTMLButtonElement>}
+            >
+              Elderberry
+            </MarginButton>
             <MarginButton>Fig</MarginButton>
           </Box>
         </Box>
@@ -197,36 +213,44 @@ export const CustomInitialFocus = () => {
   )
 }
 
-function useKeyPressListener(key: string, handler: () => void, capture = false) {
+function useKeyPressListener(
+  key: string,
+  handler: () => void,
+  capture = false
+) {
   const listener = useCallback(
     (event: KeyboardEvent) => {
       if (event.key === key) {
         handler()
       }
     },
-    [key, handler],
+    [key, handler]
   )
 
   useEffect(() => {
-    document.addEventListener('keypress', listener, {capture})
+    document.addEventListener('keypress', listener, { capture })
     return () => {
-      document.removeEventListener('keypress', listener, {capture})
+      document.removeEventListener('keypress', listener, { capture })
     }
   }, [listener, capture])
 }
 
-function ToggleableButton({name}: {name: string}) {
+function ToggleableButton({ name }: { name: string }) {
   const [showButton, setShowButton] = React.useState(true)
   const key = name.substr(0, 1).toLowerCase()
 
   useKeyPressListener(
     key,
-    useCallback(() => setShowButton(!showButton), [showButton]),
+    useCallback(() => setShowButton(!showButton), [showButton])
   )
 
   return (
     <span>
-      {showButton ? <MarginButton>{name}</MarginButton> : <>{name} (Hidden) - </>}
+      {showButton ? (
+        <MarginButton>{name}</MarginButton>
+      ) : (
+        <>{name} (Hidden) - </>
+      )}
       Press {key} to toggle
     </span>
   )
@@ -234,11 +258,11 @@ function ToggleableButton({name}: {name: string}) {
 
 export const DynamicFocusTrapContents = () => {
   const [trapEnabled, setTrapEnabled] = React.useState(false)
-  const {containerRef} = useFocusTrap({disabled: !trapEnabled})
+  const { containerRef } = useFocusTrap({ disabled: !trapEnabled })
 
   useKeyPressListener(
     ' ',
-    useCallback(() => setTrapEnabled(!trapEnabled), [trapEnabled]),
+    useCallback(() => setTrapEnabled(!trapEnabled), [trapEnabled])
   )
 
   return (
@@ -257,7 +281,9 @@ export const DynamicFocusTrapContents = () => {
           borderStyle="solid"
           borderRadius={2}
         >
-          <strong>Trap zone! Press SPACE to {trapEnabled ? 'deactivate' : 'activate'}.</strong>
+          <strong>
+            Trap zone! Press SPACE to {trapEnabled ? 'deactivate' : 'activate'}.
+          </strong>
           <Box display="flex" flexDirection="column" alignItems="flex-start">
             <ToggleableButton name="Durian"></ToggleableButton>
             <ToggleableButton name="Elderberry"></ToggleableButton>
@@ -276,11 +302,15 @@ export const MultipleFocusTraps = () => {
   const [trapEnabled1, setTrapEnabled1] = React.useState(false)
   const [trapEnabled2, setTrapEnabled2] = React.useState(false)
 
-  const {containerRef: containerRef1} = useFocusTrap({disabled: !trapEnabled1})
-  const {containerRef: containerRef2} = useFocusTrap({disabled: !trapEnabled2})
+  const { containerRef: containerRef1 } = useFocusTrap({
+    disabled: !trapEnabled1,
+  })
+  const { containerRef: containerRef2 } = useFocusTrap({
+    disabled: !trapEnabled2,
+  })
 
   const keyListener = React.useCallback(
-    event => {
+    (event) => {
       if (event.key === '1') {
         setTrapEnabled1(!trapEnabled1)
       }
@@ -288,13 +318,13 @@ export const MultipleFocusTraps = () => {
         setTrapEnabled2(!trapEnabled2)
       }
     },
-    [trapEnabled1, trapEnabled2],
+    [trapEnabled1, trapEnabled2]
   )
 
   useEffect(() => {
-    document.addEventListener('keydown', keyListener, {capture: true})
+    document.addEventListener('keydown', keyListener, { capture: true })
     return () => {
-      document.removeEventListener('keydown', keyListener, {capture: true})
+      document.removeEventListener('keydown', keyListener, { capture: true })
     }
   }, [keyListener])
 
@@ -302,13 +332,22 @@ export const MultipleFocusTraps = () => {
     <>
       <HelperGlobalStyling />
       <Box display="flex" flexDirection="column" alignItems="flex-start">
-        <Flash sx={{mb: 3}}>
-          This story demonstrates the global nature of focus traps. When a focus trap is enabled, if there is already an
-          active focus trap, it becomes suspended and pushed onto a stack. Once the newly-active focus trap is disabled,
-          the most recently-suspended trap will reactivate. Suspended focus traps can be disabled, causing them to be
-          removed from the stack of suspended traps.
+        <Flash sx={{ mb: 3 }}>
+          This story demonstrates the global nature of focus traps. When a focus
+          trap is enabled, if there is already an active focus trap, it becomes
+          suspended and pushed onto a stack. Once the newly-active focus trap is
+          disabled, the most recently-suspended trap will reactivate. Suspended
+          focus traps can be disabled, causing them to be removed from the stack
+          of suspended traps.
         </Flash>
-        <Box p={2} mb={3} borderWidth="1px" borderStyle="solid" borderColor="border.default" borderRadius={2}>
+        <Box
+          p={2}
+          mb={3}
+          borderWidth="1px"
+          borderStyle="solid"
+          borderColor="border.default"
+          borderRadius={2}
+        >
           Legend
           <Box display="flex" flexDirection="row">
             <Box
@@ -362,7 +401,8 @@ export const MultipleFocusTraps = () => {
           borderRadius={2}
         >
           <strong>
-            Trap zone ({trapEnabled1 ? 'enabled' : 'disabled'})! Press <code>1</code> to toggle.
+            Trap zone ({trapEnabled1 ? 'enabled' : 'disabled'})! Press{' '}
+            <code>1</code> to toggle.
           </strong>
           <Box display="flex" flexDirection="column" alignItems="flex-start">
             <MarginButton>Durian</MarginButton>
@@ -383,7 +423,8 @@ export const MultipleFocusTraps = () => {
           borderRadius={2}
         >
           <strong>
-            Trap zone ({trapEnabled2 ? 'enabled' : 'disabled'})! Press <code>2</code> to toggle.
+            Trap zone ({trapEnabled2 ? 'enabled' : 'disabled'})! Press{' '}
+            <code>2</code> to toggle.
           </strong>
           <Box display="flex" flexDirection="column" alignItems="flex-start">
             <MarginButton>Kiwi</MarginButton>

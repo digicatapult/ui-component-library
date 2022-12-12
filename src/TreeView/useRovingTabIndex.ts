@@ -1,8 +1,8 @@
 import React from 'react'
-import {FocusKeys, useFocusZone} from '../hooks/useFocusZone'
-import {getScrollContainer} from '../utils/scroll'
+import { FocusKeys, useFocusZone } from '../hooks/useFocusZone'
+import { getScrollContainer } from '../utils/scroll'
 
-export function useRovingTabIndex({containerRef}: {containerRef: React.RefObject<HTMLElement>}) {
+export function useRovingTabIndex({ containerRef }: { containerRef: React.RefObject<HTMLElement> }) {
   // TODO: Initialize focus to the aria-current item if it exists
   useFocusZone({
     containerRef,
@@ -17,7 +17,7 @@ export function useRovingTabIndex({containerRef}: {containerRef: React.RefObject
       if (!(from instanceof HTMLElement)) return
 
       return getNextFocusableElement(from, event) ?? from
-    },
+    }
   })
 }
 
@@ -102,7 +102,7 @@ export function getVisibleElement(element: HTMLElement, direction: 'next' | 'pre
 
   if (!root) return
 
-  const walker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT, node => {
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT, (node) => {
     if (!(node instanceof HTMLElement)) return NodeFilter.FILTER_SKIP
     return node.getAttribute('role') === 'treeitem' ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP
   })
@@ -164,7 +164,7 @@ export function getLastElement(element: HTMLElement): HTMLElement | undefined {
 }
 
 const defaultSize = {
-  height: 32,
+  height: 32
 }
 
 /**
@@ -175,7 +175,7 @@ const defaultSize = {
  */
 function getPageSize(root: Element, item: HTMLElement | null) {
   const scrollContainer = getScrollContainer(root)
-  const {height: itemHeight} = item?.getBoundingClientRect() ?? defaultSize
+  const { height: itemHeight } = item?.getBoundingClientRect() ?? defaultSize
   const availableHeight = scrollContainer?.clientHeight ?? window.innerHeight
   return Math.floor(availableHeight / itemHeight)
 }

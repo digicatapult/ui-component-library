@@ -1,5 +1,5 @@
-import React, {useEffect} from 'react'
-import {iterateFocusableElements} from '@primer/behaviors/utils'
+import React, { useEffect } from 'react'
+import { iterateFocusableElements } from '@primer/behaviors/utils'
 
 export type UseOpenAndCloseFocusSettings = {
   initialFocusRef?: React.RefObject<HTMLElement>
@@ -12,7 +12,7 @@ export function useOpenAndCloseFocus({
   initialFocusRef,
   returnFocusRef,
   containerRef,
-  preventFocusOnOpen,
+  preventFocusOnOpen
 }: UseOpenAndCloseFocusSettings): void {
   useEffect(() => {
     if (preventFocusOnOpen) {

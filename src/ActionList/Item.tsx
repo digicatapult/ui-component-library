@@ -1,15 +1,20 @@
-import {ForwardRefComponent as PolymorphicForwardRefComponent} from '../utils/polymorphic'
-import {useSSRSafeId} from '@react-aria/ssr'
+import { ForwardRefComponent as PolymorphicForwardRefComponent } from '../utils/polymorphic'
+import { useSSRSafeId } from '@react-aria/ssr'
 import React from 'react'
 import styled from 'styled-components'
-import Box, {BoxProps} from '../Box'
-import sx, {BetterSystemStyleObject, merge, SxProp} from '../sx'
-import {useTheme} from '../ThemeProvider'
-import {ActionListContainerContext} from './ActionListContainerContext'
-import {ActionListGroupProps, GroupContext} from './Group'
-import {ActionListProps, ListContext} from './List'
-import {Selection} from './Selection'
-import {ActionListItemProps, Slots, TEXT_ROW_HEIGHT, getVariantStyles} from './shared'
+import Box, { BoxProps } from '../Box'
+import sx, { BetterSystemStyleObject, merge, SxProp } from '../sx'
+import { useTheme } from '../ThemeProvider'
+import { ActionListContainerContext } from './ActionListContainerContext'
+import { ActionListGroupProps, GroupContext } from './Group'
+import { ActionListProps, ListContext } from './List'
+import { Selection } from './Selection'
+import {
+  ActionListItemProps,
+  Slots,
+  TEXT_ROW_HEIGHT,
+  getVariantStyles,
+} from './shared'
 
 const LiBox = styled.li<SxProp>(sx)
 
@@ -27,14 +32,24 @@ export const Item = React.forwardRef<HTMLLIElement, ActionListItemProps>(
       _PrivateItemWrapper,
       ...props
     },
-    forwardedRef,
+    forwardedRef
   ): JSX.Element => {
-    const {variant: listVariant, showDividers, selectionVariant: listSelectionVariant} = React.useContext(ListContext)
-    const {selectionVariant: groupSelectionVariant} = React.useContext(GroupContext)
-    const {container, afterSelect, selectionAttribute} = React.useContext(ActionListContainerContext)
+    const {
+      variant: listVariant,
+      showDividers,
+      selectionVariant: listSelectionVariant,
+    } = React.useContext(ListContext)
+    const { selectionVariant: groupSelectionVariant } =
+      React.useContext(GroupContext)
+    const { container, afterSelect, selectionAttribute } = React.useContext(
+      ActionListContainerContext
+    )
 
-    let selectionVariant: ActionListProps['selectionVariant'] | ActionListGroupProps['selectionVariant']
-    if (typeof groupSelectionVariant !== 'undefined') selectionVariant = groupSelectionVariant
+    let selectionVariant:
+      | ActionListProps['selectionVariant']
+      | ActionListGroupProps['selectionVariant']
+    if (typeof groupSelectionVariant !== 'undefined')
+      selectionVariant = groupSelectionVariant
     else selectionVariant = listSelectionVariant
 
     /** Infer item role based on the container */
@@ -45,7 +60,7 @@ export const Item = React.forwardRef<HTMLLIElement, ActionListItemProps>(
       else itemRole = 'menuitem'
     }
 
-    const {theme} = useTheme()
+    const { theme } = useTheme()
 
     const activeStyles = {
       fontWeight: 'bold',
@@ -75,7 +90,7 @@ export const Item = React.forwardRef<HTMLLIElement, ActionListItemProps>(
       transition: 'background 33.333ms linear',
       color: getVariantStyles(variant, disabled).color,
       cursor: 'pointer',
-      '&[aria-disabled]': {cursor: 'not-allowed'},
+      '&[aria-disabled]': { cursor: 'not-allowed' },
 
       // Button reset styles (to support as="button")
       appearance: 'none',
@@ -91,11 +106,12 @@ export const Item = React.forwardRef<HTMLLIElement, ActionListItemProps>(
           backgroundColor: `actionListItem.${variant}.hoverBg`,
           color: getVariantStyles(variant, disabled).hoverColor,
         },
-        ':focus:not([data-focus-visible-added]), > a:focus:not([data-focus-visible-added])': {
-          backgroundColor: `actionListItem.${variant}.selectedBg`,
-          color: getVariantStyles(variant, disabled).hoverColor,
-          outline: 'none',
-        },
+        ':focus:not([data-focus-visible-added]), > a:focus:not([data-focus-visible-added])':
+          {
+            backgroundColor: `actionListItem.${variant}.selectedBg`,
+            color: getVariantStyles(variant, disabled).hoverColor,
+            outline: 'none',
+          },
         '&[data-focus-visible-added], > a[data-focus-visible-added]': {
           // we don't use :focus-visible because not all browsers (safari) have it yet
           outline: 'none',
@@ -130,21 +146,27 @@ export const Item = React.forwardRef<HTMLLIElement, ActionListItemProps>(
         borderColor: 'var(--divider-color, transparent)',
       },
       // show between 2 items
-      ':not(:first-of-type)': {'--divider-color': theme?.colors.actionListItem.inlineDivider},
+      ':not(:first-of-type)': {
+        '--divider-color': theme?.colors.actionListItem.inlineDivider,
+      },
       // hide divider after dividers & group header, with higher importance!
-      '[data-component="ActionList.Divider"] + &': {'--divider-color': 'transparent !important'},
+      '[data-component="ActionList.Divider"] + &': {
+        '--divider-color': 'transparent !important',
+      },
       // hide border on current and previous item
-      '&:hover:not([aria-disabled]), &:focus:not([aria-disabled]), &[data-focus-visible-added]:not([aria-disabled])': {
-        '--divider-color': 'transparent',
-      },
-      '&:hover:not([aria-disabled]) + &, &:focus:not([aria-disabled]) + &, &[data-focus-visible-added] + li': {
-        '--divider-color': 'transparent',
-      },
+      '&:hover:not([aria-disabled]), &:focus:not([aria-disabled]), &[data-focus-visible-added]:not([aria-disabled])':
+        {
+          '--divider-color': 'transparent',
+        },
+      '&:hover:not([aria-disabled]) + &, &:focus:not([aria-disabled]) + &, &[data-focus-visible-added] + li':
+        {
+          '--divider-color': 'transparent',
+        },
       ...(active ? activeStyles : {}),
     }
 
     const clickHandler = React.useCallback(
-      event => {
+      (event) => {
         if (disabled) return
         if (!event.defaultPrevented) {
           if (typeof onSelect === 'function') onSelect(event)
@@ -152,11 +174,11 @@ export const Item = React.forwardRef<HTMLLIElement, ActionListItemProps>(
           if (typeof afterSelect === 'function') afterSelect()
         }
       },
-      [onSelect, disabled, afterSelect],
+      [onSelect, disabled, afterSelect]
     )
 
     const keyPressHandler = React.useCallback(
-      event => {
+      (event) => {
         if (disabled) return
         if (!event.defaultPrevented && [' ', 'Enter'].includes(event.key)) {
           if (typeof onSelect === 'function') onSelect(event)
@@ -164,7 +186,7 @@ export const Item = React.forwardRef<HTMLLIElement, ActionListItemProps>(
           if (typeof afterSelect === 'function') afterSelect()
         }
       },
-      [onSelect, disabled, afterSelect],
+      [onSelect, disabled, afterSelect]
     )
 
     // use props.id if provided, otherwise generate one.
@@ -175,8 +197,10 @@ export const Item = React.forwardRef<HTMLLIElement, ActionListItemProps>(
     const ItemWrapper = _PrivateItemWrapper || React.Fragment
 
     return (
-      <Slots context={{variant, disabled, inlineDescriptionId, blockDescriptionId}}>
-        {slots => (
+      <Slots
+        context={{ variant, disabled, inlineDescriptionId, blockDescriptionId }}
+      >
+        {(slots) => (
           <LiBox
             ref={forwardedRef}
             sx={merge<BetterSystemStyleObject>(styles, sxProp)}
@@ -184,10 +208,14 @@ export const Item = React.forwardRef<HTMLLIElement, ActionListItemProps>(
             onKeyPress={keyPressHandler}
             aria-disabled={disabled ? true : undefined}
             tabIndex={disabled || _PrivateItemWrapper ? undefined : 0}
-            aria-labelledby={`${labelId} ${slots.InlineDescription ? inlineDescriptionId : ''}`}
-            aria-describedby={slots.BlockDescription ? blockDescriptionId : undefined}
+            aria-labelledby={`${labelId} ${
+              slots.InlineDescription ? inlineDescriptionId : ''
+            }`}
+            aria-describedby={
+              slots.BlockDescription ? blockDescriptionId : undefined
+            }
             role={role || itemRole}
-            {...(selectionAttribute && {[selectionAttribute]: selected})}
+            {...(selectionAttribute && { [selectionAttribute]: selected })}
             {...props}
           >
             <ItemWrapper>
@@ -195,14 +223,31 @@ export const Item = React.forwardRef<HTMLLIElement, ActionListItemProps>(
               {slots.LeadingVisual}
               <Box
                 data-component="ActionList.Item--DividerContainer"
-                sx={{display: 'flex', flexDirection: 'column', flexGrow: 1, minWidth: 0}}
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  flexGrow: 1,
+                  minWidth: 0,
+                }}
               >
-                <ConditionalBox if={Boolean(slots.TrailingVisual)} sx={{display: 'flex', flexGrow: 1}}>
+                <ConditionalBox
+                  if={Boolean(slots.TrailingVisual)}
+                  sx={{ display: 'flex', flexGrow: 1 }}
+                >
                   <ConditionalBox
                     if={Boolean(slots.InlineDescription)}
-                    sx={{display: 'flex', flexGrow: 1, alignItems: 'baseline', minWidth: 0}}
+                    sx={{
+                      display: 'flex',
+                      flexGrow: 1,
+                      alignItems: 'baseline',
+                      minWidth: 0,
+                    }}
                   >
-                    <Box as="span" id={labelId} sx={{flexGrow: slots.InlineDescription ? 0 : 1}}>
+                    <Box
+                      as="span"
+                      id={labelId}
+                      sx={{ flexGrow: slots.InlineDescription ? 0 : 1 }}
+                    >
                       {props.children}
                     </Box>
                     {slots.InlineDescription}
@@ -216,13 +261,15 @@ export const Item = React.forwardRef<HTMLLIElement, ActionListItemProps>(
         )}
       </Slots>
     )
-  },
+  }
 ) as PolymorphicForwardRefComponent<'li', ActionListItemProps>
 
 Item.displayName = 'ActionList.Item'
 
-const ConditionalBox: React.FC<React.PropsWithChildren<{if: boolean} & BoxProps>> = props => {
-  const {if: condition, ...rest} = props
+const ConditionalBox: React.FC<
+  React.PropsWithChildren<{ if: boolean } & BoxProps>
+> = (props) => {
+  const { if: condition, ...rest } = props
 
   if (condition) return <Box {...rest}>{props.children}</Box>
   else return <>{props.children}</>

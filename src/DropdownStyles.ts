@@ -1,5 +1,5 @@
-import {get} from './constants'
-import {Theme} from './ThemeProvider'
+import { get } from './constants'
+import { Theme } from './ThemeProvider'
 
 const getDirectionStyles = (theme: Theme, direction: 'ne' | 'e' | 'se' | 's' | 'sw' | 'w') => {
   const map = {
@@ -120,7 +120,7 @@ const getDirectionStyles = (theme: Theme, direction: 'ne' | 'e' | 'se' | 's' | '
         top: -14px;
         left: 10px;
       }
-    `,
+    `
   }
   return map[direction]
 }

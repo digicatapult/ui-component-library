@@ -1,5 +1,5 @@
-import styled, {keyframes} from 'styled-components'
-import {get} from '../constants'
+import styled, { keyframes } from 'styled-components'
+import { get } from '../constants'
 
 const loading = keyframes`
   from { opacity: 1; }

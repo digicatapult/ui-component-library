@@ -1,19 +1,25 @@
-import {DiffAddedIcon, DiffModifiedIcon, DiffRemovedIcon, DiffRenamedIcon, FileIcon} from '@primer/octicons-react'
-import {Meta, Story} from '@storybook/react'
+import {
+  DiffAddedIcon,
+  DiffModifiedIcon,
+  DiffRemovedIcon,
+  DiffRenamedIcon,
+  FileIcon,
+} from '@primer/octicons-react'
+import { Meta, Story } from '@storybook/react'
 import React from 'react'
 import Box from '../Box'
-import {Button} from '../Button'
+import { Button } from '../Button'
 import StyledOcticon from '../StyledOcticon'
-import {SubTreeState, TreeView} from './TreeView'
+import { SubTreeState, TreeView } from './TreeView'
 
 const meta: Meta = {
   title: 'Components/TreeView/Features',
   component: TreeView,
   decorators: [
-    Story => {
+    (Story) => {
       return (
         // Prevent TreeView from expanding to the full width of the screen
-        <Box sx={{maxWidth: 400}}>
+        <Box sx={{ maxWidth: 400 }}>
           <Story />
         </Box>
       )
@@ -67,7 +73,11 @@ export const Files: Story = () => (
       <TreeView.Item
         id="public"
         // eslint-disable-next-line no-console
-        onExpandedChange={isExpanded => console.log(`${isExpanded ? 'Expanded' : 'Collapsed'} "public" folder `)}
+        onExpandedChange={(isExpanded) =>
+          console.log(
+            `${isExpanded ? 'Expanded' : 'Collapsed'} "public" folder `
+          )
+        }
       >
         <TreeView.LeadingVisual>
           <TreeView.DirectoryIcon />
@@ -129,7 +139,10 @@ export const FilesChanged: Story = () => {
                   </TreeView.LeadingVisual>
                   Button.tsx
                   <TreeView.TrailingVisual label="modified">
-                    <StyledOcticon icon={DiffModifiedIcon} color="attention.fg" />
+                    <StyledOcticon
+                      icon={DiffModifiedIcon}
+                      color="attention.fg"
+                    />
                   </TreeView.TrailingVisual>
                 </TreeView.Item>
                 <TreeView.Item id="src/Button/Button.test.tsx">
@@ -138,7 +151,10 @@ export const FilesChanged: Story = () => {
                   </TreeView.LeadingVisual>
                   Button.test.tsx
                   <TreeView.TrailingVisual label="modified">
-                    <StyledOcticon icon={DiffModifiedIcon} color="attention.fg" />
+                    <StyledOcticon
+                      icon={DiffModifiedIcon}
+                      color="attention.fg"
+                    />
                   </TreeView.TrailingVisual>
                 </TreeView.Item>
               </TreeView.SubTree>
@@ -194,7 +210,7 @@ type TreeItem = {
 }
 
 function expandAll(tree: TreeItem[]): TreeItem[] {
-  return tree.map(item => ({
+  return tree.map((item) => ({
     data: {
       ...item.data,
       expanded: true,
@@ -204,7 +220,7 @@ function expandAll(tree: TreeItem[]): TreeItem[] {
 }
 
 function collapseAll(tree: TreeItem[]): TreeItem[] {
-  return tree.map(item => ({
+  return tree.map((item) => ({
     data: {
       ...item.data,
       expanded: false,
@@ -213,8 +229,12 @@ function collapseAll(tree: TreeItem[]): TreeItem[] {
   }))
 }
 
-function setExpanded(tree: TreeItem[], path: string[], expanded: boolean): TreeItem[] {
-  return tree.map(item => {
+function setExpanded(
+  tree: TreeItem[],
+  path: string[],
+  expanded: boolean
+): TreeItem[] {
+  return tree.map((item) => {
     if (item.data.name === path[0] && path.length === 1) {
       return {
         ...item,
@@ -242,17 +262,17 @@ const CurrentPathContext = React.createContext<{
   setCurrentPath: () => {},
 })
 
-const intialTree: TreeItem[] = Array.from({length: 5}).map((_, i) => ({
+const intialTree: TreeItem[] = Array.from({ length: 5 }).map((_, i) => ({
   data: {
     name: `Item ${i}`,
     expanded: false,
   },
-  children: Array.from({length: 5}).map((_, j) => ({
+  children: Array.from({ length: 5 }).map((_, j) => ({
     data: {
       name: `Item ${i}.${j}`,
       expanded: false,
     },
-    children: Array.from({length: 5}).map((_, k) => ({
+    children: Array.from({ length: 5 }).map((_, k) => ({
       data: {
         name: `Item ${i}.${j}.${k}`,
         expanded: false,
@@ -263,24 +283,29 @@ const intialTree: TreeItem[] = Array.from({length: 5}).map((_, i) => ({
 }))
 
 export const Controlled: Story = () => {
-  const [currentPath, setCurrentPath] = React.useState<string[]>(['src', 'Avatar.tsx'])
+  const [currentPath, setCurrentPath] = React.useState<string[]>([
+    'src',
+    'Avatar.tsx',
+  ])
   const [tree, setTree] = React.useState<TreeItem[]>(intialTree)
 
   return (
-    <Box sx={{display: 'grid', gap: 3}}>
-      <Box sx={{display: 'flex', gap: 2}}>
+    <Box sx={{ display: 'grid', gap: 3 }}>
+      <Box sx={{ display: 'flex', gap: 2 }}>
         <Button onClick={() => setTree(collapseAll)}>Collapse all</Button>
         <Button onClick={() => setTree(expandAll)}>Expand all</Button>
       </Box>
       <nav aria-label="Files">
-        <CurrentPathContext.Provider value={{currentPath, setCurrentPath}}>
+        <CurrentPathContext.Provider value={{ currentPath, setCurrentPath }}>
           <TreeView aria-label="Files">
-            {tree.map(item => (
+            {tree.map((item) => (
               <TreeItem
                 key={item.data.name}
                 item={item}
                 path={[item.data.name]}
-                onExpandedChange={(path, expanded) => setTree(tree => setExpanded(tree, path, expanded))}
+                onExpandedChange={(path, expanded) =>
+                  setTree((tree) => setExpanded(tree, path, expanded))
+                }
               />
             ))}
           </TreeView>
@@ -299,19 +324,19 @@ function TreeItem({
   path: string[]
   onExpandedChange: (path: string[], expanded: boolean) => void
 }) {
-  const {currentPath, setCurrentPath} = React.useContext(CurrentPathContext)
+  const { currentPath, setCurrentPath } = React.useContext(CurrentPathContext)
   return (
     <TreeView.Item
       id={path.join('/')}
       current={currentPath.join('/') === path.join('/')}
       expanded={item.data.expanded}
-      onExpandedChange={expanded => onExpandedChange(path, expanded)}
+      onExpandedChange={(expanded) => onExpandedChange(path, expanded)}
       onSelect={() => setCurrentPath(path)}
     >
       {item.data.name}
       {item.children.length > 0 ? (
         <TreeView.SubTree>
-          {item.children.map(child => (
+          {item.children.map((child) => (
             <TreeItem
               key={child.data.name}
               item={child}
@@ -326,7 +351,7 @@ function TreeItem({
 }
 
 async function wait(ms: number) {
-  return new Promise(resolve => setTimeout(resolve, ms))
+  return new Promise((resolve) => setTimeout(resolve, ms))
 }
 
 async function loadItems(responseTime: number) {
@@ -334,7 +359,7 @@ async function loadItems(responseTime: number) {
   return ['Avatar.tsx', 'Button.tsx', 'Checkbox.tsx']
 }
 
-export const AsyncSuccess: Story = args => {
+export const AsyncSuccess: Story = (args) => {
   const [isLoading, setIsLoading] = React.useState(false)
   const [asyncItems, setAsyncItems] = React.useState<string[]>([])
 
@@ -357,7 +382,7 @@ export const AsyncSuccess: Story = args => {
         </TreeView.Item>
         <TreeView.Item
           id="async-directory"
-          onExpandedChange={async isExpanded => {
+          onExpandedChange={async (isExpanded) => {
             if (asyncItems.length === 0 && isExpanded) {
               setIsLoading(true)
 
@@ -374,7 +399,7 @@ export const AsyncSuccess: Story = args => {
           </TreeView.LeadingVisual>
           Directory with async items
           <TreeView.SubTree state={state}>
-            {asyncItems.map(item => (
+            {asyncItems.map((item) => (
               <TreeView.Item id={`item-${item}`} key={item}>
                 <TreeView.LeadingVisual>
                   <FileIcon />
@@ -399,7 +424,7 @@ AsyncSuccess.args = {
   responseTime: 2000,
 }
 
-export const AsyncWithCount: Story = args => {
+export const AsyncWithCount: Story = (args) => {
   const [isLoading, setIsLoading] = React.useState(false)
   const [asyncItems, setAsyncItems] = React.useState<string[]>([])
 
@@ -422,7 +447,7 @@ export const AsyncWithCount: Story = args => {
         </TreeView.Item>
         <TreeView.Item
           id="async-directory"
-          onExpandedChange={async isExpanded => {
+          onExpandedChange={async (isExpanded) => {
             if (asyncItems.length === 0 && isExpanded) {
               setIsLoading(true)
 
@@ -439,7 +464,7 @@ export const AsyncWithCount: Story = args => {
           </TreeView.LeadingVisual>
           Directory with async items
           <TreeView.SubTree state={state} count={args.count}>
-            {asyncItems.map(item => (
+            {asyncItems.map((item) => (
               <TreeView.Item key={item} id={`item-${item}`}>
                 <TreeView.LeadingVisual>
                   <FileIcon />
@@ -477,7 +502,7 @@ async function alwaysFails(responseTime: number) {
   return []
 }
 
-export const AsyncError: Story = args => {
+export const AsyncError: Story = (args) => {
   const [isLoading, setIsLoading] = React.useState(false)
   const [asyncItems, setAsyncItems] = React.useState<string[]>([])
   const [error, setError] = React.useState<Error | null>(null)
@@ -518,7 +543,7 @@ export const AsyncError: Story = args => {
       </TreeView.Item>
       <TreeView.Item
         id="async-directory"
-        onExpandedChange={isExpanded => {
+        onExpandedChange={(isExpanded) => {
           if (isExpanded) {
             loadItems()
           }
@@ -542,7 +567,7 @@ export const AsyncError: Story = args => {
               {error.message}
             </TreeView.ErrorDialog>
           ) : null}
-          {asyncItems.map(item => (
+          {asyncItems.map((item) => (
             <TreeView.Item key={item} id={`item-${item}`}>
               <TreeView.LeadingVisual>
                 <FileIcon />
@@ -583,7 +608,7 @@ export const EmptyDirectories: Story = () => {
     <TreeView aria-label="Files">
       <TreeView.Item
         id="src"
-        onExpandedChange={expanded => {
+        onExpandedChange={(expanded) => {
           if (expanded) {
             timeoutId.current = setTimeout(() => {
               setState('done')
@@ -611,16 +636,16 @@ export const EmptyDirectories: Story = () => {
 
 export const NestedScrollContainer: Story = () => {
   return (
-    <Box sx={{maxHeight: '50vh', overflow: 'auto'}}>
+    <Box sx={{ maxHeight: '50vh', overflow: 'auto' }}>
       <TreeView aria-label="Files">
-        {Array.from({length: 100}).map((_, i) => (
+        {Array.from({ length: 100 }).map((_, i) => (
           <TreeView.Item key={i} id={`directory-${i}`}>
             <TreeView.LeadingVisual>
               <TreeView.DirectoryIcon />
             </TreeView.LeadingVisual>
             Directory {i}
             <TreeView.SubTree>
-              {Array.from({length: 10}).map((_, j) => (
+              {Array.from({ length: 10 }).map((_, j) => (
                 <TreeView.Item
                   key={j}
                   id={`directory-${i}/file-${j}`}
@@ -644,14 +669,14 @@ export const NestedScrollContainer: Story = () => {
 export const StressTest: Story = () => {
   return (
     <TreeView aria-label="Files">
-      {Array.from({length: 1000}).map((_, i) => (
+      {Array.from({ length: 1000 }).map((_, i) => (
         <TreeView.Item key={i} id={`directory-${i}`}>
           <TreeView.LeadingVisual>
             <TreeView.DirectoryIcon />
           </TreeView.LeadingVisual>
           Directory {i}
           <TreeView.SubTree>
-            {Array.from({length: 100}).map((_, j) => (
+            {Array.from({ length: 100 }).map((_, j) => (
               <TreeView.Item key={j} id={`directory-${i}/file-${j}`}>
                 <TreeView.LeadingVisual>
                   <FileIcon />
@@ -667,21 +692,30 @@ export const StressTest: Story = () => {
 }
 
 StressTest.parameters = {
-  chromatic: {disableSnapshot: true},
+  chromatic: { disableSnapshot: true },
 }
 
 export const ContainIntrinsicSize: Story = () => {
   return (
     <TreeView aria-label="Files">
-      {Array.from({length: 10}).map((_, i) => (
-        <TreeView.Item key={i} id={`directory-${i}`} defaultExpanded containIntrinsicSize="2rem">
+      {Array.from({ length: 10 }).map((_, i) => (
+        <TreeView.Item
+          key={i}
+          id={`directory-${i}`}
+          defaultExpanded
+          containIntrinsicSize="2rem"
+        >
           <TreeView.LeadingVisual>
             <TreeView.DirectoryIcon />
           </TreeView.LeadingVisual>
           Directory {i}
           <TreeView.SubTree>
-            {Array.from({length: 1000}).map((_, j) => (
-              <TreeView.Item key={j} id={`directory-${i}/file-${j}`} containIntrinsicSize="2rem">
+            {Array.from({ length: 1000 }).map((_, j) => (
+              <TreeView.Item
+                key={j}
+                id={`directory-${i}/file-${j}`}
+                containIntrinsicSize="2rem"
+              >
                 <TreeView.LeadingVisual>
                   <FileIcon />
                 </TreeView.LeadingVisual>
@@ -696,7 +730,7 @@ export const ContainIntrinsicSize: Story = () => {
 }
 
 ContainIntrinsicSize.parameters = {
-  chromatic: {disableSnapshot: true},
+  chromatic: { disableSnapshot: true },
 }
 
 export default meta

@@ -1,6 +1,13 @@
 import React from 'react'
-import {Meta} from '@storybook/react'
-import {BaseStyles, Box, FormControl, Radio, RadioProps, ThemeProvider} from '..'
+import { Meta } from '@storybook/react'
+import {
+  BaseStyles,
+  Box,
+  FormControl,
+  Radio,
+  RadioProps,
+  ThemeProvider,
+} from '..'
 import {
   FormControlArgs,
   formControlArgs,
@@ -8,23 +15,29 @@ import {
   getFormControlArgsByChildComponent,
 } from '../utils/story-helpers'
 
-const excludedControlKeys = ['required', 'value', 'name', 'validationStatus', 'sx']
+const excludedControlKeys = [
+  'required',
+  'value',
+  'name',
+  'validationStatus',
+  'sx',
+]
 
 export default {
   title: 'Components/Forms/Radio',
   component: Radio,
   decorators: [
-    Story => {
+    (Story) => {
       return (
         <ThemeProvider>
           <BaseStyles>
-            <Box sx={{pt: 3}}>{Story()}</Box>
+            <Box sx={{ pt: 3 }}>{Story()}</Box>
           </BaseStyles>
         </ThemeProvider>
       )
     },
   ],
-  parameters: {controls: {exclude: excludedControlKeys}},
+  parameters: { controls: { exclude: excludedControlKeys } },
   args: {
     ...formControlArgs,
     checked: false,
@@ -39,11 +52,15 @@ export default {
   },
 } as Meta
 
-export const Default = ({value: _value, ...args}: FormControlArgs<RadioProps>) => {
-  const {parentArgs, labelArgs, captionArgs} = getFormControlArgsByChildComponent(args)
+export const Default = ({
+  value: _value,
+  ...args
+}: FormControlArgs<RadioProps>) => {
+  const { parentArgs, labelArgs, captionArgs } =
+    getFormControlArgsByChildComponent(args)
 
   return (
-    <Box as="form" sx={{p: 3}}>
+    <Box as="form" sx={{ p: 3 }}>
       <FormControl {...parentArgs}>
         <Radio name="default-radio-name" value="default" {...args} />
         <FormControl.Label {...labelArgs} />

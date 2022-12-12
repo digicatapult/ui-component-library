@@ -1,11 +1,11 @@
 import classnames from 'classnames'
-import {To} from 'history'
-import React, {useRef, useState} from 'react'
+import { To } from 'history'
+import React, { useRef, useState } from 'react'
 import styled from 'styled-components'
-import {get} from './constants'
-import {FocusKeys, useFocusZone} from './hooks/useFocusZone'
-import sx, {SxProp} from './sx'
-import {ComponentProps} from './utils/types'
+import { get } from './constants'
+import { FocusKeys, useFocusZone } from './hooks/useFocusZone'
+import sx, { SxProp } from './sx'
+import { ComponentProps } from './utils/types'
 import getGlobalFocusStyles from './_getGlobalFocusStyles'
 
 const ITEM_CLASS = 'TabNav-item'
@@ -28,7 +28,7 @@ const TabNavNav = styled.nav`
 
 export type TabNavProps = ComponentProps<typeof TabNavBase>
 
-function TabNav({children, 'aria-label': ariaLabel, ...rest}: TabNavProps) {
+function TabNav({ children, 'aria-label': ariaLabel, ...rest }: TabNavProps) {
   const customContainerRef = useRef<HTMLElement>(null)
   // TODO: revert tracking when `initialFocus` is set. This is a fix when TabNav
   // is nested within another focus zone. This flag is used to indicate when
@@ -42,21 +42,24 @@ function TabNav({children, 'aria-label': ariaLabel, ...rest}: TabNavProps) {
   const customStrategy = React.useCallback(() => {
     if (customContainerRef.current) {
       const tabs = Array.from(
-        customContainerRef.current.querySelectorAll<HTMLElement>('[role=tab][aria-selected=true]'),
+        customContainerRef.current.querySelectorAll<HTMLElement>(
+          '[role=tab][aria-selected=true]'
+        )
       )
       setInitialFocus(true)
       return tabs[0]
     }
   }, [customContainerRef])
-  const {containerRef: navRef} = useFocusZone(
+  const { containerRef: navRef } = useFocusZone(
     {
       containerRef: customContainerRef,
       bindKeys: FocusKeys.ArrowHorizontal | FocusKeys.HomeAndEnd,
       focusOutBehavior: 'wrap',
       focusInStrategy: initialFocus ? 'previous' : customStrategy,
-      focusableElementFilter: element => element.getAttribute('role') === 'tab',
+      focusableElementFilter: (element) =>
+        element.getAttribute('role') === 'tab',
     },
-    [initialFocus],
+    [initialFocus]
   )
   return (
     <TabNavBase {...rest} ref={navRef as React.RefObject<HTMLDivElement>}>
@@ -72,9 +75,13 @@ type StyledTabNavLinkProps = {
   selected?: boolean
 } & SxProp
 
-const TabNavLink = styled.a.attrs<StyledTabNavLinkProps>(props => ({
+const TabNavLink = styled.a.attrs<StyledTabNavLinkProps>((props) => ({
   activeClassName: typeof props.to === 'string' ? 'selected' : '',
-  className: classnames(ITEM_CLASS, props.selected && SELECTED_CLASS, props.className),
+  className: classnames(
+    ITEM_CLASS,
+    props.selected && SELECTED_CLASS,
+    props.className
+  ),
   role: 'tab',
   'aria-selected': !!props.selected,
   tabIndex: -1,
@@ -110,4 +117,4 @@ const TabNavLink = styled.a.attrs<StyledTabNavLinkProps>(props => ({
 TabNavLink.displayName = 'TabNav.Link'
 
 export type TabNavLinkProps = ComponentProps<typeof TabNavLink>
-export default Object.assign(TabNav, {Link: TabNavLink})
+export default Object.assign(TabNav, { Link: TabNavLink })

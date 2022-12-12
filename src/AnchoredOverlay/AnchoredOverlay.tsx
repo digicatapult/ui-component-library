@@ -1,17 +1,23 @@
-import React, {useCallback, useEffect} from 'react'
-import Overlay, {OverlayProps} from '../Overlay'
-import {FocusTrapHookSettings, useFocusTrap} from '../hooks/useFocusTrap'
-import {FocusZoneHookSettings, useFocusZone} from '../hooks/useFocusZone'
-import {useAnchoredPosition, useProvidedRefOrCreate, useRenderForcingRef} from '../hooks'
-import {useSSRSafeId} from '@react-aria/ssr'
-import type {PositionSettings} from '@primer/behaviors'
+import React, { useCallback, useEffect } from 'react'
+import Overlay, { OverlayProps } from '../Overlay'
+import { FocusTrapHookSettings, useFocusTrap } from '../hooks/useFocusTrap'
+import { FocusZoneHookSettings, useFocusZone } from '../hooks/useFocusZone'
+import {
+  useAnchoredPosition,
+  useProvidedRefOrCreate,
+  useRenderForcingRef,
+} from '../hooks'
+import { useSSRSafeId } from '@react-aria/ssr'
+import type { PositionSettings } from '@primer/behaviors'
 
 interface AnchoredOverlayPropsWithAnchor {
   /**
    * A custom function component used to render the anchor element.
    * Will receive the selected text as `children` prop when an item is activated.
    */
-  renderAnchor: <T extends React.HTMLAttributes<HTMLElement>>(props: T) => JSX.Element
+  renderAnchor: <T extends React.HTMLAttributes<HTMLElement>>(
+    props: T
+  ) => JSX.Element
 
   /**
    * An override to the internal ref that will be spread on to the renderAnchor
@@ -46,7 +52,8 @@ export type AnchoredOverlayWrapperAnchorProps =
   | Partial<AnchoredOverlayPropsWithAnchor>
   | AnchoredOverlayPropsWithoutAnchor
 
-interface AnchoredOverlayBaseProps extends Pick<OverlayProps, 'height' | 'width'> {
+interface AnchoredOverlayBaseProps
+  extends Pick<OverlayProps, 'height' | 'width'> {
   /**
    * Determines whether the overlay portion of the component should be shown or not
    */
@@ -55,7 +62,10 @@ interface AnchoredOverlayBaseProps extends Pick<OverlayProps, 'height' | 'width'
   /**
    * A callback which is called whenever the overlay is currently closed and an "open gesture" is detected.
    */
-  onOpen?: (gesture: 'anchor-click' | 'anchor-key-press', event?: React.KeyboardEvent<HTMLElement>) => unknown
+  onOpen?: (
+    gesture: 'anchor-click' | 'anchor-key-press',
+    event?: React.KeyboardEvent<HTMLElement>
+  ) => unknown
 
   /**
    * A callback which is called whenever the overlay is currently open and a "close gesture" is detected.
@@ -86,7 +96,9 @@ export type AnchoredOverlayProps = AnchoredOverlayBaseProps &
  * An `AnchoredOverlay` provides an anchor that will open a floating overlay positioned relative to the anchor.
  * The overlay can be opened and navigated using keyboard or mouse.
  */
-export const AnchoredOverlay: React.FC<React.PropsWithChildren<AnchoredOverlayProps>> = ({
+export const AnchoredOverlay: React.FC<
+  React.PropsWithChildren<AnchoredOverlayProps>
+> = ({
   renderAnchor,
   anchorRef: externalAnchorRef,
   anchorId: externalAnchorId,
@@ -106,19 +118,25 @@ export const AnchoredOverlay: React.FC<React.PropsWithChildren<AnchoredOverlayPr
   const [overlayRef, updateOverlayRef] = useRenderForcingRef<HTMLDivElement>()
   const anchorId = useSSRSafeId(externalAnchorId)
 
-  const onClickOutside = useCallback(() => onClose?.('click-outside'), [onClose])
+  const onClickOutside = useCallback(
+    () => onClose?.('click-outside'),
+    [onClose]
+  )
   const onEscape = useCallback(() => onClose?.('escape'), [onClose])
 
   const onAnchorKeyDown = useCallback(
     (event: React.KeyboardEvent<HTMLElement>) => {
       if (!event.defaultPrevented) {
-        if (!open && ['ArrowDown', 'ArrowUp', ' ', 'Enter'].includes(event.key)) {
+        if (
+          !open &&
+          ['ArrowDown', 'ArrowUp', ' ', 'Enter'].includes(event.key)
+        ) {
           onOpen?.('anchor-key-press', event)
           event.preventDefault()
         }
       }
     },
-    [open, onOpen],
+    [open, onOpen]
   )
   const onAnchorClick = useCallback(
     (event: React.MouseEvent<HTMLElement>) => {
@@ -131,17 +149,17 @@ export const AnchoredOverlay: React.FC<React.PropsWithChildren<AnchoredOverlayPr
         onClose?.('anchor-click')
       }
     },
-    [open, onOpen, onClose],
+    [open, onOpen, onClose]
   )
 
-  const {position} = useAnchoredPosition(
+  const { position } = useAnchoredPosition(
     {
       anchorElementRef: anchorRef,
       floatingElementRef: overlayRef,
       side,
       align,
     },
-    [overlayRef.current],
+    [overlayRef.current]
   )
 
   useEffect(() => {
@@ -156,7 +174,11 @@ export const AnchoredOverlay: React.FC<React.PropsWithChildren<AnchoredOverlayPr
     disabled: !open || !position,
     ...focusZoneSettings,
   })
-  useFocusTrap({containerRef: overlayRef, disabled: !open || !position, ...focusTrapSettings})
+  useFocusTrap({
+    containerRef: overlayRef,
+    disabled: !open || !position,
+    ...focusTrapSettings,
+  })
 
   return (
     <>

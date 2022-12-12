@@ -11,12 +11,12 @@ import {
   ArrowRightIcon,
   ArrowLeftIcon,
 } from '@primer/octicons-react'
-import {Meta} from '@storybook/react'
-import React, {forwardRef} from 'react'
+import { Meta } from '@storybook/react'
+import React, { forwardRef } from 'react'
 import styled from 'styled-components'
-import {Label, ThemeProvider} from '../..'
-import {ActionList as _ActionList} from '../../deprecated/ActionList'
-import {Header} from '../../deprecated/ActionList/Header'
+import { Label, ThemeProvider } from '../..'
+import { ActionList as _ActionList } from '../../deprecated/ActionList'
+import { Header } from '../../deprecated/ActionList/Header'
 import BaseStyles from '../../BaseStyles'
 import sx from '../../sx'
 
@@ -28,7 +28,9 @@ const meta: Meta = {
   title: 'Deprecated components/ActionList',
   component: ActionList,
   decorators: [
-    (Story: React.ComponentType<React.PropsWithChildren<unknown>>): JSX.Element => (
+    (
+      Story: React.ComponentType<React.PropsWithChildren<unknown>>
+    ): JSX.Element => (
       <ThemeProvider>
         <BaseStyles>
           <Story />
@@ -44,11 +46,11 @@ const meta: Meta = {
 }
 export default meta
 
-const ErsatzOverlay = styled.div<{maxWidth?: string}>`
+const ErsatzOverlay = styled.div<{ maxWidth?: string }>`
   border-radius: 12px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 8px 24px rgba(149, 157, 165, 0.2);
   overflow: hidden;
-  max-width: ${({maxWidth}) => maxWidth || 'none'};
+  max-width: ${({ maxWidth }) => maxWidth || 'none'};
 `
 
 export function ActionsStory(): JSX.Element {
@@ -69,7 +71,8 @@ export function ActionsStory(): JSX.Element {
             {
               leadingVisual: PlusCircleIcon,
               text: 'Create new Codespace',
-              description: 'Create a brand new Codespace with a fresh image and checkout this branch.',
+              description:
+                'Create a brand new Codespace with a fresh image and checkout this branch.',
               descriptionVariant: 'block',
             },
           ]}
@@ -87,11 +90,11 @@ export function SimpleListStory(): JSX.Element {
       <ErsatzOverlay>
         <ActionList
           items={[
-            {text: 'New file', showDivider: true},
+            { text: 'New file', showDivider: true },
             ActionList.Divider,
-            {text: 'Copy link', showDivider: true},
-            {text: 'Edit file', showDivider: true},
-            {text: 'Delete file', variant: 'danger', showDivider: true},
+            { text: 'Copy link', showDivider: true },
+            { text: 'Edit file', showDivider: true },
+            { text: 'Delete file', variant: 'danger', showDivider: true },
           ]}
         />
       </ErsatzOverlay>
@@ -153,29 +156,48 @@ export function ComplexListInsetVariantStory(): JSX.Element {
       <ErsatzOverlay>
         <ActionList
           groupMetadata={[
-            {groupId: '0'},
-            {groupId: '1', header: {title: 'Live query', variant: 'filled'}},
-            {groupId: '2', header: {title: 'Layout', variant: 'subtle'}, showItemDividers: true},
-            {groupId: '3', renderItem: props => <ActionList.Item style={{fontWeight: 'bold'}} {...props} />},
+            { groupId: '0' },
+            {
+              groupId: '1',
+              header: { title: 'Live query', variant: 'filled' },
+            },
+            {
+              groupId: '2',
+              header: { title: 'Layout', variant: 'subtle' },
+              showItemDividers: true,
+            },
+            {
+              groupId: '3',
+              renderItem: (props) => (
+                <ActionList.Item style={{ fontWeight: 'bold' }} {...props} />
+              ),
+            },
             {
               groupId: '4',
-              renderItem: ({leadingVisual: LeadingVisual, ...props}) => (
+              renderItem: ({ leadingVisual: LeadingVisual, ...props }) => (
                 <ActionList.Item
                   {...props}
                   leadingVisual={() => (
-                    <StyledDiv sx={{'&>svg': {fill: 'white'}}}>
+                    <StyledDiv sx={{ '&>svg': { fill: 'white' } }}>
                       {LeadingVisual && <LeadingVisual></LeadingVisual>}
                     </StyledDiv>
                   )}
                 />
               ),
-              renderGroup: ({sx: sxProps, ...props}) => (
-                <ActionList.Group {...props} sx={{...sxProps, backgroundColor: 'cornflowerblue', color: 'white'}} />
+              renderGroup: ({ sx: sxProps, ...props }) => (
+                <ActionList.Group
+                  {...props}
+                  sx={{
+                    ...sxProps,
+                    backgroundColor: 'cornflowerblue',
+                    color: 'white',
+                  }}
+                />
               ),
             },
           ]}
           items={[
-            {leadingVisual: TypographyIcon, text: 'Rename', groupId: '0'},
+            { leadingVisual: TypographyIcon, text: 'Rename', groupId: '0' },
             {
               leadingVisual: VersionsIcon,
               text: 'Duplicate',
@@ -187,12 +209,18 @@ export function ComplexListInsetVariantStory(): JSX.Element {
               leadingVisual: SearchIcon,
               text: 'repo:github/memex,github/github',
               groupId: '1',
-              renderItem: props => <ActionList.Item style={{color: 'rebeccapurple'}} {...props} />,
+              renderItem: (props) => (
+                <ActionList.Item
+                  style={{ color: 'rebeccapurple' }}
+                  {...props}
+                />
+              ),
             },
             {
               leadingVisual: NoteIcon,
               text: 'Table',
-              description: 'Information-dense table optimized for operations across teams',
+              description:
+                'Information-dense table optimized for operations across teams',
               descriptionVariant: 'block',
               groupId: '2',
             },
@@ -208,8 +236,12 @@ export function ComplexListInsetVariantStory(): JSX.Element {
               text: 'Save sort and filters to current view',
               groupId: '3',
             },
-            {leadingVisual: FilterIcon, text: 'Save sort and filters to new view', groupId: '3'},
-            {leadingVisual: GearIcon, text: 'View settings', groupId: '4'},
+            {
+              leadingVisual: FilterIcon,
+              text: 'Save sort and filters to new view',
+              groupId: '3',
+            },
+            { leadingVisual: GearIcon, text: 'View settings', groupId: '4' },
           ]}
         />
       </ErsatzOverlay>
@@ -230,40 +262,61 @@ export function ComplexListFullVariantStory(): JSX.Element {
         <ActionList
           variant="full"
           groupMetadata={[
-            {groupId: '0'},
-            {groupId: '1', header: {title: 'Live query', variant: 'filled'}},
-            {groupId: '2', header: {title: 'Layout', variant: 'subtle'}},
-            {groupId: '3', renderItem: props => <ActionList.Item style={{fontWeight: 'bold'}} {...props} />},
+            { groupId: '0' },
+            {
+              groupId: '1',
+              header: { title: 'Live query', variant: 'filled' },
+            },
+            { groupId: '2', header: { title: 'Layout', variant: 'subtle' } },
+            {
+              groupId: '3',
+              renderItem: (props) => (
+                <ActionList.Item style={{ fontWeight: 'bold' }} {...props} />
+              ),
+            },
             {
               groupId: '4',
-              renderItem: ({leadingVisual: LeadingVisual, ...props}) => (
+              renderItem: ({ leadingVisual: LeadingVisual, ...props }) => (
                 <ActionList.Item
                   {...props}
                   leadingVisual={() => (
-                    <StyledDiv sx={{'&>svg': {fill: 'white'}}}>
+                    <StyledDiv sx={{ '&>svg': { fill: 'white' } }}>
                       {LeadingVisual && <LeadingVisual></LeadingVisual>}
                     </StyledDiv>
                   )}
                 />
               ),
-              renderGroup: ({sx: sxProps, ...props}) => (
-                <ActionList.Group {...props} sx={{...sxProps, backgroundColor: 'cornflowerblue', color: 'white'}} />
+              renderGroup: ({ sx: sxProps, ...props }) => (
+                <ActionList.Group
+                  {...props}
+                  sx={{
+                    ...sxProps,
+                    backgroundColor: 'cornflowerblue',
+                    color: 'white',
+                  }}
+                />
               ),
             },
           ]}
           items={[
-            {leadingVisual: TypographyIcon, text: 'Rename', groupId: '0'},
-            {leadingVisual: VersionsIcon, text: 'Duplicate', groupId: '0'},
+            { leadingVisual: TypographyIcon, text: 'Rename', groupId: '0' },
+            { leadingVisual: VersionsIcon, text: 'Duplicate', groupId: '0' },
             {
               leadingVisual: SearchIcon,
               text: 'repo:github/memex,github/github',
               groupId: '1',
-              renderItem: props => <ActionList.Item style={{color: 'rebeccapurple'}} {...props} />,
+              renderItem: (props) => (
+                <ActionList.Item
+                  style={{ color: 'rebeccapurple' }}
+                  {...props}
+                />
+              ),
             },
             {
               leadingVisual: NoteIcon,
               text: 'Table',
-              description: 'Information-dense table optimized for operations across teams',
+              description:
+                'Information-dense table optimized for operations across teams',
               descriptionVariant: 'block',
               groupId: '2',
             },
@@ -279,8 +332,12 @@ export function ComplexListFullVariantStory(): JSX.Element {
               text: 'Save sort and filters to current view',
               groupId: '3',
             },
-            {leadingVisual: FilterIcon, text: 'Save sort and filters to new view', groupId: '3'},
-            {leadingVisual: GearIcon, text: 'View settings', groupId: '4'},
+            {
+              leadingVisual: FilterIcon,
+              text: 'Save sort and filters to new view',
+              groupId: '3',
+            },
+            { leadingVisual: GearIcon, text: 'View settings', groupId: '4' },
           ]}
         />
       </ErsatzOverlay>
@@ -332,7 +389,8 @@ export function SizeStressTestingStory(): JSX.Element {
             {
               leadingVisual: ArrowRightIcon,
               text: 'Block Description.  Long text should wrap',
-              description: 'This description is long, but it is block so it wraps',
+              description:
+                'This description is long, but it is block so it wraps',
               descriptionVariant: 'block',
               trailingVisual: ArrowLeftIcon,
               showDivider: true,
@@ -340,7 +398,8 @@ export function SizeStressTestingStory(): JSX.Element {
             {
               leadingVisual: ArrowRightIcon,
               text: 'Inline Description',
-              description: 'This description gets truncated because it is inline',
+              description:
+                'This description gets truncated because it is inline',
               trailingVisual: ArrowLeftIcon,
               showDivider: true,
             },
@@ -358,23 +417,33 @@ export function SizeStressTestingStory(): JSX.Element {
 }
 SizeStressTestingStory.storyName = 'Size Stress Testing'
 
-type ReactRouterLikeLinkProps = {to: string; children: React.ReactNode}
-const ReactRouterLikeLink = forwardRef<HTMLAnchorElement, ReactRouterLikeLinkProps>(
-  ({to, ...props}: {to: string; children: React.ReactNode}, ref) => {
-    // eslint-disable-next-line jsx-a11y/anchor-has-content
-    return <a ref={ref} href={to} {...props} />
-  },
-)
+type ReactRouterLikeLinkProps = { to: string; children: React.ReactNode }
+const ReactRouterLikeLink = forwardRef<
+  HTMLAnchorElement,
+  ReactRouterLikeLinkProps
+>(({ to, ...props }: { to: string; children: React.ReactNode }, ref) => {
+  // eslint-disable-next-line jsx-a11y/anchor-has-content
+  return <a ref={ref} href={to} {...props} />
+})
 
 const NextJSLikeLink = forwardRef(
-  ({href, children}: {href: string; children: React.ReactNode}, ref): React.ReactElement => {
+  (
+    { href, children }: { href: string; children: React.ReactNode },
+    ref
+  ): React.ReactElement => {
     const child = React.Children.only(children)
     const childProps = {
       ref,
       href,
     }
-    return <>{React.isValidElement(child) ? React.cloneElement(child, childProps) : null}</>
-  },
+    return (
+      <>
+        {React.isValidElement(child)
+          ? React.cloneElement(child, childProps)
+          : null}
+      </>
+    )
+  }
 )
 
 export function LinkItemStory(): JSX.Element {
@@ -386,19 +455,29 @@ export function LinkItemStory(): JSX.Element {
           items={[
             {
               text: 'A. Vanilla action',
-              renderItem: props => <ActionList.Item onAction={() => alert('hi?')} {...props} />,
+              renderItem: (props) => (
+                <ActionList.Item onAction={() => alert('hi?')} {...props} />
+              ),
             },
             {
               text: 'B. Vanilla link',
-              renderItem: props => <ActionList.Item as="a" href="/about" {...props} />,
+              renderItem: (props) => (
+                <ActionList.Item as="a" href="/about" {...props} />
+              ),
             },
             {
               text: 'C. React Router link',
-              renderItem: props => <ActionList.Item as={ReactRouterLikeLink} to="/about" {...props} />,
+              renderItem: (props) => (
+                <ActionList.Item
+                  as={ReactRouterLikeLink}
+                  to="/about"
+                  {...props}
+                />
+              ),
             },
             {
               text: 'D. NextJS style',
-              renderItem: props => (
+              renderItem: (props) => (
                 <NextJSLikeLink href="/about">
                   <ActionList.Item as="a" {...props} />
                 </NextJSLikeLink>

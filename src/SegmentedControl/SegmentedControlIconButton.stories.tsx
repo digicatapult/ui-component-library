@@ -1,11 +1,13 @@
 import React from 'react'
-import {Story, Meta} from '@storybook/react'
-import SegmentedControlIconButton, {SegmentedControlIconButtonProps} from './SegmentedControlIconButton'
-import {SegmentedControl} from '.'
-import {EyeIcon, FileCodeIcon, PeopleIcon} from '@primer/octicons-react'
+import { Story, Meta } from '@storybook/react'
+import SegmentedControlIconButton, {
+  SegmentedControlIconButtonProps,
+} from './SegmentedControlIconButton'
+import { SegmentedControl } from '.'
+import { EyeIcon, FileCodeIcon, PeopleIcon } from '@primer/octicons-react'
 
 const unset = undefined
-const icons = {unset, FileCodeIcon, EyeIcon, PeopleIcon}
+const icons = { unset, FileCodeIcon, EyeIcon, PeopleIcon }
 
 export default {
   title: 'Components/SegmentedControl/SegmentedControl.IconButton',
@@ -31,7 +33,7 @@ export default {
     },
   },
   decorators: [
-    Story => {
+    (Story) => {
       return (
         <SegmentedControl>
           <Story />
@@ -41,6 +43,6 @@ export default {
   ],
 } as Meta<typeof SegmentedControlIconButton>
 
-export const Playground: Story<SegmentedControlIconButtonProps> = args => (
+export const Playground: Story<SegmentedControlIconButtonProps> = (args) => (
   <SegmentedControlIconButton {...args} aria-label="test" />
 )

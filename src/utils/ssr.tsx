@@ -1,1 +1,1 @@
-export {SSRProvider, useSSRSafeId} from '@react-aria/ssr'
+export { SSRProvider, useSSRSafeId } from '@react-aria/ssr'

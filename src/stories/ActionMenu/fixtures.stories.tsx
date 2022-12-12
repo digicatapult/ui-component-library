@@ -1,5 +1,5 @@
 import React from 'react'
-import {Meta} from '@storybook/react'
+import { Meta } from '@storybook/react'
 import {
   ThemeProvider,
   BaseStyles,
@@ -36,13 +36,15 @@ import {
   IconProps,
   IssueOpenedIcon,
 } from '@primer/octicons-react'
-import {FocusKeys} from '@primer/behaviors'
+import { FocusKeys } from '@primer/behaviors'
 
 const meta: Meta = {
   title: 'Components/ActionMenu/fixtures',
   component: ActionMenu,
   decorators: [
-    (Story: React.ComponentType<React.PropsWithChildren<unknown>>): JSX.Element => (
+    (
+      Story: React.ComponentType<React.PropsWithChildren<unknown>>
+    ): JSX.Element => (
       <ThemeProvider>
         <BaseStyles>
           <Story />
@@ -75,8 +77,8 @@ export function ActionsStory(): JSX.Element {
               </ActionList.LeadingVisual>
               Open current Codespace
               <ActionList.Description variant="block">
-                Your existing Codespace will be opened to its previous state, and you&apos;ll be asked to manually
-                switch to new-branch.
+                Your existing Codespace will be opened to its previous state,
+                and you&apos;ll be asked to manually switch to new-branch.
               </ActionList.Description>
               <ActionList.TrailingVisual>⌘O</ActionList.TrailingVisual>
             </ActionList.Item>
@@ -86,7 +88,8 @@ export function ActionsStory(): JSX.Element {
               </ActionList.LeadingVisual>
               Create new Codespace
               <ActionList.Description variant="block">
-                Create a brand new Codespace with a fresh image and checkout this branch.
+                Create a brand new Codespace with a fresh image and checkout
+                this branch.
               </ActionList.Description>
               <ActionList.TrailingVisual>⌘C</ActionList.TrailingVisual>
             </ActionList.Item>
@@ -113,7 +116,7 @@ export function ExternalAnchor(): JSX.Element {
         <Button
           ref={anchorRef}
           onClick={() => setOpen(!open)}
-          onKeyDown={event => {
+          onKeyDown={(event) => {
             // TODO: This should happen from AnchoredOverlay?
             if (['ArrowDown', 'ArrowUp'].includes(event.code)) setOpen(true)
           }}
@@ -141,7 +144,10 @@ export function ExternalAnchor(): JSX.Element {
               <ActionList.TrailingVisual>⌘E</ActionList.TrailingVisual>
             </ActionList.Item>
             <ActionList.Divider />
-            <ActionList.Item variant="danger" onSelect={() => onSelect('Delete file')}>
+            <ActionList.Item
+              variant="danger"
+              onSelect={() => onSelect('Delete file')}
+            >
               Delete file
               <ActionList.TrailingVisual>⌘D</ActionList.TrailingVisual>
             </ActionList.Item>
@@ -198,7 +204,10 @@ export function ControlledMenu(): JSX.Element {
               <ActionList.TrailingVisual>⌘E</ActionList.TrailingVisual>
             </ActionList.Item>
             <ActionList.Divider />
-            <ActionList.Item variant="danger" onSelect={() => onSelect('Delete file')}>
+            <ActionList.Item
+              variant="danger"
+              onSelect={() => onSelect('Delete file')}
+            >
               Delete file
               <ActionList.TrailingVisual>⌘D</ActionList.TrailingVisual>
             </ActionList.Item>
@@ -237,7 +246,10 @@ export function CustomAnchor(): JSX.Element {
               </ActionList.LeadingVisual>
               Archive all cards
             </ActionList.Item>
-            <ActionList.Item variant="danger" onSelect={() => onSelect('Delete file')}>
+            <ActionList.Item
+              variant="danger"
+              onSelect={() => onSelect('Delete file')}
+            >
               <ActionList.LeadingVisual>
                 <TrashIcon />
               </ActionList.LeadingVisual>
@@ -292,16 +304,26 @@ export function MemexTableMenu(): JSX.Element {
           borderColor: 'border.default',
         }}
       >
-        <Text sx={{fontSize: 0, fontWeight: 'bold'}}>{name}</Text>
+        <Text sx={{ fontSize: 0, fontWeight: 'bold' }}>{name}</Text>
 
         <ActionMenu open={open} onOpenChange={setOpen}>
           <ActionMenu.Anchor>
-            <IconButton icon={TriangleDownIcon} aria-label="Open Estimate column options menu" sx={{padding: 0}} />
+            <IconButton
+              icon={TriangleDownIcon}
+              aria-label="Open Estimate column options menu"
+              sx={{ padding: 0 }}
+            />
           </ActionMenu.Anchor>
 
           <ActionMenu.Overlay onClickOutside={handleClickOutside}>
-            <TextInput ref={inputRef} sx={{m: 2}} value={wipName} onChange={handleChange} onKeyPress={handleKeyPress} />
-            <ActionMenu.Divider sx={{m: 0}} />
+            <TextInput
+              ref={inputRef}
+              sx={{ m: 2 }}
+              value={wipName}
+              onChange={handleChange}
+              onKeyPress={handleKeyPress}
+            />
+            <ActionMenu.Divider sx={{ m: 0 }} />
 
             <ActionList>
               <ActionList.Item>Sort ascending (123...)</ActionList.Item>
@@ -341,7 +363,9 @@ const LayoutToggleItem = ({
         textAlign: 'center',
         cursor: 'pointer',
         backgroundColor: selected ? 'accent.subtle' : '',
-        boxShadow: selected ? theme => `inset 0 0 0 1px ${theme.colors.accent.emphasis}` : '',
+        boxShadow: selected
+          ? (theme) => `inset 0 0 0 1px ${theme.colors.accent.emphasis}`
+          : '',
         mb: 2,
         mt: 1,
         '&:hover': {
@@ -359,10 +383,25 @@ const LayoutToggleItem = ({
         },
       }}
     >
-      <FormControl.Label sx={{fontWeight: 'normal', cursor: 'pointer', px: 3, py: 2, mb: 0}} {...props}>
-        <Box sx={{textAlign: 'center', flexDirection: 'column', m: 'auto', alignItems: 'center', display: 'flex'}}>
+      <FormControl.Label
+        sx={{ fontWeight: 'normal', cursor: 'pointer', px: 3, py: 2, mb: 0 }}
+        {...props}
+      >
+        <Box
+          sx={{
+            textAlign: 'center',
+            flexDirection: 'column',
+            m: 'auto',
+            alignItems: 'center',
+            display: 'flex',
+          }}
+        >
           <Icon size="medium" />
-          <Text sx={{color: selected ? 'fg.default' : 'fg.muted', fontSize: 0}}>{children}</Text>
+          <Text
+            sx={{ color: selected ? 'fg.default' : 'fg.muted', fontSize: 0 }}
+          >
+            {children}
+          </Text>
         </Box>
       </FormControl.Label>
     </FormControl>
@@ -370,8 +409,12 @@ const LayoutToggleItem = ({
 }
 
 /* copied from github/memex */
-const ViewChangeButtons = ({setOpen}: {setOpen: (open: boolean) => void}) => (
-  <Box sx={{display: 'flex'}}>
+const ViewChangeButtons = ({
+  setOpen,
+}: {
+  setOpen: (open: boolean) => void
+}) => (
+  <Box sx={{ display: 'flex' }}>
     <Button
       variant="invisible"
       onClick={() => setOpen(false)}
@@ -419,9 +462,9 @@ export function MemexViewOptionsMenu(): JSX.Element {
   return (
     <>
       <h1>Memex View Options Menu</h1>
-      <Box sx={{display: 'flex', alignItems: 'center'}}>
-        <Text sx={{fontSize: 1, mr: 3}}>
-          <StyledOcticon icon={ProjectIcon} sx={{mr: 2}} />
+      <Box sx={{ display: 'flex', alignItems: 'center' }}>
+        <Text sx={{ fontSize: 1, mr: 3 }}>
+          <StyledOcticon icon={ProjectIcon} sx={{ mr: 2 }} />
           React
         </Text>
         <ActionMenu open={open} onOpenChange={setOpen}>
@@ -438,8 +481,8 @@ export function MemexViewOptionsMenu(): JSX.Element {
           <ActionMenu.Overlay width="medium">
             <ActionList>
               <ActionList.Group title="Layout">
-                <li style={{listStyle: 'none'}}>
-                  <Box sx={{mx: 3, display: 'flex'}}>
+                <li style={{ listStyle: 'none' }}>
+                  <Box sx={{ mx: 3, display: 'flex' }}>
                     <LayoutToggleItem selected Icon={TableIcon}>
                       Table
                     </LayoutToggleItem>
@@ -498,7 +541,7 @@ export function MemexViewOptionsMenu(): JSX.Element {
               </ActionList.Item>
               <ActionList.Divider />
 
-              <li style={{listStyle: 'none'}}>
+              <li style={{ listStyle: 'none' }}>
                 <ViewChangeButtons setOpen={setOpen} />
               </li>
             </ActionList>
@@ -522,7 +565,10 @@ export function MemexIteration(): JSX.Element {
           sx={{
             fontWeight: 'normal',
             color: 'fg.muted',
-            ':hover, :focus': {background: 'none !important', color: 'accent.fg'},
+            ':hover, :focus': {
+              background: 'none !important',
+              color: 'accent.fg',
+            },
           }}
           aria-label="Iteration duration"
         >
@@ -530,8 +576,12 @@ export function MemexIteration(): JSX.Element {
         </ActionMenu.Button>
         <ActionMenu.Overlay width="medium">
           <ActionList selectionVariant="single">
-            {[1, 2, 3, 4, 5, 6].map(weeks => (
-              <ActionList.Item key={weeks} selected={duration === weeks} onSelect={() => setDuration(weeks)}>
+            {[1, 2, 3, 4, 5, 6].map((weeks) => (
+              <ActionList.Item
+                key={weeks}
+                selected={duration === weeks}
+                onSelect={() => setDuration(weeks)}
+              >
                 {weeks} {weeks > 1 ? 'weeks' : 'week'}
               </ActionList.Item>
             ))}
@@ -543,11 +593,11 @@ export function MemexIteration(): JSX.Element {
 }
 
 const fieldTypes = [
-  {icon: TypographyIcon, name: 'Text'},
-  {icon: NumberIcon, name: 'Number'},
-  {icon: CalendarIcon, name: 'Date'},
-  {icon: SingleSelectIcon, name: 'Single select'},
-  {icon: IterationsIcon, name: 'Iteration'},
+  { icon: TypographyIcon, name: 'Text' },
+  { icon: NumberIcon, name: 'Number' },
+  { icon: CalendarIcon, name: 'Date' },
+  { icon: SingleSelectIcon, name: 'Single select' },
+  { icon: IterationsIcon, name: 'Iteration' },
 ]
 
 export function MemexAddColumn(): JSX.Element {
@@ -560,10 +610,17 @@ export function MemexAddColumn(): JSX.Element {
     <>
       <h1>Memex Add column</h1>
 
-      <Box as="form" sx={{display: 'flex', flexDirection: 'column', width: 320}}>
+      <Box
+        as="form"
+        sx={{ display: 'flex', flexDirection: 'column', width: 320 }}
+      >
         <FormControl>
           <FormControl.Label visuallyHidden>Column name</FormControl.Label>
-          <TextInput defaultValue="Estimate" aria-label="Field Name" sx={{mb: 2}} />
+          <TextInput
+            defaultValue="Estimate"
+            aria-label="Field Name"
+            sx={{ mb: 2 }}
+          />
         </FormControl>
         <ActionMenu>
           <ActionMenu.Button
@@ -571,7 +628,7 @@ export function MemexAddColumn(): JSX.Element {
             leadingIcon={selectedType.icon}
             sx={{
               gridTemplateColumns: 'min-content 1fr min-content',
-              '[data-component="text"]': {textAlign: 'left'},
+              '[data-component="text"]': { textAlign: 'left' },
             }}
           >
             {selectedType.name}
@@ -590,13 +647,20 @@ export function MemexAddColumn(): JSX.Element {
             </ActionList>
           </ActionMenu.Overlay>
         </ActionMenu>
-        <Text sx={{fontSize: 0, color: 'fg.muted', mt: 3, mb: 1}}>Options</Text>
+        <Text sx={{ fontSize: 0, color: 'fg.muted', mt: 3, mb: 1 }}>
+          Options
+        </Text>
 
-        <Box sx={{display: 'flex', alignItems: 'center'}}>
-          <Text as="label" sx={{fontSize: 1, mr: 2}} htmlFor="duration">
+        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          <Text as="label" sx={{ fontSize: 1, mr: 2 }} htmlFor="duration">
             Duration:
           </Text>
-          <TextInput id="duration" type="number" defaultValue="2" sx={{width: '6ch'}} />
+          <TextInput
+            id="duration"
+            type="number"
+            defaultValue="2"
+            sx={{ width: '6ch' }}
+          />
 
           <ActionMenu>
             <ActionMenu.Button
@@ -607,17 +671,23 @@ export function MemexAddColumn(): JSX.Element {
                 ml: 2,
                 flexGrow: 1,
                 gridTemplateColumns: 'min-content 1fr min-content',
-                '[data-component="text"]': {textAlign: 'left'},
+                '[data-component="text"]': { textAlign: 'left' },
               }}
             >
               {durationUnit}
             </ActionMenu.Button>
             <ActionMenu.Overlay width="medium">
               <ActionList selectionVariant="single">
-                <ActionList.Item selected={durationUnit === 'weeks'} onSelect={() => setDurationUnit('weeks')}>
+                <ActionList.Item
+                  selected={durationUnit === 'weeks'}
+                  onSelect={() => setDurationUnit('weeks')}
+                >
                   weeks
                 </ActionList.Item>
-                <ActionList.Item selected={durationUnit === 'days'} onSelect={() => setDurationUnit('days')}>
+                <ActionList.Item
+                  selected={durationUnit === 'days'}
+                  onSelect={() => setDurationUnit('days')}
+                >
                   days
                 </ActionList.Item>
               </ActionList>
@@ -661,19 +731,21 @@ export function MemexKeyboardShortcut(): JSX.Element {
           onClick={() => setOpen(!open)}
           icon={TriangleDownIcon}
           aria-label="Open Estimate column options menu"
-          sx={{padding: 0}}
+          sx={{ padding: 0 }}
         />
 
         <ActionMenu open={open} onOpenChange={setOpen} anchorRef={anchorRef}>
           <ActionMenu.Overlay>
             <ActionList>
               <ActionList.Item>Archive</ActionList.Item>
-              <ActionList.Item variant="danger">Delete from project</ActionList.Item>
+              <ActionList.Item variant="danger">
+                Delete from project
+              </ActionList.Item>
             </ActionList>
           </ActionMenu.Overlay>
         </ActionMenu>
-        <Text sx={{color: 'fg.muted', mr: 4}}>1</Text>
-        <StyledOcticon sx={{color: 'open.fg'}} icon={IssueOpenedIcon} />
+        <Text sx={{ color: 'fg.muted', mr: 4 }}>1</Text>
+        <StyledOcticon sx={{ color: 'open.fg' }} icon={IssueOpenedIcon} />
         <Text>Produce ag-Grid staging demo</Text>
       </Box>
     </>
@@ -688,10 +760,10 @@ export function OverlayProps(): JSX.Element {
     <>
       <h1>OverlayProps</h1>
       <p>
-        Disable `onClickOutside` and `onEscape`. Only way to close is to select an action which takes focus on a
-        TextInput
+        Disable `onClickOutside` and `onEscape`. Only way to close is to select
+        an action which takes focus on a TextInput
       </p>
-      <Box sx={{display: 'flex', justifyContent: 'center'}}>
+      <Box sx={{ display: 'flex', justifyContent: 'center' }}>
         <ActionMenu open={open} onOpenChange={setOpen}>
           <ActionMenu.Button>Menu</ActionMenu.Button>
           <ActionMenu.Overlay
@@ -720,7 +792,12 @@ export function OverlayProps(): JSX.Element {
       </Box>
       <br />
       <br />
-      <TextInput type="text" ref={inputRef} placeholder="Random input to return focus to" sx={{width: 280}} />
+      <TextInput
+        type="text"
+        ref={inputRef}
+        placeholder="Random input to return focus to"
+        sx={{ width: 280 }}
+      />
     </>
   )
 }
@@ -780,7 +857,10 @@ export function TabTest(): JSX.Element {
             <ActionList.Divider />
             <ActionList.Item>Copy link</ActionList.Item>
             <ActionList.Item>Edit file</ActionList.Item>
-            <ActionList.Item variant="danger" onClick={event => event.preventDefault()}>
+            <ActionList.Item
+              variant="danger"
+              onClick={(event) => event.preventDefault()}
+            >
               Delete file
             </ActionList.Item>
           </ActionList>
@@ -797,30 +877,30 @@ export function WithinFocusZone(): JSX.Element {
   return (
     <>
       <p>
-        When ActionMenu is used in a form inside an AnchoredOverlay, it is recommended to use key bindings for Tabs (not
-        ArrowKeys)
+        When ActionMenu is used in a form inside an AnchoredOverlay, it is
+        recommended to use key bindings for Tabs (not ArrowKeys)
       </p>
       <p>
-        Known bug: Pressing Tab on an open menu should close the menu and put the focus on the next element instead of
-        the anchor.
+        Known bug: Pressing Tab on an open menu should close the menu and put
+        the focus on the next element instead of the anchor.
       </p>
       <AnchoredOverlay
-        focusZoneSettings={{bindKeys: FocusKeys.Tab}}
-        renderAnchor={props => <Button {...props}>open overlay</Button>}
+        focusZoneSettings={{ bindKeys: FocusKeys.Tab }}
+        renderAnchor={(props) => <Button {...props}>open overlay</Button>}
         width="medium"
         open={overlayOpen}
         onOpen={() => setOverlayOpen(true)}
         onClose={() => setOverlayOpen(false)}
       >
-        <Box sx={{p: 4}}>
-          <FormControl sx={{mb: 2}}>
+        <Box sx={{ p: 4 }}>
+          <FormControl sx={{ mb: 2 }}>
             <FormControl.Label>First field</FormControl.Label>
             <TextInput />
           </FormControl>
-          <FormControl sx={{mb: 2}}>
+          <FormControl sx={{ mb: 2 }}>
             <FormControl.Label>Second field</FormControl.Label>
             <ActionMenu>
-              <ActionMenu.Button sx={{mb: 2}}>open menu</ActionMenu.Button>
+              <ActionMenu.Button sx={{ mb: 2 }}>open menu</ActionMenu.Button>
               <ActionMenu.Overlay>
                 <ActionList>
                   <ActionList.Item>Item 1</ActionList.Item>

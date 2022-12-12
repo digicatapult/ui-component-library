@@ -1,14 +1,14 @@
 import React from 'react'
-import {Meta} from '@storybook/react'
+import { Meta } from '@storybook/react'
 
-import {BaseStyles, Box, ThemeProvider} from '..'
-import Portal, {registerPortalRoot} from '../Portal'
+import { BaseStyles, Box, ThemeProvider } from '..'
+import Portal, { registerPortalRoot } from '../Portal'
 
 export default {
   title: 'Behaviors/Portal',
   component: Portal,
   decorators: [
-    Story => {
+    (Story) => {
       return (
         <ThemeProvider>
           <BaseStyles>
@@ -48,7 +48,9 @@ export const customPortalRootById = () => (
   </>
 )
 
-export const CustomPortalRootByRegistration: React.FC<React.PropsWithChildren<Record<string, never>>> = () => {
+export const CustomPortalRootByRegistration: React.FC<
+  React.PropsWithChildren<Record<string, never>>
+> = () => {
   const outerContainerRef = React.useRef<HTMLDivElement>(null)
   const [mounted, setMounted] = React.useState(false)
   React.useEffect(() => {
@@ -75,12 +77,17 @@ export const CustomPortalRootByRegistration: React.FC<React.PropsWithChildren<Re
   )
 }
 
-export const MultiplePortalRoots: React.FC<React.PropsWithChildren<Record<string, never>>> = () => {
+export const MultiplePortalRoots: React.FC<
+  React.PropsWithChildren<Record<string, never>>
+> = () => {
   const outerContainerRef = React.useRef<HTMLDivElement>(null)
   const innerContainerRef = React.useRef<HTMLDivElement>(null)
   const [mounted, setMounted] = React.useState(false)
   React.useEffect(() => {
-    if (outerContainerRef.current instanceof HTMLElement && innerContainerRef.current instanceof HTMLElement) {
+    if (
+      outerContainerRef.current instanceof HTMLElement &&
+      innerContainerRef.current instanceof HTMLElement
+    ) {
       registerPortalRoot(outerContainerRef.current, 'outer')
       registerPortalRoot(innerContainerRef.current, 'inner')
       setMounted(true)
@@ -94,10 +101,15 @@ export const MultiplePortalRoots: React.FC<React.PropsWithChildren<Record<string
         <Box bg="green.2" p={3} ref={innerContainerRef}>
           {mounted ? (
             <>
-              <Portal containerName="outer">Portaled content rendered at the outer container.</Portal>
-              <Portal containerName="inner">Portaled content rendered at the end of the inner container.</Portal>
+              <Portal containerName="outer">
+                Portaled content rendered at the outer container.
+              </Portal>
+              <Portal containerName="inner">
+                Portaled content rendered at the end of the inner container.
+              </Portal>
               <Portal>
-                Portaled content rendered at <code>&lt;BaseStyles&gt;</code> root.
+                Portaled content rendered at <code>&lt;BaseStyles&gt;</code>{' '}
+                root.
               </Portal>
             </>
           ) : null}

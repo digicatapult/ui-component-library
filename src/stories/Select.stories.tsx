@@ -1,8 +1,8 @@
 import React from 'react'
-import {Meta} from '@storybook/react'
+import { Meta } from '@storybook/react'
 
-import {Select, FormControl, Box} from '..'
-import {SelectProps} from '../Select'
+import { Select, FormControl, Box } from '..'
+import { SelectProps } from '../Select'
 import {
   FormControlArgs,
   formControlArgs,
@@ -24,16 +24,24 @@ export default {
   },
   parameters: {
     controls: {
-      exclude: ['contrast', 'hasTrailingAction', 'monospace', 'isInputFocused', 'sx', 'size'],
+      exclude: [
+        'contrast',
+        'hasTrailingAction',
+        'monospace',
+        'isInputFocused',
+        'sx',
+        'size',
+      ],
     },
   },
 } as Meta
 
 export const Default = (args: FormControlArgs<SelectProps>) => {
-  const {parentArgs, labelArgs, captionArgs, validationArgs} = getFormControlArgsByChildComponent(args)
+  const { parentArgs, labelArgs, captionArgs, validationArgs } =
+    getFormControlArgsByChildComponent(args)
 
   return (
-    <Box as="form" sx={{p: 3}}>
+    <Box as="form" sx={{ p: 3 }}>
       <FormControl {...parentArgs}>
         <FormControl.Label {...labelArgs} />
         <Select {...args}>
@@ -46,7 +54,10 @@ export const Default = (args: FormControlArgs<SelectProps>) => {
         </Select>
         {captionArgs.children && <FormControl.Caption {...captionArgs} />}
         {validationArgs.children && validationArgs.variant && (
-          <FormControl.Validation {...validationArgs} variant={validationArgs.variant} />
+          <FormControl.Validation
+            {...validationArgs}
+            variant={validationArgs.variant}
+          />
         )}
       </FormControl>
     </Box>
@@ -57,9 +68,10 @@ Default.args = {
 }
 
 export const WithOptionGroups = (args: FormControlArgs<SelectProps>) => {
-  const {parentArgs, labelArgs, captionArgs, validationArgs} = getFormControlArgsByChildComponent(args)
+  const { parentArgs, labelArgs, captionArgs, validationArgs } =
+    getFormControlArgsByChildComponent(args)
   return (
-    <Box as="form" sx={{p: 3}}>
+    <Box as="form" sx={{ p: 3 }}>
       <FormControl {...parentArgs}>
         <FormControl.Label {...labelArgs} />
         <Select {...args}>
@@ -76,7 +88,10 @@ export const WithOptionGroups = (args: FormControlArgs<SelectProps>) => {
         </Select>
         {captionArgs.children && <FormControl.Caption {...captionArgs} />}
         {validationArgs.children && validationArgs.variant && (
-          <FormControl.Validation {...validationArgs} variant={validationArgs.variant} />
+          <FormControl.Validation
+            {...validationArgs}
+            variant={validationArgs.variant}
+          />
         )}
       </FormControl>
     </Box>

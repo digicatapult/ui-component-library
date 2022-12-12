@@ -1,2 +1,2 @@
-export {FilteredActionList} from './FilteredActionList'
-export type {FilteredActionListProps} from './FilteredActionList'
+export { FilteredActionList } from './FilteredActionList'
+export type { FilteredActionListProps } from './FilteredActionList'

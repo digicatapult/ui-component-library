@@ -1,4 +1,4 @@
-import {useMedia} from './useMedia'
+import { useMedia } from './useMedia'
 
 // This file contains utilities for working with responsive values.
 
@@ -9,7 +9,7 @@ import {useMedia} from './useMedia'
 export const viewportRanges = {
   narrow: '(max-width: calc(768px - 0.02px))', // < 768px
   regular: '(min-width: 768px)', // >= 768px
-  wide: '(min-width: 1400px)', // >= 1400px
+  wide: '(min-width: 1400px)' // >= 1400px
 }
 
 export type ResponsiveValue<TRegular, TNarrow = TRegular, TWide = TRegular> = {
@@ -34,7 +34,7 @@ export type FlattenResponsiveValue<T> =
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function isResponsiveValue(value: any): value is ResponsiveValue<any> {
-  return typeof value === 'object' && Object.keys(value).some(key => ['narrow', 'regular', 'wide'].includes(key))
+  return typeof value === 'object' && Object.keys(value).some((key) => ['narrow', 'regular', 'wide'].includes(key))
 }
 
 /**

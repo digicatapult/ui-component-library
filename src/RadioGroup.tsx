@@ -1,16 +1,26 @@
-import React, {ChangeEvent, ChangeEventHandler, createContext, FC} from 'react'
-import CheckboxOrRadioGroup, {CheckboxOrRadioGroupProps} from './_CheckboxOrRadioGroup'
+import React, {
+  ChangeEvent,
+  ChangeEventHandler,
+  createContext,
+  FC,
+} from 'react'
+import CheckboxOrRadioGroup, {
+  CheckboxOrRadioGroupProps,
+} from './_CheckboxOrRadioGroup'
 import CheckboxOrRadioGroupCaption from './_CheckboxOrRadioGroup/_CheckboxOrRadioGroupCaption'
 import CheckboxOrRadioGroupLabel from './_CheckboxOrRadioGroup/_CheckboxOrRadioGroupLabel'
 import CheckboxOrRadioGroupValidation from './_CheckboxOrRadioGroup/_CheckboxOrRadioGroupValidation'
-import {useRenderForcingRef} from './hooks'
-import {SxProp} from './sx'
+import { useRenderForcingRef } from './hooks'
+import { SxProp } from './sx'
 
 type RadioGroupProps = {
   /**
    * An onChange handler that gets called when the selection changes
    */
-  onChange?: (selected: string | null, e?: ChangeEvent<HTMLInputElement>) => void
+  onChange?: (
+    selected: string | null,
+    e?: ChangeEvent<HTMLInputElement>
+  ) => void
   /**
    * The name used to identify this group of radios
    */
@@ -24,11 +34,21 @@ export const RadioGroupContext = createContext<{
   name: string
 } | null>(null)
 
-const RadioGroup: FC<React.PropsWithChildren<RadioGroupProps>> = ({children, disabled, onChange, name, ...rest}) => {
-  const [selectedRadioValue, setSelectedRadioValue] = useRenderForcingRef<string | null>(null)
+const RadioGroup: FC<React.PropsWithChildren<RadioGroupProps>> = ({
+  children,
+  disabled,
+  onChange,
+  name,
+  ...rest
+}) => {
+  const [selectedRadioValue, setSelectedRadioValue] = useRenderForcingRef<
+    string | null
+  >(null)
 
-  const updateSelectedCheckboxes: ChangeEventHandler<HTMLInputElement> = e => {
-    const {value, checked} = e.currentTarget
+  const updateSelectedCheckboxes: ChangeEventHandler<HTMLInputElement> = (
+    e
+  ) => {
+    const { value, checked } = e.currentTarget
 
     if (checked) {
       setSelectedRadioValue(value)
@@ -41,7 +61,7 @@ const RadioGroup: FC<React.PropsWithChildren<RadioGroupProps>> = ({children, dis
       value={{
         disabled,
         name,
-        onChange: e => {
+        onChange: (e) => {
           if (onChange) {
             updateSelectedCheckboxes(e)
             onChange(selectedRadioValue.current, e)

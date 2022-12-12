@@ -1,10 +1,14 @@
-import React, {useEffect, useCallback, useMemo} from 'react'
+import React, { useEffect, useCallback, useMemo } from 'react'
 
 export type TouchOrMouseEvent = MouseEvent | TouchEvent
-type TouchOrMouseEventCallback = (event: TouchOrMouseEvent) => boolean | undefined
+type TouchOrMouseEventCallback = (
+  event: TouchOrMouseEvent
+) => boolean | undefined
 
 export type UseOnOutsideClickSettings = {
-  containerRef: React.RefObject<HTMLDivElement> | React.RefObject<HTMLUListElement>
+  containerRef:
+    | React.RefObject<HTMLDivElement>
+    | React.RefObject<HTMLUListElement>
   ignoreClickRefs?: React.RefObject<HTMLElement>[]
   onClickOutside: (e: TouchOrMouseEvent) => void
 }
@@ -27,7 +31,7 @@ function handleClick(event: MouseEvent) {
   }
 }
 
-const registry: {[id: number]: TouchOrMouseEventCallback} = {}
+const registry: { [id: number]: TouchOrMouseEventCallback } = {}
 
 function register(id: number, handler: TouchOrMouseEventCallback): void {
   registry[id] = handler
@@ -40,11 +44,15 @@ function deregister(id: number) {
 // For auto-incrementing unique identifiers for registered handlers.
 let handlerId = 0
 
-export const useOnOutsideClick = ({containerRef, ignoreClickRefs, onClickOutside}: UseOnOutsideClickSettings) => {
+export const useOnOutsideClick = ({
+  containerRef,
+  ignoreClickRefs,
+  onClickOutside,
+}: UseOnOutsideClickSettings) => {
   const id = useMemo(() => handlerId++, [])
 
   const handler = useCallback<TouchOrMouseEventCallback>(
-    event => {
+    (event) => {
       // don't call click handler if the mouse event was triggered by an auxiliary button (right click/wheel button/etc)
       if (event instanceof MouseEvent && event.button > 0) {
         return stopPropagation
@@ -56,26 +64,33 @@ export const useOnOutsideClick = ({containerRef, ignoreClickRefs, onClickOutside
       }
 
       // don't call handler if click happened on an ignored ref
-      if (ignoreClickRefs && ignoreClickRefs.some(({current}) => current?.contains(event.target as Node))) {
+      if (
+        ignoreClickRefs &&
+        ignoreClickRefs.some(({ current }) =>
+          current?.contains(event.target as Node)
+        )
+      ) {
         return stopPropagation
       }
 
       onClickOutside(event)
     },
-    [containerRef, ignoreClickRefs, onClickOutside],
+    [containerRef, ignoreClickRefs, onClickOutside]
   )
 
   useEffect(() => {
     if (Object.keys(registry).length === 0) {
       // use capture to ensure we get all events
-      document.addEventListener('mousedown', handleClick, {capture: true})
+      document.addEventListener('mousedown', handleClick, { capture: true })
     }
     register(id, handler)
 
     return () => {
       deregister(id)
       if (Object.keys(registry).length === 0) {
-        document.removeEventListener('mousedown', handleClick, {capture: true})
+        document.removeEventListener('mousedown', handleClick, {
+          capture: true,
+        })
       }
     }
   }, [id, handler])

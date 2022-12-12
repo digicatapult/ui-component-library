@@ -16,6 +16,6 @@
     "resolveJsonModule": true,
     "typeRoots": ["./node_modules/@types", "./@types"]
   },
-  "include": ["@types/**/*.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.tsx"],
+  "include": ["@types/**/*.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.tsx", "src/theme.json"],
   "exclude": ["src/**/*.spec.js", "src/**/*.stories.*"]
 }

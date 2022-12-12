@@ -1,6 +1,6 @@
 import React from 'react'
 import Box from './Box'
-import {BetterSystemStyleObject, SxProp, merge} from './sx'
+import { BetterSystemStyleObject, SxProp, merge } from './sx'
 import VisuallyHidden from './_VisuallyHidden'
 
 export type CounterLabelProps = {
@@ -26,13 +26,14 @@ const CounterLabel: React.FC<React.PropsWithChildren<CounterLabelProps>> = ({
             fontWeight: 'bold',
             lineHeight: 'condensedUltra',
             borderRadius: '20px',
-            backgroundColor: scheme === 'primary' ? 'neutral.emphasis' : 'neutral.muted',
+            backgroundColor:
+              scheme === 'primary' ? 'neutral.emphasis' : 'neutral.muted',
             color: scheme === 'primary' ? 'fg.onEmphasis' : 'fg.default',
             '&:empty': {
               display: 'none',
             },
           },
-          sx,
+          sx
         )}
         {...props}
       >

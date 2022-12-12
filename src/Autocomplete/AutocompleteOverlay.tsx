@@ -1,9 +1,9 @@
-import React, {useCallback, useContext} from 'react'
-import {useAnchoredPosition} from '../hooks'
-import Overlay, {OverlayProps} from '../Overlay'
-import {ComponentProps} from '../utils/types'
-import {AutocompleteContext} from './AutocompleteContext'
-import {useRefObjectAsForwardedRef} from '../hooks/useRefObjectAsForwardedRef'
+import React, { useCallback, useContext } from 'react'
+import { useAnchoredPosition } from '../hooks'
+import Overlay, { OverlayProps } from '../Overlay'
+import { ComponentProps } from '../utils/types'
+import { AutocompleteContext } from './AutocompleteContext'
+import { useRefObjectAsForwardedRef } from '../hooks/useRefObjectAsForwardedRef'
 
 type AutocompleteOverlayInternalProps = {
   /**
@@ -28,15 +28,21 @@ function AutocompleteOverlay({
   if (autocompleteContext === null) {
     throw new Error('AutocompleteContext returned null values')
   }
-  const overlayProps = {...oldOverlayProps, ...newOverlayProps}
-  const {inputRef, scrollContainerRef, selectedItemLength, setShowMenu, showMenu = false} = autocompleteContext
-  const {floatingElementRef, position} = useAnchoredPosition(
+  const overlayProps = { ...oldOverlayProps, ...newOverlayProps }
+  const {
+    inputRef,
+    scrollContainerRef,
+    selectedItemLength,
+    setShowMenu,
+    showMenu = false,
+  } = autocompleteContext
+  const { floatingElementRef, position } = useAnchoredPosition(
     {
       side: 'outside-bottom',
       align: 'start',
       anchorElementRef: menuAnchorRef ? menuAnchorRef : inputRef,
     },
-    [showMenu, selectedItemLength],
+    [showMenu, selectedItemLength]
   )
 
   useRefObjectAsForwardedRef(scrollContainerRef, floatingElementRef)
@@ -71,5 +77,7 @@ function AutocompleteOverlay({
 
 AutocompleteOverlay.displayName = 'AutocompleteOverlay'
 
-export type AutocompleteOverlayProps = ComponentProps<typeof AutocompleteOverlay>
+export type AutocompleteOverlayProps = ComponentProps<
+  typeof AutocompleteOverlay
+>
 export default AutocompleteOverlay

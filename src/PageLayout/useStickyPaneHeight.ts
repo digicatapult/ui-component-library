@@ -1,8 +1,8 @@
 import React from 'react'
-import {useInView} from 'react-intersection-observer'
-import {canUseDOM} from '../utils/environment'
+import { useInView } from 'react-intersection-observer'
+import { canUseDOM } from '../utils/environment'
 import useLayoutEffect from '../utils/useIsomorphicLayoutEffect'
-import {getScrollContainer} from '../utils/scroll'
+import { getScrollContainer } from '../utils/scroll'
 
 /**
  * Calculates the height of the sticky pane such that it always
@@ -60,14 +60,11 @@ export function useStickyPaneHeight() {
       // Start listeners if the top or the bottom edge of the content region is visible
 
       if (scrollContainer) {
-        // eslint-disable-next-line github/prefer-observers
         scrollContainer.addEventListener('scroll', calculateHeight)
       } else {
-        // eslint-disable-next-line github/prefer-observers
         window.addEventListener('scroll', calculateHeight)
       }
 
-      // eslint-disable-next-line github/prefer-observers
       window.addEventListener('resize', calculateHeight)
     }
 
@@ -99,7 +96,7 @@ export function useStickyPaneHeight() {
     disableStickyPane,
     contentTopRef,
     contentBottomRef,
-    stickyPaneHeight: height,
+    stickyPaneHeight: height
   }
 }
 

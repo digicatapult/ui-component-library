@@ -1,15 +1,20 @@
 import styled from 'styled-components'
-import React, {ComponentPropsWithRef, ReactElement, useEffect, useRef} from 'react'
+import React, {
+  ComponentPropsWithRef,
+  ReactElement,
+  useEffect,
+  useRef,
+} from 'react'
 import useLayoutEffect from './utils/useIsomorphicLayoutEffect'
-import {get} from './constants'
-import {AriaRole, Merge} from './utils/types'
-import {useOverlay, TouchOrMouseEvent} from './hooks'
+import { get } from './constants'
+import { AriaRole, Merge } from './utils/types'
+import { useOverlay, TouchOrMouseEvent } from './hooks'
 import Portal from './Portal'
-import sx, {SxProp} from './sx'
-import {useRefObjectAsForwardedRef} from './hooks/useRefObjectAsForwardedRef'
-import type {AnchorSide} from '@primer/behaviors'
-import {useTheme} from './ThemeProvider'
-import {ForwardRefComponent as PolymorphicForwardRefComponent} from './utils/polymorphic'
+import sx, { SxProp } from './sx'
+import { useRefObjectAsForwardedRef } from './hooks/useRefObjectAsForwardedRef'
+import type { AnchorSide } from '@primer/behaviors'
+import { useTheme } from './ThemeProvider'
+import { ForwardRefComponent as PolymorphicForwardRefComponent } from './utils/polymorphic'
 
 type StyledOverlayProps = {
   width?: keyof typeof widthMap
@@ -39,18 +44,21 @@ const widthMap = {
 }
 const animationDuration = 200
 
-function getSlideAnimationStartingVector(anchorSide?: AnchorSide): {x: number; y: number} {
+function getSlideAnimationStartingVector(anchorSide?: AnchorSide): {
+  x: number
+  y: number
+} {
   if (anchorSide?.endsWith('bottom')) {
-    return {x: 0, y: -1}
+    return { x: 0, y: -1 }
   } else if (anchorSide?.endsWith('top')) {
-    return {x: 0, y: 1}
+    return { x: 0, y: 1 }
   } else if (anchorSide?.endsWith('right')) {
-    return {x: -1, y: 0}
+    return { x: -1, y: 0 }
   } else if (anchorSide?.endsWith('left')) {
-    return {x: 1, y: 0}
+    return { x: 1, y: 0 }
   }
 
-  return {x: 0, y: 0}
+  return { x: 0, y: 0 }
 }
 
 const StyledOverlay = styled.div<StyledOverlayProps>`
@@ -59,12 +67,13 @@ const StyledOverlay = styled.div<StyledOverlayProps>`
   position: absolute;
   min-width: 192px;
   max-width: 640px;
-  height: ${props => heightMap[props.height || 'auto']};
-  max-height: ${props => props.maxHeight && heightMap[props.maxHeight]};
-  width: ${props => widthMap[props.width || 'auto']};
+  height: ${(props) => heightMap[props.height || 'auto']};
+  max-height: ${(props) => props.maxHeight && heightMap[props.maxHeight]};
+  width: ${(props) => widthMap[props.width || 'auto']};
   border-radius: 12px;
   overflow: hidden;
-  animation: overlay-appear ${animationDuration}ms ${get('animation.easeOutCubic')};
+  animation: overlay-appear ${animationDuration}ms
+    ${get('animation.easeOutCubic')};
 
   @keyframes overlay-appear {
     0% {
@@ -139,12 +148,14 @@ const Overlay = React.forwardRef<HTMLDivElement, OwnOverlayProps>(
       preventFocusOnOpen,
       ...rest
     },
-    forwardedRef,
+    forwardedRef
   ): ReactElement => {
     const overlayRef = useRef<HTMLDivElement>(null)
     useRefObjectAsForwardedRef(forwardedRef, overlayRef)
-    const {theme} = useTheme()
-    const slideAnimationDistance = parseInt(get('space.2')(theme).replace('px', ''))
+    const { theme } = useTheme()
+    const slideAnimationDistance = parseInt(
+      get('space.2')(theme).replace('px', '')
+    )
     const slideAnimationEasing = get('animation.easeOutCubic')(theme)
 
     useOverlay({
@@ -164,18 +175,29 @@ const Overlay = React.forwardRef<HTMLDivElement, OwnOverlayProps>(
     }, [height])
 
     useLayoutEffect(() => {
-      const {x, y} = getSlideAnimationStartingVector(anchorSide)
-      if ((!x && !y) || !overlayRef.current?.animate || visibility === 'hidden') {
+      const { x, y } = getSlideAnimationStartingVector(anchorSide)
+      if (
+        (!x && !y) ||
+        !overlayRef.current?.animate ||
+        visibility === 'hidden'
+      ) {
         return
       }
 
       // JS animation is required because Safari does not allow css animations to start paused and then run
       overlayRef.current.animate(
-        {transform: [`translate(${slideAnimationDistance * x}px, ${slideAnimationDistance * y}px)`, `translate(0, 0)`]},
+        {
+          transform: [
+            `translate(${slideAnimationDistance * x}px, ${
+              slideAnimationDistance * y
+            }px)`,
+            `translate(0, 0)`,
+          ],
+        },
         {
           duration: animationDuration,
           easing: slideAnimationEasing,
-        },
+        }
       )
     }, [anchorSide, slideAnimationDistance, slideAnimationEasing, visibility])
 
@@ -196,7 +218,7 @@ const Overlay = React.forwardRef<HTMLDivElement, OwnOverlayProps>(
         />
       </Portal>
     )
-  },
+  }
 ) as PolymorphicForwardRefComponent<'div', OwnOverlayProps>
 
 export type OverlayProps = ComponentPropsWithRef<typeof Overlay>

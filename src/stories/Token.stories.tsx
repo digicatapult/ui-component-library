@@ -1,13 +1,13 @@
 import React from 'react'
-import {Meta} from '@storybook/react'
-import {action} from '@storybook/addon-actions'
+import { Meta } from '@storybook/react'
+import { action } from '@storybook/addon-actions'
 
-import {get} from '../constants'
-import {BaseStyles, ThemeProvider} from '..'
+import { get } from '../constants'
+import { BaseStyles, ThemeProvider } from '..'
 import Box from '../Box'
-import Token, {TokenProps} from '../Token/Token'
+import Token, { TokenProps } from '../Token/Token'
 import Text from '../Text'
-import {GitBranchIcon} from '@primer/octicons-react'
+import { GitBranchIcon } from '@primer/octicons-react'
 
 export default {
   title: 'Components/Token',
@@ -25,7 +25,7 @@ export default {
     },
   },
   decorators: [
-    Story => {
+    (Story) => {
       return (
         <ThemeProvider>
           <BaseStyles>
@@ -37,9 +37,17 @@ export default {
   ],
 } as Meta
 
-const excludedControlKeys = ['id', 'as', 'tabIndex', 'onRemove', 'leadingVisual']
+const excludedControlKeys = [
+  'id',
+  'as',
+  'tabIndex',
+  'onRemove',
+  'leadingVisual',
+]
 
-const SingleExampleContainer: React.FC<React.PropsWithChildren<{label?: string}>> = ({children, label}) => (
+const SingleExampleContainer: React.FC<
+  React.PropsWithChildren<{ label?: string }>
+> = ({ children, label }) => (
   <Box
     display="flex"
     sx={{
@@ -57,7 +65,9 @@ const SingleExampleContainer: React.FC<React.PropsWithChildren<{label?: string}>
   </Box>
 )
 
-const ExampleCollectionContainer: React.FC<React.PropsWithChildren<unknown>> = ({children}) => (
+const ExampleCollectionContainer: React.FC<
+  React.PropsWithChildren<unknown>
+> = ({ children }) => (
   <Box
     display="flex"
     sx={{
@@ -67,7 +77,8 @@ const ExampleCollectionContainer: React.FC<React.PropsWithChildren<unknown>> = (
     }}
   >
     <Text fontSize={1} color="fg.subtle">
-      Hint: use the &quot;Controls&quot; tab in the Addons panel to change the token properties
+      Hint: use the &quot;Controls&quot; tab in the Addons panel to change the
+      token properties
     </Text>
     {children}
   </Box>
@@ -81,7 +92,9 @@ export const DefaultToken = (args: Omit<TokenProps, 'ref'>) => {
   )
 }
 DefaultToken.storyName = 'Default'
-DefaultToken.parameters = {controls: {exclude: [...excludedControlKeys, 'hideRemoveButton']}}
+DefaultToken.parameters = {
+  controls: { exclude: [...excludedControlKeys, 'hideRemoveButton'] },
+}
 
 export const Interactive = (args: Omit<TokenProps, 'ref' | 'text'>) => {
   return (
@@ -94,13 +107,26 @@ export const Interactive = (args: Omit<TokenProps, 'ref' | 'text'>) => {
         }}
       >
         <Token as="a" href="http://google.com/" {...args} text="Link" />
-        <Token as="button" onClick={action('clicked')} {...args} text="Button" />
-        <Token as="span" tabIndex={0} onFocus={action('focused')} {...args} text="Focusable Span" />
+        <Token
+          as="button"
+          onClick={action('clicked')}
+          {...args}
+          text="Button"
+        />
+        <Token
+          as="span"
+          tabIndex={0}
+          onFocus={action('focused')}
+          {...args}
+          text="Focusable Span"
+        />
       </Box>
     </ExampleCollectionContainer>
   )
 }
-Interactive.parameters = {controls: {exclude: [...excludedControlKeys, 'hideRemoveButton', 'text']}}
+Interactive.parameters = {
+  controls: { exclude: [...excludedControlKeys, 'hideRemoveButton', 'text'] },
+}
 
 export const WithLeadingVisual = (args: Omit<TokenProps, 'ref'>) => {
   return (
@@ -110,7 +136,9 @@ export const WithLeadingVisual = (args: Omit<TokenProps, 'ref'>) => {
   )
 }
 WithLeadingVisual.storyName = 'with leadingVisual'
-WithLeadingVisual.parameters = {controls: {exclude: [...excludedControlKeys, 'hideRemoveButton']}}
+WithLeadingVisual.parameters = {
+  controls: { exclude: [...excludedControlKeys, 'hideRemoveButton'] },
+}
 
 export const WithOnRemoveFn = (args: Omit<TokenProps, 'ref'>) => {
   return (
@@ -126,8 +154,20 @@ export const WithOnRemoveFn = (args: Omit<TokenProps, 'ref'>) => {
             gap: get('space.2'),
           }}
         >
-          <Token as="a" href="http://google.com/" onRemove={action('remove me')} {...args} text="Link" />
-          <Token as="button" onClick={action('clicked')} onRemove={action('remove me')} {...args} text="Button" />
+          <Token
+            as="a"
+            href="http://google.com/"
+            onRemove={action('remove me')}
+            {...args}
+            text="Link"
+          />
+          <Token
+            as="button"
+            onClick={action('clicked')}
+            onRemove={action('remove me')}
+            {...args}
+            text="Button"
+          />
           <Token
             as="span"
             tabIndex={0}
@@ -141,4 +181,4 @@ export const WithOnRemoveFn = (args: Omit<TokenProps, 'ref'>) => {
     </ExampleCollectionContainer>
   )
 }
-WithOnRemoveFn.parameters = {controls: {exclude: excludedControlKeys}}
+WithOnRemoveFn.parameters = { controls: { exclude: excludedControlKeys } }

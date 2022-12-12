@@ -1,8 +1,8 @@
 import React from 'react'
 import Box from '../Box'
-import {SxProp, merge} from '../sx'
+import { SxProp, merge } from '../sx'
 import Truncate from '../Truncate'
-import {Slot, ItemContext} from './shared'
+import { Slot, ItemContext } from './shared'
 
 export type ActionListDescriptionProps = {
   /**
@@ -14,11 +14,9 @@ export type ActionListDescriptionProps = {
   variant?: 'inline' | 'block'
 } & SxProp
 
-export const Description: React.FC<React.PropsWithChildren<ActionListDescriptionProps>> = ({
-  variant = 'inline',
-  sx = {},
-  ...props
-}) => {
+export const Description: React.FC<
+  React.PropsWithChildren<ActionListDescriptionProps>
+> = ({ variant = 'inline', sx = {}, ...props }) => {
   const styles = {
     fontSize: 0,
     lineHeight: '16px',
@@ -30,11 +28,14 @@ export const Description: React.FC<React.PropsWithChildren<ActionListDescription
 
   return (
     <Slot name={variant === 'block' ? 'BlockDescription' : 'InlineDescription'}>
-      {({blockDescriptionId, inlineDescriptionId, disabled}: ItemContext) =>
+      {({ blockDescriptionId, inlineDescriptionId, disabled }: ItemContext) =>
         variant === 'block' ? (
           <Box
             as="span"
-            sx={merge({...styles, color: disabled ? 'fg.disabled' : 'fg.muted'}, sx as SxProp)}
+            sx={merge(
+              { ...styles, color: disabled ? 'fg.disabled' : 'fg.muted' },
+              sx as SxProp
+            )}
             id={blockDescriptionId}
           >
             {props.children}
@@ -42,7 +43,10 @@ export const Description: React.FC<React.PropsWithChildren<ActionListDescription
         ) : (
           <Truncate
             id={inlineDescriptionId}
-            sx={merge({...styles, color: disabled ? 'fg.disabled' : 'fg.muted'}, sx as SxProp)}
+            sx={merge(
+              { ...styles, color: disabled ? 'fg.disabled' : 'fg.muted' },
+              sx as SxProp
+            )}
             title={props.children as string}
             inline={true}
             maxWidth="100%"

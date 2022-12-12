@@ -1,4 +1,4 @@
-import {useCallback, useEffect} from 'react'
+import { useCallback, useEffect } from 'react'
 
 const noop = () => null
 
@@ -27,10 +27,10 @@ function useDialog({
   isOpen,
   onDismiss = noop,
   initialFocusRef,
-  closeButtonRef,
+  closeButtonRef
 }: UseDialogParameters) {
   const onClickOutside = useCallback(
-    e => {
+    (e) => {
       if (
         modalRef.current &&
         overlayRef.current &&
@@ -40,7 +40,7 @@ function useDialog({
         onDismiss()
       }
     },
-    [onDismiss, modalRef, overlayRef],
+    [onDismiss, modalRef, overlayRef]
   )
 
   useEffect(() => {
@@ -80,11 +80,11 @@ function useDialog({
         return focusableItem as HTMLElement
       }
     },
-    [modalRef],
+    [modalRef]
   )
 
   const handleTab = useCallback(
-    e => {
+    (e) => {
       const movement = e.shiftKey ? -1 : 1
       const focusableItem = getFocusableItem(e, movement)
       if (!focusableItem) {
@@ -93,11 +93,11 @@ function useDialog({
 
       focusableItem.focus()
     },
-    [getFocusableItem],
+    [getFocusableItem]
   )
 
   const onKeyDown = useCallback(
-    event => {
+    (event) => {
       switch (event.key) {
         case 'Tab':
           handleTab(event)
@@ -108,14 +108,14 @@ function useDialog({
           break
       }
     },
-    [handleTab, onDismiss],
+    [handleTab, onDismiss]
   )
 
   const getDialogProps = () => {
-    return {onKeyDown}
+    return { onKeyDown }
   }
 
-  return {getDialogProps}
+  return { getDialogProps }
 }
 
 export default useDialog

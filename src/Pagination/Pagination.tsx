@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import Box from '../Box'
-import {get} from '../constants'
-import sx, {SxProp} from '../sx'
+import { get } from '../constants'
+import sx, { SxProp } from '../sx'
 import getGlobalFocusStyles from '../_getGlobalFocusStyles'
-import {buildComponentData, buildPaginationModel} from './model'
+import { buildComponentData, buildPaginationModel } from './model'
 
 const Page = styled.a`
   display: inline-block;
@@ -129,15 +129,28 @@ function usePaginationPages({
   showPages,
   surroundingPageCount,
 }: UsePaginationPagesParameters) {
-  const pageChange = React.useCallback(n => (e: React.MouseEvent) => onPageChange(e, n), [onPageChange])
+  const pageChange = React.useCallback(
+    (n) => (e: React.MouseEvent) => onPageChange(e, n),
+    [onPageChange]
+  )
 
   const model = React.useMemo(() => {
-    return buildPaginationModel(pageCount, currentPage, !!showPages, marginPageCount, surroundingPageCount)
+    return buildPaginationModel(
+      pageCount,
+      currentPage,
+      !!showPages,
+      marginPageCount,
+      surroundingPageCount
+    )
   }, [pageCount, currentPage, showPages, marginPageCount, surroundingPageCount])
 
   const children = React.useMemo(() => {
-    return model.map(page => {
-      const {props, key, content} = buildComponentData(page, hrefBuilder, pageChange(page.num))
+    return model.map((page) => {
+      const { props, key, content } = buildComponentData(
+        page,
+        hrefBuilder,
+        pageChange(page.num)
+      )
       return (
         <Page {...props} key={key} theme={theme}>
           {content}

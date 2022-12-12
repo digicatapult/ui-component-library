@@ -1,7 +1,7 @@
-import {Meta} from '@storybook/react'
+import { Meta } from '@storybook/react'
 import React from 'react'
-import {ThemeProvider} from '..'
-import {FilteredActionList} from '../FilteredActionList'
+import { ThemeProvider } from '..'
+import { FilteredActionList } from '../FilteredActionList'
 import BaseStyles from '../BaseStyles'
 import Box from '../Box'
 
@@ -9,7 +9,9 @@ const meta: Meta = {
   title: 'Components/FilteredActionList',
   component: FilteredActionList,
   decorators: [
-    (Story: React.ComponentType<React.PropsWithChildren<unknown>>): JSX.Element => (
+    (
+      Story: React.ComponentType<React.PropsWithChildren<unknown>>
+    ): JSX.Element => (
       <ThemeProvider>
         <BaseStyles>
           <Story />
@@ -43,18 +45,20 @@ function getColorCircle(color: string) {
 }
 
 const items = [
-  {leadingVisual: getColorCircle('#a2eeef'), text: 'enhancement', id: 1},
-  {leadingVisual: getColorCircle('#d73a4a'), text: 'bug', id: 2},
-  {leadingVisual: getColorCircle('#0cf478'), text: 'good first issue', id: 3},
-  {leadingVisual: getColorCircle('#ffd78e'), text: 'design', id: 4},
-  {leadingVisual: getColorCircle('#ff0000'), text: 'blocker', id: 5},
-  {leadingVisual: getColorCircle('#a4f287'), text: 'backend', id: 6},
-  {leadingVisual: getColorCircle('#8dc6fc'), text: 'frontend', id: 7},
+  { leadingVisual: getColorCircle('#a2eeef'), text: 'enhancement', id: 1 },
+  { leadingVisual: getColorCircle('#d73a4a'), text: 'bug', id: 2 },
+  { leadingVisual: getColorCircle('#0cf478'), text: 'good first issue', id: 3 },
+  { leadingVisual: getColorCircle('#ffd78e'), text: 'design', id: 4 },
+  { leadingVisual: getColorCircle('#ff0000'), text: 'blocker', id: 5 },
+  { leadingVisual: getColorCircle('#a4f287'), text: 'backend', id: 6 },
+  { leadingVisual: getColorCircle('#8dc6fc'), text: 'frontend', id: 7 },
 ]
 
 export function Default(): JSX.Element {
   const [filter, setFilter] = React.useState('')
-  const filteredItems = items.filter(item => item.text.toLowerCase().startsWith(filter.toLowerCase()))
+  const filteredItems = items.filter((item) =>
+    item.text.toLowerCase().startsWith(filter.toLowerCase())
+  )
 
   return (
     <>
@@ -64,7 +68,7 @@ export function Default(): JSX.Element {
         placeholderText="Filter Labels"
         items={filteredItems}
         onFilterChange={setFilter}
-        sx={{border: '1px solid', padding: '8px'}}
+        sx={{ border: '1px solid', padding: '8px' }}
       />
     </>
   )

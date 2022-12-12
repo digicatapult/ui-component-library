@@ -1,21 +1,29 @@
-import React, {KeyboardEventHandler, useCallback, useEffect, useRef} from 'react'
-import {useSSRSafeId} from '@react-aria/ssr'
-import {GroupedListProps, ListPropsBase} from '../deprecated/ActionList/List'
-import TextInput, {TextInputProps} from '../TextInput'
+import React, {
+  KeyboardEventHandler,
+  useCallback,
+  useEffect,
+  useRef,
+} from 'react'
+import { useSSRSafeId } from '@react-aria/ssr'
+import { GroupedListProps, ListPropsBase } from '../deprecated/ActionList/List'
+import TextInput, { TextInputProps } from '../TextInput'
 import Box from '../Box'
-import {ActionList} from '../deprecated/ActionList'
+import { ActionList } from '../deprecated/ActionList'
 import Spinner from '../Spinner'
-import {useFocusZone} from '../hooks/useFocusZone'
-import {useProvidedStateOrCreate} from '../hooks/useProvidedStateOrCreate'
+import { useFocusZone } from '../hooks/useFocusZone'
+import { useProvidedStateOrCreate } from '../hooks/useProvidedStateOrCreate'
 import styled from 'styled-components'
-import {get} from '../constants'
-import {useProvidedRefOrCreate} from '../hooks/useProvidedRefOrCreate'
+import { get } from '../constants'
+import { useProvidedRefOrCreate } from '../hooks/useProvidedRefOrCreate'
 import useScrollFlash from '../hooks/useScrollFlash'
-import {scrollIntoView} from '@primer/behaviors'
-import type {ScrollIntoViewOptions} from '@primer/behaviors'
-import {SxProp} from '../sx'
+import { scrollIntoView } from '@primer/behaviors'
+import type { ScrollIntoViewOptions } from '@primer/behaviors'
+import { SxProp } from '../sx'
 
-const menuScrollMargins: ScrollIntoViewOptions = {startMargin: 0, endMargin: 8}
+const menuScrollMargins: ScrollIntoViewOptions = {
+  startMargin: 0,
+  endMargin: 8,
+}
 
 export interface FilteredActionListProps
   extends Partial<Omit<GroupedListProps, keyof ListPropsBase>>,
@@ -24,7 +32,10 @@ export interface FilteredActionListProps
   loading?: boolean
   placeholderText: string
   filterValue?: string
-  onFilterChange: (value: string, e: React.ChangeEvent<HTMLInputElement>) => void
+  onFilterChange: (
+    value: string,
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => void
   textInputProps?: Partial<Omit<TextInputProps, 'onChange'>>
   inputRef?: React.RefObject<HTMLInputElement>
 }
@@ -45,14 +56,18 @@ export function FilteredActionList({
   sx,
   ...listProps
 }: FilteredActionListProps): JSX.Element {
-  const [filterValue, setInternalFilterValue] = useProvidedStateOrCreate(externalFilterValue, undefined, '')
+  const [filterValue, setInternalFilterValue] = useProvidedStateOrCreate(
+    externalFilterValue,
+    undefined,
+    ''
+  )
   const onInputChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       const value = e.target.value
       onFilterChange(value, e)
       setInternalFilterValue(value)
     },
-    [onFilterChange, setInternalFilterValue],
+    [onFilterChange, setInternalFilterValue]
   )
 
   const scrollContainerRef = useRef<HTMLDivElement>(null)
@@ -61,24 +76,27 @@ export function FilteredActionList({
   const activeDescendantRef = useRef<HTMLElement>()
   const listId = useSSRSafeId()
   const onInputKeyPress: KeyboardEventHandler = useCallback(
-    event => {
+    (event) => {
       if (event.key === 'Enter' && activeDescendantRef.current) {
         event.preventDefault()
         event.nativeEvent.stopImmediatePropagation()
 
         // Forward Enter key press to active descendant so that item gets activated
-        const activeDescendantEvent = new KeyboardEvent(event.type, event.nativeEvent)
+        const activeDescendantEvent = new KeyboardEvent(
+          event.type,
+          event.nativeEvent
+        )
         activeDescendantRef.current.dispatchEvent(activeDescendantEvent)
       }
     },
-    [activeDescendantRef],
+    [activeDescendantRef]
   )
 
   useFocusZone(
     {
       containerRef: listContainerRef,
       focusOutBehavior: 'wrap',
-      focusableElementFilter: element => {
+      focusableElementFilter: (element) => {
         return !(element instanceof HTMLInputElement)
       },
       activeDescendantFocus: inputRef,
@@ -93,13 +111,16 @@ export function FilteredActionList({
     [
       // List ref isn't set while loading.  Need to re-bind focus zone when it changes
       loading,
-    ],
+    ]
   )
 
   useEffect(() => {
     // if items changed, we want to instantly move active descendant into view
     if (activeDescendantRef.current && scrollContainerRef.current) {
-      scrollIntoView(activeDescendantRef.current, scrollContainerRef.current, {...menuScrollMargins, behavior: 'auto'})
+      scrollIntoView(activeDescendantRef.current, scrollContainerRef.current, {
+        ...menuScrollMargins,
+        behavior: 'auto',
+      })
     }
   }, [items])
 
@@ -124,11 +145,24 @@ export function FilteredActionList({
       </StyledHeader>
       <Box ref={scrollContainerRef} overflow="auto">
         {loading ? (
-          <Box width="100%" display="flex" flexDirection="row" justifyContent="center" pt={6} pb={7}>
+          <Box
+            width="100%"
+            display="flex"
+            flexDirection="row"
+            justifyContent="center"
+            pt={6}
+            pb={7}
+          >
             <Spinner />
           </Box>
         ) : (
-          <ActionList ref={listContainerRef} items={items} {...listProps} role="listbox" id={listId} />
+          <ActionList
+            ref={listContainerRef}
+            items={items}
+            {...listProps}
+            role="listbox"
+            id={listId}
+          />
         )}
       </Box>
     </Box>

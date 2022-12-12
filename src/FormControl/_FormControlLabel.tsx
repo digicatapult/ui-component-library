@@ -1,8 +1,8 @@
 import React from 'react'
-import {SxProp} from '../sx'
+import { SxProp } from '../sx'
 import InputLabel from '../_InputLabel'
-import {FormControlContext} from './FormControl'
-import {Slot} from './slots'
+import { FormControlContext } from './FormControl'
+import { Slot } from './slots'
 
 export type Props = {
   /**
@@ -11,15 +11,11 @@ export type Props = {
   visuallyHidden?: boolean
 } & SxProp
 
-const FormControlLabel: React.FC<React.PropsWithChildren<{htmlFor?: string; id?: string} & Props>> = ({
-  children,
-  htmlFor,
-  id,
-  visuallyHidden,
-  sx,
-}) => (
+const FormControlLabel: React.FC<
+  React.PropsWithChildren<{ htmlFor?: string; id?: string } & Props>
+> = ({ children, htmlFor, id, visuallyHidden, sx }) => (
   <Slot name="Label">
-    {({disabled, id: formControlId, required}: FormControlContext) => (
+    {({ disabled, id: formControlId, required }: FormControlContext) => (
       <InputLabel
         htmlFor={htmlFor || formControlId}
         id={id}

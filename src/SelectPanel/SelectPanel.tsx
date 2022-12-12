@@ -1,15 +1,18 @@
-import React, {useCallback, useMemo} from 'react'
-import {FilteredActionList, FilteredActionListProps} from '../FilteredActionList'
-import {OverlayProps} from '../Overlay'
-import {ItemInput} from '../deprecated/ActionList/List'
-import {FocusZoneHookSettings} from '../hooks/useFocusZone'
-import {DropdownButton} from '../deprecated/DropdownMenu'
-import {ItemProps} from '../deprecated/ActionList'
-import {AnchoredOverlay, AnchoredOverlayProps} from '../AnchoredOverlay'
-import {TextInputProps} from '../TextInput'
-import {useProvidedStateOrCreate} from '../hooks/useProvidedStateOrCreate'
-import {AnchoredOverlayWrapperAnchorProps} from '../AnchoredOverlay/AnchoredOverlay'
-import {useProvidedRefOrCreate} from '../hooks'
+import React, { useCallback, useMemo } from 'react'
+import {
+  FilteredActionList,
+  FilteredActionListProps,
+} from '../FilteredActionList'
+import { OverlayProps } from '../Overlay'
+import { ItemInput } from '../deprecated/ActionList/List'
+import { FocusZoneHookSettings } from '../hooks/useFocusZone'
+import { DropdownButton } from '../deprecated/DropdownMenu'
+import { ItemProps } from '../deprecated/ActionList'
+import { AnchoredOverlay, AnchoredOverlayProps } from '../AnchoredOverlay'
+import { TextInputProps } from '../TextInput'
+import { useProvidedStateOrCreate } from '../hooks/useProvidedStateOrCreate'
+import { AnchoredOverlayWrapperAnchorProps } from '../AnchoredOverlay/AnchoredOverlay'
+import { useProvidedRefOrCreate } from '../hooks'
 
 interface SelectPanelSingleSelection {
   selected: ItemInput | undefined
@@ -24,7 +27,12 @@ interface SelectPanelMultiSelection {
 interface SelectPanelBaseProps {
   onOpenChange: (
     open: boolean,
-    gesture: 'anchor-click' | 'anchor-key-press' | 'click-outside' | 'escape' | 'selection',
+    gesture:
+      | 'anchor-click'
+      | 'anchor-key-press'
+      | 'click-outside'
+      | 'escape'
+      | 'selection'
   ) => void
   placeholder?: string
   overlayProps?: Partial<OverlayProps>
@@ -37,7 +45,9 @@ export type SelectPanelProps = SelectPanelBaseProps &
   (SelectPanelSingleSelection | SelectPanelMultiSelection)
 
 function isMultiSelectVariant(
-  selected: SelectPanelSingleSelection['selected'] | SelectPanelMultiSelection['selected'],
+  selected:
+    | SelectPanelSingleSelection['selected']
+    | SelectPanelMultiSelection['selected']
 ): selected is SelectPanelMultiSelection['selected'] {
   return Array.isArray(selected)
 }
@@ -50,7 +60,7 @@ const focusZoneSettings: Partial<FocusZoneHookSettings> = {
 export function SelectPanel({
   open,
   onOpenChange,
-  renderAnchor = props => <DropdownButton {...props} />,
+  renderAnchor = (props) => <DropdownButton {...props} />,
   anchorRef: externalAnchorRef,
   placeholder,
   selected,
@@ -63,22 +73,33 @@ export function SelectPanel({
   sx,
   ...listProps
 }: SelectPanelProps): JSX.Element {
-  const [filterValue, setInternalFilterValue] = useProvidedStateOrCreate(externalFilterValue, undefined, '')
+  const [filterValue, setInternalFilterValue] = useProvidedStateOrCreate(
+    externalFilterValue,
+    undefined,
+    ''
+  )
   const onFilterChange: FilteredActionListProps['onFilterChange'] = useCallback(
     (value, e) => {
       externalOnFilterChange(value, e)
       setInternalFilterValue(value)
     },
-    [externalOnFilterChange, setInternalFilterValue],
+    [externalOnFilterChange, setInternalFilterValue]
   )
 
   const anchorRef = useProvidedRefOrCreate(externalAnchorRef)
-  const onOpen: AnchoredOverlayProps['onOpen'] = useCallback(gesture => onOpenChange(true, gesture), [onOpenChange])
+  const onOpen: AnchoredOverlayProps['onOpen'] = useCallback(
+    (gesture) => onOpenChange(true, gesture),
+    [onOpenChange]
+  )
   const onClose = useCallback(
-    (gesture: Parameters<Exclude<AnchoredOverlayProps['onClose'], undefined>>[0] | 'selection') => {
+    (
+      gesture:
+        | Parameters<Exclude<AnchoredOverlayProps['onClose'], undefined>>[0]
+        | 'selection'
+    ) => {
       onOpenChange(false, gesture)
     },
-    [onOpenChange],
+    [onOpenChange]
   )
 
   const renderMenuAnchor = useMemo(() => {
@@ -86,24 +107,33 @@ export function SelectPanel({
       return null
     }
 
-    const selectedItems = Array.isArray(selected) ? selected : [...(selected ? [selected] : [])]
+    const selectedItems = Array.isArray(selected)
+      ? selected
+      : [...(selected ? [selected] : [])]
 
     return <T extends React.HTMLAttributes<HTMLElement>>(props: T) => {
       return renderAnchor({
         ...props,
-        children: selectedItems.length ? selectedItems.map(item => item.text).join(', ') : placeholder,
+        children: selectedItems.length
+          ? selectedItems.map((item) => item.text).join(', ')
+          : placeholder,
       })
     }
   }, [placeholder, renderAnchor, selected])
 
   const itemsToRender = useMemo(() => {
-    return items.map(item => {
-      const isItemSelected = isMultiSelectVariant(selected) ? selected.includes(item) : selected === item
+    return items.map((item) => {
+      const isItemSelected = isMultiSelectVariant(selected)
+        ? selected.includes(item)
+        : selected === item
 
       return {
         ...item,
         role: 'option',
-        selected: 'selected' in item && item.selected === undefined ? undefined : isItemSelected,
+        selected:
+          'selected' in item && item.selected === undefined
+            ? undefined
+            : isItemSelected,
         onAction: (itemFromAction, event) => {
           item.onAction?.(itemFromAction, event)
 
@@ -112,16 +142,22 @@ export function SelectPanel({
           }
 
           if (isMultiSelectVariant(selected)) {
-            const otherSelectedItems = selected.filter(selectedItem => selectedItem !== item)
-            const newSelectedItems = selected.includes(item) ? otherSelectedItems : [...otherSelectedItems, item]
+            const otherSelectedItems = selected.filter(
+              (selectedItem) => selectedItem !== item
+            )
+            const newSelectedItems = selected.includes(item)
+              ? otherSelectedItems
+              : [...otherSelectedItems, item]
 
-            const multiSelectOnChange = onSelectedChange as SelectPanelMultiSelection['onSelectedChange']
+            const multiSelectOnChange =
+              onSelectedChange as SelectPanelMultiSelection['onSelectedChange']
             multiSelectOnChange(newSelectedItems)
             return
           }
 
           // single select
-          const singleSelectOnChange = onSelectedChange as SelectPanelSingleSelection['onSelectedChange']
+          const singleSelectOnChange =
+            onSelectedChange as SelectPanelSingleSelection['onSelectedChange']
           singleSelectOnChange(item === selected ? undefined : item)
           onClose('selection')
         },
@@ -136,7 +172,7 @@ export function SelectPanel({
 
   const extendedTextInputProps: Partial<TextInputProps> = useMemo(() => {
     return {
-      sx: {m: 2},
+      sx: { m: 2 },
       contrast: true,
       ...textInputProps,
     }
@@ -159,13 +195,15 @@ export function SelectPanel({
         {...listProps}
         role="listbox"
         aria-multiselectable={isMultiSelectVariant(selected) ? 'true' : 'false'}
-        selectionVariant={isMultiSelectVariant(selected) ? 'multiple' : 'single'}
+        selectionVariant={
+          isMultiSelectVariant(selected) ? 'multiple' : 'single'
+        }
         items={itemsToRender}
         textInputProps={extendedTextInputProps}
         inputRef={inputRef}
         // inheriting height and maxHeight ensures that the FilteredActionList is never taller
         // than the Overlay (which would break scrolling the items)
-        sx={{...sx, height: 'inherit', maxHeight: 'inherit'}}
+        sx={{ ...sx, height: 'inherit', maxHeight: 'inherit' }}
       />
     </AnchoredOverlay>
   )

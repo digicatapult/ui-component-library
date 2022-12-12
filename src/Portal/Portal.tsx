@@ -1,5 +1,5 @@
 import React from 'react'
-import {createPortal} from 'react-dom'
+import { createPortal } from 'react-dom'
 import useLayoutEffect from '../utils/useIsomorphicLayoutEffect'
 
 const PRIMER_PORTAL_ROOT_ID = '__primerPortalRoot__'
@@ -13,7 +13,10 @@ const portalRootRegistry: Partial<Record<string, Element>> = {}
  * @param name The name of the container, to be used with the `containerName` prop on the Portal Component.
  * If name is not specified, registers the default portal root.
  */
-export function registerPortalRoot(root: Element, name = DEFAULT_PORTAL_CONTAINER_NAME): void {
+export function registerPortalRoot(
+  root: Element,
+  name = DEFAULT_PORTAL_CONTAINER_NAME
+): void {
   portalRootRegistry[name] = root
 }
 
@@ -21,8 +24,12 @@ export function registerPortalRoot(root: Element, name = DEFAULT_PORTAL_CONTAINE
 // with id __primerPortalRoot__, allow that element to serve as the default portal root.
 // Otherwise, create that element and attach it to the end of document.body.
 function ensureDefaultPortal() {
-  const existingDefaultPortalContainer = portalRootRegistry[DEFAULT_PORTAL_CONTAINER_NAME]
-  if (!existingDefaultPortalContainer || !document.body.contains(existingDefaultPortalContainer)) {
+  const existingDefaultPortalContainer =
+    portalRootRegistry[DEFAULT_PORTAL_CONTAINER_NAME]
+  if (
+    !existingDefaultPortalContainer ||
+    !document.body.contains(existingDefaultPortalContainer)
+  ) {
     let defaultPortalContainer = document.getElementById(PRIMER_PORTAL_ROOT_ID)
     if (!(defaultPortalContainer instanceof Element)) {
       defaultPortalContainer = document.createElement('div')
@@ -84,7 +91,7 @@ export const Portal: React.FC<React.PropsWithChildren<PortalProps>> = ({
 
     if (!parentElement) {
       throw new Error(
-        `Portal container '${_containerName}' is not yet registered. Container must be registered with registerPortal before use.`,
+        `Portal container '${_containerName}' is not yet registered. Container must be registered with registerPortal before use.`
       )
     }
     const element = elementRef.current

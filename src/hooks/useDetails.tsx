@@ -1,4 +1,4 @@
-import {useCallback, useEffect, useState, useRef} from 'react'
+import { useCallback, useEffect, useState, useRef } from 'react'
 
 type UseDetailsParameters = {
   ref?: React.RefObject<HTMLElement>
@@ -7,14 +7,19 @@ type UseDetailsParameters = {
   onClickOutside?: (event: MouseEvent) => void
 }
 
-function useDetails({ref, closeOnOutsideClick, defaultOpen, onClickOutside}: UseDetailsParameters) {
+function useDetails({
+  ref,
+  closeOnOutsideClick,
+  defaultOpen,
+  onClickOutside,
+}: UseDetailsParameters) {
   const [open, setOpen] = useState(defaultOpen)
   const backupRef = useRef(null)
   const customRef = ref ?? backupRef
 
   const onClickOutsideInternal = useCallback(
     (event: MouseEvent) => {
-      const {current} = customRef
+      const { current } = customRef
       const eventTarget = event.target as HTMLElement
       const closest = eventTarget.closest('details') as HTMLDetailsElement
       if (closest !== current) {
@@ -24,7 +29,7 @@ function useDetails({ref, closeOnOutsideClick, defaultOpen, onClickOutside}: Use
         }
       }
     },
-    [customRef, setOpen, onClickOutside],
+    [customRef, setOpen, onClickOutside]
   )
 
   // handles the overlay behavior - closing the menu when clicking outside of it
@@ -45,10 +50,10 @@ function useDetails({ref, closeOnOutsideClick, defaultOpen, onClickOutside}: Use
   }
 
   const getDetailsProps = () => {
-    return {onToggle: handleToggle, open, ref: customRef}
+    return { onToggle: handleToggle, open, ref: customRef }
   }
 
-  return {open, setOpen, getDetailsProps}
+  return { open, setOpen, getDetailsProps }
 }
 
 export default useDetails

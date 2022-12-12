@@ -1,15 +1,15 @@
 import classnames from 'classnames'
 import React from 'react'
-import styled, {css} from 'styled-components'
+import styled, { css } from 'styled-components'
 import Box from './Box'
-import {get} from './constants'
-import sx, {SxProp} from './sx'
-import {ComponentProps} from './utils/types'
+import { get } from './constants'
+import sx, { SxProp } from './sx'
+import { ComponentProps } from './utils/types'
 
-const Timeline = styled.div<{clipSidebar?: boolean} & SxProp>`
+const Timeline = styled.div<{ clipSidebar?: boolean } & SxProp>`
   display: flex;
   flex-direction: column;
-  ${props =>
+  ${(props) =>
     props.clipSidebar &&
     css`
       .Timeline-Item:first-child {
@@ -24,9 +24,9 @@ const Timeline = styled.div<{clipSidebar?: boolean} & SxProp>`
   ${sx};
 `
 
-type StyledTimelineItemProps = {condensed?: boolean} & SxProp
+type StyledTimelineItemProps = { condensed?: boolean } & SxProp
 
-const TimelineItem = styled.div.attrs<StyledTimelineItemProps>(props => ({
+const TimelineItem = styled.div.attrs<StyledTimelineItemProps>((props) => ({
   className: classnames('Timeline-Item', props.className),
 }))<StyledTimelineItemProps>`
   display: flex;
@@ -45,7 +45,7 @@ const TimelineItem = styled.div.attrs<StyledTimelineItemProps>(props => ({
     background-color: ${get('colors.border.muted')};
   }
 
-  ${props =>
+  ${(props) =>
     props.condensed &&
     css`
       padding-top: ${get('space.1')};
@@ -67,7 +67,7 @@ const TimelineItem = styled.div.attrs<StyledTimelineItemProps>(props => ({
   ${sx};
 `
 
-export type TimelineBadgeProps = {children?: React.ReactNode} & SxProp
+export type TimelineBadgeProps = { children?: React.ReactNode } & SxProp
 
 const TimelineBadge = (props: TimelineBadgeProps) => {
   return (

@@ -1,16 +1,16 @@
-import React, {useState, useRef, useCallback} from 'react'
-import {Meta} from '@storybook/react'
-import {BaseStyles, Box, ThemeProvider, useTheme} from '..'
-import {Button} from '../Button'
-import {ActionMenu} from '../ActionMenu'
-import {ActionList} from '../ActionList'
-import {ConfirmationDialog, useConfirm} from '../Dialog/ConfirmationDialog'
+import React, { useState, useRef, useCallback } from 'react'
+import { Meta } from '@storybook/react'
+import { BaseStyles, Box, ThemeProvider, useTheme } from '..'
+import { Button } from '../Button'
+import { ActionMenu } from '../ActionMenu'
+import { ActionList } from '../ActionList'
+import { ConfirmationDialog, useConfirm } from '../Dialog/ConfirmationDialog'
 
 export default {
   title: 'Components/ConfirmationDialog',
   component: ConfirmationDialog,
   decorators: [
-    Story => {
+    (Story) => {
       // Since portal roots are registered globally, we need this line so that each storybook
       // story works in isolation.
       return (
@@ -40,8 +40,8 @@ export const BasicConfirmationDialog = () => {
           confirmButtonContent="Delete it!"
           confirmButtonType="danger"
         >
-          Deleting the universe could have disastrous effects, including but not limited to destroying all life on
-          Earth.
+          Deleting the universe could have disastrous effects, including but not
+          limited to destroying all life on Earth.
         </ConfirmationDialog>
       )}
     </>
@@ -50,31 +50,34 @@ export const BasicConfirmationDialog = () => {
 
 export const ShorthandHook = () => {
   const confirm = useConfirm()
-  const {theme} = useTheme()
+  const { theme } = useTheme()
   const onButtonClick = useCallback(
     async (event: React.MouseEvent) => {
       if (
-        (await confirm({title: 'Are you sure?', content: 'Do you really want to turn this button green?'})) &&
+        (await confirm({
+          title: 'Are you sure?',
+          content: 'Do you really want to turn this button green?',
+        })) &&
         event.target instanceof HTMLElement
       ) {
         event.target.style.color = theme?.colors.success.fg ?? 'green'
         event.target.textContent = "I'm green!"
       }
     },
-    [confirm, theme],
+    [confirm, theme]
   )
   return (
     <Box display="flex" flexDirection="column" alignItems="flex-start">
-      <Button onClick={onButtonClick} sx={{mb: 2}}>
+      <Button onClick={onButtonClick} sx={{ mb: 2 }}>
         Turn me green!
       </Button>
-      <Button onClick={onButtonClick} sx={{mb: 2}}>
+      <Button onClick={onButtonClick} sx={{ mb: 2 }}>
         Turn me green!
       </Button>
-      <Button onClick={onButtonClick} sx={{mb: 2}}>
+      <Button onClick={onButtonClick} sx={{ mb: 2 }}>
         Turn me green!
       </Button>
-      <Button onClick={onButtonClick} sx={{mb: 2}}>
+      <Button onClick={onButtonClick} sx={{ mb: 2 }}>
         Turn me green!
       </Button>
     </Box>
@@ -85,7 +88,12 @@ export const ShorthandHookFromActionMenu = () => {
   const confirm = useConfirm()
   const [text, setText] = useState('open me')
   const onButtonClick = useCallback(async () => {
-    if (await confirm({title: 'Are you sure?', content: 'Do you really want to do a trick?'})) {
+    if (
+      await confirm({
+        title: 'Are you sure?',
+        content: 'Do you really want to do a trick?',
+      })
+    ) {
       setText('tada!')
     }
   }, [confirm])
@@ -97,7 +105,9 @@ export const ShorthandHookFromActionMenu = () => {
 
         <ActionMenu.Overlay>
           <ActionList>
-            <ActionList.Item onSelect={onButtonClick}>Do a trick!</ActionList.Item>
+            <ActionList.Item onSelect={onButtonClick}>
+              Do a trick!
+            </ActionList.Item>
           </ActionList>
         </ActionMenu.Overlay>
       </ActionMenu>

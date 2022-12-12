@@ -1,6 +1,6 @@
-import {EyeIcon, HeartIcon} from '@primer/octicons-react'
-import React, {useState} from 'react'
-import {Button} from '.'
+import { EyeIcon, HeartIcon } from '@primer/octicons-react'
+import React, { useState } from 'react'
+import { Button } from '.'
 
 export default {
   title: 'Components/Button/Features',
@@ -16,9 +16,13 @@ export const Invisible = () => <Button variant="invisible">Invisible</Button>
 
 export const Outline = () => <Button variant="outline">Outline</Button>
 
-export const LeadingVisual = () => <Button leadingIcon={HeartIcon}>Leading visual</Button>
+export const LeadingVisual = () => (
+  <Button leadingIcon={HeartIcon}>Leading visual</Button>
+)
 
-export const TrailingVisual = () => <Button trailingIcon={EyeIcon}>Trailing visual</Button>
+export const TrailingVisual = () => (
+  <Button trailingIcon={EyeIcon}>Trailing visual</Button>
+)
 
 export const TrailingCounter = () => {
   const [count, setCount] = useState(0)

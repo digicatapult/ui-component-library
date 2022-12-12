@@ -1,8 +1,8 @@
-import React, {KeyboardEvent} from 'react'
+import React, { KeyboardEvent } from 'react'
 import styled from 'styled-components'
-import {variant} from 'styled-system'
-import {get} from '../constants'
-import sx, {SxProp} from '../sx'
+import { variant } from 'styled-system'
+import { get } from '../constants'
+import sx, { SxProp } from '../sx'
 
 // TODO: remove invalid "extralarge" size name in next breaking change
 /** @deprecated 'extralarge' to be removed to align with size naming ADR https://github.com/github/primer/blob/main/adrs/2022-02-09-size-naming-guidelines.md **/
@@ -22,7 +22,10 @@ export const tokenSizes: Record<TokenSizeKeys, string> = {
 export const defaultTokenSize: TokenSizeKeys = 'medium'
 
 export interface TokenBaseProps
-  extends Omit<React.HTMLProps<HTMLSpanElement | HTMLButtonElement | HTMLAnchorElement>, 'size' | 'id'> {
+  extends Omit<
+    React.HTMLProps<HTMLSpanElement | HTMLButtonElement | HTMLAnchorElement>,
+    'size' | 'id'
+  > {
   as?: 'button' | 'a' | 'span'
   /**
    * The function that gets called when a user clicks the remove button, or keys "Backspace" or "Delete" when focused on the token
@@ -122,7 +125,7 @@ const variants = variant<
 const StyledTokenBase = styled.span<SxProp>`
   align-items: center;
   border-radius: 999px;
-  cursor: ${props => (isTokenInteractive(props) ? 'pointer' : 'auto')};
+  cursor: ${(props) => (isTokenInteractive(props) ? 'pointer' : 'auto')};
   display: inline-flex;
   font-weight: ${get('fontWeights.bold')};
   font-family: inherit;
@@ -134,23 +137,28 @@ const StyledTokenBase = styled.span<SxProp>`
 `
 
 const TokenBase = React.forwardRef<TokenElements, TokenBaseProps & SxProp>(
-  ({text, onRemove, onKeyDown, id, ...rest}, forwardedRef) => {
+  ({ text, onRemove, onKeyDown, id, ...rest }, forwardedRef) => {
     return (
       <StyledTokenBase
         onKeyDown={(event: KeyboardEvent<TokenElements>) => {
           onKeyDown && onKeyDown(event)
 
-          if ((event.key === 'Backspace' || event.key === 'Delete') && onRemove) {
+          if (
+            (event.key === 'Backspace' || event.key === 'Delete') &&
+            onRemove
+          ) {
             onRemove()
           }
         }}
-        aria-label={onRemove ? `${text}, press backspace or delete to remove` : undefined}
+        aria-label={
+          onRemove ? `${text}, press backspace or delete to remove` : undefined
+        }
         id={id?.toString()}
         {...rest}
         ref={forwardedRef}
       />
     )
-  },
+  }
 )
 
 TokenBase.defaultProps = {

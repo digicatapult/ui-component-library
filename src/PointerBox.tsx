@@ -1,7 +1,7 @@
 import React from 'react'
-import Box, {BoxProps} from './Box'
-import Caret, {CaretProps} from './Caret'
-import {SxProp} from './sx'
+import Box, { BoxProps } from './Box'
+import Caret, { CaretProps } from './Caret'
+import { SxProp } from './sx'
 
 // FIXME: Make this work with BetterStyledSystem types
 type MutatedSxProps = {
@@ -22,8 +22,8 @@ export type PointerBoxProps = {
 
 function PointerBox(props: PointerBoxProps) {
   // don't destructure these, just grab them
-  const {bg, border, borderColor, theme, sx} = props
-  const {caret, children, ...boxProps} = props
+  const { bg, border, borderColor, theme, sx } = props
+  const { caret, children, ...boxProps } = props
 
   const caretProps = {
     bg: bg || sx?.bg || sx?.backgroundColor,
@@ -33,10 +33,19 @@ function PointerBox(props: PointerBoxProps) {
     theme,
   }
 
-  const defaultBoxProps = {borderWidth: '1px', borderStyle: 'solid', borderColor: 'border.default', borderRadius: 2}
+  const defaultBoxProps = {
+    borderWidth: '1px',
+    borderStyle: 'solid',
+    borderColor: 'border.default',
+    borderRadius: 2,
+  }
 
   return (
-    <Box {...defaultBoxProps} {...boxProps} sx={{...sx, position: 'relative'}}>
+    <Box
+      {...defaultBoxProps}
+      {...boxProps}
+      sx={{ ...sx, position: 'relative' }}
+    >
       {children}
       <Caret {...caretProps} />
     </Box>

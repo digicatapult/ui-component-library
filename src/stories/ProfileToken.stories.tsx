@@ -1,11 +1,11 @@
 import React from 'react'
-import {Meta} from '@storybook/react'
-import {action} from '@storybook/addon-actions'
+import { Meta } from '@storybook/react'
+import { action } from '@storybook/addon-actions'
 
-import {get} from '../constants'
-import {BaseStyles, ThemeProvider} from '..'
+import { get } from '../constants'
+import { BaseStyles, ThemeProvider } from '..'
 import Box from '../Box'
-import AvatarToken, {AvatarTokenProps} from '../Token/AvatarToken'
+import AvatarToken, { AvatarTokenProps } from '../Token/AvatarToken'
 import Text from '../Text'
 
 export default {
@@ -16,7 +16,7 @@ export default {
     avatarSrc: 'https://avatars.githubusercontent.com/mperrotti',
   },
   decorators: [
-    Story => {
+    (Story) => {
       return (
         <ThemeProvider>
           <BaseStyles>
@@ -30,7 +30,9 @@ export default {
 
 const excludedControlKeys = ['id', 'as', 'tabIndex', 'onRemove']
 
-const SingleExampleContainer: React.FC<React.PropsWithChildren<{label?: string}>> = ({children, label}) => (
+const SingleExampleContainer: React.FC<
+  React.PropsWithChildren<{ label?: string }>
+> = ({ children, label }) => (
   <Box
     display="flex"
     sx={{
@@ -48,7 +50,9 @@ const SingleExampleContainer: React.FC<React.PropsWithChildren<{label?: string}>
   </Box>
 )
 
-const ExampleCollectionContainer: React.FC<React.PropsWithChildren<unknown>> = ({children}) => (
+const ExampleCollectionContainer: React.FC<
+  React.PropsWithChildren<unknown>
+> = ({ children }) => (
   <Box
     display="flex"
     sx={{
@@ -58,7 +62,8 @@ const ExampleCollectionContainer: React.FC<React.PropsWithChildren<unknown>> = (
     }}
   >
     <Text fontSize={1} color="fg.subtle">
-      Hint: use the &quot;Controls&quot; tab in the Addons panel to change the token properties
+      Hint: use the &quot;Controls&quot; tab in the Addons panel to change the
+      token properties
     </Text>
     {children}
   </Box>
@@ -72,7 +77,9 @@ export const DefaultToken = (args: Omit<AvatarTokenProps, 'ref'>) => {
   )
 }
 DefaultToken.storyName = 'Default'
-DefaultToken.parameters = {controls: {exclude: [...excludedControlKeys, 'hideRemoveButton']}}
+DefaultToken.parameters = {
+  controls: { exclude: [...excludedControlKeys, 'hideRemoveButton'] },
+}
 
 export const Interactive = (args: Omit<AvatarTokenProps, 'ref' | 'text'>) => {
   return (
@@ -85,13 +92,26 @@ export const Interactive = (args: Omit<AvatarTokenProps, 'ref' | 'text'>) => {
         }}
       >
         <AvatarToken as="a" href="http://google.com/" {...args} text="Link" />
-        <AvatarToken as="button" onClick={action('clicked')} {...args} text="Button" />
-        <AvatarToken as="span" tabIndex={0} onFocus={action('focused')} {...args} text="Focusable Span" />
+        <AvatarToken
+          as="button"
+          onClick={action('clicked')}
+          {...args}
+          text="Button"
+        />
+        <AvatarToken
+          as="span"
+          tabIndex={0}
+          onFocus={action('focused')}
+          {...args}
+          text="Focusable Span"
+        />
       </Box>
     </ExampleCollectionContainer>
   )
 }
-Interactive.parameters = {controls: {exclude: [...excludedControlKeys, 'hideRemoveButton', 'text']}}
+Interactive.parameters = {
+  controls: { exclude: [...excludedControlKeys, 'hideRemoveButton', 'text'] },
+}
 
 export const WithOnRemoveFn = (args: Omit<AvatarTokenProps, 'ref'>) => {
   return (
@@ -107,8 +127,20 @@ export const WithOnRemoveFn = (args: Omit<AvatarTokenProps, 'ref'>) => {
             gap: get('space.2'),
           }}
         >
-          <AvatarToken as="a" href="http://google.com/" onRemove={action('remove me')} {...args} text="Link" />
-          <AvatarToken as="button" onClick={action('clicked')} onRemove={action('remove me')} {...args} text="Button" />
+          <AvatarToken
+            as="a"
+            href="http://google.com/"
+            onRemove={action('remove me')}
+            {...args}
+            text="Link"
+          />
+          <AvatarToken
+            as="button"
+            onClick={action('clicked')}
+            onRemove={action('remove me')}
+            {...args}
+            text="Button"
+          />
           <AvatarToken
             as="span"
             tabIndex={0}
@@ -122,4 +154,4 @@ export const WithOnRemoveFn = (args: Omit<AvatarTokenProps, 'ref'>) => {
     </ExampleCollectionContainer>
   )
 }
-WithOnRemoveFn.parameters = {controls: {exclude: excludedControlKeys}}
+WithOnRemoveFn.parameters = { controls: { exclude: excludedControlKeys } }

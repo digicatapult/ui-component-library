@@ -1,8 +1,8 @@
 import styled from 'styled-components'
-import {variant} from 'styled-system'
-import {get} from './constants'
-import sx, {SxProp} from './sx'
-import {ComponentProps} from './utils/types'
+import { variant } from 'styled-system'
+import { get } from './constants'
+import sx, { SxProp } from './sx'
+import { ComponentProps } from './utils/types'
 
 const variants = variant({
   variants: {
@@ -51,9 +51,9 @@ const Flash = styled.div<
   color: ${get('colors.fg.default')};
   padding: ${get('space.3')};
   border-style: solid;
-  border-width: ${props => (props.full ? '1px 0px' : '1px')};
-  border-radius: ${props => (props.full ? '0' : get('radii.2'))};
-  margin-top: ${props => (props.full ? '-1px' : '0')};
+  border-width: ${(props) => (props.full ? '1px 0px' : '1px')};
+  border-radius: ${(props) => (props.full ? '0' : get('radii.2'))};
+  margin-top: ${(props) => (props.full ? '-1px' : '0')};
 
   p:last-child {
     margin-bottom: 0;

@@ -1,11 +1,14 @@
 import React from 'react'
-import {Box} from '..'
-import {useResponsiveValue, ResponsiveValue} from '../hooks/useResponsiveValue'
-import {SxProp, merge, BetterSystemStyleObject} from '../sx'
+import { Box } from '..'
+import {
+  useResponsiveValue,
+  ResponsiveValue,
+} from '../hooks/useResponsiveValue'
+import { SxProp, merge, BetterSystemStyleObject } from '../sx'
 import Heading from '../Heading'
-import {ArrowLeftIcon} from '@primer/octicons-react'
+import { ArrowLeftIcon } from '@primer/octicons-react'
 import Link from '../Link'
-import {ForwardRefComponent as PolymorphicForwardRefComponent} from '../utils/polymorphic'
+import { ForwardRefComponent as PolymorphicForwardRefComponent } from '../utils/polymorphic'
 const REGION_ORDER = {
   ContextArea: 0,
   TitleArea: 1,
@@ -39,7 +42,11 @@ export type PageHeaderProps = {
   as?: React.ElementType | 'header' | 'div'
 } & sharedPropTypes
 
-const Root: React.FC<React.PropsWithChildren<PageHeaderProps>> = ({children, sx = {}, as = 'div'}) => {
+const Root: React.FC<React.PropsWithChildren<PageHeaderProps>> = ({
+  children,
+  sx = {},
+  as = 'div',
+}) => {
   const rootStyles = {
     display: 'flex',
     flexDirection: 'column',
@@ -71,11 +78,23 @@ const ContextArea: React.FC<React.PropsWithChildren<PageHeaderProps>> = ({
     gap: '0.5rem',
     order: REGION_ORDER.ContextArea,
   }
-  return <Box sx={merge<BetterSystemStyleObject>(contentNavStyles, sx)}>{children}</Box>
+  return (
+    <Box sx={merge<BetterSystemStyleObject>(contentNavStyles, sx)}>
+      {children}
+    </Box>
+  )
 }
 type LinkProps = Pick<
   React.AnchorHTMLAttributes<HTMLAnchorElement>,
-  'download' | 'href' | 'hrefLang' | 'media' | 'ping' | 'rel' | 'target' | 'type' | 'referrerPolicy'
+  | 'download'
+  | 'href'
+  | 'hrefLang'
+  | 'media'
+  | 'ping'
+  | 'rel'
+  | 'target'
+  | 'type'
+  | 'referrerPolicy'
 >
 export type ParentLinkProps = PageHeaderProps & LinkProps
 
@@ -89,7 +108,7 @@ const ParentLink = React.forwardRef<HTMLAnchorElement, ParentLinkProps>(
       as = 'a',
       hidden = hiddenOnRegularAndWide,
     },
-    ref,
+    ref
   ) => {
     const isHidden = useResponsiveValue(hidden, false)
     return (
@@ -105,7 +124,7 @@ const ParentLink = React.forwardRef<HTMLAnchorElement, ParentLinkProps>(
               alignItems: 'center',
               gap: '0.5rem',
             },
-            sx,
+            sx
           )}
           href={href}
         >
@@ -114,7 +133,7 @@ const ParentLink = React.forwardRef<HTMLAnchorElement, ParentLinkProps>(
         </Link>
       </>
     )
-  },
+  }
 ) as PolymorphicForwardRefComponent<'a', ParentLinkProps>
 
 // ContextBar
@@ -127,16 +146,23 @@ const ContextBar: React.FC<React.PropsWithChildren<PageHeaderProps>> = ({
   hidden = hiddenOnRegularAndWide,
 }) => {
   const isHidden = useResponsiveValue(hidden, false)
-  return <Box sx={merge<BetterSystemStyleObject>({display: isHidden ? 'none' : 'flex'}, sx)}>{children}</Box>
+  return (
+    <Box
+      sx={merge<BetterSystemStyleObject>(
+        { display: isHidden ? 'none' : 'flex' },
+        sx
+      )}
+    >
+      {children}
+    </Box>
+  )
 }
 
 // ContextAreaActions
 // ---------------------------------------------------------------------
-const ContextAreaActions: React.FC<React.PropsWithChildren<PageHeaderProps>> = ({
-  children,
-  sx = {},
-  hidden = hiddenOnRegularAndWide,
-}) => {
+const ContextAreaActions: React.FC<
+  React.PropsWithChildren<PageHeaderProps>
+> = ({ children, sx = {}, hidden = hiddenOnRegularAndWide }) => {
   const isHidden = useResponsiveValue(hidden, false)
   return (
     <Box
@@ -149,7 +175,7 @@ const ContextAreaActions: React.FC<React.PropsWithChildren<PageHeaderProps>> = (
           flexGrow: '1',
           justifyContent: 'right',
         },
-        sx,
+        sx
       )}
     >
       {children}
@@ -169,7 +195,11 @@ const TitleAreaContext = React.createContext<{
 })
 
 type TitleAreaProps = {
-  variant?: 'subtitle' | 'medium' | 'large' | ResponsiveValue<'subtitle' | 'medium' | 'large'>
+  variant?:
+    | 'subtitle'
+    | 'medium'
+    | 'large'
+    | ResponsiveValue<'subtitle' | 'medium' | 'large'>
 } & PageHeaderProps
 // PageHeader.TitleArea: The main title area of the page. Visible on all viewports.
 // PageHeader.TitleArea Sub Components: PageHeader.LeadingAction, PageHeader.LeadingVisual, PageHeader.Title, PageTitle.TrailingVisual, PageHeader.TrailingAction, PageHeader.Actions
@@ -184,13 +214,21 @@ const TitleArea: React.FC<React.PropsWithChildren<TitleAreaProps>> = ({
 }) => {
   const isHidden = useResponsiveValue(hidden, false)
   const currentVariant = useResponsiveValue(variant, 'medium')
-  const height = currentVariant === 'large' ? LARGE_TITLE_HEIGHT : MEDIUM_TITLE_HEIGHT
+  const height =
+    currentVariant === 'large' ? LARGE_TITLE_HEIGHT : MEDIUM_TITLE_HEIGHT
   return (
-    <TitleAreaContext.Provider value={{titleVariant: currentVariant, titleAreaHeight: height}}>
+    <TitleAreaContext.Provider
+      value={{ titleVariant: currentVariant, titleAreaHeight: height }}
+    >
       <Box
         sx={merge<BetterSystemStyleObject>(
-          {gap: '0.5rem', display: isHidden ? 'none' : 'flex', flexDirection: 'row', alignItems: 'flex-start'},
-          sx,
+          {
+            gap: '0.5rem',
+            display: isHidden ? 'none' : 'flex',
+            flexDirection: 'row',
+            alignItems: 'flex-start',
+          },
+          sx
         )}
       >
         {children}
@@ -205,23 +243,8 @@ const LeadingAction: React.FC<React.PropsWithChildren<PageHeaderProps>> = ({
   hidden = hiddenOnNarrow,
 }) => {
   const isHidden = useResponsiveValue(hidden, false)
-  const {titleAreaHeight} = React.useContext(TitleAreaContext)
+  const { titleAreaHeight } = React.useContext(TitleAreaContext)
 
-  return (
-    <Box
-      sx={merge<BetterSystemStyleObject>(
-        {display: isHidden ? 'none' : 'flex', alignItems: 'center', height: titleAreaHeight},
-        sx,
-      )}
-    >
-      {children}
-    </Box>
-  )
-}
-
-const LeadingVisual: React.FC<React.PropsWithChildren<PageHeaderProps>> = ({children, sx = {}, hidden = false}) => {
-  const isHidden = useResponsiveValue(hidden, false)
-  const {titleAreaHeight} = React.useContext(TitleAreaContext)
   return (
     <Box
       sx={merge<BetterSystemStyleObject>(
@@ -230,7 +253,30 @@ const LeadingVisual: React.FC<React.PropsWithChildren<PageHeaderProps>> = ({chil
           alignItems: 'center',
           height: titleAreaHeight,
         },
-        sx,
+        sx
+      )}
+    >
+      {children}
+    </Box>
+  )
+}
+
+const LeadingVisual: React.FC<React.PropsWithChildren<PageHeaderProps>> = ({
+  children,
+  sx = {},
+  hidden = false,
+}) => {
+  const isHidden = useResponsiveValue(hidden, false)
+  const { titleAreaHeight } = React.useContext(TitleAreaContext)
+  return (
+    <Box
+      sx={merge<BetterSystemStyleObject>(
+        {
+          display: isHidden ? 'none' : 'flex',
+          alignItems: 'center',
+          height: titleAreaHeight,
+        },
+        sx
       )}
     >
       {children}
@@ -243,9 +289,14 @@ export type TitleProps = {
   as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
 } & PageHeaderProps
 
-const Title: React.FC<React.PropsWithChildren<TitleProps>> = ({children, sx = {}, hidden = false, as = 'h3'}) => {
+const Title: React.FC<React.PropsWithChildren<TitleProps>> = ({
+  children,
+  sx = {},
+  hidden = false,
+  as = 'h3',
+}) => {
   const isHidden = useResponsiveValue(hidden, false)
-  const {titleVariant} = React.useContext(TitleAreaContext)
+  const { titleVariant } = React.useContext(TitleAreaContext)
   return (
     <Heading
       as={as}
@@ -269,16 +320,20 @@ const Title: React.FC<React.PropsWithChildren<TitleProps>> = ({children, sx = {}
           }[titleVariant],
           display: isHidden ? 'none' : 'flex',
         },
-        sx,
+        sx
       )}
     >
       {children}
     </Heading>
   )
 }
-const TrailingVisual: React.FC<React.PropsWithChildren<PageHeaderProps>> = ({children, sx = {}, hidden = false}) => {
+const TrailingVisual: React.FC<React.PropsWithChildren<PageHeaderProps>> = ({
+  children,
+  sx = {},
+  hidden = false,
+}) => {
   const isHidden = useResponsiveValue(hidden, false)
-  const {titleAreaHeight} = React.useContext(TitleAreaContext)
+  const { titleAreaHeight } = React.useContext(TitleAreaContext)
 
   return (
     <Box
@@ -288,7 +343,7 @@ const TrailingVisual: React.FC<React.PropsWithChildren<PageHeaderProps>> = ({chi
           alignItems: 'center',
           height: titleAreaHeight,
         },
-        sx,
+        sx
       )}
     >
       {children}
@@ -302,13 +357,17 @@ const TrailingAction: React.FC<React.PropsWithChildren<PageHeaderProps>> = ({
   hidden = hiddenOnNarrow,
 }) => {
   const isHidden = useResponsiveValue(hidden, false)
-  const {titleAreaHeight} = React.useContext(TitleAreaContext)
+  const { titleAreaHeight } = React.useContext(TitleAreaContext)
 
   return (
     <Box
       sx={merge<BetterSystemStyleObject>(
-        {display: isHidden ? 'none' : 'flex', alignItems: 'center', height: titleAreaHeight},
-        sx,
+        {
+          display: isHidden ? 'none' : 'flex',
+          alignItems: 'center',
+          height: titleAreaHeight,
+        },
+        sx
       )}
     >
       {children}
@@ -316,9 +375,13 @@ const TrailingAction: React.FC<React.PropsWithChildren<PageHeaderProps>> = ({
   )
 }
 
-const Actions: React.FC<React.PropsWithChildren<PageHeaderProps>> = ({children, sx = {}, hidden = false}) => {
+const Actions: React.FC<React.PropsWithChildren<PageHeaderProps>> = ({
+  children,
+  sx = {},
+  hidden = false,
+}) => {
   const isHidden = useResponsiveValue(hidden, false)
-  const {titleAreaHeight} = React.useContext(TitleAreaContext)
+  const { titleAreaHeight } = React.useContext(TitleAreaContext)
   return (
     <Box
       sx={merge<BetterSystemStyleObject>(
@@ -331,7 +394,7 @@ const Actions: React.FC<React.PropsWithChildren<PageHeaderProps>> = ({children, 
           height: titleAreaHeight,
           alignItems: 'center',
         },
-        sx,
+        sx
       )}
     >
       {children}
@@ -340,7 +403,11 @@ const Actions: React.FC<React.PropsWithChildren<PageHeaderProps>> = ({children, 
 }
 
 // PageHeader.Description: The description area of the header. Visible on all viewports
-const Description: React.FC<React.PropsWithChildren<PageHeaderProps>> = ({children, sx = {}, hidden = false}) => {
+const Description: React.FC<React.PropsWithChildren<PageHeaderProps>> = ({
+  children,
+  sx = {},
+  hidden = false,
+}) => {
   const isHidden = useResponsiveValue(hidden, true)
   return (
     <Box
@@ -351,7 +418,7 @@ const Description: React.FC<React.PropsWithChildren<PageHeaderProps>> = ({childr
           alignItems: 'center',
           gap: '0.5rem',
         },
-        sx,
+        sx
       )}
     >
       {children}
@@ -360,7 +427,11 @@ const Description: React.FC<React.PropsWithChildren<PageHeaderProps>> = ({childr
 }
 
 // PageHeader.Navigation: The local navigation area of the header. Visible on all viewports
-const Navigation: React.FC<React.PropsWithChildren<PageHeaderProps>> = ({children, sx = {}, hidden = false}) => {
+const Navigation: React.FC<React.PropsWithChildren<PageHeaderProps>> = ({
+  children,
+  sx = {},
+  hidden = false,
+}) => {
   const isHidden = useResponsiveValue(hidden, false)
   return (
     <Box
@@ -368,7 +439,7 @@ const Navigation: React.FC<React.PropsWithChildren<PageHeaderProps>> = ({childre
         {
           display: isHidden ? 'none' : 'block',
         },
-        sx,
+        sx
       )}
     >
       {children}

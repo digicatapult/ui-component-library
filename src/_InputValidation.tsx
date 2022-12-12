@@ -1,9 +1,13 @@
-import {AlertFillIcon, CheckCircleFillIcon, IconProps} from '@primer/octicons-react'
+import {
+  AlertFillIcon,
+  CheckCircleFillIcon,
+  IconProps,
+} from '@primer/octicons-react'
 import React from 'react'
 import Box from './Box'
 import Text from './Text'
-import {SxProp} from './sx'
-import {FormValidationStatus} from './utils/types/FormValidationStatus'
+import { SxProp } from './sx'
+import { FormValidationStatus } from './utils/types/FormValidationStatus'
 
 type Props = {
   id: string
@@ -19,15 +23,27 @@ const validationIconMap: Record<
   warning: AlertFillIcon,
 }
 
-const validationColorMap: Record<NonNullable<Props['validationStatus']>, string> = {
+const validationColorMap: Record<
+  NonNullable<Props['validationStatus']>,
+  string
+> = {
   success: 'success.fg',
   error: 'danger.fg',
   warning: 'attention.fg',
 }
 
-const InputValidation: React.FC<React.PropsWithChildren<Props>> = ({children, id, validationStatus, sx}) => {
-  const IconComponent = validationStatus ? validationIconMap[validationStatus] : undefined
-  const fgColor = validationStatus ? validationColorMap[validationStatus] : undefined
+const InputValidation: React.FC<React.PropsWithChildren<Props>> = ({
+  children,
+  id,
+  validationStatus,
+  sx,
+}) => {
+  const IconComponent = validationStatus
+    ? validationIconMap[validationStatus]
+    : undefined
+  const fgColor = validationStatus
+    ? validationColorMap[validationStatus]
+    : undefined
 
   return (
     <Text
@@ -45,7 +61,7 @@ const InputValidation: React.FC<React.PropsWithChildren<Props>> = ({children, id
       }}
     >
       {IconComponent && (
-        <Box as="span" mr={1} sx={{display: 'flex'}} aria-hidden="true">
+        <Box as="span" mr={1} sx={{ display: 'flex' }} aria-hidden="true">
           <IconComponent size={12} fill="currentColor" />
         </Box>
       )}

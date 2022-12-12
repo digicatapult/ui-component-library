@@ -1,17 +1,17 @@
 import React from 'react'
 import useSafeTimeout from '../hooks/useSafeTimeout'
-import {getAccessibleName} from './shared'
+import { getAccessibleName } from './shared'
 
 type TypeaheadOptions = {
   containerRef: React.RefObject<HTMLElement>
   onFocusChange: (element: Element) => void
 }
 
-export function useTypeahead({containerRef, onFocusChange}: TypeaheadOptions) {
+export function useTypeahead({ containerRef, onFocusChange }: TypeaheadOptions) {
   const searchValue = React.useRef('')
   const timeoutRef = React.useRef(0)
   const onFocusChangeRef = React.useRef(onFocusChange)
-  const {safeSetTimeout, safeClearTimeout} = useSafeTimeout()
+  const { safeSetTimeout, safeClearTimeout } = useSafeTimeout()
 
   // Update the ref when the callback changes
   React.useEffect(() => {
@@ -31,7 +31,7 @@ export function useTypeahead({containerRef, onFocusChange}: TypeaheadOptions) {
       const elements = Array.from(container.querySelectorAll('[role="treeitem"]'))
 
       // Get the index of active element
-      const activeIndex = elements.findIndex(element => element === document.activeElement)
+      const activeIndex = elements.findIndex((element) => element === document.activeElement)
 
       // Wrap the array elements such that the active descendant is at the beginning
       let sortedElements = wrapArray(elements, activeIndex)
@@ -43,7 +43,7 @@ export function useTypeahead({containerRef, onFocusChange}: TypeaheadOptions) {
       }
 
       // Find the first element that matches the search value
-      const nextElement = sortedElements.find(element => {
+      const nextElement = sortedElements.find((element) => {
         const name = getAccessibleName(element).toLowerCase()
         return name.startsWith(searchValue.toLowerCase())
       })
@@ -53,7 +53,7 @@ export function useTypeahead({containerRef, onFocusChange}: TypeaheadOptions) {
         onFocusChangeRef.current(nextElement)
       }
     },
-    [containerRef],
+    [containerRef]
   )
 
   // Update the search value when the user types

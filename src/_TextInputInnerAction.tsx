@@ -1,11 +1,14 @@
-import React, {forwardRef} from 'react'
-import {IconProps} from '@primer/octicons-react'
+import React, { forwardRef } from 'react'
+import { IconProps } from '@primer/octicons-react'
 import Box from './Box'
-import {Button, IconButton, ButtonProps} from './Button'
+import { Button, IconButton, ButtonProps } from './Button'
 import Tooltip from './Tooltip'
-import {BetterSystemStyleObject, merge, SxProp} from './sx'
+import { BetterSystemStyleObject, merge, SxProp } from './sx'
 
-type TextInputActionProps = Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'aria-label' | 'size'> & {
+type TextInputActionProps = Omit<
+  React.ButtonHTMLAttributes<HTMLButtonElement>,
+  'aria-label' | 'size'
+> & {
   /** @deprecated Text input action buttons should only use icon buttons */
   children?: React.ReactNode
   /** Text that appears in a tooltip. If an icon is passed, this is also used as the label used by assistive technologies. */
@@ -45,7 +48,7 @@ const ConditionalTooltip: React.FC<
     ['aria-label']?: string
     children: React.ReactNode
   }>
-> = ({'aria-label': ariaLabel, children}) => (
+> = ({ 'aria-label': ariaLabel, children }) => (
   <>
     {ariaLabel ? (
       <Tooltip
@@ -65,15 +68,23 @@ const ConditionalTooltip: React.FC<
 )
 
 const TextInputAction = forwardRef<HTMLButtonElement, TextInputActionProps>(
-  ({'aria-label': ariaLabel, children, icon, sx: sxProp, variant, ...rest}, forwardedRef) => {
+  (
+    { 'aria-label': ariaLabel, children, icon, sx: sxProp, variant, ...rest },
+    forwardedRef
+  ) => {
     const sx =
       variant === 'invisible'
-        ? merge<BetterSystemStyleObject>(invisibleButtonStyleOverrides, sxProp || {})
+        ? merge<BetterSystemStyleObject>(
+            invisibleButtonStyleOverrides,
+            sxProp || {}
+          )
         : sxProp || {}
 
     if ((icon && !ariaLabel) || (!children && !ariaLabel)) {
       // eslint-disable-next-line no-console
-      console.warn('Use the `aria-label` prop to provide an accessible label for assistive technology')
+      console.warn(
+        'Use the `aria-label` prop to provide an accessible label for assistive technology'
+      )
     }
 
     return (
@@ -93,14 +104,21 @@ const TextInputAction = forwardRef<HTMLButtonElement, TextInputActionProps>(
           </Tooltip>
         ) : (
           <ConditionalTooltip aria-label={ariaLabel}>
-            <Button variant={variant} size="small" type="button" sx={sx} {...rest} ref={forwardedRef}>
+            <Button
+              variant={variant}
+              size="small"
+              type="button"
+              sx={sx}
+              {...rest}
+              ref={forwardedRef}
+            >
               {children}
             </Button>
           </ConditionalTooltip>
         )}
       </Box>
     )
-  },
+  }
 )
 
 TextInputAction.defaultProps = {

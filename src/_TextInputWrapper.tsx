@@ -1,8 +1,16 @@
-import styled, {css} from 'styled-components'
-import {maxWidth, MaxWidthProps, minWidth, MinWidthProps, variant, width, WidthProps} from 'styled-system'
-import {get} from './constants'
-import sx, {SxProp} from './sx'
-import {FormValidationStatus} from './utils/types/FormValidationStatus'
+import styled, { css } from 'styled-components'
+import {
+  maxWidth,
+  MaxWidthProps,
+  minWidth,
+  MinWidthProps,
+  variant,
+  width,
+  WidthProps,
+} from 'styled-system'
+import { get } from './constants'
+import sx, { SxProp } from './sx'
+import { FormValidationStatus } from './utils/types/FormValidationStatus'
 
 export type TextInputSizes = 'small' | 'medium' | 'large'
 
@@ -65,7 +73,10 @@ export type StyledWrapperProps = {
 const textInputBasePadding = '12px'
 export const textInputHorizPadding = textInputBasePadding
 
-const renderFocusStyles = (hasTrailingAction: boolean, isInputFocused: boolean) => {
+const renderFocusStyles = (
+  hasTrailingAction: boolean,
+  isInputFocused: boolean
+) => {
   if (hasTrailingAction) {
     return (
       isInputFocused &&
@@ -112,19 +123,23 @@ export const TextInputBaseWrapper = styled.span<StyledBaseWrapperProps>`
     color: ${get('colors.fg.subtle')};
   }
 
-  ${props => renderFocusStyles(Boolean(props.hasTrailingAction), Boolean(props.isInputFocused))}
+  ${(props) =>
+    renderFocusStyles(
+      Boolean(props.hasTrailingAction),
+      Boolean(props.isInputFocused)
+    )}
 
   > textarea {
     padding: ${textInputBasePadding};
   }
 
-  ${props =>
+  ${(props) =>
     props.contrast &&
     css`
       background-color: ${get('colors.canvas.inset')};
     `}
 
-  ${props =>
+  ${(props) =>
     props.disabled &&
     css`
       color: ${get('colors.primer.fg.disabled')};
@@ -138,27 +153,30 @@ export const TextInputBaseWrapper = styled.span<StyledBaseWrapperProps>`
       }
     `}
 
-    ${props =>
+    ${(props) =>
     props.monospace &&
     css`
       font-family: ${get('fonts.mono')};
     `}
   
-  ${props =>
+  ${(props) =>
     props.validationStatus === 'error' &&
     css`
       border-color: ${get('colors.danger.emphasis')};
-      ${renderFocusStyles(Boolean(props.hasTrailingAction), Boolean(props.isInputFocused))}
+      ${renderFocusStyles(
+        Boolean(props.hasTrailingAction),
+        Boolean(props.isInputFocused)
+      )}
     `}
 
 
-  ${props =>
+  ${(props) =>
     props.validationStatus === 'success' &&
     css`
       border-color: ${get('colors.success.emphasis')};
     `}
 
-  ${props =>
+  ${(props) =>
     props.block &&
     css`
       width: 100%;
@@ -194,23 +212,30 @@ const TextInputWrapper = styled(TextInputBaseWrapper)<StyledWrapperProps>`
     flex-shrink: 0;
   }
 
-  ${props =>
+  ${(props) =>
     css`
       padding-left: ${props.hasLeadingVisual ? textInputHorizPadding : 0};
-      padding-right: ${props.hasTrailingVisual && !props.hasTrailingAction ? textInputHorizPadding : 0};
+      padding-right: ${props.hasTrailingVisual && !props.hasTrailingAction
+        ? textInputHorizPadding
+        : 0};
 
       > input,
       > select {
         padding-left: ${!props.hasLeadingVisual ? textInputHorizPadding : 0};
-        padding-right: ${!props.hasTrailingVisual && !props.hasTrailingAction ? textInputHorizPadding : 0};
+        padding-right: ${!props.hasTrailingVisual && !props.hasTrailingAction
+          ? textInputHorizPadding
+          : 0};
       }
     `}
 
-  ${props =>
+  ${(props) =>
     props.validationStatus === 'warning' &&
     css`
       border-color: ${get('colors.attention.emphasis')};
-      ${renderFocusStyles(Boolean(props.hasTrailingAction), Boolean(props.isInputFocused))}
+      ${renderFocusStyles(
+        Boolean(props.hasTrailingAction),
+        Boolean(props.isInputFocused)
+      )}
     `}
 
   ${sx};

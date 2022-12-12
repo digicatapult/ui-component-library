@@ -1,9 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import TextInputWrapper, {StyledWrapperProps} from './_TextInputWrapper'
+import TextInputWrapper, { StyledWrapperProps } from './_TextInputWrapper'
 
 export type SelectProps = Omit<
-  Omit<React.ComponentPropsWithoutRef<'select'>, 'size'> & Omit<StyledWrapperProps, 'variant'>,
+  Omit<React.ComponentPropsWithoutRef<'select'>, 'size'> &
+    Omit<StyledWrapperProps, 'variant'>,
   'multiple' | 'hasLeadingVisual' | 'hasTrailingVisual' | 'as'
 >
 
@@ -49,8 +50,16 @@ const StyledSelect = styled.select`
   }
 `
 
-const ArrowIndicatorSVG: React.FC<React.PropsWithChildren<{className?: string}>> = ({className}) => (
-  <svg width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" className={className}>
+const ArrowIndicatorSVG: React.FC<
+  React.PropsWithChildren<{ className?: string }>
+> = ({ className }) => (
+  <svg
+    width="16"
+    height="16"
+    fill="currentColor"
+    xmlns="http://www.w3.org/2000/svg"
+    className={className}
+  >
     <path d="m4.074 9.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.043 9H4.251a.25.25 0 0 0-.177.427ZM4.074 7.47 7.47 4.073a.25.25 0 0 1 .354 0L11.22 7.47a.25.25 0 0 1-.177.426H4.251a.25.25 0 0 1-.177-.426Z" />
   </svg>
 )
@@ -64,7 +73,20 @@ const ArrowIndicator = styled(ArrowIndicatorSVG)`
 `
 
 const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
-  ({block, children, contrast, disabled, placeholder, size, required, validationStatus, ...rest}: SelectProps, ref) => (
+  (
+    {
+      block,
+      children,
+      contrast,
+      disabled,
+      placeholder,
+      size,
+      required,
+      validationStatus,
+      ...rest
+    }: SelectProps,
+    ref
+  ) => (
     <TextInputWrapper
       sx={{
         overflow: 'hidden',
@@ -99,16 +121,18 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
       </StyledSelect>
       <ArrowIndicator />
     </TextInputWrapper>
-  ),
+  )
 )
 
-const Option: React.FC<React.PropsWithChildren<React.HTMLProps<HTMLOptionElement> & {value: string}>> = props => (
-  <option {...props} />
-)
+const Option: React.FC<
+  React.PropsWithChildren<
+    React.HTMLProps<HTMLOptionElement> & { value: string }
+  >
+> = (props) => <option {...props} />
 
-const OptGroup: React.FC<React.PropsWithChildren<React.HTMLProps<HTMLOptGroupElement>>> = props => (
-  <optgroup {...props} />
-)
+const OptGroup: React.FC<
+  React.PropsWithChildren<React.HTMLProps<HTMLOptGroupElement>>
+> = (props) => <optgroup {...props} />
 
 export default Object.assign(Select, {
   Option,

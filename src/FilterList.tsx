@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import {get} from './constants'
-import sx, {SxProp} from './sx'
-import {ComponentProps} from './utils/types'
+import { get } from './constants'
+import sx, { SxProp } from './sx'
+import { ComponentProps } from './utils/types'
 
 const FilterListBase = styled.ul<SxProp>`
   list-style-type: none;
@@ -13,8 +13,11 @@ const FilterListBase = styled.ul<SxProp>`
 
 export type FilterListProps = ComponentProps<typeof FilterListBase>
 
-const FilterList = ({children, ...rest}: React.PropsWithChildren<FilterListProps>) => {
-  const items = React.Children.map(children, child => {
+const FilterList = ({
+  children,
+  ...rest
+}: React.PropsWithChildren<FilterListProps>) => {
+  const items = React.Children.map(children, (child) => {
     return <li>{child}</li>
   })
 
@@ -29,12 +32,17 @@ type StyledFilterListItemBaseProps = {
 const FilterListItemBase = styled.a<StyledFilterListItemBaseProps>`
   position: relative;
   display: block;
-  padding: ${props => (props.small ? `${get('space.1')(props)} 10px` : `${get('space.2')(props)} 11px`)};
-  margin: ${props => (props.small ? '0 0 2px' : '0 0 5px 0')};
+  padding: ${(props) =>
+    props.small
+      ? `${get('space.1')(props)} 10px`
+      : `${get('space.2')(props)} 11px`};
+  margin: ${(props) => (props.small ? '0 0 2px' : '0 0 5px 0')};
   overflow: hidden;
   font-size: ${get('fontSizes.1')};
-  color: ${props => (props.selected ? get('colors.fg.onEmphasis') : get('colors.fg.muted'))};
-  background-color: ${props => (props.selected ? get('colors.accent.emphasis') : '')}!important;
+  color: ${(props) =>
+    props.selected ? get('colors.fg.onEmphasis') : get('colors.fg.muted')};
+  background-color: ${(props) =>
+    props.selected ? get('colors.accent.emphasis') : ''}!important;
   text-decoration: none;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -55,9 +63,15 @@ const FilterListItemBase = styled.a<StyledFilterListItemBaseProps>`
   ${sx};
 `
 
-export type FilterListItemProps = {count?: number} & ComponentProps<typeof FilterListItemBase>
+export type FilterListItemProps = { count?: number } & ComponentProps<
+  typeof FilterListItemBase
+>
 
-function FilterListItem({children, count, ...rest}: React.PropsWithChildren<FilterListItemProps>) {
+function FilterListItem({
+  children,
+  count,
+  ...rest
+}: React.PropsWithChildren<FilterListItemProps>) {
   return (
     <FilterListItemBase {...rest}>
       {count && (
@@ -72,4 +86,4 @@ function FilterListItem({children, count, ...rest}: React.PropsWithChildren<Filt
 
 FilterListItem.displayName = 'FilterList.Item'
 
-export default Object.assign(FilterList, {Item: FilterListItem})
+export default Object.assign(FilterList, { Item: FilterListItem })

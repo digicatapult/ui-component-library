@@ -1,26 +1,40 @@
 import React from 'react'
-import {Box, ThemeProvider, theme, themeGet, BaseStyles, CheckboxGroup, FormControl} from '../index'
-import {createGlobalStyle} from 'styled-components'
-import {ComponentProps} from './types'
-import {ArgTypes} from '@storybook/react'
-import {InputType} from '@storybook/csf'
-import {Icon} from '@primer/octicons-react'
+import {
+  Box,
+  ThemeProvider,
+  theme,
+  themeGet,
+  BaseStyles,
+  CheckboxGroup,
+  FormControl,
+} from '../index'
+import { createGlobalStyle } from 'styled-components'
+import { ComponentProps } from './types'
+import { ArgTypes } from '@storybook/react'
+import { InputType } from '@storybook/csf'
+import { Icon } from '@primer/octicons-react'
 
 // we don't import StoryContext from storybook because of exports that conflict
 // with primer/react more: https://github.com/primer/react/runs/6129115026?check_suite_focus=true
 type StoryContext = Record<string, unknown> & {
-  globals: {colorScheme: string; showSurroundingElements?: boolean}
+  globals: { colorScheme: string; showSurroundingElements?: boolean }
   parameters: Record<string, unknown>
 }
 
 type CheckboxOrRadioGroupWrapperArgs = ComponentProps<typeof CheckboxGroup>
-type CheckboxOrRadioGroupLabelArgs = ComponentProps<typeof CheckboxGroup.Label> & {
+type CheckboxOrRadioGroupLabelArgs = ComponentProps<
+  typeof CheckboxGroup.Label
+> & {
   labelChildren?: React.ReactNode
 }
-type CheckboxOrRadioGroupCaptionArgs = ComponentProps<typeof CheckboxGroup.Caption> & {
+type CheckboxOrRadioGroupCaptionArgs = ComponentProps<
+  typeof CheckboxGroup.Caption
+> & {
   captionChildren?: React.ReactNode
 }
-type CheckboxOrRadioGroupValidationMessageArgs = ComponentProps<typeof CheckboxGroup.Validation> & {
+type CheckboxOrRadioGroupValidationMessageArgs = ComponentProps<
+  typeof CheckboxGroup.Validation
+> & {
   validationChildren?: React.ReactNode
 }
 export type CheckboxOrRadioGroupArgs = CheckboxOrRadioGroupWrapperArgs &
@@ -28,10 +42,19 @@ export type CheckboxOrRadioGroupArgs = CheckboxOrRadioGroupWrapperArgs &
   CheckboxOrRadioGroupCaptionArgs &
   CheckboxOrRadioGroupValidationMessageArgs
 
-type FormControlParentArgs = Pick<ComponentProps<typeof FormControl>, 'required' | 'disabled'>
-type FormControlLabelArgs = ComponentProps<typeof FormControl.Label> & {labelChildren?: React.ReactNode}
-type FormControlCaptionArgs = ComponentProps<typeof FormControl.Caption> & {captionChildren?: React.ReactNode}
-type FormControlValidationMessageArgs = ComponentProps<typeof FormControl.Validation> & {
+type FormControlParentArgs = Pick<
+  ComponentProps<typeof FormControl>,
+  'required' | 'disabled'
+>
+type FormControlLabelArgs = ComponentProps<typeof FormControl.Label> & {
+  labelChildren?: React.ReactNode
+}
+type FormControlCaptionArgs = ComponentProps<typeof FormControl.Caption> & {
+  captionChildren?: React.ReactNode
+}
+type FormControlValidationMessageArgs = ComponentProps<
+  typeof FormControl.Validation
+> & {
   validationChildren?: React.ReactNode
 }
 export type FormControlArgs<TInputProps = unknown> = FormControlParentArgs &
@@ -55,11 +78,14 @@ const GlobalStyleMultiTheme = createGlobalStyle`
   }
 `
 
-export const withThemeProvider = (Story: React.FC<React.PropsWithChildren<StoryContext>>, context: StoryContext) => {
+export const withThemeProvider = (
+  Story: React.FC<React.PropsWithChildren<StoryContext>>,
+  context: StoryContext
+) => {
   // used for testing ThemeProvider.stories.tsx
   if (context.parameters.disableThemeDecorator) return Story(context)
 
-  const {colorScheme} = context.globals
+  const { colorScheme } = context.globals
 
   if (colorScheme === 'all') {
     return (
@@ -71,7 +97,7 @@ export const withThemeProvider = (Story: React.FC<React.PropsWithChildren<StoryC
         }}
       >
         <GlobalStyleMultiTheme />
-        {Object.keys(theme.colorSchemes).map(scheme => (
+        {Object.keys(theme.colorSchemes).map((scheme) => (
           <ThemeProvider key={scheme} colorMode="day" dayScheme={scheme}>
             <BaseStyles>
               <Box
@@ -144,12 +170,12 @@ export const inputWrapperArgTypes: ArgTypes = {
     name: 'size (input)', // TODO: remove '(input)'
     defaultValue: 'medium',
     options: ['small', 'medium', 'large'],
-    control: {type: 'radio'},
+    control: { type: 'radio' },
   },
   validationStatus: {
     defaultValue: undefined,
     options: ['error', 'success', 'warning', undefined],
-    control: {type: 'radio'},
+    control: { type: 'radio' },
   },
 }
 
@@ -184,7 +210,7 @@ export const getTextInputArgTypes = (category?: string) =>
       obj[key] = category
         ? {
             // have to do weird type casting so we can spread the object
-            ...(textInputArgTypesUnsorted[key] as {[key: string]: unknown}),
+            ...(textInputArgTypesUnsorted[key] as { [key: string]: unknown }),
             table: {
               category,
             },
@@ -193,7 +219,14 @@ export const getTextInputArgTypes = (category?: string) =>
       return obj
     }, {})
 
-export const textInputExcludedControlKeys = ['as', 'icon', 'leadingVisual', 'sx', 'trailingVisual', 'trailingAction']
+export const textInputExcludedControlKeys = [
+  'as',
+  'icon',
+  'leadingVisual',
+  'sx',
+  'trailingVisual',
+  'trailingAction',
+]
 
 export const textInputWithTokensArgTypes: ArgTypes = {
   hideTokenRemoveButtons: {
@@ -310,16 +343,19 @@ export const formControlArgTypes: ArgTypes = {
   },
 }
 
-const formControlArgTypeKeys = Object.keys(formControlArgTypes) as Array<keyof typeof formControlArgTypes>
+const formControlArgTypeKeys = Object.keys(formControlArgTypes) as Array<
+  keyof typeof formControlArgTypes
+>
 
-export const formControlArgTypesWithoutValidation = formControlArgTypeKeys.reduce<
-  Partial<Record<keyof typeof formControlArgTypes, InputType>>
->((acc, key) => {
-  if (formControlArgTypes[key].table.category !== 'FormControl.Validation') {
-    acc[key] = formControlArgTypes[key]
-  }
-  return acc
-}, {})
+export const formControlArgTypesWithoutValidation =
+  formControlArgTypeKeys.reduce<
+    Partial<Record<keyof typeof formControlArgTypes, InputType>>
+  >((acc, key) => {
+    if (formControlArgTypes[key].table.category !== 'FormControl.Validation') {
+      acc[key] = formControlArgTypes[key]
+    }
+    return acc
+  }, {})
 
 export const getFormControlArgsByChildComponent = ({
   captionChildren,
@@ -330,10 +366,10 @@ export const getFormControlArgsByChildComponent = ({
   variant,
   visuallyHidden,
 }: FormControlArgs) => ({
-  parentArgs: {disabled, required},
-  labelArgs: {visuallyHidden, children: labelChildren},
-  captionArgs: {children: captionChildren},
-  validationArgs: {children: validationChildren, variant},
+  parentArgs: { disabled, required },
+  labelArgs: { visuallyHidden, children: labelChildren },
+  captionArgs: { children: captionChildren },
+  validationArgs: { children: validationChildren, variant },
 })
 
 // Use this function for icon options in the controls. Desired icons are passed in as an array of Octicons
@@ -354,16 +390,25 @@ export const OcticonArgType = (iconList: Icon[]) => {
 
 export const withSurroundingElements = (
   Story: React.FC<React.PropsWithChildren<StoryContext>>,
-  context: StoryContext,
+  context: StoryContext
 ) => {
   const showSurroundingElements =
-    context.globals.showSurroundingElements ?? window.localStorage.getItem('showSurroundingElements') === 'true'
+    context.globals.showSurroundingElements ??
+    window.localStorage.getItem('showSurroundingElements') === 'true'
 
   return (
     <>
-      {showSurroundingElements ? <a href="https://github.com/primer/react">Primer documentation</a> : ''}
+      {showSurroundingElements ? (
+        <a href="https://github.com/primer/react">Primer documentation</a>
+      ) : (
+        ''
+      )}
       {Story(context)}
-      {showSurroundingElements ? <a href="https://github.com/primer/react">Primer documentation</a> : ''}
+      {showSurroundingElements ? (
+        <a href="https://github.com/primer/react">Primer documentation</a>
+      ) : (
+        ''
+      )}
     </>
   )
 }

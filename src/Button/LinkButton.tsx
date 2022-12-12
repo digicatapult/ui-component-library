@@ -1,13 +1,16 @@
-import React, {forwardRef} from 'react'
-import {merge, SxProp} from '../sx'
-import {LinkButtonProps} from './types'
-import {ButtonBase, ButtonBaseProps} from './ButtonBase'
-import {ForwardRefComponent as PolymorphicForwardRefComponent} from '../utils/polymorphic'
+import React, { forwardRef } from 'react'
+import { merge, SxProp } from '../sx'
+import { LinkButtonProps } from './types'
+import { ButtonBase, ButtonBaseProps } from './ButtonBase'
+import { ForwardRefComponent as PolymorphicForwardRefComponent } from '../utils/polymorphic'
 
 type MyProps = LinkButtonProps & ButtonBaseProps
 
 const LinkButton = forwardRef<HTMLElement, MyProps>(
-  ({children, as: Component = 'a', sx = {}, ...props}, forwardedRef): JSX.Element => {
+  (
+    { children, as: Component = 'a', sx = {}, ...props },
+    forwardedRef
+  ): JSX.Element => {
     const style = {
       width: 'fit-content',
       '&:hover:not([disabled])': {
@@ -27,7 +30,7 @@ const LinkButton = forwardRef<HTMLElement, MyProps>(
         {children}
       </ButtonBase>
     )
-  },
+  }
 ) as PolymorphicForwardRefComponent<'a', ButtonBaseProps>
 
-export {LinkButton}
+export { LinkButton }

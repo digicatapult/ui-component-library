@@ -1,7 +1,7 @@
-import {Meta} from '@storybook/react'
-import React, {forwardRef} from 'react'
-import {DndProvider, useDrag, useDrop} from 'react-dnd'
-import {HTML5Backend} from 'react-dnd-html5-backend'
+import { Meta } from '@storybook/react'
+import React, { forwardRef } from 'react'
+import { DndProvider, useDrag, useDrop } from 'react-dnd'
+import { HTML5Backend } from 'react-dnd-html5-backend'
 import {
   TypographyIcon,
   StarIcon,
@@ -13,7 +13,7 @@ import {
   LinkIcon,
   XIcon,
 } from '@primer/octicons-react'
-import {ActionList, ActionListItemProps} from '.'
+import { ActionList, ActionListItemProps } from '.'
 import TextInput from '../TextInput'
 import Spinner from '../Spinner'
 import Box from '../Box'
@@ -30,23 +30,33 @@ const meta: Meta = {
 }
 export default meta
 
-type ReactRouterLikeLinkProps = {to: string; children: React.ReactNode}
-const ReactRouterLikeLink = forwardRef<HTMLAnchorElement, ReactRouterLikeLinkProps>(
-  ({to, ...props}: {to: string; children: React.ReactNode}, ref) => {
-    // eslint-disable-next-line jsx-a11y/anchor-has-content
-    return <a ref={ref} href={to} {...props} />
-  },
-)
+type ReactRouterLikeLinkProps = { to: string; children: React.ReactNode }
+const ReactRouterLikeLink = forwardRef<
+  HTMLAnchorElement,
+  ReactRouterLikeLinkProps
+>(({ to, ...props }: { to: string; children: React.ReactNode }, ref) => {
+  // eslint-disable-next-line jsx-a11y/anchor-has-content
+  return <a ref={ref} href={to} {...props} />
+})
 
 const NextJSLikeLink = forwardRef(
-  ({href, children}: {href: string; children: React.ReactNode}, ref): React.ReactElement => {
+  (
+    { href, children }: { href: string; children: React.ReactNode },
+    ref
+  ): React.ReactElement => {
     const child = React.Children.only(children)
     const childProps = {
       ref,
       href,
     }
-    return <>{React.isValidElement(child) ? React.cloneElement(child, childProps) : null}</>
-  },
+    return (
+      <>
+        {React.isValidElement(child)
+          ? React.cloneElement(child, childProps)
+          : null}
+      </>
+    )
+  }
 )
 
 export const ListLinkItem = () => (
@@ -63,13 +73,20 @@ export const ListLinkItem = () => (
       </ActionList.LeadingVisual>
       ActionList.LinkItem
     </ActionList.LinkItem>
-    <ActionList.LinkItem href="https://github.com/primer" target="_blank" rel="noopener noreferrer">
+    <ActionList.LinkItem
+      href="https://github.com/primer"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <ActionList.LeadingVisual>
         <LinkIcon />
       </ActionList.LeadingVisual>
       ActionList.LinkItem with anchor attributes
     </ActionList.LinkItem>
-    <ActionList.LinkItem as={ReactRouterLikeLink} to="?path=/story/components-actionlist--default">
+    <ActionList.LinkItem
+      as={ReactRouterLikeLink}
+      to="?path=/story/components-actionlist--default"
+    >
       <ActionList.LeadingVisual>
         <LinkIcon />
       </ActionList.LeadingVisual>
@@ -88,8 +105,12 @@ export const ListLinkItem = () => (
         <LinkIcon />
       </ActionList.LeadingVisual>
       ActionList.LinkItem with everything
-      <ActionList.Description variant="inline">inline description</ActionList.Description>
-      <ActionList.Description variant="block">Block description</ActionList.Description>
+      <ActionList.Description variant="inline">
+        inline description
+      </ActionList.Description>
+      <ActionList.Description variant="block">
+        Block description
+      </ActionList.Description>
       <ActionList.TrailingVisual>⌘ + L</ActionList.TrailingVisual>
     </ActionList.LinkItem>
   </ActionList>
@@ -111,20 +132,20 @@ const branches = [
 
 const filterSlowly = async (query: string) => {
   // sleep for 1s before returning results
-  await new Promise(resolve => setTimeout(resolve, 1000))
-  return await branches.filter(name => name.includes(query))
+  await new Promise((resolve) => setTimeout(resolve, 1000))
+  return await branches.filter((name) => name.includes(query))
 }
 
 export function MixedSelection(): JSX.Element {
   const [selectedIndex, setSelectedIndex] = React.useState<number | null>(1)
 
   const options = [
-    {text: 'Status', icon: <IssueOpenedIcon />},
-    {text: 'Stage', icon: <TableIcon />},
-    {text: 'Assignee', icon: <PeopleIcon />},
-    {text: 'Team', icon: <TypographyIcon />},
-    {text: 'Estimate', icon: <NumberIcon />},
-    {text: 'Due Date', icon: <CalendarIcon />},
+    { text: 'Status', icon: <IssueOpenedIcon /> },
+    { text: 'Stage', icon: <TableIcon /> },
+    { text: 'Assignee', icon: <PeopleIcon /> },
+    { text: 'Team', icon: <TypographyIcon /> },
+    { text: 'Estimate', icon: <NumberIcon /> },
+    { text: 'Due Date', icon: <CalendarIcon /> },
   ]
 
   return (
@@ -132,12 +153,17 @@ export function MixedSelection(): JSX.Element {
       <h1>List with mixed selection</h1>
 
       <p>
-        In this list, there is a ActionList.Group with single selection for picking one option, followed by a Item that
-        is an action. This pattern appears inside a menu for selection view options in Memex
+        In this list, there is a ActionList.Group with single selection for
+        picking one option, followed by a Item that is an action. This pattern
+        appears inside a menu for selection view options in Memex
       </p>
 
       <ActionList>
-        <ActionList.Group title="Group by" selectionVariant="single" role="listbox">
+        <ActionList.Group
+          title="Group by"
+          selectionVariant="single"
+          role="listbox"
+        >
           {options.map((option, index) => (
             <ActionList.Item
               key={index}
@@ -183,22 +209,39 @@ export function AsyncListWithSpinner(): JSX.Element {
     <>
       <h1>Async List</h1>
       <p>
-        This pattern has an ActionList with single selection, the contents of which can change asynchronously through a
-        filter. This pattern can be found in branch selection menus via the SelectPanel component.
+        This pattern has an ActionList with single selection, the contents of
+        which can change asynchronously through a filter. This pattern can be
+        found in branch selection menus via the SelectPanel component.
       </p>
 
-      <TextInput onChange={filter} placeholder="Search branches" sx={{m: 2, mb: 0, width: 'calc(100% - 16px)'}} />
+      <TextInput
+        onChange={filter}
+        placeholder="Search branches"
+        sx={{ m: 2, mb: 0, width: 'calc(100% - 16px)' }}
+      />
       {results.length === 0 ? (
-        <Text sx={{display: 'block', fontSize: 1, m: 2}}>No branches match that query</Text>
+        <Text sx={{ display: 'block', fontSize: 1, m: 2 }}>
+          No branches match that query
+        </Text>
       ) : null}
-      <ActionList selectionVariant="single" role="listbox" aria-label="Branch" sx={{height: 208, overflow: 'auto'}}>
+      <ActionList
+        selectionVariant="single"
+        role="listbox"
+        aria-label="Branch"
+        sx={{ height: 208, overflow: 'auto' }}
+      >
         {loading ? (
-          <Box sx={{display: 'flex', justifyContent: 'center', pt: 2}}>
+          <Box sx={{ display: 'flex', justifyContent: 'center', pt: 2 }}>
             <Spinner />
           </Box>
         ) : (
-          results.map(name => (
-            <ActionList.Item key={name} role="option" selected={selected === name} onSelect={() => setSelected(name)}>
+          results.map((name) => (
+            <ActionList.Item
+              key={name}
+              role="option"
+              selected={selected === name}
+              onSelect={() => setSelected(name)}
+            >
               {name}
             </ActionList.Item>
           ))
@@ -208,47 +251,56 @@ export function AsyncListWithSpinner(): JSX.Element {
   )
 }
 
-type Option = {text: string; icon: React.ReactNode; selected: boolean}
+type Option = { text: string; icon: React.ReactNode; selected: boolean }
 export function MemexSortable(): JSX.Element {
   const [options, setOptions] = React.useState<Option[]>([
-    {text: 'Status', icon: <IssueOpenedIcon />, selected: true},
-    {text: 'Stage', icon: <TableIcon />, selected: true},
-    {text: 'Assignee', icon: <PeopleIcon />, selected: true},
-    {text: 'Team', icon: <TypographyIcon />, selected: true},
-    {text: 'Estimate', icon: <NumberIcon />, selected: false},
-    {text: 'Due Date', icon: <CalendarIcon />, selected: false},
+    { text: 'Status', icon: <IssueOpenedIcon />, selected: true },
+    { text: 'Stage', icon: <TableIcon />, selected: true },
+    { text: 'Assignee', icon: <PeopleIcon />, selected: true },
+    { text: 'Team', icon: <TypographyIcon />, selected: true },
+    { text: 'Estimate', icon: <NumberIcon />, selected: false },
+    { text: 'Due Date', icon: <CalendarIcon />, selected: false },
   ])
 
   const toggle = (text: string) => {
     setOptions(
-      options.map(option => {
+      options.map((option) => {
         if (option.text === text) option.selected = !option.selected
         return option
-      }),
+      })
     )
   }
 
-  const reorder = ({optionToMove, moveAfterOption}: {optionToMove: Option; moveAfterOption: Option}) => {
-    setOptions(currentOptions => {
+  const reorder = ({
+    optionToMove,
+    moveAfterOption,
+  }: {
+    optionToMove: Option
+    moveAfterOption: Option
+  }) => {
+    setOptions((currentOptions) => {
       const newOptions = [...currentOptions]
       // remove option to move
-      const currentPosition = newOptions.findIndex(o => o.text === optionToMove.text)
+      const currentPosition = newOptions.findIndex(
+        (o) => o.text === optionToMove.text
+      )
       newOptions.splice(currentPosition, 1)
       // add it after the provided element
-      const newPosition = newOptions.findIndex(o => o.text === moveAfterOption.text) + 1
+      const newPosition =
+        newOptions.findIndex((o) => o.text === moveAfterOption.text) + 1
       newOptions.splice(newPosition, 0, optionToMove)
       return newOptions
     })
   }
 
-  const visibleOptions = options.filter(option => option.selected)
-  const hiddenOptions = options.filter(option => !option.selected)
+  const visibleOptions = options.filter((option) => option.selected)
+  const hiddenOptions = options.filter((option) => !option.selected)
 
   return (
     <DndProvider backend={HTML5Backend}>
       <ActionList selectionVariant="multiple" role="menu">
         <ActionList.Group title="Visible fields (can be reordered)">
-          {visibleOptions.map(option => (
+          {visibleOptions.map((option) => (
             <SortableItem
               key={option.text}
               role="menuitemcheckbox"
@@ -276,7 +328,9 @@ export function MemexSortable(): JSX.Element {
               {option.text}
             </ActionList.Item>
           ))}
-          {hiddenOptions.length === 0 && <ActionList.Item disabled>No hidden fields</ActionList.Item>}
+          {hiddenOptions.length === 0 && (
+            <ActionList.Item disabled>No hidden fields</ActionList.Item>
+          )}
         </ActionList.Group>
       </ActionList>
     </DndProvider>
@@ -288,36 +342,49 @@ type SortableItemProps = {
   option: Option
   role: ActionListItemProps['role']
   onSelect: ActionListItemProps['onSelect']
-  reorder: ({optionToMove, moveAfterOption}: {optionToMove: Option; moveAfterOption: Option}) => void
+  reorder: ({
+    optionToMove,
+    moveAfterOption,
+  }: {
+    optionToMove: Option
+    moveAfterOption: Option
+  }) => void
 }
-const SortableItem: React.FC<React.PropsWithChildren<SortableItemProps>> = ({option, role, onSelect, reorder}) => {
-  const [{isDragging}, dragRef] = useDrag(() => ({
+const SortableItem: React.FC<React.PropsWithChildren<SortableItemProps>> = ({
+  option,
+  role,
+  onSelect,
+  reorder,
+}) => {
+  const [{ isDragging }, dragRef] = useDrag(() => ({
     type: 'ITEM',
     item: option,
-    collect: monitor => {
-      return {isDragging: monitor.isDragging()}
+    collect: (monitor) => {
+      return { isDragging: monitor.isDragging() }
     },
   }))
 
-  const [{isOver}, dropRef] = useDrop(() => ({
+  const [{ isOver }, dropRef] = useDrop(() => ({
     accept: 'ITEM',
-    collect: monitor => {
-      return {isOver: monitor.isOver()}
+    collect: (monitor) => {
+      return { isOver: monitor.isOver() }
     },
     drop: (optionDropped: Option) => {
-      reorder({optionToMove: optionDropped, moveAfterOption: option})
+      reorder({ optionToMove: optionDropped, moveAfterOption: option })
     },
   }))
 
   return (
     <ActionList.Item
       role={role}
-      ref={element => dragRef(element) && dropRef(element)} // merge refs
+      ref={(element) => dragRef(element) && dropRef(element)} // merge refs
       selected={option.selected}
       onSelect={onSelect}
       sx={{
         opacity: isDragging ? 0.5 : 1,
-        boxShadow: isOver ? theme => `0px 2px 0 0px ${theme.colors.accent.emphasis}` : undefined,
+        boxShadow: isOver
+          ? (theme) => `0px 2px 0 0px ${theme.colors.accent.emphasis}`
+          : undefined,
         borderRadius: isOver ? 0 : 2,
       }}
     >
@@ -332,7 +399,8 @@ export function AllCombinations(): JSX.Element {
     <>
       <h1>All Possible Combinations</h1>
       <code>
-        dynamic features: L = Leading Visual, I = Inline Description, B = Block Description, T = Trailing Visual
+        dynamic features: L = Leading Visual, I = Inline Description, B = Block
+        Description, T = Trailing Visual
       </code>
       <br />
       <code>16 possible combinations</code>
@@ -345,8 +413,12 @@ export function AllCombinations(): JSX.Element {
               <StarIcon />
             </ActionList.LeadingVisual>
             The everything bagel
-            <ActionList.Description variant="inline">inline description</ActionList.Description>
-            <ActionList.Description variant="block">Block description</ActionList.Description>
+            <ActionList.Description variant="inline">
+              inline description
+            </ActionList.Description>
+            <ActionList.Description variant="block">
+              Block description
+            </ActionList.Description>
             <ActionList.TrailingVisual>
               <StarIcon />
             </ActionList.TrailingVisual>
@@ -359,10 +431,16 @@ export function AllCombinations(): JSX.Element {
             only L
           </ActionList.Item>
           <ActionList.Item>
-            only I<ActionList.Description variant="inline">inline description</ActionList.Description>
+            only I
+            <ActionList.Description variant="inline">
+              inline description
+            </ActionList.Description>
           </ActionList.Item>
           <ActionList.Item>
-            only B<ActionList.Description variant="block">Block description</ActionList.Description>
+            only B
+            <ActionList.Description variant="block">
+              Block description
+            </ActionList.Description>
           </ActionList.Item>
           <ActionList.Item>
             only T
@@ -374,13 +452,19 @@ export function AllCombinations(): JSX.Element {
             <ActionList.LeadingVisual>
               <StarIcon />
             </ActionList.LeadingVisual>
-            L + I<ActionList.Description variant="inline">inline description</ActionList.Description>
+            L + I
+            <ActionList.Description variant="inline">
+              inline description
+            </ActionList.Description>
           </ActionList.Item>
           <ActionList.Item>
             <ActionList.LeadingVisual>
               <StarIcon />
             </ActionList.LeadingVisual>
-            L + B<ActionList.Description variant="block">Block description</ActionList.Description>
+            L + B
+            <ActionList.Description variant="block">
+              Block description
+            </ActionList.Description>
           </ActionList.Item>
           <ActionList.Item>
             <ActionList.LeadingVisual>
@@ -392,17 +476,28 @@ export function AllCombinations(): JSX.Element {
             </ActionList.TrailingVisual>
           </ActionList.Item>
           <ActionList.Item>
-            I + B<ActionList.Description variant="inline">inline description</ActionList.Description>
-            <ActionList.Description variant="block">Block description</ActionList.Description>
+            I + B
+            <ActionList.Description variant="inline">
+              inline description
+            </ActionList.Description>
+            <ActionList.Description variant="block">
+              Block description
+            </ActionList.Description>
           </ActionList.Item>
           <ActionList.Item>
-            I + T<ActionList.Description variant="inline">inline description</ActionList.Description>
+            I + T
+            <ActionList.Description variant="inline">
+              inline description
+            </ActionList.Description>
             <ActionList.TrailingVisual>
               <StarIcon />
             </ActionList.TrailingVisual>
           </ActionList.Item>
           <ActionList.Item>
-            B + T<ActionList.Description variant="block">Block description</ActionList.Description>
+            B + T
+            <ActionList.Description variant="block">
+              Block description
+            </ActionList.Description>
             <ActionList.TrailingVisual>
               <StarIcon />
             </ActionList.TrailingVisual>
@@ -411,14 +506,22 @@ export function AllCombinations(): JSX.Element {
             <ActionList.LeadingVisual>
               <StarIcon />
             </ActionList.LeadingVisual>
-            L + I + B<ActionList.Description variant="inline">inline description</ActionList.Description>
-            <ActionList.Description variant="block">Block description</ActionList.Description>
+            L + I + B
+            <ActionList.Description variant="inline">
+              inline description
+            </ActionList.Description>
+            <ActionList.Description variant="block">
+              Block description
+            </ActionList.Description>
           </ActionList.Item>
           <ActionList.Item disabled>
             <ActionList.LeadingVisual>
               <StarIcon />
             </ActionList.LeadingVisual>
-            L + I + T<ActionList.Description variant="inline">inline description</ActionList.Description>
+            L + I + T
+            <ActionList.Description variant="inline">
+              inline description
+            </ActionList.Description>
             <ActionList.TrailingVisual>
               <StarIcon />
             </ActionList.TrailingVisual>
@@ -427,14 +530,22 @@ export function AllCombinations(): JSX.Element {
             <ActionList.LeadingVisual>
               <StarIcon />
             </ActionList.LeadingVisual>
-            L + B + T<ActionList.Description variant="block">Block description</ActionList.Description>
+            L + B + T
+            <ActionList.Description variant="block">
+              Block description
+            </ActionList.Description>
             <ActionList.TrailingVisual>
               <StarIcon />
             </ActionList.TrailingVisual>
           </ActionList.Item>
           <ActionList.Item disabled>
-            I + B + T<ActionList.Description variant="inline">inline description</ActionList.Description>
-            <ActionList.Description variant="block">Block description</ActionList.Description>
+            I + B + T
+            <ActionList.Description variant="inline">
+              inline description
+            </ActionList.Description>
+            <ActionList.Description variant="block">
+              Block description
+            </ActionList.Description>
             <ActionList.TrailingVisual>
               <StarIcon />
             </ActionList.TrailingVisual>

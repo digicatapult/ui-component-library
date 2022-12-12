@@ -1,5 +1,5 @@
-import React, {createContext, useContext, useState, useEffect} from 'react'
-import {canUseDOM} from '../utils/environment'
+import React, { createContext, useContext, useState, useEffect } from 'react'
+import { canUseDOM } from '../utils/environment'
 
 /**
  * `useMedia` will use the given `mediaQueryString` with `matchMedia` to
@@ -34,7 +34,7 @@ export function useMedia(mediaQueryString: string, defaultState?: boolean) {
     if (process.env.NODE_ENV !== 'production') {
       // eslint-disable-next-line no-console
       console.warn(
-        '`useMedia` When server side rendering, defaultState should be defined to prevent a hydration mismatches.',
+        '`useMedia` When server side rendering, defaultState should be defined to prevent a hydration mismatches.'
       )
     }
 
@@ -116,9 +116,16 @@ const defaultFeatures = {}
  *   <Children />
  * </MatchMedia>
  */
-export function MatchMedia({children, features = defaultFeatures}: MatchMediaProps) {
+export function MatchMedia({
+  children,
+  features = defaultFeatures,
+}: MatchMediaProps) {
   const value = useShallowObject(features)
-  return <MatchMediaContext.Provider value={value}>{children}</MatchMediaContext.Provider>
+  return (
+    <MatchMediaContext.Provider value={value}>
+      {children}
+    </MatchMediaContext.Provider>
+  )
 }
 
 type SimpleObject = {
@@ -137,7 +144,7 @@ function useShallowObject<T extends SimpleObject>(object: T): T {
   const [value, setValue] = useState(object)
 
   if (value !== object) {
-    const match = Object.keys(object).every(key => {
+    const match = Object.keys(object).every((key) => {
       return object[key] === value[key]
     })
     if (!match) {

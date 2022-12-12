@@ -1,7 +1,7 @@
 import React from 'react'
-import {Meta} from '@storybook/react'
-import {BaseStyles, ThemeProvider} from '..'
-import {ComponentProps} from '../utils/types'
+import { Meta } from '@storybook/react'
+import { BaseStyles, ThemeProvider } from '..'
+import { ComponentProps } from '../utils/types'
 import Label from '../Label'
 
 type Args = ComponentProps<typeof Label>
@@ -39,7 +39,7 @@ export default {
     },
   },
   decorators: [
-    Story => {
+    (Story) => {
       return (
         <ThemeProvider>
           <BaseStyles>

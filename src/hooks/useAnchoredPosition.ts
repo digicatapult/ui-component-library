@@ -1,8 +1,8 @@
 import React from 'react'
-import {getAnchoredPosition} from '@primer/behaviors'
-import type {AnchorPosition, PositionSettings} from '@primer/behaviors'
-import {useProvidedRefOrCreate} from './useProvidedRefOrCreate'
-import {useResizeObserver} from './useResizeObserver'
+import { getAnchoredPosition } from '@primer/behaviors'
+import type { AnchorPosition, PositionSettings } from '@primer/behaviors'
+import { useProvidedRefOrCreate } from './useProvidedRefOrCreate'
+import { useResizeObserver } from './useResizeObserver'
 import useLayoutEffect from '../utils/useIsomorphicLayoutEffect'
 
 export interface AnchoredPositionHookSettings extends Partial<PositionSettings> {
@@ -21,7 +21,7 @@ export interface AnchoredPositionHookSettings extends Partial<PositionSettings> 
  */
 export function useAnchoredPosition(
   settings?: AnchoredPositionHookSettings,
-  dependencies: React.DependencyList = [],
+  dependencies: React.DependencyList = []
 ): {
   floatingElementRef: React.RefObject<Element>
   anchorElementRef: React.RefObject<Element>
@@ -40,7 +40,7 @@ export function useAnchoredPosition(
       }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [floatingElementRef, anchorElementRef, ...dependencies],
+    [floatingElementRef, anchorElementRef, ...dependencies]
   )
 
   useLayoutEffect(updatePosition, [updatePosition])
@@ -50,6 +50,6 @@ export function useAnchoredPosition(
   return {
     floatingElementRef,
     anchorElementRef,
-    position,
+    position
   }
 }

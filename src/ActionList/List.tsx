@@ -1,9 +1,9 @@
 import React from 'react'
-import {ForwardRefComponent as PolymorphicForwardRefComponent} from '../utils/polymorphic'
+import { ForwardRefComponent as PolymorphicForwardRefComponent } from '../utils/polymorphic'
 import styled from 'styled-components'
-import sx, {SxProp, merge} from '../sx'
-import {AriaRole} from '../utils/types'
-import {ActionListContainerContext} from './ActionListContainerContext'
+import sx, { SxProp, merge } from '../sx'
+import { AriaRole } from '../utils/types'
+import { ActionListContainerContext } from './ActionListContainerContext'
 
 export type ActionListProps = {
   /**
@@ -24,15 +24,25 @@ export type ActionListProps = {
   role?: AriaRole
 } & SxProp
 
-type ContextProps = Pick<ActionListProps, 'variant' | 'selectionVariant' | 'showDividers' | 'role'>
+type ContextProps = Pick<
+  ActionListProps,
+  'variant' | 'selectionVariant' | 'showDividers' | 'role'
+>
 export const ListContext = React.createContext<ContextProps>({})
 
 const ListBox = styled.ul<SxProp>(sx)
 
 export const List = React.forwardRef<HTMLUListElement, ActionListProps>(
   (
-    {variant = 'inset', selectionVariant, showDividers = false, role, sx: sxProp = {}, ...props},
-    forwardedRef,
+    {
+      variant = 'inset',
+      selectionVariant,
+      showDividers = false,
+      role,
+      sx: sxProp = {},
+      ...props
+    },
+    forwardedRef
   ): JSX.Element => {
     const styles = {
       margin: 0,
@@ -67,7 +77,7 @@ export const List = React.forwardRef<HTMLUListElement, ActionListProps>(
         </ListContext.Provider>
       </ListBox>
     )
-  },
+  }
 ) as PolymorphicForwardRefComponent<'ul', ActionListProps>
 
 List.displayName = 'ActionList'

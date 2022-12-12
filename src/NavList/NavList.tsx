@@ -1,7 +1,7 @@
-import {ChevronDownIcon} from '@primer/octicons-react'
-import {ForwardRefComponent as PolymorphicForwardRefComponent} from '../utils/polymorphic'
-import {useSSRSafeId} from '@react-aria/ssr'
-import React, {isValidElement} from 'react'
+import { ChevronDownIcon } from '@primer/octicons-react'
+import { ForwardRefComponent as PolymorphicForwardRefComponent } from '../utils/polymorphic'
+import { useSSRSafeId } from '@react-aria/ssr'
+import React, { isValidElement } from 'react'
 import styled from 'styled-components'
 import {
   ActionList,
@@ -11,7 +11,7 @@ import {
 } from '../ActionList'
 import Box from '../Box'
 import StyledOcticon from '../StyledOcticon'
-import sx, {merge, SxProp} from '../sx'
+import sx, { merge, SxProp } from '../sx'
 
 // ----------------------------------------------------------------------------
 // NavList
@@ -23,13 +23,15 @@ export type NavListProps = {
 
 const NavBox = styled.nav<SxProp>(sx)
 
-const Root = React.forwardRef<HTMLElement, NavListProps>(({children, ...props}, ref) => {
-  return (
-    <NavBox {...props} ref={ref}>
-      <ActionList>{children}</ActionList>
-    </NavBox>
-  )
-})
+const Root = React.forwardRef<HTMLElement, NavListProps>(
+  ({ children, ...props }, ref) => {
+    return (
+      <NavBox {...props} ref={ref}>
+        <ActionList>{children}</ActionList>
+      </NavBox>
+    )
+  }
+)
 
 Root.displayName = 'NavList'
 
@@ -39,19 +41,32 @@ Root.displayName = 'NavList'
 export type NavListItemProps = {
   children: React.ReactNode
   href?: string
-  'aria-current'?: 'page' | 'step' | 'location' | 'date' | 'time' | 'true' | 'false' | boolean
+  'aria-current'?:
+    | 'page'
+    | 'step'
+    | 'location'
+    | 'date'
+    | 'time'
+    | 'true'
+    | 'false'
+    | boolean
 } & SxProp
 
 const Item = React.forwardRef<HTMLAnchorElement, NavListItemProps>(
-  ({'aria-current': ariaCurrent, children, sx: sxProp = {}, ...props}, ref) => {
-    const {depth} = React.useContext(SubNavContext)
+  (
+    { 'aria-current': ariaCurrent, children, sx: sxProp = {}, ...props },
+    ref
+  ) => {
+    const { depth } = React.useContext(SubNavContext)
 
     // Get SubNav from children
-    const subNav = React.Children.toArray(children).find(child => isValidElement(child) && child.type === SubNav)
+    const subNav = React.Children.toArray(children).find(
+      (child) => isValidElement(child) && child.type === SubNav
+    )
 
     // Get children without SubNav
-    const childrenWithoutSubNav = React.Children.toArray(children).filter(child =>
-      isValidElement(child) ? child.type !== SubNav : true,
+    const childrenWithoutSubNav = React.Children.toArray(children).filter(
+      (child) => (isValidElement(child) ? child.type !== SubNav : true)
     )
 
     // Render ItemWithSubNav if SubNav is present
@@ -74,14 +89,14 @@ const Item = React.forwardRef<HTMLAnchorElement, NavListItemProps>(
             fontSize: depth > 0 ? 0 : null, // Reduce font size of sub-items
             fontWeight: depth > 0 ? 'normal' : null, // Sub-items don't get bolded
           },
-          sxProp,
+          sxProp
         )}
         {...props}
       >
         {children}
       </ActionList.LinkItem>
     )
-  },
+  }
 ) as PolymorphicForwardRefComponent<'a', NavListItemProps>
 
 Item.displayName = 'NavList.Item'
@@ -94,7 +109,11 @@ type ItemWithSubNavProps = {
   subNav: React.ReactNode
 } & SxProp
 
-const ItemWithSubNavContext = React.createContext<{buttonId: string; subNavId: string; isOpen: boolean}>({
+const ItemWithSubNavContext = React.createContext<{
+  buttonId: string
+  subNavId: string
+  isOpen: boolean
+}>({
   buttonId: '',
   subNavId: '',
   isOpen: false,
@@ -102,7 +121,11 @@ const ItemWithSubNavContext = React.createContext<{buttonId: string; subNavId: s
 
 // TODO: ref prop
 // TODO: Animate open/close transition
-function ItemWithSubNav({children, subNav, sx: sxProp = {}}: ItemWithSubNavProps) {
+function ItemWithSubNav({
+  children,
+  subNav,
+  sx: sxProp = {},
+}: ItemWithSubNavProps) {
   const buttonId = useSSRSafeId()
   const subNavId = useSSRSafeId()
   const [isOpen, setIsOpen] = React.useState(false)
@@ -121,8 +144,8 @@ function ItemWithSubNav({children, subNav, sx: sxProp = {}}: ItemWithSubNavProps
   }, [subNav])
 
   return (
-    <ItemWithSubNavContext.Provider value={{buttonId, subNavId, isOpen}}>
-      <Box as="li" aria-labelledby={buttonId} sx={{listStyle: 'none'}}>
+    <ItemWithSubNavContext.Provider value={{ buttonId, subNavId, isOpen }}>
+      <Box as="li" aria-labelledby={buttonId} sx={{ listStyle: 'none' }}>
         <ActionList.Item
           as="button"
           id={buttonId}
@@ -130,12 +153,12 @@ function ItemWithSubNav({children, subNav, sx: sxProp = {}}: ItemWithSubNavProps
           aria-controls={subNavId}
           // When the subNav is closed, how should we indicated that the subNav contains the current item?
           active={!isOpen && containsCurrentItem}
-          onClick={() => setIsOpen(open => !open)}
+          onClick={() => setIsOpen((open) => !open)}
           sx={merge<SxProp['sx']>(
             {
               fontWeight: containsCurrentItem ? 'bold' : null, // Parent item is bold if any of it's sub-items are current
             },
-            sxProp,
+            sxProp
           )}
         >
           {children}
@@ -163,13 +186,13 @@ export type NavListSubNavProps = {
   children: React.ReactNode
 } & SxProp
 
-const SubNavContext = React.createContext<{depth: number}>({depth: 0})
+const SubNavContext = React.createContext<{ depth: number }>({ depth: 0 })
 
 // TODO: ref prop
 // NOTE: SubNav must be a direct child of an Item
-const SubNav = ({children, sx: sxProp = {}}: NavListSubNavProps) => {
-  const {buttonId, subNavId, isOpen} = React.useContext(ItemWithSubNavContext)
-  const {depth} = React.useContext(SubNavContext)
+const SubNav = ({ children, sx: sxProp = {} }: NavListSubNavProps) => {
+  const { buttonId, subNavId, isOpen } = React.useContext(ItemWithSubNavContext)
+  const { depth } = React.useContext(SubNavContext)
 
   if (!buttonId || !subNavId) {
     // eslint-disable-next-line no-console
@@ -183,7 +206,7 @@ const SubNav = ({children, sx: sxProp = {}}: NavListSubNavProps) => {
   }
 
   return (
-    <SubNavContext.Provider value={{depth: depth + 1}}>
+    <SubNavContext.Provider value={{ depth: depth + 1 }}>
       <Box
         as="ul"
         id={subNavId}
@@ -194,7 +217,7 @@ const SubNav = ({children, sx: sxProp = {}}: NavListSubNavProps) => {
             margin: 0,
             display: isOpen ? 'block' : 'none',
           },
-          sxProp,
+          sxProp
         )}
       >
         {children}
@@ -242,11 +265,16 @@ export type NavListGroupProps = {
 
 const defaultSx = {}
 // TODO: ref prop
-const Group: React.VFC<NavListGroupProps> = ({title, children, sx: sxProp = defaultSx, ...props}) => {
+const Group: React.VFC<NavListGroupProps> = ({
+  title,
+  children,
+  sx: sxProp = defaultSx,
+  ...props
+}) => {
   return (
     <>
       {/* Hide divider if the group is the first item in the list */}
-      <ActionList.Divider sx={{'&:first-child': {display: 'none'}}} />
+      <ActionList.Divider sx={{ '&:first-child': { display: 'none' } }} />
       <ActionList.Group {...props} title={title} sx={sxProp}>
         {children}
       </ActionList.Group>

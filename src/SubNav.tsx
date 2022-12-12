@@ -1,10 +1,10 @@
 import classnames from 'classnames'
-import {To} from 'history'
+import { To } from 'history'
 import React from 'react'
 import styled from 'styled-components'
-import {get} from './constants'
-import sx, {SxProp} from './sx'
-import {ComponentProps} from './utils/types'
+import { get } from './constants'
+import sx, { SxProp } from './sx'
+import { ComponentProps } from './utils/types'
 
 const ITEM_CLASS = 'SubNav-item'
 const SELECTED_CLASS = 'selected'
@@ -40,7 +40,7 @@ export type SubNavProps = {
   label?: string
 } & ComponentProps<typeof SubNavBase>
 
-function SubNav({actions, className, children, label, ...rest}: SubNavProps) {
+function SubNav({ actions, className, children, label, ...rest }: SubNavProps) {
   const classes = classnames(className, 'SubNav')
   return (
     <SubNavBase className={classes} aria-label={label} {...rest}>
@@ -62,9 +62,13 @@ type StyledSubNavLinkProps = {
   selected?: boolean
 } & SxProp
 
-const SubNavLink = styled.a.attrs<StyledSubNavLinkProps>(props => ({
+const SubNavLink = styled.a.attrs<StyledSubNavLinkProps>((props) => ({
   activeClassName: typeof props.to === 'string' ? 'selected' : '',
-  className: classnames(ITEM_CLASS, props.selected && SELECTED_CLASS, props.className),
+  className: classnames(
+    ITEM_CLASS,
+    props.selected && SELECTED_CLASS,
+    props.className
+  ),
 }))<StyledSubNavLinkProps>`
   padding-left: ${get('space.3')};
   padding-right: ${get('space.3')};
@@ -120,4 +124,4 @@ SubNavLink.displayName = 'SubNav.Link'
 SubNavLinks.displayName = 'SubNav.Links'
 
 export type SubNavLinkProps = ComponentProps<typeof SubNavLink>
-export default Object.assign(SubNav, {Link: SubNavLink, Links: SubNavLinks})
+export default Object.assign(SubNav, { Link: SubNavLink, Links: SubNavLinks })

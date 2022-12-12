@@ -1,9 +1,9 @@
 import React from 'react'
-import {useSSRSafeId} from '@react-aria/ssr'
+import { useSSRSafeId } from '@react-aria/ssr'
 import Box from '../Box'
-import {SxProp} from '../sx'
-import {ListContext, ActionListProps} from './List'
-import {AriaRole} from '../utils/types'
+import { SxProp } from '../sx'
+import { ListContext, ActionListProps } from './List'
+import { AriaRole } from '../utils/types'
 
 export type ActionListGroupProps = {
   /**
@@ -45,24 +45,31 @@ export const Group: React.FC<React.PropsWithChildren<ActionListGroupProps>> = ({
   ...props
 }) => {
   const labelId = useSSRSafeId()
-  const {role: listRole} = React.useContext(ListContext)
+  const { role: listRole } = React.useContext(ListContext)
 
   return (
     <Box
       as="li"
       role={listRole ? 'none' : undefined}
       sx={{
-        '&:not(:first-child)': {marginTop: 2},
+        '&:not(:first-child)': { marginTop: 2 },
         listStyle: 'none', // hide the ::marker inserted by browser's stylesheet
         ...sx,
       }}
       {...props}
     >
-      {title && <Header title={title} variant={variant} auxiliaryText={auxiliaryText} labelId={labelId} />}
-      <GroupContext.Provider value={{selectionVariant}}>
+      {title && (
+        <Header
+          title={title}
+          variant={variant}
+          auxiliaryText={auxiliaryText}
+          labelId={labelId}
+        />
+      )}
+      <GroupContext.Provider value={{ selectionVariant }}>
         <Box
           as="ul"
-          sx={{paddingInlineStart: 0}}
+          sx={{ paddingInlineStart: 0 }}
           aria-labelledby={title ? labelId : undefined}
           role={role || (listRole && 'group')}
         >
@@ -73,7 +80,10 @@ export const Group: React.FC<React.PropsWithChildren<ActionListGroupProps>> = ({
   )
 }
 
-export type HeaderProps = Pick<ActionListGroupProps, 'variant' | 'title' | 'auxiliaryText'> & {
+export type HeaderProps = Pick<
+  ActionListGroupProps,
+  'variant' | 'title' | 'auxiliaryText'
+> & {
   labelId: string
 }
 
@@ -82,8 +92,14 @@ export type HeaderProps = Pick<ActionListGroupProps, 'variant' | 'title' | 'auxi
  *
  * For visual presentation only. It's hidden from screen readers.
  */
-const Header: React.FC<React.PropsWithChildren<HeaderProps>> = ({variant, title, auxiliaryText, labelId, ...props}) => {
-  const {variant: listVariant} = React.useContext(ListContext)
+const Header: React.FC<React.PropsWithChildren<HeaderProps>> = ({
+  variant,
+  title,
+  auxiliaryText,
+  labelId,
+  ...props
+}) => {
+  const { variant: listVariant } = React.useContext(ListContext)
 
   const styles = {
     paddingY: '6px',

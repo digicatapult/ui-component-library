@@ -1,7 +1,7 @@
 import React from 'react'
 import Box from './Box'
 import Spinner from './Spinner'
-import {TextInputNonPassthroughProps} from './TextInput'
+import { TextInputNonPassthroughProps } from './TextInput'
 
 const TextInputInnerVisualSlot: React.FC<
   React.PropsWithChildren<{
@@ -12,8 +12,16 @@ const TextInputInnerVisualSlot: React.FC<
     /** Which side of this visual is being rendered */
     visualPosition: 'leading' | 'trailing'
   }>
-> = ({children, hasLoadingIndicator, showLoadingIndicator, visualPosition}) => {
-  if ((!children && !hasLoadingIndicator) || (visualPosition === 'leading' && !children && !showLoadingIndicator)) {
+> = ({
+  children,
+  hasLoadingIndicator,
+  showLoadingIndicator,
+  visualPosition,
+}) => {
+  if (
+    (!children && !hasLoadingIndicator) ||
+    (visualPosition === 'leading' && !children && !showLoadingIndicator)
+  ) {
     return null
   }
 
@@ -24,7 +32,11 @@ const TextInputInnerVisualSlot: React.FC<
   return (
     <span className="TextInput-icon">
       <Box display="flex" position="relative">
-        {children && <Box sx={{visibility: showLoadingIndicator ? 'hidden' : 'visible'}}>{children}</Box>}
+        {children && (
+          <Box sx={{ visibility: showLoadingIndicator ? 'hidden' : 'visible' }}>
+            {children}
+          </Box>
+        )}
         <Spinner
           sx={
             children
@@ -34,9 +46,11 @@ const TextInputInnerVisualSlot: React.FC<
                   height: '100%',
                   maxWidth: '100%',
                   visibility: showLoadingIndicator ? 'visible' : 'hidden',
-                  ...(visualPosition === 'leading' ? {left: 0} : {right: 0}),
+                  ...(visualPosition === 'leading'
+                    ? { left: 0 }
+                    : { right: 0 }),
                 }
-              : {visibility: showLoadingIndicator ? 'visible' : 'hidden'}
+              : { visibility: showLoadingIndicator ? 'visible' : 'hidden' }
           }
           size={children ? undefined : 'small'}
         />

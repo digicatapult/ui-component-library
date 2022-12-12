@@ -1,48 +1,69 @@
-import React, {useContext, useEffect, useMemo, useRef, useState} from 'react'
-import {scrollIntoView} from '@primer/behaviors'
-import type {ScrollIntoViewOptions} from '@primer/behaviors'
-import {ActionList, ItemProps} from '../deprecated/ActionList'
-import {useFocusZone} from '../hooks/useFocusZone'
-import {ComponentProps, MandateProps} from '../utils/types'
+import React, { useContext, useEffect, useMemo, useRef, useState } from 'react'
+import { scrollIntoView } from '@primer/behaviors'
+import type { ScrollIntoViewOptions } from '@primer/behaviors'
+import { ActionList, ItemProps } from '../deprecated/ActionList'
+import { useFocusZone } from '../hooks/useFocusZone'
+import { ComponentProps, MandateProps } from '../utils/types'
 import Box from '../Box'
 import Spinner from '../Spinner'
-import {useSSRSafeId} from '../utils/ssr'
-import {AutocompleteContext} from './AutocompleteContext'
-import {PlusIcon} from '@primer/octicons-react'
+import { useSSRSafeId } from '../utils/ssr'
+import { AutocompleteContext } from './AutocompleteContext'
+import { PlusIcon } from '@primer/octicons-react'
 import VisuallyHidden from '../_VisuallyHidden'
 
 type OnSelectedChange<T> = (item: T | T[]) => void
 type AutocompleteMenuItem = MandateProps<ItemProps, 'id'>
 
 const getDefaultSortFn =
-  (isItemSelectedFn: (itemId: string | number) => boolean) => (itemIdA: string | number, itemIdB: string | number) =>
-    isItemSelectedFn(itemIdA) === isItemSelectedFn(itemIdB) ? 0 : isItemSelectedFn(itemIdA) ? -1 : 1
-const menuScrollMargins: ScrollIntoViewOptions = {startMargin: 0, endMargin: 8}
+  (isItemSelectedFn: (itemId: string | number) => boolean) =>
+  (itemIdA: string | number, itemIdB: string | number) =>
+    isItemSelectedFn(itemIdA) === isItemSelectedFn(itemIdB)
+      ? 0
+      : isItemSelectedFn(itemIdA)
+      ? -1
+      : 1
+const menuScrollMargins: ScrollIntoViewOptions = {
+  startMargin: 0,
+  endMargin: 8,
+}
 
-function getDefaultItemFilter<T extends AutocompleteMenuItem>(filterValue: string) {
+function getDefaultItemFilter<T extends AutocompleteMenuItem>(
+  filterValue: string
+) {
   return function (item: T, _i: number) {
-    return Boolean(item.text?.toLowerCase().startsWith(filterValue.toLowerCase()))
+    return Boolean(
+      item.text?.toLowerCase().startsWith(filterValue.toLowerCase())
+    )
   }
 }
 
 function getdefaultCheckedSelectionChange<T extends AutocompleteMenuItem>(
-  setInputValueFn: (value: string) => void,
+  setInputValueFn: (value: string) => void
 ): OnSelectedChange<T> {
   return function (itemOrItems) {
-    const {text = ''} = Array.isArray(itemOrItems) ? itemOrItems.slice(-1)[0] : itemOrItems
+    const { text = '' } = Array.isArray(itemOrItems)
+      ? itemOrItems.slice(-1)[0]
+      : itemOrItems
     setInputValueFn(text)
   }
 }
 
-const isItemSelected = (itemId: string | number, selectedItemIds: Array<string | number>) =>
-  selectedItemIds.includes(itemId)
+const isItemSelected = (
+  itemId: string | number,
+  selectedItemIds: Array<string | number>
+) => selectedItemIds.includes(itemId)
 
-function getItemById<T extends AutocompleteMenuItem>(itemId: string | number, items: T[]) {
-  return items.find(item => item.id === itemId)
+function getItemById<T extends AutocompleteMenuItem>(
+  itemId: string | number,
+  items: T[]
+) {
+  return items.find((item) => item.id === itemId)
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-type AutocompleteItemProps<T = Record<string, any>> = AutocompleteMenuItem & {metadata?: T}
+type AutocompleteItemProps<T = Record<string, any>> = AutocompleteMenuItem & {
+  metadata?: T
+}
 
 // TODO: we should make `aria-labelledby` required for a11y
 export type AutocompleteMenuInternalProps<T extends AutocompleteItemProps> = {
@@ -111,7 +132,9 @@ export type AutocompleteMenuInternalProps<T extends AutocompleteItemProps> = {
   customScrollContainerRef?: React.MutableRefObject<HTMLElement | null>
 } & Pick<React.AriaAttributes, 'aria-labelledby'>
 
-function AutocompleteMenu<T extends AutocompleteItemProps>(props: AutocompleteMenuInternalProps<T>) {
+function AutocompleteMenu<T extends AutocompleteItemProps>(
+  props: AutocompleteMenuInternalProps<T>
+) {
   const autocompleteContext = useContext(AutocompleteContext)
   if (autocompleteContext === null) {
     throw new Error('AutocompleteContext returned null values')
@@ -145,19 +168,26 @@ function AutocompleteMenu<T extends AutocompleteItemProps>(props: AutocompleteMe
   } = props
   const listContainerRef = useRef<HTMLDivElement>(null)
   const [highlightedItem, setHighlightedItem] = useState<T>()
-  const [sortedItemIds, setSortedItemIds] = useState<Array<number | string>>(items.map(({id: itemId}) => itemId))
+  const [sortedItemIds, setSortedItemIds] = useState<Array<number | string>>(
+    items.map(({ id: itemId }) => itemId)
+  )
   const generatedUniqueId = useSSRSafeId(id)
 
   const selectableItems = useMemo(
     () =>
-      items.map(selectableItem => {
+      items.map((selectableItem) => {
         return {
           ...selectableItem,
           role: 'option',
           id: selectableItem.id,
-          selected: selectionVariant === 'multiple' ? selectedItemIds.includes(selectableItem.id) : undefined,
+          selected:
+            selectionVariant === 'multiple'
+              ? selectedItemIds.includes(selectableItem.id)
+              : undefined,
           onAction: (item: T) => {
-            const otherSelectedItemIds = selectedItemIds.filter(selectedItemId => selectedItemId !== item.id)
+            const otherSelectedItemIds = selectedItemIds.filter(
+              (selectedItemId) => selectedItemId !== item.id
+            )
             const newSelectedItemIds = selectedItemIds.includes(item.id)
               ? otherSelectedItemIds
               : [...otherSelectedItemIds, item.id]
@@ -166,7 +196,9 @@ function AutocompleteMenu<T extends AutocompleteItemProps>(props: AutocompleteMe
               : getdefaultCheckedSelectionChange(setInputValue)
 
             onSelectedChangeFn(
-              newSelectedItemIds.map(newSelectedItemId => getItemById(newSelectedItemId, items)) as T[],
+              newSelectedItemIds.map((newSelectedItemId) =>
+                getItemById(newSelectedItemId, items)
+              ) as T[]
             )
 
             if (selectionVariant === 'multiple') {
@@ -174,7 +206,10 @@ function AutocompleteMenu<T extends AutocompleteItemProps>(props: AutocompleteMe
               setAutocompleteSuggestion('')
             } else {
               setShowMenu(false)
-              inputRef.current?.setSelectionRange(inputRef.current.value.length, inputRef.current.value.length)
+              inputRef.current?.setSelectionRange(
+                inputRef.current.value.length,
+                inputRef.current.value.length
+              )
             }
           },
         }
@@ -188,7 +223,7 @@ function AutocompleteMenu<T extends AutocompleteItemProps>(props: AutocompleteMe
       setAutocompleteSuggestion,
       setInputValue,
       setShowMenu,
-    ],
+    ]
   )
 
   const itemSortOrderData = useMemo(
@@ -198,7 +233,7 @@ function AutocompleteMenu<T extends AutocompleteItemProps>(props: AutocompleteMe
 
         return acc
       }, {}),
-    [sortedItemIds],
+    [sortedItemIds]
   )
 
   const sortedAndFilteredItemsToRender = useMemo(
@@ -206,7 +241,7 @@ function AutocompleteMenu<T extends AutocompleteItemProps>(props: AutocompleteMe
       selectableItems
         .filter(filterFn ? filterFn : getDefaultItemFilter(inputValue))
         .sort((a, b) => itemSortOrderData[a.id] - itemSortOrderData[b.id]),
-    [selectableItems, itemSortOrderData, filterFn, inputValue],
+    [selectableItems, itemSortOrderData, filterFn, inputValue]
   )
 
   const allItemsToRender = useMemo(
@@ -222,7 +257,11 @@ function AutocompleteMenu<T extends AutocompleteItemProps>(props: AutocompleteMe
               leadingVisual: () => <PlusIcon />,
               onAction: (item: T) => {
                 // TODO: make it possible to pass a leadingVisual when using `addNewItem`
-                addNewItem.handleAddItem({...item, id: item.id || generatedUniqueId, leadingVisual: undefined})
+                addNewItem.handleAddItem({
+                  ...item,
+                  id: item.id || generatedUniqueId,
+                  leadingVisual: undefined,
+                })
 
                 if (selectionVariant === 'multiple') {
                   setInputValue('')
@@ -240,38 +279,52 @@ function AutocompleteMenu<T extends AutocompleteItemProps>(props: AutocompleteMe
       selectionVariant,
       setInputValue,
       generatedUniqueId,
-    ],
+    ]
   )
 
   useFocusZone(
     {
       containerRef: listContainerRef,
       focusOutBehavior: 'wrap',
-      focusableElementFilter: element => {
+      focusableElementFilter: (element) => {
         return !(element instanceof HTMLInputElement)
       },
       activeDescendantFocus: inputRef,
       onActiveDescendantChanged: (current, _previous, directlyActivated) => {
         activeDescendantRef.current = current || null
         if (current) {
-          const selectedItem = selectableItems.find(item => item.id.toString() === current.getAttribute('data-id'))
+          const selectedItem = selectableItems.find(
+            (item) => item.id.toString() === current.getAttribute('data-id')
+          )
 
           setHighlightedItem(selectedItem)
           setIsMenuDirectlyActivated(directlyActivated)
         }
 
-        if (current && customScrollContainerRef && customScrollContainerRef.current && directlyActivated) {
-          scrollIntoView(current, customScrollContainerRef.current, menuScrollMargins)
+        if (
+          current &&
+          customScrollContainerRef &&
+          customScrollContainerRef.current &&
+          directlyActivated
+        ) {
+          scrollIntoView(
+            current,
+            customScrollContainerRef.current,
+            menuScrollMargins
+          )
         } else if (current && scrollContainerRef.current && directlyActivated) {
           scrollIntoView(current, scrollContainerRef.current, menuScrollMargins)
         }
       },
     },
-    [loading],
+    [loading]
   )
 
   useEffect(() => {
-    if (highlightedItem?.text?.startsWith(inputValue) && !selectedItemIds.includes(highlightedItem.id)) {
+    if (
+      highlightedItem?.text?.startsWith(inputValue) &&
+      !selectedItemIds.includes(highlightedItem.id)
+    ) {
       setAutocompleteSuggestion(highlightedItem.text)
     } else {
       setAutocompleteSuggestion('')
@@ -280,11 +333,15 @@ function AutocompleteMenu<T extends AutocompleteItemProps>(props: AutocompleteMe
 
   useEffect(() => {
     const itemIdSortResult = [...sortedItemIds].sort(
-      sortOnCloseFn ? sortOnCloseFn : getDefaultSortFn(itemId => isItemSelected(itemId, selectedItemIds)),
+      sortOnCloseFn
+        ? sortOnCloseFn
+        : getDefaultSortFn((itemId) => isItemSelected(itemId, selectedItemIds))
     )
     const sortResultMatchesState =
       itemIdSortResult.length === sortedItemIds.length &&
-      itemIdSortResult.every((element, index) => element === sortedItemIds[index])
+      itemIdSortResult.every(
+        (element, index) => element === sortedItemIds[index]
+      )
 
     if (showMenu === false && !sortResultMatchesState) {
       setSortedItemIds(itemIdSortResult)

@@ -1,13 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
-import {width, WidthProps} from 'styled-system'
-import {get} from './constants'
-import sx, {SxProp} from './sx'
+import { width, WidthProps } from 'styled-system'
+import { get } from './constants'
+import sx, { SxProp } from './sx'
 
-type ProgressProp = {progress?: string | number}
+type ProgressProp = { progress?: string | number }
 
 const Bar = styled.span<ProgressProp & SxProp>`
-  width: ${props => (props.progress ? `${props.progress}%` : 0)};
+  width: ${(props) => (props.progress ? `${props.progress}%` : 0)};
 
   ${sx};
 `
@@ -25,22 +25,23 @@ type StyledProgressContainerProps = {
   SxProp
 
 const ProgressContainer = styled.span<StyledProgressContainerProps>`
-  display: ${props => (props.inline ? 'inline-flex' : 'flex')};
+  display: ${(props) => (props.inline ? 'inline-flex' : 'flex')};
   overflow: hidden;
   background-color: ${get('colors.border.default')};
   border-radius: ${get('radii.1')};
-  height: ${props => sizeMap[props.barSize || 'default']};
+  height: ${(props) => sizeMap[props.barSize || 'default']};
 
   ${width}
   ${sx};
 `
 
-export type ProgressBarProps = {bg: string} & StyledProgressContainerProps & ProgressProp
+export type ProgressBarProps = { bg: string } & StyledProgressContainerProps &
+  ProgressProp
 
-function ProgressBar({progress, bg, ...rest}: ProgressBarProps) {
+function ProgressBar({ progress, bg, ...rest }: ProgressBarProps) {
   return (
     <ProgressContainer {...rest}>
-      <Bar progress={progress} sx={{bg}} />
+      <Bar progress={progress} sx={{ bg }} />
     </ProgressContainer>
   )
 }

@@ -1,2 +1,2 @@
-export {default} from './Autocomplete'
-export type {AutocompleteMenuProps, AutocompleteInputProps, AutocompleteOverlayProps} from './Autocomplete'
+export { default } from './Autocomplete'
+export type { AutocompleteMenuProps, AutocompleteInputProps, AutocompleteOverlayProps } from './Autocomplete'

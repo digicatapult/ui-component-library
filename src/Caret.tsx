@@ -1,7 +1,7 @@
 import React from 'react'
-import {ThemeContext} from 'styled-components'
-import {style} from 'styled-system'
-import {Theme} from './ThemeProvider'
+import { ThemeContext } from 'styled-components'
+import { style } from 'styled-system'
+import { Theme } from './ThemeProvider'
 
 type Location =
   | 'top'
@@ -38,7 +38,11 @@ function getEdgeAlign(location: Location) {
   return [edge as Alignment, align as Alignment | undefined] as const
 }
 
-function getPosition(edge: Alignment, align: Alignment | undefined, spacing: number) {
+function getPosition(
+  edge: Alignment,
+  align: Alignment | undefined,
+  spacing: number
+) {
   const opposite = oppositeEdge[edge].toLowerCase()
   const perp = perpendicularEdge[edge].toLowerCase()
   return {
@@ -47,9 +51,13 @@ function getPosition(edge: Alignment, align: Alignment | undefined, spacing: num
   }
 }
 
-const getBg = style({prop: 'bg', key: 'colors'})
-const getBorderColor = style({prop: 'borderColor', key: 'colors'})
-const getBorderWidth = style({prop: 'borderWidth', key: 'borderWidths', scale: [0, 1]})
+const getBg = style({ prop: 'bg', key: 'colors' })
+const getBorderColor = style({ prop: 'borderColor', key: 'colors' })
+const getBorderWidth = style({
+  prop: 'borderWidth',
+  key: 'borderWidths',
+  scale: [0, 1],
+})
 
 export type CaretProps = {
   bg?: string
@@ -62,11 +70,11 @@ export type CaretProps = {
 
 function Caret(props: CaretProps) {
   const theme = React.useContext(ThemeContext)
-  const propsWithTheme = {...props, theme: props.theme ?? theme}
-  const {bg} = getBg(propsWithTheme)
-  const {borderColor} = getBorderColor(propsWithTheme)
-  const {borderWidth} = getBorderWidth(propsWithTheme)
-  const {size = 8, location = 'bottom'} = props
+  const propsWithTheme = { ...props, theme: props.theme ?? theme }
+  const { bg } = getBg(propsWithTheme)
+  const { borderColor } = getBorderColor(propsWithTheme)
+  const { borderWidth } = getBorderWidth(propsWithTheme)
+  const { size = 8, location = 'bottom' } = props
   const [edge, align] = getEdgeAlign(location)
   const perp = perpendicularEdge[edge]
 
@@ -103,7 +111,12 @@ function Caret(props: CaretProps) {
     >
       <g transform={transform}>
         <path d={triangle} fill={bg} />
-        <path d={line} fill="none" stroke={borderColor} strokeWidth={borderWidth} />
+        <path
+          d={line}
+          fill="none"
+          stroke={borderColor}
+          strokeWidth={borderWidth}
+        />
       </g>
     </svg>
   )

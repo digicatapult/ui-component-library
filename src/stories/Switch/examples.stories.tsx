@@ -1,9 +1,9 @@
 import React from 'react'
-import {Meta} from '@storybook/react'
+import { Meta } from '@storybook/react'
 
-import {BaseStyles, Box, ToggleSwitch, Text, ThemeProvider} from '../../'
-import {ComponentProps} from '../../utils/types'
-import {action} from '@storybook/addon-actions'
+import { BaseStyles, Box, ToggleSwitch, Text, ThemeProvider } from '../../'
+import { ComponentProps } from '../../utils/types'
+import { action } from '@storybook/addon-actions'
 
 type Args = ComponentProps<typeof ToggleSwitch>
 
@@ -49,9 +49,9 @@ export default {
       options: ['small', 'medium'],
     },
   },
-  parameters: {controls: {exclude: excludedControlKeys}},
+  parameters: { controls: { exclude: excludedControlKeys } },
   decorators: [
-    Story => {
+    (Story) => {
       return (
         <ThemeProvider>
           <BaseStyles>
@@ -102,14 +102,26 @@ export const Controlled = (args: Args) => {
     </>
   )
 }
-Controlled.parameters = {controls: {exclude: [...excludedControlKeys, 'on']}}
+Controlled.parameters = {
+  controls: { exclude: [...excludedControlKeys, 'on'] },
+}
 
 export const StatusLabelPositionedAtEnd = (args: Args) => (
   <>
-    <Text fontSize={2} fontWeight="bold" id="switchLabel" display="block" mb={1}>
+    <Text
+      fontSize={2}
+      fontWeight="bold"
+      id="switchLabel"
+      display="block"
+      mb={1}
+    >
       Notifications
     </Text>
-    <ToggleSwitch statusLabelPosition="end" {...args} aria-labelledby="switchLabel" />
+    <ToggleSwitch
+      statusLabelPosition="end"
+      {...args}
+      aria-labelledby="switchLabel"
+    />
   </>
 )
 StatusLabelPositionedAtEnd.storyName = 'statusLabelPosition="end"'

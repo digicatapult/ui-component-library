@@ -1,4 +1,4 @@
-import {ChangeEventHandler, createContext} from 'react'
+import { ChangeEventHandler, createContext } from 'react'
 
 export const CheckboxGroupContext = createContext<{
   disabled?: boolean

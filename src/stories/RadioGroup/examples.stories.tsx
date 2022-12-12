@@ -1,7 +1,7 @@
 import React from 'react'
-import {Meta} from '@storybook/react'
-import {BaseStyles, RadioGroup, FormControl, ThemeProvider} from '../../'
-import {CheckboxOrRadioGroupArgs} from '../../utils/story-helpers'
+import { Meta } from '@storybook/react'
+import { BaseStyles, RadioGroup, FormControl, ThemeProvider } from '../../'
+import { CheckboxOrRadioGroupArgs } from '../../utils/story-helpers'
 import Radio from '../../Radio'
 
 export default {
@@ -64,9 +64,11 @@ export default {
       },
     },
   },
-  parameters: {controls: {exclude: ['aria-labelledby', 'id', 'onChange', 'sx', 'name']}},
+  parameters: {
+    controls: { exclude: ['aria-labelledby', 'id', 'onChange', 'sx', 'name'] },
+  },
   decorators: [
-    Story => {
+    (Story) => {
       return (
         <ThemeProvider>
           <BaseStyles>
@@ -87,14 +89,16 @@ export const Default = ({
   validationChildren,
   variant,
 }: CheckboxOrRadioGroupArgs) => {
-  const parentArgs = {disabled, required}
-  const labelArgs = {children: labelChildren, visuallyHidden}
-  const validationArgs = {children: validationChildren, variant}
+  const parentArgs = { disabled, required }
+  const labelArgs = { children: labelChildren, visuallyHidden }
+  const validationArgs = { children: validationChildren, variant }
 
   return (
     <RadioGroup {...parentArgs} name="defaultRadioGroup">
       {labelArgs.children && <RadioGroup.Label {...labelArgs} />}
-      {captionChildren && <RadioGroup.Caption>{captionChildren}</RadioGroup.Caption>}
+      {captionChildren && (
+        <RadioGroup.Caption>{captionChildren}</RadioGroup.Caption>
+      )}
       <FormControl>
         <Radio value="one" />
         <FormControl.Label>Choice one</FormControl.Label>

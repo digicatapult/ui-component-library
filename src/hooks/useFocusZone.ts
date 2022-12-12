@@ -1,9 +1,9 @@
-import React, {useEffect} from 'react'
-import {focusZone} from '@primer/behaviors'
-import type {FocusZoneSettings} from '@primer/behaviors'
-import {useProvidedRefOrCreate} from './useProvidedRefOrCreate'
-export {FocusKeys} from '@primer/behaviors'
-export type {Direction} from '@primer/behaviors'
+import React, { useEffect } from 'react'
+import { focusZone } from '@primer/behaviors'
+import type { FocusZoneSettings } from '@primer/behaviors'
+import { useProvidedRefOrCreate } from './useProvidedRefOrCreate'
+export { FocusKeys } from '@primer/behaviors'
+export type { Direction } from '@primer/behaviors'
 
 export interface FocusZoneHookSettings extends Omit<FocusZoneSettings, 'activeDescendantControl'> {
   /**
@@ -27,8 +27,8 @@ export interface FocusZoneHookSettings extends Omit<FocusZoneSettings, 'activeDe
 
 export function useFocusZone(
   settings: FocusZoneHookSettings = {},
-  dependencies: React.DependencyList = [],
-): {containerRef: React.RefObject<HTMLElement>; activeDescendantControlRef: React.RefObject<HTMLElement>} {
+  dependencies: React.DependencyList = []
+): { containerRef: React.RefObject<HTMLElement>; activeDescendantControlRef: React.RefObject<HTMLElement> } {
   const containerRef = useProvidedRefOrCreate(settings.containerRef)
   const useActiveDescendant = !!settings.activeDescendantFocus
   const passedActiveDescendantRef =
@@ -48,7 +48,7 @@ export function useFocusZone(
         if (!disabled) {
           const vanillaSettings: FocusZoneSettings = {
             ...settings,
-            activeDescendantControl: activeDescendantControlRef.current ?? undefined,
+            activeDescendantControl: activeDescendantControlRef.current ?? undefined
           }
           abortController.current = focusZone(containerRef.current, vanillaSettings)
           return () => {
@@ -60,8 +60,8 @@ export function useFocusZone(
       }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [disabled, ...dependencies],
+    [disabled, ...dependencies]
   )
 
-  return {containerRef, activeDescendantControlRef}
+  return { containerRef, activeDescendantControlRef }
 }

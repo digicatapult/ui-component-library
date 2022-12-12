@@ -1,13 +1,15 @@
-import React, {ChangeEvent, ChangeEventHandler, FC} from 'react'
-import CheckboxOrRadioGroup, {CheckboxOrRadioGroupProps} from './_CheckboxOrRadioGroup'
+import React, { ChangeEvent, ChangeEventHandler, FC } from 'react'
+import CheckboxOrRadioGroup, {
+  CheckboxOrRadioGroupProps,
+} from './_CheckboxOrRadioGroup'
 import CheckboxOrRadioGroupCaption from './_CheckboxOrRadioGroup/_CheckboxOrRadioGroupCaption'
 import CheckboxOrRadioGroupLabel from './_CheckboxOrRadioGroup/_CheckboxOrRadioGroupLabel'
 import CheckboxOrRadioGroupValidation from './_CheckboxOrRadioGroup/_CheckboxOrRadioGroupValidation'
-import {useRenderForcingRef} from './hooks'
-import {SxProp} from './sx'
+import { useRenderForcingRef } from './hooks'
+import { SxProp } from './sx'
 import FormControl from './FormControl'
 import Checkbox from './Checkbox'
-import {CheckboxGroupContext} from './CheckboxGroupContext'
+import { CheckboxGroupContext } from './CheckboxGroupContext'
 
 type CheckboxGroupProps = {
   /**
@@ -17,41 +19,60 @@ type CheckboxGroupProps = {
 } & CheckboxOrRadioGroupProps &
   SxProp
 
-const CheckboxGroup: FC<React.PropsWithChildren<CheckboxGroupProps>> = ({children, disabled, onChange, ...rest}) => {
+const CheckboxGroup: FC<React.PropsWithChildren<CheckboxGroupProps>> = ({
+  children,
+  disabled,
+  onChange,
+  ...rest
+}) => {
   const formControlComponentChildren = React.Children.toArray(children)
-    .filter(child => React.isValidElement(child) && child.type === FormControl)
-    .map(formControlComponent =>
-      React.isValidElement(formControlComponent) ? formControlComponent.props.children : [],
+    .filter(
+      (child) => React.isValidElement(child) && child.type === FormControl
+    )
+    .map((formControlComponent) =>
+      React.isValidElement(formControlComponent)
+        ? formControlComponent.props.children
+        : []
     )
     .flat()
 
   const checkedCheckboxes = React.Children.toArray(formControlComponentChildren)
-    .filter(child => React.isValidElement(child) && child.type === Checkbox)
+    .filter((child) => React.isValidElement(child) && child.type === Checkbox)
     .map(
-      checkbox =>
+      (checkbox) =>
         React.isValidElement(checkbox) &&
         (checkbox.props.checked || checkbox.props.defaultChecked) &&
-        checkbox.props.value,
+        checkbox.props.value
     )
     .filter(Boolean)
-  const [selectedCheckboxValues, setSelectedCheckboxValues] = useRenderForcingRef<string[]>(checkedCheckboxes)
+  const [selectedCheckboxValues, setSelectedCheckboxValues] =
+    useRenderForcingRef<string[]>(checkedCheckboxes)
 
-  const updateSelectedCheckboxes: ChangeEventHandler<HTMLInputElement> = e => {
-    const {value, checked} = e.currentTarget
+  const updateSelectedCheckboxes: ChangeEventHandler<HTMLInputElement> = (
+    e
+  ) => {
+    const { value, checked } = e.currentTarget
 
     if (checked) {
-      setSelectedCheckboxValues([...(selectedCheckboxValues.current || []), value])
+      setSelectedCheckboxValues([
+        ...(selectedCheckboxValues.current || []),
+        value,
+      ])
       return
     }
 
-    setSelectedCheckboxValues((selectedCheckboxValues.current || []).filter(selectedValue => selectedValue !== value))
+    setSelectedCheckboxValues(
+      (selectedCheckboxValues.current || []).filter(
+        (selectedValue) => selectedValue !== value
+      )
+    )
   }
 
   return (
     <CheckboxGroupContext.Provider
       value={{
         disabled,
-        onChange: e => {
+        onChange: (e) => {
           if (onChange) {
             updateSelectedCheckboxes(e)
             onChange(selectedCheckboxValues.current || [], e)
@@ -66,7 +87,7 @@ const CheckboxGroup: FC<React.PropsWithChildren<CheckboxGroupProps>> = ({childre
   )
 }
 
-export {CheckboxGroupContext}
+export { CheckboxGroupContext }
 
 export default Object.assign(CheckboxGroup, {
   Caption: CheckboxOrRadioGroupCaption,

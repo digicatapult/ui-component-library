@@ -1,7 +1,7 @@
 import React from 'react'
-import {SxProp} from '../sx'
+import { SxProp } from '../sx'
 import createSlots from '../utils/create-slots'
-import {AriaRole} from '../utils/types'
+import { AriaRole } from '../utils/types'
 
 export type ActionListItemProps = {
   /**
@@ -52,13 +52,13 @@ export type ItemContext = Pick<ActionListItemProps, 'variant' | 'disabled'> & {
 
 export const getVariantStyles = (
   variant: ActionListItemProps['variant'],
-  disabled: ActionListItemProps['disabled'],
+  disabled: ActionListItemProps['disabled']
 ) => {
   if (disabled) {
     return {
       color: 'primer.fg.disabled',
       iconColor: 'primer.fg.disabled',
-      annotationColor: 'primer.fg.disabled',
+      annotationColor: 'primer.fg.disabled'
     }
   }
 
@@ -68,18 +68,18 @@ export const getVariantStyles = (
         color: 'danger.fg',
         iconColor: 'danger.fg',
         annotationColor: 'fg.muted',
-        hoverColor: 'actionListItem.danger.hoverText',
+        hoverColor: 'actionListItem.danger.hoverText'
       }
     default:
       return {
         color: 'fg.default',
         iconColor: 'fg.muted',
         annotationColor: 'fg.muted',
-        hoverColor: 'fg.default',
+        hoverColor: 'fg.default'
       }
   }
 }
 
-export const {Slots, Slot} = createSlots(['LeadingVisual', 'InlineDescription', 'BlockDescription', 'TrailingVisual'])
+export const { Slots, Slot } = createSlots(['LeadingVisual', 'InlineDescription', 'BlockDescription', 'TrailingVisual'])
 
 export const TEXT_ROW_HEIGHT = '20px' // custom value off the scale

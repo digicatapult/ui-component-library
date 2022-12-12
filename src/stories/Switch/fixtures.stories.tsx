@@ -1,8 +1,8 @@
 import React from 'react'
-import {Meta} from '@storybook/react'
+import { Meta } from '@storybook/react'
 
-import {BaseStyles, Box, ToggleSwitch, Text, ThemeProvider} from '../../'
-import {ComponentProps} from '../../utils/types'
+import { BaseStyles, Box, ToggleSwitch, Text, ThemeProvider } from '../../'
+import { ComponentProps } from '../../utils/types'
 
 type Args = ComponentProps<typeof ToggleSwitch>
 
@@ -39,11 +39,18 @@ export default {
   },
   parameters: {
     controls: {
-      exclude: ['aria-describedby', 'aria-labelledby', 'defaultChecked', 'onChange', 'onClick', 'statusLabelPosition'],
+      exclude: [
+        'aria-describedby',
+        'aria-labelledby',
+        'defaultChecked',
+        'onChange',
+        'onClick',
+        'statusLabelPosition',
+      ],
     },
   },
   decorators: [
-    Story => {
+    (Story) => {
       return (
         <ThemeProvider>
           <BaseStyles>
@@ -71,10 +78,15 @@ export const WithCaption = (args: Args) => (
         Notifications
       </Text>
       <Text color="fg.subtle" fontSize={1} id="switchCaption" display="block">
-        Notifications will be delivered via email and the GitHub notification center
+        Notifications will be delivered via email and the GitHub notification
+        center
       </Text>
     </Box>
-    <ToggleSwitch {...args} aria-labelledby="switchLabel" aria-describedby="switchCaption" />
+    <ToggleSwitch
+      {...args}
+      aria-labelledby="switchLabel"
+      aria-describedby="switchCaption"
+    />
   </Box>
 )
 WithCaption.storyName = 'Associated with a caption'

@@ -1,4 +1,4 @@
-import {Box} from '.'
+import { Box } from '.'
 import React from 'react'
 
 /** Private component used to render placeholders in storybook and documentation examples  */
@@ -9,7 +9,7 @@ export const Placeholder: React.FC<
     height: number | string
     label?: string
   }>
-> = ({width, height, id, label}) => {
+> = ({ width, height, id, label }) => {
   return (
     <Box
       id={id}

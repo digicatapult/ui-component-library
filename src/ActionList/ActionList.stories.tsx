@@ -1,17 +1,23 @@
 import React from 'react'
-import {Story, Meta} from '@storybook/react'
-import {ActionList, ActionListProps, ActionListGroupProps} from '.'
-import {Item} from './Item'
-import {LinkItem} from './LinkItem'
-import {Group} from './Group'
-import {Divider} from './Divider'
-import {Description} from './Description'
-import {TypographyIcon, VersionsIcon, SearchIcon, ArrowRightIcon, ArrowLeftIcon} from '@primer/octicons-react'
+import { Story, Meta } from '@storybook/react'
+import { ActionList, ActionListProps, ActionListGroupProps } from '.'
+import { Item } from './Item'
+import { LinkItem } from './LinkItem'
+import { Group } from './Group'
+import { Divider } from './Divider'
+import { Description } from './Description'
+import {
+  TypographyIcon,
+  VersionsIcon,
+  SearchIcon,
+  ArrowRightIcon,
+  ArrowLeftIcon,
+} from '@primer/octicons-react'
 
 export default {
   title: 'Components/ActionList',
   component: ActionList,
-  subcomponents: {Item, LinkItem, Group, Divider, Description},
+  subcomponents: { Item, LinkItem, Group, Divider, Description },
 } as Meta<typeof ActionList>
 
 export const Default = () => (
@@ -22,7 +28,7 @@ export const Default = () => (
   </ActionList>
 )
 
-export const Playground: Story<ActionListProps> = args => (
+export const Playground: Story<ActionListProps> = (args) => (
   <ActionList {...args}>
     <ActionList.Item>Copy link</ActionList.Item>
     <ActionList.Item>Quote reply</ActionList.Item>
@@ -60,10 +66,17 @@ Playground.argTypes = {
   },
 }
 
-const icons = ['unset', 'TypographyIcon', 'VersionsIcon', 'SearchIcon', 'ArrowRightIcon', 'ArrowLeftIcon']
+const icons = [
+  'unset',
+  'TypographyIcon',
+  'VersionsIcon',
+  'SearchIcon',
+  'ArrowRightIcon',
+  'ArrowLeftIcon',
+]
 
 // @ts-ignore ignoring types here to pass in options for icon selection in Storybook
-export const ItemPlayground = args => {
+export const ItemPlayground = (args) => {
   let leadingVisual
   if (args.leadingVisual === 'TypographyIcon') {
     leadingVisual = <TypographyIcon />
@@ -97,9 +110,15 @@ export const ItemPlayground = args => {
   return (
     <ActionList selectionVariant={args.selectionVariant}>
       <ActionList.Item {...args}>
-        {leadingVisual && <ActionList.LeadingVisual>{leadingVisual}</ActionList.LeadingVisual>}
+        {leadingVisual && (
+          <ActionList.LeadingVisual>{leadingVisual}</ActionList.LeadingVisual>
+        )}
         Action list item
-        {trailingVisual && <ActionList.TrailingVisual>{trailingVisual}</ActionList.TrailingVisual>}
+        {trailingVisual && (
+          <ActionList.TrailingVisual>
+            {trailingVisual}
+          </ActionList.TrailingVisual>
+        )}
       </ActionList.Item>
     </ActionList>
   )
@@ -144,7 +163,7 @@ ItemPlayground.argTypes = {
   },
   selectionVariant: {
     control: 'radio',
-    if: {arg: 'selected'},
+    if: { arg: 'selected' },
     options: ['single', 'multiple'],
     table: {
       category: 'ActionList',
@@ -164,7 +183,7 @@ ItemPlayground.args = {
 }
 
 // @ts-ignore ignoring types here to pass in options for icon selection in Storybook
-export const LinkItemPlayground = args => {
+export const LinkItemPlayground = (args) => {
   let leadingVisual
   if (args.leadingVisual === 'TypographyIcon') {
     leadingVisual = <TypographyIcon />
@@ -198,9 +217,15 @@ export const LinkItemPlayground = args => {
   return (
     <ActionList>
       <ActionList.LinkItem {...args}>
-        {leadingVisual && <ActionList.LeadingVisual>{leadingVisual}</ActionList.LeadingVisual>}
+        {leadingVisual && (
+          <ActionList.LeadingVisual>{leadingVisual}</ActionList.LeadingVisual>
+        )}
         Action list item
-        {trailingVisual && <ActionList.TrailingVisual>{trailingVisual}</ActionList.TrailingVisual>}
+        {trailingVisual && (
+          <ActionList.TrailingVisual>
+            {trailingVisual}
+          </ActionList.TrailingVisual>
+        )}
       </ActionList.LinkItem>
     </ActionList>
   )
@@ -242,7 +267,7 @@ LinkItemPlayground.argTypes = {
   },
 }
 
-export const GroupPlayground: Story<ActionListGroupProps> = args => (
+export const GroupPlayground: Story<ActionListGroupProps> = (args) => (
   <ActionList>
     <ActionList.Group {...args}>
       <ActionList.Item>Item 1</ActionList.Item>

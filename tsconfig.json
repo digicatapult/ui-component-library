@@ -7,7 +7,7 @@
     "jsx": "react-jsx",
     "declaration": true,
     "strict": true,
-    "moduleResolution": "NodeNext",
+    "moduleResolution": "node",
     "outDir": "lib",
     "rootDirs": ["src"],
     "esModuleInterop": true,

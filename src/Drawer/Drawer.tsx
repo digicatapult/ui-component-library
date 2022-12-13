@@ -152,6 +152,10 @@ const DrawerHeaderWrapper = styled('button')<DrawerHeaderProps>`
   background: ${({ background }) => background};
   padding: 8px 16px;
   border: 0;
+
+  :hover {
+    cursor: pointer;
+  }
 `
 
 // Overflow wrapper to ensure that when we hide the content the translated element

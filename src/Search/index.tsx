@@ -1,17 +1,21 @@
-import React from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import styled from 'styled-components'
 
 export interface SearchProps {
   placeholder?: string
   color?: string
   background?: string
+  debounce?: number
+  onSubmit: (value: string | null) => void
 }
 
-interface SearchWrapperProps {
+interface SearchWrapperProps extends React.DOMAttributes<HTMLFormElement> {
   color: string
 }
 
-interface SearchInputProps extends React.DOMAttributes<HTMLInputElement> {}
+interface SearchInputProps extends React.DOMAttributes<HTMLInputElement> {
+  color: string
+}
 
 interface SearchIconProps extends React.DOMAttributes<HTMLButtonElement> {
   color: string
@@ -21,19 +25,59 @@ const Search: React.FC<SearchProps> = ({
   placeholder,
   color = 'black',
   background = 'transparent',
+  debounce = 250,
+  onSubmit,
 }) => {
+  const [search, setSearch] = useState<string | null>(null)
+  const [hasSubmitted, setHasSubmitted] = useState(true)
+
+  const handleSearchChange: React.ChangeEventHandler<HTMLInputElement> =
+    useCallback(
+      (event) => {
+        const target = event.target as HTMLInputElement
+        setSearch(target.value || null)
+        setHasSubmitted(false)
+      },
+      [setSearch, setHasSubmitted]
+    )
+
+  const handleSubmit = useCallback(
+    (event: React.FormEvent<HTMLFormElement> | null) => {
+      event?.preventDefault()
+      if (!hasSubmitted) {
+        onSubmit(search)
+        setHasSubmitted(true)
+      }
+    },
+    [search, hasSubmitted, setHasSubmitted, onSubmit]
+  )
+
+  useEffect(() => {
+    const timeoutHandler = setTimeout(() => {
+      handleSubmit(null)
+    }, debounce)
+
+    return () => clearTimeout(timeoutHandler)
+  }, [debounce, search, handleSubmit])
+
   return (
-    <SearchWrapper color={background}>
-      <SearchInput placeholder={placeholder}></SearchInput>
+    <SearchWrapper color={background} onSubmit={handleSubmit}>
+      <SearchInput
+        placeholder={placeholder}
+        type="search"
+        name="search"
+        color={color}
+        onChange={handleSearchChange}
+      ></SearchInput>
       <SearchIcon color={color} />
     </SearchWrapper>
   )
 }
 
-const SearchWrapper = styled.div<SearchWrapperProps>`
+const SearchWrapper = styled.form<SearchWrapperProps>`
   display: flex;
   width: 100%;
-  min-width: 100px;
+  min-width: 250px;
   align-items: center;
   justify-content: space-between;
   border: 1px solid black;
@@ -50,10 +94,18 @@ const SearchInput = styled.input<SearchInputProps>`
   flex-grow: 1;
   flex-shrink: 1;
   border: 0;
+  font: inherit;
+
+  :focus {
+    border: 1px solid ${({ color }) => color};
+    border-radius: 7px;
+    outline: 0;
+  }
 `
 
 const SearchIcon = styled.button<SearchIconProps>`
   position: relative;
+  font: inherit;
   flex-grow: 0;
   flex-shrink: 0;
   width: 2em;
@@ -85,6 +137,10 @@ const SearchIcon = styled.button<SearchIconProps>`
     background: ${({ color }) => color};
     transform: rotateZ(40deg);
     transform-origin: bottom right
+  }
+
+  :hover {
+    cursor: pointer;
   }
 `
 

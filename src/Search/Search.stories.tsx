@@ -2,6 +2,7 @@ import React from 'react'
 import { Search } from '../index.js'
 import { Story } from '@storybook/react'
 import styled from 'styled-components'
+import { action } from '@storybook/addon-actions'
 
 export default {
   title: 'Components/Search',
@@ -10,11 +11,16 @@ export default {
 
 const DefaultStoryTemplate: Story = (args) => {
   return (
-    <SearchHost background={args.color} containerWidth={args.containerWidth}>
+    <SearchHost
+      background={args.color}
+      containerWidth={args.containerWidth}
+      fontSize={args.fontSize}
+    >
       <Search
         placeholder={args.placeholder}
         color={args.color}
         background={args.background}
+        onSubmit={action('submit')}
       />
     </SearchHost>
   )
@@ -25,15 +31,18 @@ Default.args = {
   color: '#216968',
   background: 'white',
   containerWidth: 'min-content',
+  fontSize: '1rem',
 }
 
 interface SearchHostProps {
   background: string
   containerWidth: string
+  fontSize: string
 }
 const SearchHost = styled.div<SearchHostProps>`
   display: flex;
   justify-content: center;
   width: ${({ containerWidth }) => containerWidth};
   background: ${({ background }) => background};
+  font-size: ${({ fontSize }) => fontSize};
 `

@@ -1,25 +1,41 @@
 import React from 'react'
-import { Story } from '@storybook/react'
+import { Story, Meta } from '@storybook/react'
 
 import AppBar from './index'
 
 export default {
-  title: 'AppBar Component',
+  title: 'Components/AppBar',
   component: AppBar,
-}
+  argTypes: {
+    fixed: {
+      control: {
+        type: 'boolean',
+      },
+    },
+    width: {
+      control: {
+        type: 'string',
+      },
+    },
+    variant: {
+      control: {
+        type: 'radio',
+        options: ['default', 'inverted'],
+      },
+    },
+  },
+  args: {
+    fixed: false,
+    variant: 'default',
+    width: '100%',
+    children: [<div>1</div>, <div>2</div>],
+  },
+} as Meta<typeof AppBar>
 
-export const Default: Story = () => {
-  return (
-    <AppBar />
-  )
-}
-
-export const DefaultWithChildren: Story = () => {
-    return (
-      <AppBar>
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
-      </AppBar>
-    )
-  }
+export const Playground: Story<typeof AppBar> = args => <AppBar {...args} />
+export const Default: Story<typeof AppBar> = () =>  <AppBar />
+export const DefaultWithChildren: Story<typeof AppBar> = () => <AppBar>
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+</AppBar>

@@ -12,9 +12,11 @@ interface AppBarProps {
   position?: string
   background?: string
   theme?: object
+  children?: React.ReactNode
 }
 
-export interface AppBar extends React.FC<PropsWithChildren<AppBarProps>> {
+export interface AppBar {
+  (args: AppBarProps): React.ReactElement
   Item?: React.FC<PropsWithChildren<AppBarProps>>
 }
 
@@ -83,10 +85,10 @@ const Li = styled('li')<AppBarProps>`
   }
 `
 
-const Item: React.FC<PropsWithChildren> = ({
+const Item = ({
   children,
   ...props
-}: PropsWithChildren<{ active?: boolean }>) => {
+}: PropsWithChildren<AppBarProps>): JSX.Element => {
   return (
     <Li>
       <Link href="#" {...props}>

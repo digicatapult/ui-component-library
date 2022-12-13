@@ -31,22 +31,28 @@ interface Item {
 // TODO props per dom element as well as all for appbar
 const Wrapper = styled('div')`
   display: flex;
-  width: ${({ width }: AppBarProps) => width || '100%'};
   flex-direction: row;
   justify-content: space-between;
   box-sizing: border-box;
   transition: box-shadow 1s cubic-bezier(0.8, 1, 0.2, 1) 3s;
-  box-shadow: ${({ shadow }: AppBarProps) =>
-    shadow || false
-      ? '0px 3px 5px -2px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);'
-      : 'none'};
-  background-color: ${({ color, theme }: AppBarProps) =>
-    color || theme?.primary || '#FFFE'};
-  color: ${({ theme }: AppBarProps) => theme?.accent || '#000'};
+  ${({ shadow, width, color, theme }: AppBarProps) => `
+    width: ${width || '100%'};
+    box-shadow: ${
+      shadow || false
+        ? '0px 3px 5px -2px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);'
+        : 'none'
+    };
+    background-color: ${color || theme?.primary || '#FFFE'};
+    color: ${theme?.accent || '#000'};
+  `}
 `
 
 const ToolBar = styled('ul')`
-  position: ${({ fixed }: AppBarProps) => (fixed ? 'fixed' : 'relative')};
+  ${({ fixed, direction, padding }: AppBarProps) => `
+    position: ${fixed ? 'fixed' : 'relative'};
+    flex-direction: ${direction || 'row'};
+    padding: ${padding || '0px 25px'};
+  `}
   margin: 0;
   list-style-type: none;
   width: 100%;
@@ -56,8 +62,6 @@ const ToolBar = styled('ul')`
   height: 100%;
   min-height: 74px;
   gap: 15px;
-  flex-direction: ${({ direction }: AppBarProps) => direction || 'row'};
-  padding: ${({ padding }: AppBarProps) => padding || '0px 25px'};
   padding-left: 54px;
 `
 

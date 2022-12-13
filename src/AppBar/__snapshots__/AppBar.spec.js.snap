@@ -6,7 +6,6 @@ exports[`AppBar default 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  width: 100%;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
@@ -17,6 +16,7 @@ exports[`AppBar default 1`] = `
   box-sizing: border-box;
   -webkit-transition: box-shadow 1s cubic-bezier(0.8,1,0.2,1) 3s;
   transition: box-shadow 1s cubic-bezier(0.8,1,0.2,1) 3s;
+  width: 100%;
   box-shadow: none;
   background-color: #FFFE;
   color: #000;
@@ -24,6 +24,10 @@ exports[`AppBar default 1`] = `
 
 .c1 {
   position: relative;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  padding: 0px 25px;
   margin: 0;
   list-style-type: none;
   width: 100%;
@@ -42,10 +46,6 @@ exports[`AppBar default 1`] = `
   height: 100%;
   min-height: 74px;
   gap: 15px;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  padding: 0px 25px;
   padding-left: 54px;
 }
 

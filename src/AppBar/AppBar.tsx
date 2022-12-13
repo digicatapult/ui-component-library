@@ -40,6 +40,7 @@ const Wrapper = styled('div')<AppBarProps>`
 
 const ToolBar = styled('ul')<AppBarProps>`
   position: ${({ fixed }) => (fixed ? 'fixed' : 'relative')};
+  margin: 0;
   list-style-type: none;
   width: 100%;
   display: flex;

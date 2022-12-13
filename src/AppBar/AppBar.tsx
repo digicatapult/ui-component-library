@@ -60,7 +60,7 @@ const Bar = styled('div')<AppBarProps>`
 `
 
 const ItemStyle = styled('div')<AppBarProps>`
-  font-family: 'Roboto';
+  font-family: Roboto;
   font-style: normal;
   font-weight: 700;
   padding: 0px 10px;

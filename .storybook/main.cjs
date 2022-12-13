@@ -8,6 +8,9 @@ module.exports = {
     builder: 'webpack5'
   },
   framework: '@storybook/react',
+  features: {
+    interactionsDebugger: true,
+  },
   typescript: {
     check: false,
     reactDocgen: 'react-docgen-typescript',

@@ -15,6 +15,11 @@ export default {
         type: 'boolean',
       },
     },
+    color: {
+      control: {
+        type: 'text',
+      },
+    },
     width: {
       control: {
         type: 'text',
@@ -33,26 +38,37 @@ export default {
     variant: {
       control: {
         type: 'radio',
-        options: ['default', 'inverted'],
+        options: ['default', 'inverted'], // TODO  invert accent and primarhy colors
       },
     },
   },
   args: {
     fixed: false,
+    color: '#FFA',
     variant: 'default',
     width: '100%',
     shadow: true,
     search: false,
-    children: [<div>1</div>, <div>2</div>],
+    children: [
+      <AppBar.Item>item one</AppBar.Item>,
+      <AppBar.Item>item two</AppBar.Item>,
+    ],
   },
-} as Meta<typeof AppBar>
+} as Meta<React.ComponentProps<typeof AppBar>>
 
 export const Playground: Story<typeof AppBar> = (args) => <AppBar {...args} />
-export const Default: Story<typeof AppBar> = () => <AppBar />
-export const DefaultWithChildren: Story<typeof AppBar> = () => (
-  <AppBar>
-    <div>1</div>
-    <div>2</div>
-    <div>3</div>
+
+// TODO replace children with app bar items
+export const HII: Story<typeof AppBar> = () => (
+  <AppBar
+    shadow={false}
+    theme={{
+      primary: '#27847A',
+      accent: '#FFF',
+    }}
+  >
+    <AppBar.Item>what we do</AppBar.Item>
+    <AppBar.Item>maps</AppBar.Item>
+    <AppBar.Item>contact us</AppBar.Item>
   </AppBar>
 )

@@ -69,9 +69,7 @@ const ItemStyle = styled('div')<AppBarProps>`
   line-height: 15px;
 `
 
-const Item: React.FC<PropsWithChildren<AppBarProps>> = ({
-  children,
-}: PropsWithChildren<AppBarProps>) => {
+const Item: React.FC<PropsWithChildren> = ({ children }: PropsWithChildren) => {
   return <ItemStyle>{children}</ItemStyle>
 }
 

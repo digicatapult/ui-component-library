@@ -8,10 +8,15 @@ export default {
   component: Drawer,
 } as Meta<React.ComponentProps<typeof Drawer>>
 
-export const Simple: Story = () => {
+const Template: Story = (args) => {
   return (
     <StoryWrapper>
-      <Drawer>
+      <Drawer
+        title={args.title}
+        width={args.width}
+        color={args.color}
+        background={args.background}
+      >
         Test
         <DrawerContentMock />
         Test2
@@ -22,10 +27,18 @@ export const Simple: Story = () => {
   )
 }
 
-export const WithOverrides: Story = () => {
+export const Default = Template.bind({})
+Default.args = {
+  title: 'DRAWER',
+  width: '400px',
+  color: 'white',
+  background: '#7BB79B',
+}
+
+export const NoParams: Story = () => {
   return (
     <StoryWrapper>
-      <Drawer title="DRAWER" width="400px" color="white" background="#7BB79B">
+      <Drawer>
         Test
         <DrawerContentMock />
         Test2

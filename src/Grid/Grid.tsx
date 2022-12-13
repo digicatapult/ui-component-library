@@ -8,6 +8,7 @@ export interface GridLayout {
   rows: string[]
   columns: string[]
   gap?: string
+  alignItems?: 'center' | 'start' | 'end' | 'flex-start' | 'flex-end'
 }
 
 export interface GridLayoutByWidth extends GridLayout {
@@ -34,12 +35,20 @@ const Grid: Grid = Object.assign(
 
 Grid.Panel = Panel
 
-const interpolateLayout = ({ areas, rows, columns, gap }: GridLayout) => {
+const interpolateLayout = ({
+  areas,
+  rows,
+  columns,
+  gap,
+  alignItems,
+}: GridLayout) => {
   return `
     grid-template-areas: ${areas.map((row) => `"${row.join(' ')}"`).join('\n')};
     grid-template-rows: ${rows.join(' ')};
     grid-template-columns: ${columns.join(' ')};
     gap: ${gap || '0px'};
+    ${alignItems ? `align-items: ${alignItems};` : ''}
+
   `
 }
 

@@ -1,0 +1,329 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Drawer simple 1`] = `
+.c3 {
+  grid-area: icon;
+}
+
+.c5 {
+  grid-area: title;
+  justify-self: left;
+}
+
+.c7 {
+  grid-area: indicator;
+}
+
+.c2 {
+  display: grid;
+  grid-template-areas: "icon title indicator";
+  grid-template-rows: auto;
+  grid-template-columns: auto 1fr auto;
+  gap: 1em;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c0 {
+  width: 100%;
+}
+
+.c4 {
+  background: black;
+  height: 1px;
+  width: 1em;
+  margin: 0 calc(1em * 0.35 / 2);
+  border-radius: 1px;
+}
+
+.c4::before {
+  content: '';
+  display: block;
+  background: black;
+  height: 1px;
+  width: 1em;
+  border-radius: 1px;
+  -webkit-transform: translateY(-4px) scaleX(1.35);
+  -ms-transform: translateY(-4px) scaleX(1.35);
+  transform: translateY(-4px) scaleX(1.35);
+}
+
+.c4::after {
+  content: '';
+  display: block;
+  background: black;
+  height: 1px;
+  width: 1em;
+  border-radius: 1px;
+  -webkit-transform: translateY(3px) scaleX(0.51);
+  -ms-transform: translateY(3px) scaleX(0.51);
+  transform: translateY(3px) scaleX(0.51);
+}
+
+.c6 {
+  color: black;
+}
+
+.c8 {
+  margin: 0 0.5em;
+  font-size: 0.5em;
+  color: black;
+  -webkit-transition: -webkit-transform 0.5s ease;
+  -webkit-transition: transform 0.5s ease;
+  transition: transform 0.5s ease;
+  -webkit-transform: scaleX(2);
+  -ms-transform: scaleX(2);
+  transform: scaleX(2);
+}
+
+.c1 {
+  width: 100%;
+  background: transparent;
+  padding: 8px 16px;
+  border: 0;
+}
+
+.c9 {
+  overflow-y: hidden;
+  width: 100%;
+  -webkit-transition: max-height 0.5s ease;
+  transition: max-height 0.5s ease;
+  max-height: 0px;
+}
+
+.c10 {
+  position: relative;
+  width: 100%;
+}
+
+.c11 {
+  min-height: 500px;
+  background: cyan;
+}
+
+<div
+  className="c0"
+  width="100%"
+>
+  <button
+    className="c1"
+    color="black"
+    onClick={[Function]}
+    title=""
+  >
+    <div
+      className="c2"
+      rows={
+        [
+          "auto",
+        ]
+      }
+    >
+      <div
+        className="c3"
+      >
+        <div
+          className="c4"
+          color="black"
+        />
+      </div>
+      <div
+        className="c5"
+      >
+        <div
+          className="c6"
+          color="black"
+        />
+      </div>
+      <div
+        className="c7"
+      >
+        <div
+          className="c8"
+          color="black"
+        >
+          ▼
+        </div>
+      </div>
+    </div>
+  </button>
+  <div
+    className="c9"
+  >
+    <div
+      className="c10"
+    >
+      <div
+        className="c11"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Drawer with overrides 1`] = `
+.c3 {
+  grid-area: icon;
+}
+
+.c5 {
+  grid-area: title;
+  justify-self: left;
+}
+
+.c7 {
+  grid-area: indicator;
+}
+
+.c2 {
+  display: grid;
+  grid-template-areas: "icon title indicator";
+  grid-template-rows: auto;
+  grid-template-columns: auto 1fr auto;
+  gap: 1em;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c0 {
+  width: 300px;
+}
+
+.c4 {
+  background: black;
+  height: 1px;
+  width: 1em;
+  margin: 0 calc(1em * 0.35 / 2);
+  border-radius: 1px;
+}
+
+.c4::before {
+  content: '';
+  display: block;
+  background: black;
+  height: 1px;
+  width: 1em;
+  border-radius: 1px;
+  -webkit-transform: translateY(-4px) scaleX(1.35);
+  -ms-transform: translateY(-4px) scaleX(1.35);
+  transform: translateY(-4px) scaleX(1.35);
+}
+
+.c4::after {
+  content: '';
+  display: block;
+  background: black;
+  height: 1px;
+  width: 1em;
+  border-radius: 1px;
+  -webkit-transform: translateY(3px) scaleX(0.51);
+  -ms-transform: translateY(3px) scaleX(0.51);
+  transform: translateY(3px) scaleX(0.51);
+}
+
+.c6 {
+  color: black;
+}
+
+.c8 {
+  margin: 0 0.5em;
+  font-size: 0.5em;
+  color: black;
+  -webkit-transition: -webkit-transform 0.5s ease;
+  -webkit-transition: transform 0.5s ease;
+  transition: transform 0.5s ease;
+  -webkit-transform: scaleX(2);
+  -ms-transform: scaleX(2);
+  transform: scaleX(2);
+}
+
+.c1 {
+  width: 100%;
+  background: magenta;
+  padding: 8px 16px;
+  border: 0;
+}
+
+.c9 {
+  overflow-y: hidden;
+  width: 100%;
+  -webkit-transition: max-height 0.5s ease;
+  transition: max-height 0.5s ease;
+  max-height: 0px;
+}
+
+.c10 {
+  position: relative;
+  width: 100%;
+}
+
+.c11 {
+  min-height: 500px;
+  background: cyan;
+}
+
+<div
+  className="c0"
+  width="300px"
+>
+  <button
+    className="c1"
+    color="black"
+    onClick={[Function]}
+    title="FILTER"
+  >
+    <div
+      className="c2"
+      rows={
+        [
+          "auto",
+        ]
+      }
+    >
+      <div
+        className="c3"
+      >
+        <div
+          className="c4"
+          color="black"
+        />
+      </div>
+      <div
+        className="c5"
+      >
+        <div
+          className="c6"
+          color="black"
+        >
+          FILTER
+        </div>
+      </div>
+      <div
+        className="c7"
+      >
+        <div
+          className="c8"
+          color="black"
+        >
+          ▼
+        </div>
+      </div>
+    </div>
+  </button>
+  <div
+    className="c9"
+  >
+    <div
+      className="c10"
+    >
+      <div
+        className="c11"
+      />
+    </div>
+  </div>
+</div>
+`;

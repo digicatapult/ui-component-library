@@ -41,7 +41,7 @@ export const Larger: Story = () => {
     <StoryLarge>
       <Drawer
         title="LARGE DRAWER"
-        width="400px"
+        width="600px"
         color="white"
         background="#7BB79B"
       >

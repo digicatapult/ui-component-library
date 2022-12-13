@@ -110,29 +110,26 @@ const DrawerWrapper = styled.div<DrawerContainerProps>`
 
 const DrawHeaderIcon = styled.div<DrawerIconProps>`
   background: ${({ color }) => color};
-  height: 1px;
+  height: calc(1em / 16);
   width: 1em;
   margin: 0 calc(1em * 0.35 / 2);
-  border-radius: 1px;
 
   ::before {
     content: '';
     display: block;
     background: ${({ color }) => color};
-    height: 1px;
+    height: calc(1em / 16);
     width: 1em;
-    border-radius: 1px;
-    transform: translateY(-4px) scaleX(1.35);
+    transform: translateY(calc(-4 * 1em / 16)) scaleX(1.35);
   }
 
   ::after {
     content: '';
     display: block;
     background: ${({ color }) => color};
-    height: 1px;
+    height: calc(1em / 16);
     width: 1em;
-    border-radius: 1px;
-    transform: translateY(3px) scaleX(0.51);
+    transform: translateY(calc(3 * 1em / 16)) scaleX(0.51);
   }
 `
 
@@ -150,6 +147,7 @@ const DrawIndicatorIcon = styled('div')<DrawIndicatorProps>`
 
 const DrawHeaderWrapper = styled('button')<DrawerHeaderProps>`
   width: 100%;
+  font: inherit;
   background: ${({ background }) => background};
   padding: 8px 16px;
   border: 0;

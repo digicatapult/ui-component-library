@@ -32,34 +32,31 @@ exports[`Drawer simple 1`] = `
 
 .c4 {
   background: black;
-  height: 1px;
+  height: calc(1em / 16);
   width: 1em;
   margin: 0 calc(1em * 0.35 / 2);
-  border-radius: 1px;
 }
 
 .c4::before {
   content: '';
   display: block;
   background: black;
-  height: 1px;
+  height: calc(1em / 16);
   width: 1em;
-  border-radius: 1px;
-  -webkit-transform: translateY(-4px) scaleX(1.35);
-  -ms-transform: translateY(-4px) scaleX(1.35);
-  transform: translateY(-4px) scaleX(1.35);
+  -webkit-transform: translateY(calc(-4 * 1em / 16)) scaleX(1.35);
+  -ms-transform: translateY(calc(-4 * 1em / 16)) scaleX(1.35);
+  transform: translateY(calc(-4 * 1em / 16)) scaleX(1.35);
 }
 
 .c4::after {
   content: '';
   display: block;
   background: black;
-  height: 1px;
+  height: calc(1em / 16);
   width: 1em;
-  border-radius: 1px;
-  -webkit-transform: translateY(3px) scaleX(0.51);
-  -ms-transform: translateY(3px) scaleX(0.51);
-  transform: translateY(3px) scaleX(0.51);
+  -webkit-transform: translateY(calc(3 * 1em / 16)) scaleX(0.51);
+  -ms-transform: translateY(calc(3 * 1em / 16)) scaleX(0.51);
+  transform: translateY(calc(3 * 1em / 16)) scaleX(0.51);
 }
 
 .c6 {
@@ -80,6 +77,7 @@ exports[`Drawer simple 1`] = `
 
 .c1 {
   width: 100%;
+  font: inherit;
   background: transparent;
   padding: 8px 16px;
   border: 0;
@@ -195,34 +193,31 @@ exports[`Drawer with overrides 1`] = `
 
 .c4 {
   background: black;
-  height: 1px;
+  height: calc(1em / 16);
   width: 1em;
   margin: 0 calc(1em * 0.35 / 2);
-  border-radius: 1px;
 }
 
 .c4::before {
   content: '';
   display: block;
   background: black;
-  height: 1px;
+  height: calc(1em / 16);
   width: 1em;
-  border-radius: 1px;
-  -webkit-transform: translateY(-4px) scaleX(1.35);
-  -ms-transform: translateY(-4px) scaleX(1.35);
-  transform: translateY(-4px) scaleX(1.35);
+  -webkit-transform: translateY(calc(-4 * 1em / 16)) scaleX(1.35);
+  -ms-transform: translateY(calc(-4 * 1em / 16)) scaleX(1.35);
+  transform: translateY(calc(-4 * 1em / 16)) scaleX(1.35);
 }
 
 .c4::after {
   content: '';
   display: block;
   background: black;
-  height: 1px;
+  height: calc(1em / 16);
   width: 1em;
-  border-radius: 1px;
-  -webkit-transform: translateY(3px) scaleX(0.51);
-  -ms-transform: translateY(3px) scaleX(0.51);
-  transform: translateY(3px) scaleX(0.51);
+  -webkit-transform: translateY(calc(3 * 1em / 16)) scaleX(0.51);
+  -ms-transform: translateY(calc(3 * 1em / 16)) scaleX(0.51);
+  transform: translateY(calc(3 * 1em / 16)) scaleX(0.51);
 }
 
 .c6 {
@@ -243,6 +238,7 @@ exports[`Drawer with overrides 1`] = `
 
 .c1 {
   width: 100%;
+  font: inherit;
   background: magenta;
   padding: 8px 16px;
   border: 0;

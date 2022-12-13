@@ -20,18 +20,24 @@ export const Simple: Story = () => {
       columns={['minmax(10%, 20%)', '1fr', '1fr']}
       rows={['minmax(5%, 10%)', '1fr', 'minmax(5%, 10%)']}
     >
-      <Grid.Panel area="header">
-        <Header />
-      </Grid.Panel>
-      <Grid.Panel area="sidebar">
-        <SideBar />
-      </Grid.Panel>
-      <Grid.Panel area="main">
-        <Main />
-      </Grid.Panel>
-      <Grid.Panel area="footer">
-        <Footer />
-      </Grid.Panel>
+      <GridContentFrag />
+    </Grid>
+  )
+}
+
+export const AlignItems: Story = () => {
+  return (
+    <Grid
+      areas={[
+        ['sidebar', 'header', 'header'],
+        ['sidebar', 'main', 'main'],
+        ['footer', 'footer', 'footer'],
+      ]}
+      columns={['minmax(10%, 20%)', '1fr', '1fr']}
+      rows={['minmax(5%, 10%)', '1fr', 'minmax(5%, 10%)']}
+      alignItems="center"
+    >
+      <GridContentFrag />
     </Grid>
   )
 }
@@ -48,18 +54,7 @@ export const WithGap: Story = () => {
       rows={['minmax(5%, 10%)', '1fr', 'minmax(5%, 10%)']}
       gap="20px"
     >
-      <Grid.Panel area="header">
-        <Header />
-      </Grid.Panel>
-      <Grid.Panel area="sidebar">
-        <SideBar />
-      </Grid.Panel>
-      <Grid.Panel area="main">
-        <Main />
-      </Grid.Panel>
-      <Grid.Panel area="footer">
-        <Footer />
-      </Grid.Panel>
+      <GridContentFrag />
     </Grid>
   )
 }
@@ -85,21 +80,27 @@ export const WithResponsiveLayout: Story = () => {
       rows={['minmax(50px, auto)']}
       gap="5px"
     >
-      <Grid.Panel area="header">
-        <Header />
-      </Grid.Panel>
-      <Grid.Panel area="sidebar">
-        <SideBar />
-      </Grid.Panel>
-      <Grid.Panel area="main">
-        <Main />
-      </Grid.Panel>
-      <Grid.Panel area="footer">
-        <Footer />
-      </Grid.Panel>
+      <GridContentFrag />
     </Grid>
   )
 }
+
+const GridContentFrag = () => (
+  <>
+    <Grid.Panel area="header">
+      <Header>HEADER</Header>
+    </Grid.Panel>
+    <Grid.Panel area="sidebar">
+      <SideBar>SIDEBAR</SideBar>
+    </Grid.Panel>
+    <Grid.Panel area="main">
+      <Main>MAIN</Main>
+    </Grid.Panel>
+    <Grid.Panel area="footer">
+      <Footer>FOOTER</Footer>
+    </Grid.Panel>
+  </>
+)
 
 const SideBar = styled('div')`
   background: blue;

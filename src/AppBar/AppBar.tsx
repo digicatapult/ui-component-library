@@ -4,7 +4,6 @@ import styled from 'styled-components'
 // TODO create css type, react might have it
 interface AppBarProps {
   fixed?: boolean
-  search?: boolean
   shadow?: boolean
   width?: string
   padding?: string
@@ -30,23 +29,18 @@ const Wrapper = styled('div')<AppBarProps>`
   flex-direction: row;
   justify-content: space-between;
   box-sizing: border-box;
-  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: box-shadow 1s cubic-bezier(0.8, 1, 0.2, 1) 3s;
   box-shadow: ${({ shadow }) =>
     shadow
-      ? '0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);'
+      ? '0px 3px 5px -2px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);'
       : 'none'};
   background-color: ${({ color, theme }) => color || theme.primary};
   color: ${({ theme }) => theme.accent || '#000'};
 `
 
-const Search = styled('div')<AppBarProps>`
-  position: relative;
-  width: 75px;
-  hegith: 100%;
-`
-
-const Bar = styled('div')<AppBarProps>`
+const ToolBar = styled('ul')<AppBarProps>`
   position: ${({ fixed }) => (fixed ? 'fixed' : 'relative')};
+  list-style-type: none;
   width: 100%;
   display: flex;
   align-items: center;
@@ -59,7 +53,10 @@ const Bar = styled('div')<AppBarProps>`
   padding-left: 54px;
 `
 
-const ItemStyle = styled('div')<AppBarProps>`
+const ItemStyle = styled('li')<AppBarProps>`
+  text-decoration: none;
+  margin: 0;
+  cursor: pointer;
   font-family: Roboto;
   font-style: normal;
   font-weight: 700;
@@ -75,15 +72,13 @@ const Item: React.FC<PropsWithChildren> = ({ children }: PropsWithChildren) => {
 
 const AppBar: AppBar = ({
   children,
-  search = false,
   shadow = false,
   theme = Theme,
   ...props
 }) => {
   return (
     <Wrapper {...props} theme={theme} shadow={shadow}>
-      <Bar>{children}</Bar>
-      {search && <Search {...props} />}
+      <ToolBar>{children}</ToolBar>
     </Wrapper>
   )
 }

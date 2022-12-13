@@ -25,11 +25,6 @@ export default {
         type: 'text',
       },
     },
-    search: {
-      control: {
-        type: 'boolean',
-      },
-    },
     shadow: {
       control: {
         type: 'boolean',
@@ -48,7 +43,6 @@ export default {
     variant: 'default',
     width: '100%',
     shadow: true,
-    search: false,
     children: [
       <AppBar.Item>item one</AppBar.Item>,
       <AppBar.Item>item two</AppBar.Item>,

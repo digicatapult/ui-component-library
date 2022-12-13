@@ -1,8 +1,8 @@
 import React from 'react'
-import { Story } from '@storybook/react'
-import styled from 'styled-components'
 
 import Map from './index'
+import exampleJson from './example.json'
+import colors from '../colors'
 
 export default {
   title: 'Map Component',
@@ -43,9 +43,39 @@ export default {
         type: 'number',
       },
     },
+    clusterAreaRadius: {
+      control: {
+        type: 'number',
+      },
+    },
+    clusterColor: {
+      control: {
+        type: 'color',
+      },
+    },
     clusterRadius: {
       control: {
         type: 'number',
+      },
+    },
+    countFont: {
+      control: {
+        type: 'array',
+      },
+    },
+    countFontSize: {
+      control: {
+        type: 'number',
+      },
+    },
+    countFontColor: {
+      control: {
+        type: 'color',
+      },
+    },
+    sourceJson: {
+      control: {
+        type: 'text',
       },
     },
   },
@@ -63,14 +93,28 @@ const Template = (args) => {
       width: args.width,
     },
     clusterOptions: {
-      maxZoom: args.clusterMaxZoom,
-      radius: args.clusterRadius,
+      clusterMaxZoom: args.clusterMaxZoom,
+      clusterAreaRadius: args.clusterAreaRadius,
+      clusterColor: args.clusterColor,
+      clusterRadius: args.clusterRadius,
+      countFont: args.countFont,
+      countFontSize: args.countFontSize,
+      countFontColor: args.countFontColor,
+      pointColor: args.pointColor,
+      pointRadius: args.pointRadius,
     },
     style: args.style,
+    sourceJson: args.sourceJson,
   }
 
   return <Map {...props} />
 }
 export const Default = Template.bind({})
 
-Default.args = {}
+Default.args = {
+  sourceJson: exampleJson,
+  clusterColor: colors.green,
+  clusterRadius: 14,
+  pointColor: colors.green,
+  pointRadius: 4,
+}

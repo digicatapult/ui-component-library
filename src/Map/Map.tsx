@@ -1,9 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import mapboxgl from 'mapbox-gl'
-import { FeatureCollection } from 'geojson'
 
-import exampleJson from './example.json'
 import colors from '../colors'
 
 mapboxgl.accessToken =
@@ -23,8 +21,15 @@ interface Size {
 }
 
 interface ClusterOptions {
-  maxZoom: number
-  radius: number
+  clusterMaxZoom: number
+  clusterAreaRadius: number
+  clusterColor: string
+  clusterRadius: number
+  countFont: string[]
+  countFontSize: number
+  countFontColor: string
+  pointColor: string
+  pointRadius: number
 }
 
 export interface Props {
@@ -32,6 +37,7 @@ export interface Props {
   startPosition?: StartPosition
   style?: string
   clusterOptions?: ClusterOptions
+  sourceJson?: string
 }
 
 const Wrapper = styled('div')<Size>`
@@ -49,10 +55,19 @@ const Map: React.FC<Props> = (props) => {
   const long = props.startPosition?.long || -3.5
   const lat = props.startPosition?.lat || 55
   const zoom = props.startPosition?.zoom || 5
-  const style = props.style || 'mapbox://styles/mapbox/light-v11'
 
-  const clusterMaxZoom = props.clusterOptions?.maxZoom || 14
-  const clusterRadius = props.clusterOptions?.radius || 50
+  const style = props.style || 'mapbox://styles/mapbox/light-v11'
+  const source = props.sourceJson || ''
+
+  const clusterMaxZoom = props.clusterOptions?.clusterMaxZoom || 14
+  const clusterAreaRadius = props.clusterOptions?.clusterAreaRadius || 50
+  const clusterColor = props.clusterOptions?.clusterColor || colors.black
+  const clusterRadius = props.clusterOptions?.clusterRadius || 20
+  const countFont = props.clusterOptions?.countFont || ['Open Sans Regular']
+  const countFontSize = props.clusterOptions?.countFontSize || 14
+  const countFontColor = props.clusterOptions?.countFontColor || colors.white
+  const pointColor = props.clusterOptions?.pointColor || colors.black
+  const pointRadius = props.clusterOptions?.pointRadius || 10
 
   useEffect(() => {
     if (map.current) return // initialize map only once
@@ -67,14 +82,13 @@ const Map: React.FC<Props> = (props) => {
 
   useEffect(() => {
     if (!map.current) return // wait for map to initialize
-
     map.current.on('load', () => {
       map.current?.addSource('source', {
         type: 'geojson',
-        data: exampleJson as FeatureCollection,
+        data: source,
         cluster: true,
         clusterMaxZoom: clusterMaxZoom, // Max zoom to cluster points on
-        clusterRadius: clusterRadius, // Radius of each cluster when clustering points (defaults to 50)
+        clusterRadius: clusterAreaRadius, // Radius of each cluster when clustering points (defaults to 50)
       })
 
       map.current?.addLayer({
@@ -83,8 +97,8 @@ const Map: React.FC<Props> = (props) => {
         source: 'source',
         filter: ['has', 'point_count'],
         paint: {
-          'circle-color': colors.green,
-          'circle-radius': 28,
+          'circle-color': clusterColor,
+          'circle-radius': clusterRadius,
         },
       })
 
@@ -95,11 +109,11 @@ const Map: React.FC<Props> = (props) => {
         filter: ['has', 'point_count'],
         layout: {
           'text-field': ['get', 'point_count_abbreviated'],
-          'text-font': ['Open Sans Regular'],
-          'text-size': 14,
+          'text-font': countFont,
+          'text-size': countFontSize,
         },
         paint: {
-          'text-color': '#fff',
+          'text-color': countFontColor,
         },
       })
 
@@ -109,8 +123,8 @@ const Map: React.FC<Props> = (props) => {
         source: 'source',
         filter: ['!', ['has', 'point_count']],
         paint: {
-          'circle-color': colors.green,
-          'circle-radius': 8,
+          'circle-color': pointColor,
+          'circle-radius': pointRadius,
         },
       })
 

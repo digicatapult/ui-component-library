@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 
 export interface SearchProps {
@@ -30,6 +30,7 @@ const Search: React.FC<SearchProps> = ({
 }) => {
   const [search, setSearch] = useState<string | null>(null)
   const [hasSubmitted, setHasSubmitted] = useState(true)
+  const buttonRef = useRef<HTMLButtonElement | null>(null)
 
   const handleSearchChange: React.ChangeEventHandler<HTMLInputElement> =
     useCallback(
@@ -43,7 +44,10 @@ const Search: React.FC<SearchProps> = ({
 
   const handleSubmit = useCallback(
     (event: React.FormEvent<HTMLFormElement> | null) => {
-      event?.preventDefault()
+      if (event !== null) {
+        event.preventDefault()
+        buttonRef.current?.blur()
+      }
       if (!hasSubmitted) {
         onSubmit(search)
         setHasSubmitted(true)
@@ -69,7 +73,7 @@ const Search: React.FC<SearchProps> = ({
         color={color}
         onChange={handleSearchChange}
       ></SearchInput>
-      <SearchIcon color={color} />
+      <SearchIcon color={color} ref={buttonRef} />
     </SearchWrapper>
   )
 }
@@ -97,7 +101,7 @@ const SearchInput = styled.input<SearchInputProps>`
   font: inherit;
 
   :focus {
-    border: 1px solid ${({ color }) => color};
+    box-shadow: inset 0 0 0 1px ${({ color }) => color};
     border-radius: 7px;
     outline: 0;
   }
@@ -113,6 +117,16 @@ const SearchIcon = styled.button<SearchIconProps>`
   box-sizing: border-box;
   background: transparent;
   border: 0;
+
+  :focus {
+    ::before {
+      box-shadow: 0 0 5px 1px ${({ color }) => color};
+    }
+    ::after {
+      box-shadow: 0 0 5px 1px ${({ color }) => color};
+    }
+    outline: 0;
+  }
 
   ::before {
     content: '';

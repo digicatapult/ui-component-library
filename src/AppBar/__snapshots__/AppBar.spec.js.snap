@@ -60,6 +60,20 @@ exports[`AppBar default 1`] = `
   font-weight: 700;
   font-size: 1em;
   line-height: 74px;
+  border-bottom: 2px solid #000;
+}
+
+.c4 {
+  display: inline-block;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: inherit;
+  font-family: Roboto;
+  font-weight: 700;
+  font-size: 1em;
+  line-height: 74px;
 }
 
 .c2 {
@@ -96,7 +110,7 @@ exports[`AppBar default 1`] = `
       className="c2"
     >
       <a
-        className="c3"
+        className="c4"
         href="#"
       >
         maps
@@ -106,7 +120,7 @@ exports[`AppBar default 1`] = `
       className="c2"
     >
       <a
-        className="c3"
+        className="c4"
         href="#"
       >
         contact us

@@ -59,7 +59,7 @@ export const HII: Story<typeof AppBar> = () => (
       accent: '#FFF',
     }}
   >
-    <AppBar.Item>what we do</AppBar.Item>
+    <AppBar.Item active={true}>what we do</AppBar.Item>
     <AppBar.Item>maps</AppBar.Item>
     <AppBar.Item>contact us</AppBar.Item>
   </AppBar>

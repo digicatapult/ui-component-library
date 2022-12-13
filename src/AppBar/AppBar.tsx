@@ -98,6 +98,7 @@ const Item: Item = ({ children, ...props }) => (
 )
 
 // TODO update to use grid comopnent
+// TODO move to separate components in case this could be reused
 const AppBar: AppBar = ({ children, ...props }) => (
   <Wrapper {...props}>
     <ToolBar>{children}</ToolBar>

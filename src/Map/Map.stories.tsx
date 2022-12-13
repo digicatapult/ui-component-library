@@ -38,6 +38,11 @@ export default {
         type: 'text',
       },
     },
+    cluster: {
+      control: {
+        type: 'boolean',
+      },
+    },
     clusterMaxZoom: {
       control: {
         type: 'number',
@@ -83,15 +88,18 @@ export default {
 
 const Template = (args) => {
   const props = {
+    size: {
+      height: args.height,
+      width: args.width,
+    },
     startPosition: {
       long: args.startPositionLong,
       lat: args.startPositionLat,
       zoom: args.startPositionZoom,
     },
-    size: {
-      height: args.height,
-      width: args.width,
-    },
+    style: args.style,
+    sourceJson: args.sourceJson,
+    cluster: args.cluster,
     clusterOptions: {
       clusterMaxZoom: args.clusterMaxZoom,
       clusterAreaRadius: args.clusterAreaRadius,
@@ -103,18 +111,22 @@ const Template = (args) => {
       pointColor: args.pointColor,
       pointRadius: args.pointRadius,
     },
-    style: args.style,
-    sourceJson: args.sourceJson,
   }
 
   return <Map {...props} />
 }
-export const Default = Template.bind({})
 
-Default.args = {
+export const Cluster = Template.bind({})
+Cluster.args = {
   sourceJson: exampleJson,
+  cluster: true,
   clusterColor: colors.green,
   clusterRadius: 14,
   pointColor: colors.green,
   pointRadius: 4,
+}
+
+export const NoCluster = Template.bind({})
+NoCluster.args = {
+  sourceJson: exampleJson,
 }

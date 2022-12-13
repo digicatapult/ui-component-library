@@ -36,8 +36,9 @@ export interface Props {
   size?: Size
   startPosition?: StartPosition
   style?: string
-  clusterOptions?: ClusterOptions
   sourceJson?: string
+  cluster: boolean
+  clusterOptions?: ClusterOptions
 }
 
 const Wrapper = styled('div')<Size>`
@@ -58,6 +59,7 @@ const Map: React.FC<Props> = (props) => {
 
   const style = props.style || 'mapbox://styles/mapbox/light-v11'
   const source = props.sourceJson || ''
+  const cluster = props.cluster || false
 
   const clusterMaxZoom = props.clusterOptions?.clusterMaxZoom || 14
   const clusterAreaRadius = props.clusterOptions?.clusterAreaRadius || 50
@@ -67,7 +69,7 @@ const Map: React.FC<Props> = (props) => {
   const countFontSize = props.clusterOptions?.countFontSize || 14
   const countFontColor = props.clusterOptions?.countFontColor || colors.white
   const pointColor = props.clusterOptions?.pointColor || colors.black
-  const pointRadius = props.clusterOptions?.pointRadius || 10
+  const pointRadius = props.clusterOptions?.pointRadius || 6
 
   useEffect(() => {
     if (map.current) return // initialize map only once
@@ -86,7 +88,7 @@ const Map: React.FC<Props> = (props) => {
       map.current?.addSource('source', {
         type: 'geojson',
         data: source,
-        cluster: true,
+        cluster: cluster,
         clusterMaxZoom: clusterMaxZoom, // Max zoom to cluster points on
         clusterRadius: clusterAreaRadius, // Radius of each cluster when clustering points (defaults to 50)
       })

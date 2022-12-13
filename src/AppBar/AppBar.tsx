@@ -3,20 +3,15 @@ import styled from 'styled-components'
 
 // TODO create css type, react might have it // break it down
 interface AppBarProps {
-  fixed?: boolean
   shadow?: boolean
+  active?: boolean
+  fixed?: boolean
   color?: string
   width?: string
-  padding?: string
-  direction?: string
-  active?: boolean
-  position?: string
-  background?: string
-  theme?:
-    | {
-        [key: string]: string
-      }
-    | undefined
+  direction?: 'row' | 'column'
+  theme?: {
+    [key: string]: string
+  }
 }
 
 interface AppBar {
@@ -48,11 +43,11 @@ const Wrapper = styled('div')`
 `
 
 const ToolBar = styled('ul')`
-  ${({ fixed, direction, padding }: AppBarProps) => `
+  ${({ fixed, direction }: AppBarProps) => `
     position: ${fixed ? 'fixed' : 'relative'};
     flex-direction: ${direction || 'row'};
-    padding: ${padding || '0px 25px'};
   `}
+  padding: 0px 25px;
   margin: 0;
   list-style-type: none;
   width: 100%;
@@ -73,15 +68,22 @@ const Link = styled('a')`
   color: inherit;
   font-family: Roboto;
   font-weight: 700;
+  padding: 0 5px;
   font-size: 1em;
   line-height: 74px;
 
   ${({ active, theme }: AppBarProps) =>
-    active ? `border-bottom: 2px solid ${theme?.accent || '#000'}` : ``}
+    active
+      ? `
+      margin-top: 4px;
+      background: linear-gradient(360deg, #DFE667 -408.97%, rgba(223, 230, 103, 0) 78.21%);
+      border-bottom: 4px solid ${theme?.accent || '#000'}
+    `
+      : ``}
 `
 
 const Li = styled('li')`
-  display: inline-block;
+  display: block;
   height: 100%;
   margin: 0;
   cursor: pointer;
@@ -105,7 +107,11 @@ const Item: Item = ({ children, ...props }) => (
 // TODO move to separate components in case this could be reused
 const AppBar: AppBar = ({ children, ...props }) => (
   <Wrapper {...props}>
-    <ToolBar>{children}</ToolBar>
+    <ToolBar>
+      {React.Children.map(children, (child: any) =>
+        React.cloneElement(child, props)
+      )}
+    </ToolBar>
   </Wrapper>
 )
 

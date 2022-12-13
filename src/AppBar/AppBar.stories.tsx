@@ -39,7 +39,7 @@ export default {
   },
   args: {
     fixed: false,
-    color: '#FFA',
+    color: '#FFFE',
     variant: 'default',
     width: '100%',
     shadow: true,

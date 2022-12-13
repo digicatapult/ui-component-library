@@ -58,9 +58,12 @@ exports[`AppBar default 1`] = `
   color: inherit;
   font-family: Roboto;
   font-weight: 700;
+  padding: 0 5px;
   font-size: 1em;
   line-height: 74px;
-  border-bottom: 2px solid #000;
+  margin-top: 4px;
+  background: linear-gradient(360deg,#DFE667 -408.97%,rgba(223,230,103,0) 78.21%);
+  border-bottom: 4px solid #000;
 }
 
 .c4 {
@@ -72,12 +75,13 @@ exports[`AppBar default 1`] = `
   color: inherit;
   font-family: Roboto;
   font-weight: 700;
+  padding: 0 5px;
   font-size: 1em;
   line-height: 74px;
 }
 
 .c2 {
-  display: inline-block;
+  display: block;
   height: 100%;
   margin: 0;
   cursor: pointer;

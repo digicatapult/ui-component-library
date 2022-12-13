@@ -6,6 +6,9 @@ import AppBar from './index'
 export default {
   title: 'Components/AppBar',
   component: AppBar,
+  parameters: {
+    layout: 'fullscreen',
+  },
   argTypes: {
     fixed: {
       control: {
@@ -32,10 +35,12 @@ export default {
   },
 } as Meta<typeof AppBar>
 
-export const Playground: Story<typeof AppBar> = args => <AppBar {...args} />
-export const Default: Story<typeof AppBar> = () =>  <AppBar />
-export const DefaultWithChildren: Story<typeof AppBar> = () => <AppBar>
-  <div>1</div>
-  <div>2</div>
-  <div>3</div>
-</AppBar>
+export const Playground: Story<typeof AppBar> = (args) => <AppBar {...args} />
+export const Default: Story<typeof AppBar> = () => <AppBar />
+export const DefaultWithChildren: Story<typeof AppBar> = () => (
+  <AppBar>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </AppBar>
+)

@@ -1,6 +1,6 @@
 {
   "name": "@digicatapult/ui-component-library",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "UI Component Library",
   "author": "Digital Catapult (https://www.digicatapult.org.uk)",
   "license": "Apache-2.0",
@@ -22,6 +22,7 @@
     "coverage": "jest --coverage",
     "depcheck": "depcheck",
     "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "storybook": "start-storybook -p 9000",
     "test": "jest"
   },

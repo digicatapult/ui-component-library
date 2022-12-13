@@ -3,7 +3,7 @@ import { TestComponent } from '../index.js'
 import { Story } from '@storybook/react'
 
 export default {
-  title: 'Test Component',
+  title: 'Components/Test',
   component: TestComponent,
 }
 

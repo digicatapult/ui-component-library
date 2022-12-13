@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import Grid from './index'
 
 export default {
-  title: 'Grid Component',
+  title: 'Layout/Grid',
   component: Grid,
 }
 

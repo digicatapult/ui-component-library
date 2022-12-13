@@ -1,6 +1,6 @@
 import React from 'react'
 import { IAppBar, IItem } from './types.js'
-import { Li, Link, ToolBar, Wrapper } from './Components'
+import { Li, Link, ToolBar, Wrapper } from './components'
 
 const Item: IItem = ({ children, ...props }) => (
   <Li>

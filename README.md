@@ -46,6 +46,14 @@ This project is licensed under the terms of the
 [Storybook](https://storybook.js.org/)
 [Jest](https://jestjs.io/)
 
+## Configuration
+
+At **BUILD** time, `storybook` is configured using environment variables in a `.env` file at root:
+
+| variable               | required | default | description                                                     |
+| :--------------------- | :------: | :-----: | :-------------------------------------------------------------- |
+| STORYBOOK_MAPBOX_TOKEN |    N     |    -    | Required for the `Map` component. Token for your Mapbox account |
+
 ## Dependency Installation
 
 ```bash

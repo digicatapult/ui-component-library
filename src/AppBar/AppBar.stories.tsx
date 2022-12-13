@@ -57,8 +57,6 @@ export default {
 } as Meta<React.ComponentProps<typeof AppBar>>
 
 export const Playground: Story<typeof AppBar> = (args) => <AppBar {...args} />
-
-// TODO replace children with app bar items
 export const HII: Story<typeof AppBar> = () => (
   <AppBar
     shadow={false}

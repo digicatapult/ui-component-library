@@ -73,7 +73,6 @@ const Item: React.FC<PropsWithChildren> = ({ children }: PropsWithChildren) => {
   return <ItemStyle>{children}</ItemStyle>
 }
 
-// TODO add support for logo icon? - not needed for this project
 const AppBar: AppBar = ({
   children,
   search = false,

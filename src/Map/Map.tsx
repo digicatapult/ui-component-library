@@ -4,11 +4,6 @@ import mapboxgl from 'mapbox-gl'
 
 import colors from '../colors'
 
-mapboxgl.accessToken =
-  process.env.STORYBOOK_MAPBOX_TOKEN !== undefined
-    ? process.env.STORYBOOK_MAPBOX_TOKEN
-    : ''
-
 interface StartPosition {
   long: number
   lat: number
@@ -33,6 +28,7 @@ interface ClusterOptions {
 }
 
 export interface Props {
+  token: string
   size?: Size
   startPosition?: StartPosition
   style?: string
@@ -49,6 +45,8 @@ const Wrapper = styled('div')<Size>`
 const Map: React.FC<Props> = (props) => {
   const mapContainer = useRef(null)
   const map = useRef<mapboxgl.Map | null>(null)
+
+  mapboxgl.accessToken = props.token
 
   const height = props.size?.height || '800px'
   const width = props.size?.width || '800px'

@@ -88,6 +88,7 @@ export default {
 
 const Template = (args) => {
   const props = {
+    token: process.env.STORYBOOK_MAPBOX_TOKEN,
     size: {
       height: args.height,
       width: args.width,

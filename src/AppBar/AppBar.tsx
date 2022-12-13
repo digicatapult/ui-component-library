@@ -41,7 +41,7 @@ const Wrapper = styled('div')`
       ? '0px 3px 5px -2px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);'
       : 'none'};
   background-color: ${({ color, theme }: AppBarProps) =>
-    color || theme?.primary || '#FFFE'}
+    color || theme?.primary || '#FFFE'};
   color: ${({ theme }: AppBarProps) => theme?.accent || '#000'};
 `
 

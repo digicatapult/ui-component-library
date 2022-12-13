@@ -59,12 +59,10 @@ const ItemStyle = styled('li')<AppBarProps>`
   margin: 0;
   cursor: pointer;
   font-family: Roboto;
-  font-style: normal;
   font-weight: 700;
   padding: 0px 10px;
   text-transform: uppercase;
-  font-size: 16px;
-  line-height: 15px;
+  font-size: 1em;
 `
 
 const Item: React.FC<PropsWithChildren> = ({ children }: PropsWithChildren) => {

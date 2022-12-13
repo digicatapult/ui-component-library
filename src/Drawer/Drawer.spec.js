@@ -1,5 +1,5 @@
 import React from 'react'
-import renderer from 'react-test-renderer'
+import renderer, { act } from 'react-test-renderer'
 import 'jest-styled-components'
 
 import Drawer from './index.tsx'
@@ -15,6 +15,21 @@ describe('Drawer', () => {
         </Drawer>
       )
       .toJSON()
+    expect(tree).toMatchSnapshot()
+  })
+
+  test('onClick', async () => {
+    const instance = renderer.create(
+      <Drawer>
+        <DrawerContentMock />
+      </Drawer>
+    )
+
+    await act(() => {
+      instance.root.findByType('button').props.onClick()
+    })
+
+    const tree = instance.toJSON()
     expect(tree).toMatchSnapshot()
   })
 

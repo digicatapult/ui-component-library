@@ -18,8 +18,7 @@ exports[`AppBar default 1`] = `
   -webkit-transition: box-shadow 1s cubic-bezier(0.8,1,0.2,1) 3s;
   transition: box-shadow 1s cubic-bezier(0.8,1,0.2,1) 3s;
   box-shadow: none;
-  background-color: #FFA;
-  color: #000;
+  background-color: #FFFE color:#000;
 }
 
 .c1 {

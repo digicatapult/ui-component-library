@@ -24,6 +24,7 @@ exports[`AppBar default 1`] = `
 
 .c1 {
   position: relative;
+  margin: 0;
   list-style-type: none;
   width: 100%;
   display: -webkit-box;

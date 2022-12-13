@@ -17,7 +17,17 @@ export default {
     },
     width: {
       control: {
-        type: 'string',
+        type: 'text',
+      },
+    },
+    search: {
+      control: {
+        type: 'boolean',
+      },
+    },
+    shadow: {
+      control: {
+        type: 'boolean',
       },
     },
     variant: {
@@ -31,6 +41,8 @@ export default {
     fixed: false,
     variant: 'default',
     width: '100%',
+    shadow: true,
+    search: false,
     children: [<div>1</div>, <div>2</div>],
   },
 } as Meta<typeof AppBar>

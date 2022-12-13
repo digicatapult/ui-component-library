@@ -50,7 +50,7 @@ export default {
   },
 } as Meta<React.ComponentProps<typeof AppBar>>
 
-export const Playground: Story<typeof AppBar> = (args) => <AppBar {...args} />
+export const Default: Story<typeof AppBar> = (args) => <AppBar {...args} />
 export const HII: Story<typeof AppBar> = () => (
   <AppBar
     shadow={false}

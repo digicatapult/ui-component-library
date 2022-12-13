@@ -45,20 +45,35 @@ exports[`AppBar default 1`] = `
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  padding: 10px 25px;
+  padding: 0px 25px;
   padding-left: 54px;
 }
 
-.c2 {
+.c3 {
+  display: inline-block;
+  text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  margin: 0;
-  cursor: pointer;
+  text-transform: uppercase;
+  color: inherit;
   font-family: Roboto;
   font-weight: 700;
-  padding: 0px 10px;
-  text-transform: uppercase;
   font-size: 1em;
+  line-height: 74px;
+}
+
+.c2 {
+  display: inline-block;
+  height: 100%;
+  margin: 0;
+  cursor: pointer;
+  padding: 0px 10px;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.c2:hover {
+  background-color: rgba(40,30,30,0.1);
 }
 
 <div
@@ -70,17 +85,32 @@ exports[`AppBar default 1`] = `
     <li
       className="c2"
     >
-      what we do
+      <a
+        className="c3"
+        href="#"
+      >
+        what we do
+      </a>
     </li>
     <li
       className="c2"
     >
-      maps
+      <a
+        className="c3"
+        href="#"
+      >
+        maps
+      </a>
     </li>
     <li
       className="c2"
     >
-      contact us
+      <a
+        className="c3"
+        href="#"
+      >
+        contact us
+      </a>
     </li>
   </ul>
 </div>

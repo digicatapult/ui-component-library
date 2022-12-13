@@ -8,6 +8,7 @@ interface AppBarProps {
   width?: string
   padding?: string
   direction?: string
+  active?: boolean
   position?: string
   background?: string
   theme?: object
@@ -50,25 +51,52 @@ const ToolBar = styled('ul')<AppBarProps>`
   min-height: 74px;
   gap: 15px;
   flex-direction: ${({ direction }) => direction || 'row'};
-  padding: ${({ padding }) => padding || '10px 25px'};
+  padding: ${({ padding }) => padding || '0px 25px'};
   padding-left: 54px;
 `
 
-const ItemStyle = styled('li')<AppBarProps>`
+const Link = styled('a')<AppBarProps>`
+  display: inline-block;
+  text-align: center;
   text-decoration: none;
-  margin: 0;
-  cursor: pointer;
+  text-transform: uppercase;
+  color: inherit;
   font-family: Roboto;
   font-weight: 700;
-  padding: 0px 10px;
-  text-transform: uppercase;
   font-size: 1em;
+  line-height: 74px;
+
+  ${({ active, theme }) =>
+    active ? `border-bottom: 2px solid ${theme.accent || '#000'}` : ``}
 `
 
-const Item: React.FC<PropsWithChildren> = ({ children }: PropsWithChildren) => {
-  return <ItemStyle>{children}</ItemStyle>
+const Li = styled('li')<AppBarProps>`
+  display: inline-block;
+  height: 100%;
+  margin: 0;
+  cursor: pointer;
+  padding: 0px 10px;
+  transition: all 0.5s;
+
+  &:hover {
+    background-color: rgba(40, 30, 30, 0.1);
+  }
+`
+
+const Item: React.FC<PropsWithChildren> = ({
+  children,
+  ...props
+}: PropsWithChildren<{ active?: boolean }>) => {
+  return (
+    <Li>
+      <Link href="#" {...props}>
+        {children}
+      </Link>
+    </Li>
+  )
 }
 
+// TODO update to use grid comopnent
 const AppBar: AppBar = ({
   children,
   shadow = false,

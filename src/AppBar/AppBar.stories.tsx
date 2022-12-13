@@ -44,7 +44,7 @@ export default {
     width: '100%',
     shadow: true,
     children: [
-      <AppBar.Item>item one</AppBar.Item>,
+      <AppBar.Item active={true}>item one</AppBar.Item>,
       <AppBar.Item>item two</AppBar.Item>,
     ],
   },

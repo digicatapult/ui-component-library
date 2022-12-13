@@ -17,18 +17,21 @@ export interface DrawerProps {
   background?: string
 }
 
-const Drawer: React.FC<PropsWithChildren<DrawerProps>> = (props) => {
-  const [isOpen, setIsOpen] = useState(props.defaultIsOpen || false)
+const Drawer: React.FC<PropsWithChildren<DrawerProps>> = ({
+  defaultIsOpen = false,
+  title = '',
+  width = '100%',
+  color = 'black',
+  background = 'transparent',
+  children,
+}) => {
+  const [isOpen, setIsOpen] = useState(defaultIsOpen)
   const contentRef: React.RefObject<HTMLDivElement> | null = useRef(null)
 
   const clickHandler = useCallback(() => {
     setIsOpen(!isOpen)
   }, [isOpen, setIsOpen])
 
-  const title = props.title || ''
-  const width = props.width || '100%'
-  const color = props.color || 'black'
-  const background = props.background || 'transparent'
   const contentHeight = contentRef.current?.clientHeight || 1000
 
   return (
@@ -41,9 +44,7 @@ const Drawer: React.FC<PropsWithChildren<DrawerProps>> = (props) => {
         onClick={clickHandler}
       ></DrawerHeader>
       <DrawerContentOverflow isOpen={isOpen} maxHeight={contentHeight}>
-        <DrawContentWrapper ref={contentRef}>
-          {props.children}
-        </DrawContentWrapper>
+        <DrawerContentWrapper ref={contentRef}>{children}</DrawerContentWrapper>
       </DrawerContentOverflow>
     </DrawerWrapper>
   )
@@ -57,7 +58,7 @@ interface DrawerTitleProps {
   color: string
 }
 
-interface DrawIndicatorProps {
+interface DrawerIndicatorProps {
   color: string
   isOpen: boolean
 }
@@ -80,7 +81,7 @@ interface DrawerContentProps {
 
 const DrawerHeader: React.FC<DrawerHeaderProps> = (props) => {
   return (
-    <DrawHeaderWrapper {...props}>
+    <DrawerHeaderWrapper {...props}>
       <Grid
         areas={[['icon', 'title', 'indicator']]}
         rows={['auto']}
@@ -89,18 +90,18 @@ const DrawerHeader: React.FC<DrawerHeaderProps> = (props) => {
         alignItems="center"
       >
         <Grid.Panel area="icon">
-          <DrawHeaderIcon color={props.color} />
+          <DrawerHeaderIcon color={props.color} />
         </Grid.Panel>
         <Grid.Panel area="title" justifySelf={'left'}>
           <DrawerTitle color={props.color}>{props.title}</DrawerTitle>
         </Grid.Panel>
         <Grid.Panel area="indicator">
-          <DrawIndicatorIcon color={props.color} isOpen={props.isOpen}>
+          <DrawerIndicatorIcon color={props.color} isOpen={props.isOpen}>
             ▼
-          </DrawIndicatorIcon>
+          </DrawerIndicatorIcon>
         </Grid.Panel>
       </Grid>
-    </DrawHeaderWrapper>
+    </DrawerHeaderWrapper>
   )
 }
 
@@ -108,7 +109,7 @@ const DrawerWrapper = styled.div<DrawerContainerProps>`
   width: ${({ width }) => width};
 `
 
-const DrawHeaderIcon = styled.div<DrawerIconProps>`
+const DrawerHeaderIcon = styled.div<DrawerIconProps>`
   background: ${({ color }) => color};
   height: calc(1em / 16);
   width: 1em;
@@ -137,7 +138,7 @@ const DrawerTitle = styled.div<DrawerTitleProps>`
   color: ${({ color }) => color};
 `
 
-const DrawIndicatorIcon = styled('div')<DrawIndicatorProps>`
+const DrawerIndicatorIcon = styled('div')<DrawerIndicatorProps>`
   margin: 0 0.5em;
   font-size: 0.5em;
   color: ${({ color }) => color};
@@ -145,7 +146,7 @@ const DrawIndicatorIcon = styled('div')<DrawIndicatorProps>`
   transform: scaleX(2) ${({ isOpen }) => (isOpen ? 'scaleY(-1)' : '')};
 `
 
-const DrawHeaderWrapper = styled('button')<DrawerHeaderProps>`
+const DrawerHeaderWrapper = styled('button')<DrawerHeaderProps>`
   width: 100%;
   font: inherit;
   background: ${({ background }) => background};
@@ -169,7 +170,7 @@ const DrawerContentOverflow = styled.div<DrawerContentProps>`
   `}
 `
 
-const DrawContentWrapper = styled.div`
+const DrawerContentWrapper = styled.div`
   position: relative;
   width: 100%;
 `

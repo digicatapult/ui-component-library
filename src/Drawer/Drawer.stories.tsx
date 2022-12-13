@@ -1,12 +1,12 @@
 import React from 'react'
 import { Drawer } from '../index.js'
-import { Story } from '@storybook/react'
+import { Meta, Story } from '@storybook/react'
 import styled from 'styled-components'
 
 export default {
-  title: 'Drawer',
+  title: 'Components/Drawer',
   component: Drawer,
-}
+} as Meta<React.ComponentProps<typeof Drawer>>
 
 export const Simple: Story = () => {
   return (

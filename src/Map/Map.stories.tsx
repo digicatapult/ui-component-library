@@ -9,79 +9,94 @@ export default {
   component: Map,
   argTypes: {
     height: {
-      control: {
-        type: 'text',
-      },
+      control: 'text',
     },
     width: {
-      control: {
-        type: 'text',
-      },
+      control: 'text',
     },
     startPositionLong: {
-      control: {
-        type: 'number',
+      control: 'number',
+      table: {
+        category: 'Start Position',
       },
     },
     startPositionLat: {
-      control: {
-        type: 'number',
+      control: 'number',
+      table: {
+        category: 'Start Position',
       },
     },
     startPositionZoom: {
-      control: {
-        type: 'number',
+      control: 'number',
+      table: {
+        category: 'Start Position',
       },
     },
     style: {
-      control: {
-        type: 'text',
-      },
+      control: 'text',
     },
     cluster: {
-      control: {
-        type: 'boolean',
+      control: 'boolean',
+      table: {
+        category: 'Clustering',
       },
     },
     clusterMaxZoom: {
-      control: {
-        type: 'number',
+      control: 'number',
+      table: {
+        category: 'Clustering',
       },
     },
     clusterAreaRadius: {
-      control: {
-        type: 'number',
+      control: 'number',
+      table: {
+        category: 'Clustering',
       },
     },
     clusterColor: {
-      control: {
-        type: 'color',
+      control: 'color',
+      table: {
+        category: 'Clustering',
       },
     },
     clusterRadius: {
-      control: {
-        type: 'number',
+      control: 'number',
+      table: {
+        category: 'Clustering',
       },
     },
     countFont: {
-      control: {
-        type: 'array',
+      control: 'array',
+      table: {
+        category: 'Clustering',
       },
     },
     countFontSize: {
-      control: {
-        type: 'number',
+      control: 'number',
+      table: {
+        category: 'Clustering',
       },
     },
     countFontColor: {
-      control: {
-        type: 'color',
+      control: 'color',
+      table: {
+        category: 'Clustering',
+      },
+    },
+    pointColor: {
+      control: 'color',
+      table: {
+        category: 'Clustering',
+      },
+    },
+    pointRadius: {
+      control: 'number',
+      table: {
+        category: 'Clustering',
       },
     },
     sourceJson: {
-      control: {
-        type: 'text',
-      },
+      control: 'text',
     },
   },
 }

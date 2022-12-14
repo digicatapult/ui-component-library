@@ -70,7 +70,7 @@ const Map: React.FC<Props> = (props) => {
   const pointRadius = props.clusterOptions?.pointRadius || 6
 
   useEffect(() => {
-    if (map.current) return // initialize map only once
+    if (map.current) return undefined // initialize map only once
     map.current = new mapboxgl.Map({
       container: mapContainer.current!,
       style: style,
@@ -81,7 +81,7 @@ const Map: React.FC<Props> = (props) => {
   })
 
   useEffect(() => {
-    if (!map.current) return // wait for map to initialize
+    if (!map.current) return undefined // wait for map to initialize
     map.current.on('load', () => {
       map.current?.addSource('source', {
         type: 'geojson',

@@ -88,17 +88,21 @@ describe('Test', () => {
       />
     )
 
+    const eventMock = {
+      preventDefault: jest.fn(() => {}),
+    }
     await act(() => {
       instance.root
         .findByType('input')
         .props.onChange({ target: { value: 'test' } })
     })
     await act(() => {
-      instance.root.findByType('form').props.onSubmit(null)
+      instance.root.findByType('form').props.onSubmit(eventMock)
     })
 
     const tree = instance.toJSON()
     expect(submitEvents).toEqual(['test'])
+    expect(eventMock.preventDefault.mock.calls).toHaveLength(1)
   })
 
   test('manual-submit (wait 500ms)', async () => {
@@ -126,5 +130,37 @@ describe('Test', () => {
 
     const tree = instance.toJSON()
     expect(submitEvents).toEqual(['test'])
+  })
+
+  test('reset to null', async () => {
+    const submitEvents = []
+    const instance = renderer.create(
+      <Search
+        placeholder="placeholder"
+        color="green"
+        background="red"
+        onSubmit={(v) => submitEvents.push(v)}
+      />
+    )
+
+    await act(() => {
+      instance.root
+        .findByType('input')
+        .props.onChange({ target: { value: 'test' } })
+    })
+    await act(() => {
+      jest.advanceTimersByTime(500)
+    })
+    await act(() => {
+      instance.root
+        .findByType('input')
+        .props.onChange({ target: { value: '' } })
+    })
+    await act(() => {
+      jest.advanceTimersByTime(500)
+    })
+
+    const tree = instance.toJSON()
+    expect(submitEvents).toEqual(['test', null])
   })
 })

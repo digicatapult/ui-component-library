@@ -3,10 +3,14 @@ import { TestComponent } from '../index.js'
 import { Story } from '@storybook/react'
 
 export default {
-  title: 'Test Component',
+  title: 'Components/Test',
   component: TestComponent,
 }
 
-export const DefaultStoryExpanded: Story = () => {
-  return <TestComponent text="Hello" />
+const DefaultStoryTemplate: Story = (args) => {
+  return <TestComponent text={args.text} />
+}
+export const Default = DefaultStoryTemplate.bind({})
+Default.args = {
+  text: 'Hello',
 }

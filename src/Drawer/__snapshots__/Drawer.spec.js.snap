@@ -83,6 +83,10 @@ exports[`Drawer onClick 1`] = `
   border: 0;
 }
 
+.c1:hover {
+  cursor: pointer;
+}
+
 .c9 {
   overflow-y: hidden;
   width: 100%;
@@ -244,6 +248,10 @@ exports[`Drawer simple 1`] = `
   border: 0;
 }
 
+.c1:hover {
+  cursor: pointer;
+}
+
 .c9 {
   overflow-y: hidden;
   width: 100%;
@@ -403,6 +411,10 @@ exports[`Drawer with overrides 1`] = `
   background: magenta;
   padding: 8px 16px;
   border: 0;
+}
+
+.c1:hover {
+  cursor: pointer;
 }
 
 .c9 {

@@ -17,6 +17,30 @@ describe('AppBar', () => {
       .toJSON()
     expect(tree).toMatchSnapshot()
   })
+  test('default - fixed', () => {
+    const tree = renderer
+      .create(
+        <AppBar shadow={false} width={'50%'} fixed={true}>
+          <AppBar.Item>what we do</AppBar.Item>
+          <AppBar.Item>maps</AppBar.Item>
+          <AppBar.Item active={true}>contact us</AppBar.Item>
+        </AppBar>
+      )
+      .toJSON()
+    expect(tree).toMatchSnapshot()
+  })
+  test('default - custom width', () => {
+    const tree = renderer
+      .create(
+        <AppBar shadow={false} width={'50%'}>
+          <AppBar.Item>what we do</AppBar.Item>
+          <AppBar.Item>maps</AppBar.Item>
+          <AppBar.Item active={true}>contact us</AppBar.Item>
+        </AppBar>
+      )
+      .toJSON()
+    expect(tree).toMatchSnapshot()
+  })
   test('default - no shadow', () => {
     const tree = renderer
       .create(

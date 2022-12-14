@@ -1,0 +1,250 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test default 1`] = `
+.c0 {
+  border: 0;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding-left: calc(1em * 41 / (16 * 1.2));
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  gap: 0.5em;
+  background: #f0f0f0;
+  border-top-left-radius: 0.75em;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0.75em;
+}
+
+.c0 > * {
+  display: block;
+  padding: 0;
+  margin: 0;
+  width: 90%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+.c0 > label {
+  font-size: 1.2em;
+  font-weight: bolder;
+}
+
+.c0 > span {
+  font-size: 1em;
+}
+
+.c0::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: unset;
+  width: 1em;
+  background: #e0e0e0;
+}
+
+.c0:focus-visible {
+  outline: 1px #e0e0e0 solid;
+}
+
+<button
+  className="c0"
+  height="100%"
+  id="id1"
+  onClick={[Function]}
+  orientation="left"
+  width="100%"
+>
+  <label
+    htmlFor="id1"
+  >
+    LIST CARD
+  </label>
+</button>
+`;
+
+exports[`Test hii 1`] = `
+.c0 {
+  border: 0;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  position: relative;
+  width: 467px;
+  height: 67px;
+  padding-left: calc(1em * 41 / (16 * 1.2));
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  gap: 0.5em;
+  background: #DCE5E7;
+  border-top-left-radius: 0.75em;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0.75em;
+}
+
+.c0 > * {
+  display: block;
+  padding: 0;
+  margin: 0;
+  width: 90%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+.c0 > label {
+  font-size: 1.2em;
+  font-weight: bolder;
+}
+
+.c0 > span {
+  font-size: 1em;
+}
+
+.c0::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: unset;
+  width: 1em;
+  background: #80CC72;
+}
+
+.c0:focus-visible {
+  outline: 1px #80CC72 solid;
+}
+
+<button
+  className="c0"
+  height="67px"
+  id="id2"
+  onClick={[Function]}
+  orientation="left"
+  width="467px"
+>
+  <label
+    htmlFor="id2"
+  >
+    Name
+  </label>
+  <span>
+    Name of lead partner
+  </span>
+</button>
+`;
+
+exports[`Test orientation: right 1`] = `
+.c0 {
+  border: 0;
+  font: inherit;
+  text-align: right;
+  cursor: pointer;
+  position: relative;
+  width: 467px;
+  height: 67px;
+  padding-left: calc(1em * 41 / (16 * 1.2));
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  gap: 0.5em;
+  background: #DCE5E7;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0.75em;
+  border-bottom-right-radius: 0.75em;
+  border-bottom-left-radius: 0;
+}
+
+.c0 > * {
+  display: block;
+  padding: 0;
+  margin: 0;
+  width: 90%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+.c0 > label {
+  font-size: 1.2em;
+  font-weight: bolder;
+}
+
+.c0 > span {
+  font-size: 1em;
+}
+
+.c0::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: unset;
+  right: 0;
+  width: 1em;
+  background: #80CC72;
+}
+
+.c0:focus-visible {
+  outline: 1px #80CC72 solid;
+}
+
+<button
+  className="c0"
+  height="67px"
+  id="id3"
+  onClick={[Function]}
+  orientation="right"
+  width="467px"
+>
+  <label
+    htmlFor="id3"
+  >
+    Name
+  </label>
+  <span>
+    Name of lead partner
+  </span>
+</button>
+`;

@@ -1,5 +1,5 @@
 import React from 'react'
-import { IAppBar, IItem } from './types.js'
+import { IAppBar, IItem } from './types'
 import { Li, Link, ToolBar, Wrapper } from './common'
 
 const Item: IItem = ({ children, ...props }) => (
@@ -15,9 +15,9 @@ const Item: IItem = ({ children, ...props }) => (
 const AppBar: IAppBar = ({ children, ...props }) => (
   <Wrapper {...props}>
     <ToolBar>
-      {React.Children.map(children, (child: any) =>
-        React.cloneElement(child, props)
-      )}
+      {React.Children.map(children, (child: any) => {
+        if (child.props) return React.cloneElement(child, props)
+      })?.filter(Boolean)}
     </ToolBar>
   </Wrapper>
 )

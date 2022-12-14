@@ -14,10 +14,10 @@ export interface Props {
   }
 
 export interface IAppBar {
-  (args: PropsWithChildren<Props>): React.ReactElement
+  (args: PropsWithChildren<Props> & Props): React.ReactElement
   Item: React.FC<PropsWithChildren<Props>>
 }
 
 export interface IItem {
-  (args: PropsWithChildren<Props>): React.ReactElement
+  (args: PropsWithChildren<Props> & Props): React.ReactElement
 }

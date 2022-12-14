@@ -17,4 +17,34 @@ describe('AppBar', () => {
       .toJSON()
     expect(tree).toMatchSnapshot()
   })
+  test('default - no shadow', () => {
+    const tree = renderer
+      .create(
+        <AppBar shadow={false}>
+          <AppBar.Item>what we do</AppBar.Item>
+          <AppBar.Item>maps</AppBar.Item>
+          <AppBar.Item active={true}>contact us</AppBar.Item>
+        </AppBar>
+      )
+      .toJSON()
+    expect(tree).toMatchSnapshot()
+  })
+  test('hii', () => {
+    const tree = renderer
+      .create(
+        <AppBar
+          shadow={false}
+          theme={{
+            primary: '#27847A',
+            accent: '#FFF',
+          }}
+        >
+          <AppBar.Item>what we do</AppBar.Item>
+          <AppBar.Item active={true}>maps</AppBar.Item>
+          <AppBar.Item>contact us</AppBar.Item>
+        </AppBar>
+      )
+      .toJSON()
+    expect(tree).toMatchSnapshot()
+  })
 })

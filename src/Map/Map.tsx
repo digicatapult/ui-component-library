@@ -83,7 +83,7 @@ const applyDefaults = (props: Props) => {
 
 const Map: React.FC<Props> = (props) => {
   const mapContainer = useRef(null)
-  const map = useRef<mapboxgl.Map | null>(null)
+  const mapRef = useRef<mapboxgl.Map | null>(null)
 
   const {
     token,
@@ -107,21 +107,22 @@ const Map: React.FC<Props> = (props) => {
   mapboxgl.accessToken = token
 
   useEffect(() => {
-    if (map.current) return undefined // initialize map only once
-    map.current = new mapboxgl.Map({
+    if (mapRef.current) return undefined // initialize map only once
+    mapRef.current = new mapboxgl.Map({
       container: mapContainer.current!,
       style: style,
       center: [long, lat],
       zoom: zoom,
       attributionControl: false,
     })
-    console.log(map.current)
   })
 
   useEffect(() => {
-    if (!map.current) return undefined // wait for map to initialize
-    map.current.on('load', () => {
-      map.current?.addSource('source', {
+    const map = mapRef.current
+    if (!map) return undefined // wait for map to initialize
+
+    map.on('load', () => {
+      map.addSource('source', {
         type: 'geojson',
         data: sourceJson,
         cluster: cluster,
@@ -129,7 +130,7 @@ const Map: React.FC<Props> = (props) => {
         clusterRadius: clusterAreaRadius, // Radius of each cluster when clustering points (defaults to 50)
       })
 
-      map.current?.addLayer({
+      map.addLayer({
         id: 'clusters',
         type: 'circle',
         source: 'source',
@@ -140,7 +141,7 @@ const Map: React.FC<Props> = (props) => {
         },
       })
 
-      map.current?.addLayer({
+      map.addLayer({
         id: 'cluster-count',
         type: 'symbol',
         source: 'source',
@@ -155,7 +156,7 @@ const Map: React.FC<Props> = (props) => {
         },
       })
 
-      map.current?.addLayer({
+      map.addLayer({
         id: 'unclustered-point',
         type: 'circle',
         source: 'source',
@@ -167,20 +168,20 @@ const Map: React.FC<Props> = (props) => {
       })
 
       // inspect a cluster on click
-      map.current?.on('click', 'clusters', (e) => {
-        const features = map.current!.queryRenderedFeatures(e.point, {
+      map.on('click', 'clusters', (e) => {
+        const features = map.queryRenderedFeatures(e.point, {
           layers: ['clusters'],
         })
 
         const clusterId = features[0]?.properties?.cluster_id
-        const source: mapboxgl.GeoJSONSource = map.current!.getSource(
+        const source: mapboxgl.GeoJSONSource = map.getSource(
           'source'
         ) as mapboxgl.GeoJSONSource
         source.getClusterExpansionZoom(clusterId, (err, zoom) => {
           if (err) return
 
           if (features[0].geometry.type === 'Point') {
-            map.current?.easeTo({
+            map.easeTo({
               center: features[0].geometry.coordinates as LngLatLike,
               zoom: zoom,
             })
@@ -188,24 +189,24 @@ const Map: React.FC<Props> = (props) => {
         })
       })
 
-      map.current?.on('click', 'unclustered-point', (e) => {
-        const features = map.current!.queryRenderedFeatures(e.point)
+      map.on('click', 'unclustered-point', (e) => {
+        const features = map.queryRenderedFeatures(e.point)
         if (features[0].geometry.type === 'Point') {
           onPointClick(features[0])
 
           // center on point, zoom in if current zoom is less than onClickZoomIn
-          map.current?.easeTo({
+          map.easeTo({
             center: features[0].geometry.coordinates as LngLatLike,
-            zoom: Math.max(map.current.getZoom(), onClickZoomIn),
+            zoom: Math.max(map.getZoom(), onClickZoomIn),
           })
         }
       })
 
-      map.current?.on('mouseenter', 'clusters', () => {
-        map.current!.getCanvas().style.cursor = 'pointer'
+      map.on('mouseenter', 'clusters', () => {
+        map.getCanvas().style.cursor = 'pointer'
       })
-      map.current?.on('mouseleave', 'clusters', () => {
-        map.current!.getCanvas().style.cursor = ''
+      map.on('mouseleave', 'clusters', () => {
+        map.getCanvas().style.cursor = ''
       })
     })
   })

@@ -35,7 +35,7 @@ const ToolBar = styled('ul')`
   justify-content: flex-start;
   height: 100%;
   min-height: 74px;
-  gap: 15px;
+  gap: 10px;
   padding-left: 54px;
 `
 
@@ -47,7 +47,7 @@ const Link = styled('a')`
   color: inherit;
   font-family: Roboto;
   font-weight: 700;
-  padding: 0 5px;
+  padding: 0 15px;
   font-size: 1em;
   line-height: 74px;
 
@@ -65,8 +65,8 @@ const Li = styled('li')`
   display: block;
   height: 100%;
   margin: 0;
+  padding: 0;
   cursor: pointer;
-  padding: 0px 10px;
   transition: all 0.5s;
 
   &:hover {

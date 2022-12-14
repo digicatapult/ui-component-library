@@ -6,7 +6,7 @@ import exampleJson from './example.json'
 import colors from '../colors'
 
 export default {
-  title: 'Map Component',
+  title: 'Components/Map',
   component: Map,
   argTypes: {
     sourceJson: {

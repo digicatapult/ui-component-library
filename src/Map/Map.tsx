@@ -28,7 +28,7 @@ export interface ClusterOptions {
 export interface PointOptions {
   pointColor?: string
   pointRadius?: number
-  onPointClick?: (properties: MapboxGeoJSONFeature) => void
+  onPointClick?: (feature: MapboxGeoJSONFeature) => void
   onClickZoomIn?: number
 }
 

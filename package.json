@@ -19,11 +19,11 @@
   "scripts": {
     "build": "tsc",
     "build:watch": "tsc --watch",
-    "coverage": "jest --coverage",
+    "coverage": "jest --coverage --setupFiles dotenv/config",
     "depcheck": "depcheck",
     "lint": "eslint .",
     "storybook": "start-storybook -p 9000",
-    "test": "jest"
+    "test": "jest --setupFiles dotenv/config"
   },
   "peerDependencies": {
     "react": "^18.2.0"

@@ -106,6 +106,7 @@ const Map: React.FC<Props> = (props) => {
       zoom: zoom,
       attributionControl: false,
     })
+    console.log(map.current)
   })
 
   useEffect(() => {

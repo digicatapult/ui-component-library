@@ -5,7 +5,7 @@ import { useId } from 'react-id-generator'
 export interface ListCardProps {
   title: string
   subtitle?: string
-  orientation: 'left' | 'right'
+  orientation?: 'left' | 'right'
   flashColor?: string
   background?: string
   width?: string
@@ -22,11 +22,11 @@ interface WrapperProps extends React.DOMAttributes<HTMLButtonElement> {
 }
 
 const ListCard: React.FC<ListCardProps> = ({
-  flashColor = 'white',
-  background = 'white',
+  flashColor = '#e0e0e0',
+  background = '#f0f0f0',
   title,
   subtitle = '',
-  orientation,
+  orientation = 'left',
   width = '100%',
   height = '100%',
   onClick,
@@ -44,7 +44,7 @@ const ListCard: React.FC<ListCardProps> = ({
       onClick={() => onClick(title)}
     >
       <label htmlFor={id}>{title}</label>
-      <span>{subtitle}</span>
+      {subtitle && <span>{subtitle}</span>}
     </Wrapper>
   )
 }

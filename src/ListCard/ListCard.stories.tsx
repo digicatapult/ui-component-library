@@ -45,12 +45,13 @@ const DefaultStoryTemplate: Story = (args) => {
       orientation={args.orientation}
       flashColor={args.flashColor}
       background={args.background}
-      height="min-content"
-      width="600px"
+      height="67px"
+      width="467px"
       onClick={action('click')}
     />
   )
 }
+
 export const Default = DefaultStoryTemplate.bind({})
 Default.args = {
   title: 'Title',
@@ -60,28 +61,21 @@ Default.args = {
   flashColor: 'darkblue',
   background: 'lightyellow',
 }
-
-const HIITemplate: Story = (args) => {
-  return (
-    <ListCard
-      title={args.title}
-      subtitle={args.subtitle}
-      orientation={args.orientation}
-      flashColor={args.flashColor}
-      background={args.background}
-      height="67px"
-      width="467px"
-      onClick={action('click')}
-    />
-  )
-}
-export const HII = HIITemplate.bind({})
+export const HII = DefaultStoryTemplate.bind({})
 HII.args = {
   title: 'Name',
   subtitle: 'Name of lead partner',
   orientation: 'left',
   flashColor: '#80CC72',
   background: '#DCE5E7',
+}
+export const Simple = DefaultStoryTemplate.bind({})
+Simple.args = {
+  title: 'Name',
+  subtitle: undefined,
+  orientation: undefined,
+  flashColor: undefined,
+  background: undefined,
 }
 
 export const ListCardMultiple: Story = () => {

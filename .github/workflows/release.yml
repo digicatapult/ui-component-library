@@ -105,6 +105,8 @@ jobs:
         run: npm run build
       - name: Test
         run: npm run test
+        env:
+          STORYBOOK_MAPBOX_TOKEN: ${{ secrets.STORYBOOK_MAPBOX_TOKEN }}
 
   publish-npm:
     name: 'Publish package to NPMJS'

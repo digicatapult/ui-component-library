@@ -18,11 +18,30 @@ describe('Test', () => {
     const tree = renderer
       .create(
         <ListCard
-          title="Name'"
-          subtitle="'Name of lead partner'"
-          orientation="'left'"
-          flashColor="'#80CC72'"
-          background="'#DCE5E7'"
+          title="Name"
+          subtitle="Name of lead partner"
+          orientation="left"
+          flashColor="#80CC72"
+          background="#DCE5E7"
+          height="67px"
+          width="467px"
+          onClick={clickHandler}
+        />
+      )
+      .toJSON()
+    expect(tree).toMatchSnapshot()
+  })
+
+  test('orientation: right', () => {
+    const clickHandler = jest.fn(() => {})
+    const tree = renderer
+      .create(
+        <ListCard
+          title="Name"
+          subtitle="Name of lead partner"
+          orientation="right"
+          flashColor="#80CC72"
+          background="#DCE5E7"
           height="67px"
           width="467px"
           onClick={clickHandler}

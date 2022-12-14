@@ -105,8 +105,7 @@ const Wrapper = styled.button<WrapperProps>`
     left: ${({ orientation }) => (orientation === 'right' ? 'unset' : '0')};
     right: ${({ orientation }) => (orientation === 'left' ? 'unset' : '0')};
 
-    width: ${({ orientation }) =>
-      orientation === 'left' || orientation === 'right' ? '1em' : 'unset'};
+    width: 1em;
     background: ${({ flashColor }) => flashColor};
   }
 

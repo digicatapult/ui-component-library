@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Props } from './types.js'
+import { Props } from './types'
 
 // TODO props per dom element as well as all for appbar
 // TODO abstract into small component for reusing?

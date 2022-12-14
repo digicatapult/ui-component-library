@@ -43,14 +43,15 @@ export default {
     variant: 'default',
     width: '100%',
     shadow: true,
-    children: [
-      <AppBar.Item active={true}>item one</AppBar.Item>,
-      <AppBar.Item>item two</AppBar.Item>,
-    ],
   },
 } as Meta<React.ComponentProps<typeof AppBar>>
 
-export const Default: Story<typeof AppBar> = (args) => <AppBar {...args} />
+export const Default: Story<typeof AppBar> = (props) => (
+  <AppBar {...props}>
+    <AppBar.Item active={true}>item one</AppBar.Item>,
+    <AppBar.Item>item two</AppBar.Item>,
+  </AppBar>
+)
 export const HII: Story<typeof AppBar> = () => (
   <AppBar
     shadow={false}

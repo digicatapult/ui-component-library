@@ -8,16 +8,14 @@ module.exports = {
     builder: 'webpack5'
   },
   framework: '@storybook/react',
-  features: {
-    interactionsDebugger: true,
-  },
   typescript: {
-    check: false,
+    check: true,
     reactDocgen: 'react-docgen-typescript',
     reactDocgenTypescriptOptions: {
       compilerOptions: {
         allowSyntheticDefaultImports: false,
-        esModuleInterop: false
+        esModuleInterop: false,
+        
       }
     }
   }

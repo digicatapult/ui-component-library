@@ -12,12 +12,12 @@ export interface Props {
       [key: string]: string
     }
   }
-  
-  export interface IAppBar {
-    (args: PropsWithChildren & Props): React.ReactElement
-    Item?: React.FC<PropsWithChildren<Props>>
-  }
-  
-  export interface IItem {
-    (args: PropsWithChildren<Props>): React.ReactElement
-  }
+
+export interface IAppBar {
+  (args: PropsWithChildren<Props>): React.ReactElement
+  Item: React.FC<PropsWithChildren<Props>>
+}
+
+export interface IItem {
+  (args: PropsWithChildren<Props>): React.ReactElement
+}

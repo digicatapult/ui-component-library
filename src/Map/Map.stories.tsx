@@ -1,4 +1,5 @@
 import React from 'react'
+import { action } from '@storybook/addon-actions'
 
 import Map from './index'
 import exampleJson from './example.json'
@@ -89,13 +90,19 @@ export default {
     pointColor: {
       control: 'color',
       table: {
-        category: 'Clustering',
+        category: 'Point',
       },
     },
     pointRadius: {
       control: 'number',
       table: {
-        category: 'Clustering',
+        category: 'Point',
+      },
+    },
+    onClickZoomIn: {
+      control: 'number',
+      table: {
+        category: 'Point',
       },
     },
   },
@@ -124,8 +131,12 @@ const Template = (args) => {
       countFont: args.countFont,
       countFontSize: args.countFontSize,
       countFontColor: args.countFontColor,
+    },
+    pointOptions: {
       pointColor: args.pointColor,
       pointRadius: args.pointRadius,
+      onPointClick: action('click'),
+      onClickZoomIn: args.onClickZoomIn,
     },
   }
 

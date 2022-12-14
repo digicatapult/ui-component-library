@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react'
 import styled from 'styled-components'
-import mapboxgl from 'mapbox-gl'
+import mapboxgl, { LngLatLike, MapboxGeoJSONFeature } from 'mapbox-gl'
 
 import colors from '../colors'
 
@@ -23,8 +23,13 @@ export interface ClusterOptions {
   countFont?: string[]
   countFontSize?: number
   countFontColor?: string
+}
+
+export interface PointOptions {
   pointColor?: string
   pointRadius?: number
+  onPointClick?: (properties: MapboxGeoJSONFeature) => void
+  onClickZoomIn?: number
 }
 
 export interface Props {
@@ -35,6 +40,7 @@ export interface Props {
   startPosition?: StartPosition
   cluster?: boolean
   clusterOptions?: ClusterOptions
+  pointOptions?: PointOptions
 }
 
 const Wrapper = styled('div')<Size>`
@@ -65,8 +71,12 @@ const applyDefaults = (props: Props) => {
       countFont: props.clusterOptions?.countFont || ['Open Sans Regular'],
       countFontSize: props.clusterOptions?.countFontSize || 14,
       countFontColor: props.clusterOptions?.countFontColor || colors.white,
-      pointColor: props.clusterOptions?.pointColor || colors.black,
-      pointRadius: props.clusterOptions?.pointRadius || 6,
+    },
+    pointOptions: {
+      pointColor: props.pointOptions?.pointColor || colors.black,
+      pointRadius: props.pointOptions?.pointRadius || 6,
+      onPointClick: props.pointOptions?.onPointClick || Function(),
+      onClickZoomIn: props.pointOptions?.onClickZoomIn || 12,
     },
   }
 }
@@ -90,9 +100,8 @@ const Map: React.FC<Props> = (props) => {
       countFont,
       countFontSize,
       countFontColor,
-      pointColor,
-      pointRadius,
     },
+    pointOptions: { pointColor, pointRadius, onPointClick, onClickZoomIn },
   } = applyDefaults(props)
 
   mapboxgl.accessToken = token
@@ -171,13 +180,25 @@ const Map: React.FC<Props> = (props) => {
           if (err) return
 
           if (features[0].geometry.type === 'Point') {
-            const coordinates = features[0].geometry.coordinates
             map.current?.easeTo({
-              center: coordinates as mapboxgl.LngLatLike,
+              center: features[0].geometry.coordinates as LngLatLike,
               zoom: zoom,
             })
           }
         })
+      })
+
+      map.current?.on('click', 'unclustered-point', (e) => {
+        const features = map.current!.queryRenderedFeatures(e.point)
+        if (features[0].geometry.type === 'Point') {
+          onPointClick(features[0])
+
+          // center on point, zoom in if current zoom is less than onClickZoomIn
+          map.current?.easeTo({
+            center: features[0].geometry.coordinates as LngLatLike,
+            zoom: Math.max(map.current.getZoom(), onClickZoomIn),
+          })
+        }
       })
 
       map.current?.on('mouseenter', 'clusters', () => {

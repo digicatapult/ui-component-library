@@ -8,6 +8,12 @@ export default {
   title: 'Map Component',
   component: Map,
   argTypes: {
+    sourceJson: {
+      control: 'text',
+    },
+    style: {
+      control: 'text',
+    },
     height: {
       control: 'text',
     },
@@ -31,9 +37,6 @@ export default {
       table: {
         category: 'Start Position',
       },
-    },
-    style: {
-      control: 'text',
     },
     cluster: {
       control: 'boolean',
@@ -94,9 +97,6 @@ export default {
       table: {
         category: 'Clustering',
       },
-    },
-    sourceJson: {
-      control: 'text',
     },
   },
 }

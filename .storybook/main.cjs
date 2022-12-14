@@ -9,12 +9,13 @@ module.exports = {
   },
   framework: '@storybook/react',
   typescript: {
-    check: false,
+    check: true,
     reactDocgen: 'react-docgen-typescript',
     reactDocgenTypescriptOptions: {
       compilerOptions: {
         allowSyntheticDefaultImports: false,
-        esModuleInterop: false
+        esModuleInterop: false,
+        
       }
     }
   }

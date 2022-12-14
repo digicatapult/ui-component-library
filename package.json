@@ -22,6 +22,7 @@
     "coverage": "jest --coverage",
     "depcheck": "depcheck",
     "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "storybook": "start-storybook -p 9000",
     "test": "jest"
   },

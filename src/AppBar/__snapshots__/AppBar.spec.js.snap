@@ -1,0 +1,679 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppBar default - custom width 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  box-sizing: border-box;
+  -webkit-transition: box-shadow 1s cubic-bezier(0.8,1,0.2,1) 3s;
+  transition: box-shadow 1s cubic-bezier(0.8,1,0.2,1) 3s;
+  width: 50%;
+  box-shadow: none;
+  background-color: #FFFE;
+  color: #000;
+}
+
+.c1 {
+  position: relative;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  padding: 0px 25px;
+  margin: 0;
+  list-style-type: none;
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  height: 100%;
+  min-height: 74px;
+  gap: 10px;
+  padding-left: 54px;
+}
+
+.c3 {
+  display: inline-block;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: inherit;
+  font-family: Roboto;
+  font-weight: 700;
+  padding: 0 15px;
+  font-size: 1em;
+  line-height: 74px;
+}
+
+.c4 {
+  display: inline-block;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: inherit;
+  font-family: Roboto;
+  font-weight: 700;
+  padding: 0 15px;
+  font-size: 1em;
+  line-height: 74px;
+  margin-top: 4px;
+  background: linear-gradient(360deg,#DFE667 -408.97%,rgba(223,230,103,0) 78.21%);
+  border-bottom: 4px solid #000;
+}
+
+.c2 {
+  display: block;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.c2:hover {
+  background-color: rgba(40,30,30,0.1);
+}
+
+<div
+  className="c0"
+  width="50%"
+>
+  <ul
+    className="c1"
+  >
+    <li
+      className="c2"
+    >
+      <a
+        className="c3"
+        href="#"
+        width="50%"
+      >
+        what we do
+      </a>
+    </li>
+    <li
+      className="c2"
+    >
+      <a
+        className="c3"
+        href="#"
+        width="50%"
+      >
+        maps
+      </a>
+    </li>
+    <li
+      className="c2"
+    >
+      <a
+        className="c4"
+        href="#"
+        width="50%"
+      >
+        contact us
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`AppBar default - fixed 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  box-sizing: border-box;
+  -webkit-transition: box-shadow 1s cubic-bezier(0.8,1,0.2,1) 3s;
+  transition: box-shadow 1s cubic-bezier(0.8,1,0.2,1) 3s;
+  width: 50%;
+  box-shadow: none;
+  background-color: #FFFE;
+  color: #000;
+}
+
+.c1 {
+  position: relative;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  padding: 0px 25px;
+  margin: 0;
+  list-style-type: none;
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  height: 100%;
+  min-height: 74px;
+  gap: 10px;
+  padding-left: 54px;
+}
+
+.c3 {
+  display: inline-block;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: inherit;
+  font-family: Roboto;
+  font-weight: 700;
+  padding: 0 15px;
+  font-size: 1em;
+  line-height: 74px;
+}
+
+.c4 {
+  display: inline-block;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: inherit;
+  font-family: Roboto;
+  font-weight: 700;
+  padding: 0 15px;
+  font-size: 1em;
+  line-height: 74px;
+  margin-top: 4px;
+  background: linear-gradient(360deg,#DFE667 -408.97%,rgba(223,230,103,0) 78.21%);
+  border-bottom: 4px solid #000;
+}
+
+.c2 {
+  display: block;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.c2:hover {
+  background-color: rgba(40,30,30,0.1);
+}
+
+<div
+  className="c0"
+  width="50%"
+>
+  <ul
+    className="c1"
+  >
+    <li
+      className="c2"
+    >
+      <a
+        className="c3"
+        href="#"
+        width="50%"
+      >
+        what we do
+      </a>
+    </li>
+    <li
+      className="c2"
+    >
+      <a
+        className="c3"
+        href="#"
+        width="50%"
+      >
+        maps
+      </a>
+    </li>
+    <li
+      className="c2"
+    >
+      <a
+        className="c4"
+        href="#"
+        width="50%"
+      >
+        contact us
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`AppBar default - no shadow 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  box-sizing: border-box;
+  -webkit-transition: box-shadow 1s cubic-bezier(0.8,1,0.2,1) 3s;
+  transition: box-shadow 1s cubic-bezier(0.8,1,0.2,1) 3s;
+  width: 100%;
+  box-shadow: none;
+  background-color: #FFFE;
+  color: #000;
+}
+
+.c1 {
+  position: relative;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  padding: 0px 25px;
+  margin: 0;
+  list-style-type: none;
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  height: 100%;
+  min-height: 74px;
+  gap: 10px;
+  padding-left: 54px;
+}
+
+.c3 {
+  display: inline-block;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: inherit;
+  font-family: Roboto;
+  font-weight: 700;
+  padding: 0 15px;
+  font-size: 1em;
+  line-height: 74px;
+}
+
+.c4 {
+  display: inline-block;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: inherit;
+  font-family: Roboto;
+  font-weight: 700;
+  padding: 0 15px;
+  font-size: 1em;
+  line-height: 74px;
+  margin-top: 4px;
+  background: linear-gradient(360deg,#DFE667 -408.97%,rgba(223,230,103,0) 78.21%);
+  border-bottom: 4px solid #000;
+}
+
+.c2 {
+  display: block;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.c2:hover {
+  background-color: rgba(40,30,30,0.1);
+}
+
+<div
+  className="c0"
+>
+  <ul
+    className="c1"
+  >
+    <li
+      className="c2"
+    >
+      <a
+        className="c3"
+        href="#"
+      >
+        what we do
+      </a>
+    </li>
+    <li
+      className="c2"
+    >
+      <a
+        className="c3"
+        href="#"
+      >
+        maps
+      </a>
+    </li>
+    <li
+      className="c2"
+    >
+      <a
+        className="c4"
+        href="#"
+      >
+        contact us
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`AppBar default 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  box-sizing: border-box;
+  -webkit-transition: box-shadow 1s cubic-bezier(0.8,1,0.2,1) 3s;
+  transition: box-shadow 1s cubic-bezier(0.8,1,0.2,1) 3s;
+  width: 100%;
+  box-shadow: none;
+  background-color: #FFFE;
+  color: #000;
+}
+
+.c1 {
+  position: relative;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  padding: 0px 25px;
+  margin: 0;
+  list-style-type: none;
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  height: 100%;
+  min-height: 74px;
+  gap: 10px;
+  padding-left: 54px;
+}
+
+.c3 {
+  display: inline-block;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: inherit;
+  font-family: Roboto;
+  font-weight: 700;
+  padding: 0 15px;
+  font-size: 1em;
+  line-height: 74px;
+  margin-top: 4px;
+  background: linear-gradient(360deg,#DFE667 -408.97%,rgba(223,230,103,0) 78.21%);
+  border-bottom: 4px solid #000;
+}
+
+.c4 {
+  display: inline-block;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: inherit;
+  font-family: Roboto;
+  font-weight: 700;
+  padding: 0 15px;
+  font-size: 1em;
+  line-height: 74px;
+}
+
+.c2 {
+  display: block;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.c2:hover {
+  background-color: rgba(40,30,30,0.1);
+}
+
+<div
+  className="c0"
+>
+  <ul
+    className="c1"
+  >
+    <li
+      className="c2"
+    >
+      <a
+        className="c3"
+        href="#"
+      >
+        what we do
+      </a>
+    </li>
+    <li
+      className="c2"
+    >
+      <a
+        className="c4"
+        href="#"
+      >
+        maps
+      </a>
+    </li>
+    <li
+      className="c2"
+    >
+      <a
+        className="c4"
+        href="#"
+      >
+        contact us
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`AppBar hii 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  box-sizing: border-box;
+  -webkit-transition: box-shadow 1s cubic-bezier(0.8,1,0.2,1) 3s;
+  transition: box-shadow 1s cubic-bezier(0.8,1,0.2,1) 3s;
+  width: 100%;
+  box-shadow: none;
+  background-color: #27847A;
+  color: #FFF;
+}
+
+.c1 {
+  position: relative;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  padding: 0px 25px;
+  margin: 0;
+  list-style-type: none;
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  height: 100%;
+  min-height: 74px;
+  gap: 10px;
+  padding-left: 54px;
+}
+
+.c3 {
+  display: inline-block;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: inherit;
+  font-family: Roboto;
+  font-weight: 700;
+  padding: 0 15px;
+  font-size: 1em;
+  line-height: 74px;
+}
+
+.c4 {
+  display: inline-block;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: inherit;
+  font-family: Roboto;
+  font-weight: 700;
+  padding: 0 15px;
+  font-size: 1em;
+  line-height: 74px;
+  margin-top: 4px;
+  background: linear-gradient(360deg,#DFE667 -408.97%,rgba(223,230,103,0) 78.21%);
+  border-bottom: 4px solid #FFF;
+}
+
+.c2 {
+  display: block;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.c2:hover {
+  background-color: rgba(40,30,30,0.1);
+}
+
+<div
+  className="c0"
+>
+  <ul
+    className="c1"
+  >
+    <li
+      className="c2"
+    >
+      <a
+        className="c3"
+        href="#"
+      >
+        what we do
+      </a>
+    </li>
+    <li
+      className="c2"
+    >
+      <a
+        className="c4"
+        href="#"
+      >
+        maps
+      </a>
+    </li>
+    <li
+      className="c2"
+    >
+      <a
+        className="c3"
+        href="#"
+      >
+        contact us
+      </a>
+    </li>
+  </ul>
+</div>
+`;

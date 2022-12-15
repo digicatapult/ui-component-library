@@ -1,0 +1,307 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Heading H1 1`] = `
+.c0 {
+  font-size: 1em;
+  padding: 0;
+  margin: 0;
+}
+
+<h1
+  className="c0"
+  id="id1"
+>
+  Hello1
+</h1>
+`;
+
+exports[`Heading H2 1`] = `
+.c0 {
+  font-size: 1em;
+  padding: 0;
+  margin: 0;
+}
+
+<h2
+  className="c0"
+  id="id2"
+>
+  Hello2
+</h2>
+`;
+
+exports[`Heading H3 1`] = `
+.c0 {
+  font-size: 1em;
+  padding: 0;
+  margin: 0;
+}
+
+<h3
+  className="c0"
+  id="id3"
+>
+  Hello3
+</h3>
+`;
+
+exports[`Heading H4 1`] = `
+.c0 {
+  font-size: 1em;
+  padding: 0;
+  margin: 0;
+}
+
+<h4
+  className="c0"
+  id="id4"
+>
+  Hello4
+</h4>
+`;
+
+exports[`Heading H5 1`] = `
+.c0 {
+  font-size: 1em;
+  padding: 0;
+  margin: 0;
+}
+
+<h5
+  className="c0"
+  id="id5"
+>
+  Hello5
+</h5>
+`;
+
+exports[`Heading H6 1`] = `
+.c0 {
+  font-size: 1em;
+  padding: 0;
+  margin: 0;
+}
+
+<h6
+  className="c0"
+  id="id6"
+>
+  Hello6
+</h6>
+`;
+
+exports[`Heading HX - h1 1`] = `
+.c0 {
+  font-size: 1em;
+  padding: 0;
+  margin: 0;
+}
+
+<h1
+  className="c0"
+  id="idx1"
+>
+  Hello-x
+  1
+</h1>
+`;
+
+exports[`Heading HX - h2 1`] = `
+.c0 {
+  font-size: 1em;
+  padding: 0;
+  margin: 0;
+}
+
+<h2
+  className="c0"
+  id="idx2"
+>
+  Hello-x
+  2
+</h2>
+`;
+
+exports[`Heading HX - h3 1`] = `
+.c0 {
+  font-size: 1em;
+  padding: 0;
+  margin: 0;
+}
+
+<h3
+  className="c0"
+  id="idx3"
+>
+  Hello-x
+  3
+</h3>
+`;
+
+exports[`Heading HX - h4 1`] = `
+.c0 {
+  font-size: 1em;
+  padding: 0;
+  margin: 0;
+}
+
+<h4
+  className="c0"
+  id="idx4"
+>
+  Hello-x
+  4
+</h4>
+`;
+
+exports[`Heading HX - h5 1`] = `
+.c0 {
+  font-size: 1em;
+  padding: 0;
+  margin: 0;
+}
+
+<h5
+  className="c0"
+  id="idx5"
+>
+  Hello-x
+  5
+</h5>
+`;
+
+exports[`Heading HX - h6 1`] = `
+.c0 {
+  font-size: 1em;
+  padding: 0;
+  margin: 0;
+}
+
+<h6
+  className="c0"
+  id="idx6"
+>
+  Hello-x
+  6
+</h6>
+`;
+
+exports[`Heading Restyled HX - h1 1`] = `
+.c0 {
+  font-size: 1em;
+  padding: 0;
+  margin: 0;
+}
+
+.c1 {
+  font-size: 2em;
+}
+
+<h1
+  className="c0 c1"
+  id="idx1"
+>
+  Hello-x
+  1
+</h1>
+`;
+
+exports[`Heading Restyled HX - h2 1`] = `
+.c0 {
+  font-size: 1em;
+  padding: 0;
+  margin: 0;
+}
+
+.c1 {
+  font-size: 2em;
+}
+
+<h2
+  className="c0 c1"
+  id="idx2"
+>
+  Hello-x
+  2
+</h2>
+`;
+
+exports[`Heading Restyled HX - h3 1`] = `
+.c0 {
+  font-size: 1em;
+  padding: 0;
+  margin: 0;
+}
+
+.c1 {
+  font-size: 2em;
+}
+
+<h3
+  className="c0 c1"
+  id="idx3"
+>
+  Hello-x
+  3
+</h3>
+`;
+
+exports[`Heading Restyled HX - h4 1`] = `
+.c0 {
+  font-size: 1em;
+  padding: 0;
+  margin: 0;
+}
+
+.c1 {
+  font-size: 2em;
+}
+
+<h4
+  className="c0 c1"
+  id="idx4"
+>
+  Hello-x
+  4
+</h4>
+`;
+
+exports[`Heading Restyled HX - h5 1`] = `
+.c0 {
+  font-size: 1em;
+  padding: 0;
+  margin: 0;
+}
+
+.c1 {
+  font-size: 2em;
+}
+
+<h5
+  className="c0 c1"
+  id="idx5"
+>
+  Hello-x
+  5
+</h5>
+`;
+
+exports[`Heading Restyled HX - h6 1`] = `
+.c0 {
+  font-size: 1em;
+  padding: 0;
+  margin: 0;
+}
+
+.c1 {
+  font-size: 2em;
+}
+
+<h6
+  className="c0 c1"
+  id="idx6"
+>
+  Hello-x
+  6
+</h6>
+`;

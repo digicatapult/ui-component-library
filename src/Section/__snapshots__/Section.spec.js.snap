@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Section default 1`] = `
+.c1 {
+  font-size: 1em;
+  padding: 0;
+  margin: 0;
+}
+
+.c0 {
+  background: #f0f0f0;
+  padding: 1em;
+  width: 100ch;
+  height: auto;
+}
+
+.c2 {
+  font-size: 1.2em;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 0.5em;
+}
+
+<section
+  aria-labelledby="id1"
+  className="c0"
+  height="auto"
+  width="100ch"
+>
+  <h1
+    className="c1 c2"
+    size="1.2em"
+  >
+    TITLE
+  </h1>
+  Body content goes here
+</section>
+`;
+
+exports[`Section overrides 1`] = `
+.c1 {
+  font-size: 1em;
+  padding: 0;
+  margin: 0;
+}
+
+.c0 {
+  background: blue;
+  padding: 5ch;
+  width: 20ch;
+  height: 100%;
+}
+
+.c2 {
+  font-size: 1.2em;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 1ch;
+}
+
+<section
+  aria-labelledby="id2"
+  className="c0"
+  height="100%"
+  width="20ch"
+>
+  <h1
+    className="c1 c2"
+    size="1.2em"
+  >
+    TITLE
+  </h1>
+  Body content goes here
+</section>
+`;

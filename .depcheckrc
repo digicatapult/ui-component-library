@@ -1,5 +1,5 @@
 {
-  ignores: [
+  "ignores": [
     "@storybook/addon-essentials",
     "@storybook/addon-a11y",
     "@storybook/addon-actions",
@@ -8,6 +8,7 @@
     "@storybook/manager-webpack5",
     "@storybook/source-loader",
     "@types/*",
-    "jest-environment-jsdom"
+    "jest-environment-jsdom",
+    "geojson"
   ]
 }

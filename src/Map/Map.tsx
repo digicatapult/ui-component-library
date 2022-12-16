@@ -1,18 +1,21 @@
-import React, { useRef, useEffect, useState } from 'react'
+import React, { useRef, useEffect } from 'react'
 import styled from 'styled-components'
-import mapboxgl, { LngLatLike, MapboxGeoJSONFeature } from 'mapbox-gl'
+import mapboxgl, {
+  LngLatLike,
+  MapboxGeoJSONFeature,
+  GeoJSONSource,
+} from 'mapbox-gl'
+import { FeatureCollection, GeoJSON } from 'geojson'
 
 import colors from '../colors'
 
-export interface StartPosition {
+export interface InitialState {
   long?: number
   lat?: number
   zoom?: number
-}
-
-export interface Size {
   height?: string
   width?: string
+  style?: string
 }
 
 export interface ClusterOptions {
@@ -34,34 +37,20 @@ export interface PointOptions {
 
 export interface Props {
   token: string
-  sourceJson?: string
-  style?: string
-  size?: Size
-  startPosition?: StartPosition
+  sourceJson?: GeoJSON
+  initialState?: InitialState
   cluster?: boolean
   clusterOptions?: ClusterOptions
   pointOptions?: PointOptions
 }
 
-const Wrapper = styled('div')<Size>`
+const Wrapper = styled('div')<InitialState>`
   height: ${({ height }) => height};
   width: ${({ width }) => width};
 `
 
-const applyDefaults = (props: Props) => {
+const applyLayerDefaults = (props: Props) => {
   return {
-    token: props.token,
-    sourceJson: props.sourceJson || '',
-    style: props.style || 'mapbox://styles/mapbox/light-v11',
-    size: {
-      height: props.size?.height || '800px',
-      width: props.size?.width || '800px',
-    },
-    startPosition: {
-      long: props.startPosition?.long || -3.5,
-      lat: props.startPosition?.lat || 55,
-      zoom: props.startPosition?.zoom || 5,
-    },
     cluster: props.cluster || false,
     clusterOptions: {
       clusterMaxZoom: props.clusterOptions?.clusterMaxZoom || 14,
@@ -86,11 +75,6 @@ const Map: React.FC<Props> = (props) => {
   const mapRef = useRef<mapboxgl.Map | null>(null)
 
   const {
-    token,
-    sourceJson,
-    style,
-    size: { height, width },
-    startPosition: { long, lat, zoom },
     cluster,
     clusterOptions: {
       clusterMaxZoom,
@@ -102,12 +86,25 @@ const Map: React.FC<Props> = (props) => {
       countFontColor,
     },
     pointOptions: { pointColor, pointRadius, onPointClick, onClickZoomIn },
-  } = applyDefaults(props)
+  } = applyLayerDefaults(props)
 
-  mapboxgl.accessToken = token
+  const sourceJson = props.sourceJson
+  const height = props.initialState?.height || '800px'
+  const width = props.initialState?.width || '800px'
 
+  mapboxgl.accessToken = props.token
+
+  // initialize map
   useEffect(() => {
-    if (mapRef.current) return undefined // initialize map only once
+    if (mapRef.current) return undefined
+
+    // defaults
+    const long = props.initialState?.long || -3.5
+    const lat = props.initialState?.lat || 55
+    const zoom = props.initialState?.zoom || 5
+    const style =
+      props.initialState?.style || 'mapbox://styles/mapbox/light-v11'
+
     mapRef.current = new mapboxgl.Map({
       container: mapContainer.current!,
       style: style,
@@ -115,11 +112,35 @@ const Map: React.FC<Props> = (props) => {
       zoom: zoom,
       attributionControl: false,
     })
-  })
 
+    // clean up
+    return () => {
+      mapRef?.current?.remove()
+      mapRef.current = null
+    }
+  }, [
+    props.initialState?.style,
+    props.initialState?.long,
+    props.initialState?.lat,
+    props.initialState?.zoom,
+    // height/width changes require map reload
+    props.initialState?.height,
+    props.initialState?.width,
+  ])
+
+  // update map geojson without map reload
   useEffect(() => {
     const map = mapRef.current
-    if (!map) return undefined // wait for map to initialize
+    if (!map || !sourceJson) return undefined
+
+    const geojsonSource = map.getSource('source') as GeoJSONSource
+    geojsonSource?.setData(sourceJson as FeatureCollection)
+  }, [sourceJson])
+
+  // add layers after map load
+  useEffect(() => {
+    const map = mapRef.current
+    if (!map) return undefined
 
     map.on('load', () => {
       map.addSource('source', {
@@ -127,7 +148,7 @@ const Map: React.FC<Props> = (props) => {
         data: sourceJson,
         cluster: cluster,
         clusterMaxZoom: clusterMaxZoom, // Max zoom to cluster points on
-        clusterRadius: clusterAreaRadius, // Radius of each cluster when clustering points (defaults to 50)
+        clusterRadius: clusterAreaRadius, // Radius of each cluster when clustering points
       })
 
       map.addLayer({

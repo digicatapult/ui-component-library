@@ -39,6 +39,7 @@ const X = styled('button')`
   }
 `
 
+// TODO create types.d.ts
 interface Props {
   options?: Array<any>
   styles?: StylesConfig

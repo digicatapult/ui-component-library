@@ -33,6 +33,7 @@
     "mapbox-gl": "^2.11.1",
     "prop-types": "^15.8.1",
     "react-id-generator": "^3.0.2",
+    "react-select": "^5.7.0",
     "styled-components": "^5.3.6"
   },
   "devDependencies": {

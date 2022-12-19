@@ -70,7 +70,7 @@ export const Multi: Story<typeof Dropdown> = (args) => {
 
   return (
     <>
-      <h1>SELECTED: {selected.map((el) => JSON.stringify(el))}</h1>
+      <h1>SELECTED: {selected.map((el) => `${JSON.stringify(el)}\n`)}</h1>
       <Dropdown
         selected={selected}
         isMulti={true}

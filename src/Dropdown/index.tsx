@@ -5,6 +5,7 @@ import styled from 'styled-components'
 const Wrapper = styled('div')`
   ${({ width }: { width?: string }) => `
     width: ${width || '100%'}
+    min-width: 250px;
   `}
 `
 

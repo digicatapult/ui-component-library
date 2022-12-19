@@ -2,12 +2,12 @@
 
 exports[`Dropdown default - selected 1`] = `
 .c0 {
-  width: 50%;
+  width: 100% min-width:250px;
 }
 
 <div
   className="c0"
-  width="50%"
+  width="100%"
 >
   <div
     className=" css-b62m3t-container"
@@ -110,12 +110,12 @@ exports[`Dropdown default - selected 1`] = `
 
 exports[`Dropdown default - with placeholder 1`] = `
 .c0 {
-  width: 50%;
+  width: 100% min-width:250px;
 }
 
 <div
   className="c0"
-  width="50%"
+  width="100%"
 >
   <div
     className=" css-b62m3t-container"
@@ -220,12 +220,12 @@ exports[`Dropdown default - with placeholder 1`] = `
 
 exports[`Dropdown default 1`] = `
 .c0 {
-  width: 50%;
+  width: 100% min-width:250px;
 }
 
 <div
   className="c0"
-  width="50%"
+  width="100%"
 >
   <div
     className=" css-b62m3t-container"
@@ -330,7 +330,7 @@ exports[`Dropdown default 1`] = `
 
 exports[`Dropdown multi - hii 1`] = `
 .c0 {
-  width: 50%;
+  width: 100% min-width:250px;
 }
 
 .c1 {
@@ -366,8 +366,8 @@ exports[`Dropdown multi - hii 1`] = `
   all: unset;
   margin-left: 1.3rem;
   color: #216968;
-  -webkit-transition: fill 0.15s ease-in-out;
-  transition: fill 0.15s ease-in-out;
+  -webkit-transition: fill 0.5s ease-in-out;
+  transition: fill 0.5s ease-in-out;
   cursor: pointer;
 }
 

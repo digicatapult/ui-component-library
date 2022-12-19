@@ -1,5 +1,5 @@
 import React from 'react'
-import Dropdown from './index'
+import Dropdown from './Dropdown'
 import { action } from '@storybook/addon-actions'
 import { Story } from '@storybook/react'
 

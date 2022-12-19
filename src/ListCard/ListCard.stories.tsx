@@ -1,5 +1,5 @@
 import React from 'react'
-import { ListCard } from '../index.js'
+import ListCard from './ListCard'
 import { Story } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import styled from 'styled-components'

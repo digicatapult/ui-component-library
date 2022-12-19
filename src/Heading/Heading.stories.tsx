@@ -1,7 +1,6 @@
 import React from 'react'
-import { HX } from './index'
+import { HX } from './Heading'
 import { Story } from '@storybook/react'
-import styled from 'styled-components'
 
 export default {
   title: 'Components/Heading',

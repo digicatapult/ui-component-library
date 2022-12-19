@@ -2,7 +2,7 @@ import React from 'react'
 import renderer from 'react-test-renderer'
 import 'jest-styled-components'
 
-import Dropdown from './index.tsx'
+import Dropdown from './Dropdown.tsx'
 
 const options = [
   {

@@ -5,7 +5,10 @@ module.exports = {
   ],
   addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
   core: {
-    builder: 'webpack5'
+    builder: 'webpack5',
+    options: {
+      lazyCompilation: true,
+    },
   },
   framework: '@storybook/react',
   typescript: {
@@ -13,7 +16,7 @@ module.exports = {
     reactDocgen: 'react-docgen-typescript',
     reactDocgenTypescriptOptions: {
       compilerOptions: {
-        allowSyntheticDefaultImports: false,
+        allowSyntheticDefaultImports: true,
         esModuleInterop: false,
         
       }

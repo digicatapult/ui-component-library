@@ -2,7 +2,7 @@ import React from 'react'
 import renderer from 'react-test-renderer'
 import 'jest-styled-components'
 
-import AppBar from './index.tsx'
+import AppBar from './AppBar.tsx'
 
 describe('AppBar', () => {
   test('default', () => {

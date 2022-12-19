@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import renderer from 'react-test-renderer'
 import 'jest-styled-components'
 
-import { H1, H2, H3, H4, H5, H6, H6, HX } from './index.tsx'
+import { H1, H2, H3, H4, H5, H6, H6, HX } from './Heading.tsx'
 
 describe('Heading', () => {
   test('H1', () => {

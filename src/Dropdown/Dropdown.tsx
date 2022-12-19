@@ -13,6 +13,7 @@ const ValuesContainer = styled('div')`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  min-width: 250px;
 `
 
 const Value = styled('div')`

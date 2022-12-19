@@ -48,7 +48,7 @@ export const Default: Story<typeof Dropdown> = (args) => {
 
   return (
     <>
-      <h1>{JSON.stringify(selected)}</h1>
+      <h1>SELECTED: {JSON.stringify(selected)}</h1>
       <Dropdown
         selected={selected}
         isMulti={false}
@@ -70,7 +70,7 @@ export const Multi: Story<typeof Dropdown> = (args) => {
 
   return (
     <>
-      <h1>{selected.map((el) => JSON.stringify(el))}</h1>
+      <h1>SELECTED: {selected.map((el) => JSON.stringify(el))}</h1>
       <Dropdown
         selected={selected}
         isMulti={true}

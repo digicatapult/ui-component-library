@@ -56,11 +56,13 @@ const MultiSelect = (props: any) => {
   const { value, onChange } = props
 
   const handleRemoveValue = (e: any) => {
-    if (!onChange) return
+    if (!onChange) return null
     const { name: buttonName } = e.currentTarget
     const removedValue = value.find((val: any) => val.value === buttonName)
-    if (!removedValue) return
+
+    if (!removedValue) return null
     props.update(value)
+
     onChange(
       value.filter((val: any) => val.value !== buttonName),
       { name, action: 'remove-value', removedValue }
@@ -94,29 +96,7 @@ const MultiSelect = (props: any) => {
   )
 }
 
-const Dropdown: IDropdown = ({
-  options,
-  isMulti = false,
-  styles = {
-    multiValue: () => ({
-      display: 'none',
-    }),
-    option: (styles) => ({
-      ...styles,
-      ':hover': {
-        ...styles[':hover'],
-        backgroundColor: '#B6EFA0',
-        color: '#27847A',
-      },
-    }),
-    menuList: (styles) => ({
-      ...styles,
-      color: '#fff',
-      backgroundColor: '#27847A',
-    }),
-  },
-  ...props
-}) => {
+const Dropdown: IDropdown = ({ options, isMulti = false, ...props }) => {
   const [value, setValue] = React.useState(props.selected)
 
   const update = (val: any) => props.update(val)
@@ -126,18 +106,34 @@ const Dropdown: IDropdown = ({
   }
 
   // TODO show selected in drop down as well.
-  if (isMulti)
-    return (
-      <MultiSelect
-        {...{
-          options,
-          styles,
-          ...props,
-          onChange,
-          value,
-        }}
-      />
-    )
+  if (isMulti) {
+    const multiProps = {
+      styles: {
+        multiValue: () => ({
+          display: 'none',
+        }),
+        option: (styles: any) => ({
+          ...styles,
+          ':hover': {
+            ...styles[':hover'],
+            backgroundColor: '#B6EFA0',
+            color: '#27847A',
+          },
+        }),
+        menuList: (styles: any) => ({
+          ...styles,
+          color: '#fff',
+          backgroundColor: '#27847A',
+        }),
+      },
+      options,
+      onChange,
+      value,
+      ...props,
+    }
+
+    return <MultiSelect {...multiProps} />
+  }
   return (
     <Wrapper width={'50%'}>
       <Select
@@ -146,7 +142,6 @@ const Dropdown: IDropdown = ({
         onChange={onChange}
         isMulti={isMulti}
         closeMenuOnSelect={true}
-        styles={styles}
       />
     </Wrapper>
   )

@@ -48,7 +48,7 @@ export default {
 
 export const Default: Story<typeof Dropdown> = (args) => {
   return (
-    <Dropdown isMulti={false} update={(val: any) => action(val)} {...args} />
+    <Dropdown isMulti={false} update={action('select')} {...args} />
   )
 }
 

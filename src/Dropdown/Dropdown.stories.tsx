@@ -1,5 +1,6 @@
 import React from 'react'
 import Dropdown from './index'
+import { action } from '@storybook/addon-actions'
 import { Story } from '@storybook/react'
 
 export default {
@@ -46,22 +47,8 @@ export default {
 }
 
 export const Default: Story<typeof Dropdown> = (args) => {
-  const [selected, setSelected] = React.useState({
-    value: '4',
-    label: 'option 4',
-    color: 'rgba(223, 230, 103, 0.6)',
-  })
-
   return (
-    <>
-      <h1>SELECTED: {JSON.stringify(selected)}</h1>
-      <Dropdown
-        selected={selected}
-        isMulti={false}
-        update={(val: any) => setSelected(val)}
-        {...args}
-      />
-    </>
+    <Dropdown isMulti={false} update={(val: any) => action(val)} {...args} />
   )
 }
 

@@ -5,6 +5,9 @@ import { Story } from '@storybook/react'
 
 export default {
   title: 'Components/Dropdown',
+  parameters: {
+    layout: 'centered',
+  },
   component: Dropdown,
   argTypes: {
     placeholder: {

@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 const Wrapper = styled('div')`
   ${({ width }: { width?: string }) => `
-    width: ${width || '50%'}
+    width: ${width || '100%'}
   `}
 `
 
@@ -30,7 +30,7 @@ const X = styled('button')`
   all: unset;
   margin-left: 1.3rem;
   color: ${(props: any) => props.textColor || '#216968'};
-  transition: fill 0.15s ease-in-out;
+  transition: fill 0.5s ease-in-out;
   cursor: pointer;
   &:hover {
     color: #bb392d;
@@ -137,7 +137,7 @@ const Dropdown: IDropdown = ({ options, isMulti = false, ...props }) => {
   }
 
   return (
-    <Wrapper width={'50%'}>
+    <Wrapper width={'100%'}>
       <Select
         value={props.selected}
         options={options}

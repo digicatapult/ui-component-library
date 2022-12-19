@@ -15,13 +15,13 @@ export default {
   args: {
     options: [
       {
-        value: '2',
+        value: '1',
         label: 'option 1',
         color: 'rgba(128, 204, 114, 0.6)',
         textColor: 'white',
       },
       {
-        value: '1',
+        value: '2',
         label: 'option 2',
         color: 'rgba(182, 239, 160, 0.6)',
       },
@@ -70,7 +70,7 @@ export const Multi: Story<typeof Dropdown> = (args) => {
 
   return (
     <>
-      <h1>SELECTED: {selected.map((el) => `${JSON.stringify(el)}\n`)}</h1>
+      <h1>SELECTED: {selected.map((el) => <p>{JSON.stringify(el)}</p>)}</h1>
       <Dropdown
         selected={selected}
         isMulti={true}

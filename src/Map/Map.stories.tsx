@@ -1,5 +1,6 @@
 import React from 'react'
 import { action } from '@storybook/addon-actions'
+import { Story } from '@storybook/react'
 
 import Map from './index'
 import exampleJson from './example.json'
@@ -10,33 +11,42 @@ export default {
   component: Map,
   argTypes: {
     sourceJson: {
-      control: 'text',
+      control: 'object',
     },
     style: {
       control: 'text',
+      table: {
+        category: 'Initial state',
+      },
     },
     height: {
       control: 'text',
+      table: {
+        category: 'Initial state',
+      },
     },
     width: {
       control: 'text',
+      table: {
+        category: 'Initial state',
+      },
     },
     startPositionLong: {
       control: 'number',
       table: {
-        category: 'Start Position',
+        category: 'Initial state',
       },
     },
     startPositionLat: {
       control: 'number',
       table: {
-        category: 'Start Position',
+        category: 'Initial state',
       },
     },
     startPositionZoom: {
       control: 'number',
       table: {
-        category: 'Start Position',
+        category: 'Initial state',
       },
     },
     cluster: {
@@ -108,20 +118,18 @@ export default {
   },
 }
 
-const Template = (args) => {
+const Template: Story = (args) => {
   const props = {
-    token: process.env.STORYBOOK_MAPBOX_TOKEN,
-    size: {
-      height: args.height,
-      width: args.width,
-    },
-    startPosition: {
+    token: process.env.STORYBOOK_MAPBOX_TOKEN || '',
+    sourceJson: args.sourceJson,
+    initialState: {
       long: args.startPositionLong,
       lat: args.startPositionLat,
       zoom: args.startPositionZoom,
+      height: args.height,
+      width: args.width,
+      style: args.style,
     },
-    style: args.style,
-    sourceJson: args.sourceJson,
     cluster: args.cluster,
     clusterOptions: {
       clusterMaxZoom: args.clusterMaxZoom,

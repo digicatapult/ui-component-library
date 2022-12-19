@@ -46,38 +46,25 @@ export default {
   },
 }
 
-export const Default: Story<typeof Dropdown> = (args) => {
-  return (
-    <Dropdown isMulti={false} update={action('select')} {...args} />
-  )
-}
+export const Default: Story<typeof Dropdown> = (args) => (
+  <Dropdown isMulti={false} update={action('select')} {...args} />
+)
 
 export const Multi: Story<typeof Dropdown> = (args) => {
-  const [selected, setSelected] = React.useState([
+  const selected = [
     {
       value: '4',
       label: 'option 4',
       color: 'rgba(223, 230, 103, 0.6)',
     },
-  ])
+  ]
 
   return (
-    <>
-      <h1>
-        SELECTED:{' '}
-        {selected.map((el) => (
-          <p>{JSON.stringify(el)}</p>
-        ))}
-      </h1>
-      <Dropdown
-        selected={selected}
-        isMulti={true}
-        update={(val: any) => {
-          console.log(val)
-          setSelected(val)
-        }}
-        {...args}
-      />
-    </>
+    <Dropdown
+      selected={selected}
+      isMulti={true}
+      update={action('select')}
+      {...args}
+    />
   )
 }

@@ -18,6 +18,7 @@ const Value = styled('div')`
   padding: 0.5rem;
   padding-left: 0.75rem;
   margin: 0.5rem;
+  margin-left: 0;
   font-size: 1rem;
   border-radius: 10px 0px 0px 10px;
   color: ${(props: any) => props.textColor || '#216968'};

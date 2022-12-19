@@ -8,7 +8,7 @@ const Wrapper = styled('div')`
   `}
 `
 
-const ValuesContainer = styled.div`
+const ValuesContainer = styled('div')`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -142,10 +142,6 @@ const Dropdown: IDropdown = ({
       <Select
         value={props.selected}
         options={options}
-        theme={(theme) => ({
-          ...theme,
-          borderRadius: 0,
-        })}
         onChange={onChange}
         isMulti={isMulti}
         closeMenuOnSelect={true}

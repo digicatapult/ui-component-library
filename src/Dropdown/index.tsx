@@ -29,7 +29,7 @@ const Value = styled('div')`
 const X = styled('button')`
   all: unset;
   margin-left: 1.3rem;
-  color: black;
+  color: ${(props: any) => props.textColor || '#216968'};
   transition: fill 0.15s ease-in-out;
   cursor: pointer;
   &:hover {
@@ -87,7 +87,7 @@ const MultiSelect = (props: any) => {
         {value.map((val: any) => (
           <Value {...val} key={val.value}>
             {val.label}
-            <X name={val.value} onClick={handleRemoveValue}>
+            <X {...val} name={val.value} onClick={handleRemoveValue}>
               ✕
             </X>
           </Value>

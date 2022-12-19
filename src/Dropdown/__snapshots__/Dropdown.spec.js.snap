@@ -365,7 +365,7 @@ exports[`Dropdown multi - hii 1`] = `
 .c3 {
   all: unset;
   margin-left: 1.3rem;
-  color: black;
+  color: #216968;
   -webkit-transition: fill 0.15s ease-in-out;
   transition: fill 0.15s ease-in-out;
   cursor: pointer;
@@ -534,8 +534,11 @@ exports[`Dropdown multi - hii 1`] = `
       option 4
       <button
         className="c3"
+        color="rgba(223, 230, 103, 0.6)"
+        label="option 4"
         name="4"
         onClick={[Function]}
+        value="4"
       >
         ✕
       </button>

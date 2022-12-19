@@ -1,5 +1,6 @@
 import React from 'react'
 import { action } from '@storybook/addon-actions'
+import { Story } from '@storybook/react'
 
 import Map from './index'
 import exampleJson from './example.json'
@@ -117,9 +118,9 @@ export default {
   },
 }
 
-const Template = (args) => {
+const Template: Story = (args) => {
   const props = {
-    token: process.env.STORYBOOK_MAPBOX_TOKEN,
+    token: process.env.STORYBOOK_MAPBOX_TOKEN || '',
     sourceJson: args.sourceJson,
     initialState: {
       long: args.startPositionLong,

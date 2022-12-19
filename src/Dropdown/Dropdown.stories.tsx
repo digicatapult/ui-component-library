@@ -6,6 +6,11 @@ export default {
   title: 'Components/Dropdown',
   component: Dropdown,
   argTypes: {
+    placeholder: {
+      control: {
+        type: 'text',
+      },
+    },
     isMulti: {
       control: {
         type: 'boolean',
@@ -13,6 +18,7 @@ export default {
     },
   },
   args: {
+    placeholder: 'some placeholder',
     options: [
       {
         value: '1',
@@ -70,7 +76,12 @@ export const Multi: Story<typeof Dropdown> = (args) => {
 
   return (
     <>
-      <h1>SELECTED: {selected.map((el) => <p>{JSON.stringify(el)}</p>)}</h1>
+      <h1>
+        SELECTED:{' '}
+        {selected.map((el) => (
+          <p>{JSON.stringify(el)}</p>
+        ))}
+      </h1>
       <Dropdown
         selected={selected}
         isMulti={true}

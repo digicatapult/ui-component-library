@@ -44,6 +44,7 @@ interface Props {
   options?: Array<any>
   styles?: StylesConfig
   selected?: any
+  placeholder?: string
   isMulti: boolean
   update: (val: any[]) => void
 }
@@ -53,7 +54,7 @@ interface IDropdown {
 }
 
 const MultiSelect = (props: any) => {
-  const { value, onChange } = props
+  const { value = [], onChange } = props
 
   const handleRemoveValue = (e: any) => {
     if (!onChange) return null
@@ -82,7 +83,6 @@ const MultiSelect = (props: any) => {
         controlShouldRenderValue={true}
       />
       <ValuesContainer>
-        {' '}
         {value.map((val: any) => (
           <Value {...val} key={val.value}>
             {val.label}
@@ -134,6 +134,7 @@ const Dropdown: IDropdown = ({ options, isMulti = false, ...props }) => {
 
     return <MultiSelect {...multiProps} />
   }
+
   return (
     <Wrapper width={'50%'}>
       <Select
@@ -142,6 +143,7 @@ const Dropdown: IDropdown = ({ options, isMulti = false, ...props }) => {
         onChange={onChange}
         isMulti={isMulti}
         closeMenuOnSelect={true}
+        {...props}
       />
     </Wrapper>
   )

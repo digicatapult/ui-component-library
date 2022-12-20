@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   stories: [
     '../src/**/*.stories.mdx',
     '../src/**/*.stories.@(js|jsx|ts|tsx)'
@@ -8,6 +8,9 @@ module.exports = {
     builder: 'webpack5'
   },
   framework: '@storybook/react',
+  features: {
+    babelModeV7: true,
+  },
   typescript: {
     check: true,
     reactDocgen: 'react-docgen-typescript',
@@ -15,7 +18,6 @@ module.exports = {
       compilerOptions: {
         allowSyntheticDefaultImports: false,
         esModuleInterop: false,
-        
       }
     }
   }

@@ -59,6 +59,7 @@ const DefaultStoryTemplate: Story = (args) => {
       height={args.height}
       padding={args.padding}
       headingGap={args.gap}
+      headingSize={args.headingSize}
       background={args.background}
     >
       {args.content}

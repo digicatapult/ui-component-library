@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "ES2022",
-    "allowJs": true,
+    "allowJs": false,
     "checkJs": false,
     "jsx": "react-jsx",
     "declaration": true,
@@ -16,6 +16,6 @@
     "resolveJsonModule": true,
     "typeRoots": ["./node_modules/@types", "./@types"]
   },
-  "include": ["@types/**/*.ts", "src/**/*.js", "src/**/*.ts",  "src/**/*.d.ts", "src/**/*.tsx"],
+  "include": ["@types/**/*.ts", "src/**/*.js", "src/**/*.ts",  "src/**/*.d.ts", "src/**/*.tsx", "src/*.ts"],
   "exclude": ["src/**/*.spec.js", "src/**/*.stories.*"]
 }

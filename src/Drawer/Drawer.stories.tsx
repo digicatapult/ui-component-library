@@ -1,5 +1,5 @@
 import React from 'react'
-import { Drawer } from '../index.js'
+import Drawer from './'
 import { Meta, Story } from '@storybook/react'
 import styled from 'styled-components'
 

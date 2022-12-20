@@ -1,5 +1,5 @@
 import React from 'react'
-import { Search } from '../index.js'
+import Search from './'
 import { Story } from '@storybook/react'
 import styled from 'styled-components'
 import { action } from '@storybook/addon-actions'

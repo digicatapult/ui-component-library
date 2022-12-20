@@ -1,5 +1,5 @@
 import React from 'react'
-import { TestComponent } from '../index.js'
+import TestComponent from './'
 import { Story } from '@storybook/react'
 
 export default {

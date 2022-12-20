@@ -17,8 +17,8 @@
     "url": "https://github.com/digicatapult/ui-component-library/issues"
   },
   "scripts": {
-    "build": "tsc",
-    "build:watch": "tsc --watch",
+    "build": "rm -rf ./lib/ && tsc",
+    "build:watch": "rm -rf ./lib/ && tsc --watch",
     "coverage": "jest --coverage --setupFiles dotenv/config",
     "depcheck": "depcheck",
     "lint": "eslint .",

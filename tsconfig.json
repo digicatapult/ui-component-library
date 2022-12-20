@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "commonjs",
-    "allowJs": false,
+    "allowJs": true,
     "checkJs": false,
     "jsx": "react-jsx",
     "declaration": true,

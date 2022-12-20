@@ -10,13 +10,14 @@ import { HeadingLevel, HX } from '../'
 
 export interface SectionProps {
   headingLevel: HeadingLevel
-  headingSize?: 'string'
-  headingGap?: 'string'
+  headingSize?: string
+  headingGap?: string
 
   title: string
 
   background?: string
   padding?: string
+  margin?: string
   width?: string
   height?: string
 }
@@ -25,6 +26,7 @@ interface SectionWrapperProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {
   background: string
   padding: string
+  margin: string
   width: string
   height: string
 }
@@ -42,7 +44,8 @@ const Section: React.FC<PropsWithChildren<SectionProps>> = ({
   headingSize = '1.2em',
   background = '#f0f0f0',
   padding = '1em',
-  width = '100ch',
+  margin = '0',
+  width = 'auto',
   height = 'auto',
 }) => {
   const [labelId] = useId()
@@ -52,6 +55,7 @@ const Section: React.FC<PropsWithChildren<SectionProps>> = ({
       aria-labelledby={labelId}
       background={background}
       padding={padding}
+      margin={margin}
       width={width}
       height={height}
     >
@@ -68,6 +72,7 @@ const Wrapper = styled.section<SectionWrapperProps>`
   padding: ${({ padding }) => padding};
   width: ${({ width }) => width};
   height: ${({ height }) => height};
+  margin: ${({ margin }) => margin};
 `
 
 const Heading = styled(HX)<SectionHeaderProps>`

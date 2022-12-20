@@ -16,39 +16,39 @@ export default {
     },
     borderRadius: {
       control: {
-        type: 'text'
-      }
+        type: 'text',
+      },
     },
     padding: {
       control: {
-        type: 'text'
-      }
+        type: 'text',
+      },
     },
     margin: {
       control: {
-        type: 'text'
-      }
+        type: 'text',
+      },
     },
     border: {
       control: {
-        type: 'text'
-      }
+        type: 'text',
+      },
     },
     boxShadow: {
       control: {
-        type: 'text'
-      }
+        type: 'text',
+      },
     },
     width: {
       control: {
-        type: 'text'
-      }
+        type: 'text',
+      },
     },
     height: {
       control: {
-        type: 'text'
-      }
-    }
+        type: 'text',
+      },
+    },
   },
 }
 
@@ -140,10 +140,12 @@ export const HII: Story = () => {
   })
 
   return (
-    <div style={{
-      height:"600px",
-      background: '#e0e0f0'
-    }}>
+    <div
+      style={{
+        height: '600px',
+        background: '#e0e0f0',
+      }}
+    >
       <button
         onClick={() => {
           setIsOpen(!isOpen)
@@ -157,13 +159,39 @@ export const HII: Story = () => {
         {!isOpen ? 'Open' : 'Close'}
       </button>
       <DialogComponent ref={dialogRef} includeClose={true}>
-        <Section headingLevel={2} title="Name" padding="1em 1.5em" width='47ch' headingSize="2em" background='white'>
-          <Grid areas={[]} rows={["auto"]} columns={["auto"]} gap="1em">
+        <Section
+          headingLevel={2}
+          title="Name"
+          padding="1em 1.5em"
+          width="47ch"
+          headingSize="2em"
+          background="white"
+        >
+          <Grid areas={[]} rows={['auto']} columns={['auto']} gap="1em">
             <span>Name of Lead Partner</span>
-            <Section headingLevel={3} title="Project details" padding='1em 1.5em' margin="0 -1.5em" background='#dfe667' headingSize="1em" >
-              Scope / goal - The £33 million Low Carbon Hydrogen Supply competition aimed to accelerate the development of low carbon bulk hydrogen supply solutions in specific sectors. It was aimed at projects at a TRL of 4 to 7, which could result in lower capital or operating costs when compared to Steam Methane Reformation with Carbon Capture & Storage (SMR+CCS), or improve the carbon capture rates at a comparable cost.
+            <Section
+              headingLevel={3}
+              title="Project details"
+              padding="1em 1.5em"
+              margin="0 -1.5em"
+              background="#dfe667"
+              headingSize="1em"
+            >
+              Scope / goal - The £33 million Low Carbon Hydrogen Supply
+              competition aimed to accelerate the development of low carbon bulk
+              hydrogen supply solutions in specific sectors. It was aimed at
+              projects at a TRL of 4 to 7, which could result in lower capital
+              or operating costs when compared to Steam Methane Reformation with
+              Carbon Capture & Storage (SMR+CCS), or improve the carbon capture
+              rates at a comparable cost.
             </Section>
-            <Section headingLevel={3} title="Funding" padding='0em 0' headingSize="1em" background='white'>
+            <Section
+              headingLevel={3}
+              title="Funding"
+              padding="0em 0"
+              headingSize="1em"
+              background="white"
+            >
               £240m
             </Section>
           </Grid>

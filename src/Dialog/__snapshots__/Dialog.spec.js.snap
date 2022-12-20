@@ -1,0 +1,225 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dialog default 1`] = `
+.c0 {
+  position: absolute;
+  overflow: hidden;
+  border-radius: 20px;
+  padding: 0;
+  margin: 0 auto;
+  border: 0;
+  box-shadow: 5px 5px 5px #90909090;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.c0::backdrop {
+  background: unset;
+}
+
+.c1 {
+  display: inline-block;
+  position: relative;
+  overflow: scroll;
+  width: 100%;
+  height: 100%;
+}
+
+.c2 {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  width: 1.5em;
+  height: 1.5em;
+  border: 0;
+  padding: 0;
+  background: transparent;
+}
+
+.c2::before,
+.c2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  height: 2px;
+  width: calc(100% * 1.41);
+  background: black;
+}
+
+.c2::before {
+  -webkit-transform: translateX(-0.3075em) rotateZ(45deg);
+  -ms-transform: translateX(-0.3075em) rotateZ(45deg);
+  transform: translateX(-0.3075em) rotateZ(45deg);
+}
+
+.c2::after {
+  -webkit-transform: translateX(-0.3075em) rotateZ(-45deg);
+  -ms-transform: translateX(-0.3075em) rotateZ(-45deg);
+  transform: translateX(-0.3075em) rotateZ(-45deg);
+}
+
+.c3 {
+  margin: 2ch;
+  background: cyan;
+  width: 300px;
+  height: 300px;
+}
+
+<dialog
+  className="c0"
+  height="fit-content"
+  width="fit-content"
+>
+  <form
+    className="c1"
+    method="dialog"
+  >
+    <button
+      className="c2"
+    />
+    <div
+      className="c3"
+    />
+  </form>
+</dialog>
+`;
+
+exports[`Dialog no close 1`] = `
+.c0 {
+  position: absolute;
+  overflow: hidden;
+  border-radius: 20px;
+  padding: 0;
+  margin: 0 auto;
+  border: 0;
+  box-shadow: 5px 5px 5px #90909090;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.c0::backdrop {
+  background: unset;
+}
+
+.c1 {
+  display: inline-block;
+  position: relative;
+  overflow: scroll;
+  width: 100%;
+  height: 100%;
+}
+
+.c2 {
+  margin: 2ch;
+  background: cyan;
+  width: 300px;
+  height: 300px;
+}
+
+<dialog
+  className="c0"
+  height="fit-content"
+  width="fit-content"
+>
+  <form
+    className="c1"
+    method="dialog"
+  >
+    <div
+      className="c2"
+    />
+  </form>
+</dialog>
+`;
+
+exports[`Dialog style overrides 1`] = `
+.c0 {
+  position: absolute;
+  overflow: hidden;
+  border-radius: 10px;
+  padding: 1em;
+  margin: 1em;
+  border: 1px solid black;
+  box-shadow: 10px 10px 10px #90909090;
+  width: 500px;
+  height: 500px;
+}
+
+.c0::backdrop {
+  background: rgba(0,255,0,0.05);
+}
+
+.c1 {
+  display: inline-block;
+  position: relative;
+  overflow: scroll;
+  width: 100%;
+  height: 100%;
+}
+
+.c2 {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  width: 1.5em;
+  height: 1.5em;
+  border: 0;
+  padding: 0;
+  background: transparent;
+}
+
+.c2::before,
+.c2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  height: 2px;
+  width: calc(100% * 1.41);
+  background: black;
+}
+
+.c2::before {
+  -webkit-transform: translateX(-0.3075em) rotateZ(45deg);
+  -ms-transform: translateX(-0.3075em) rotateZ(45deg);
+  transform: translateX(-0.3075em) rotateZ(45deg);
+}
+
+.c2::after {
+  -webkit-transform: translateX(-0.3075em) rotateZ(-45deg);
+  -ms-transform: translateX(-0.3075em) rotateZ(-45deg);
+  transform: translateX(-0.3075em) rotateZ(-45deg);
+}
+
+.c3 {
+  margin: 2ch;
+  background: cyan;
+  width: 300px;
+  height: 300px;
+}
+
+<dialog
+  className="c0"
+  height="500px"
+  width="500px"
+>
+  <form
+    className="c1"
+    method="dialog"
+  >
+    <button
+      className="c2"
+    />
+    <div
+      className="c3"
+    />
+  </form>
+</dialog>
+`;

@@ -4,31 +4,70 @@ import styled from 'styled-components'
 export interface DialogProps {
   includeClose?: boolean
   modalBackdropColor?: string
+
+  borderRadius?: string
+  padding?: string
+  margin?: string
+  border?: string
+  boxShadow?: string
+  width?: string
+  height?: string
 }
 
 const Dialog = React.forwardRef<
   HTMLDialogElement,
   PropsWithChildren<DialogProps>
->(({ children, includeClose = true, modalBackdropColor }, dialogRef) => {
-  return (
-    <Wrapper ref={dialogRef} modalBackdropColor={modalBackdropColor}>
-      <DialogForm method="dialog">
-        {includeClose ? <CloseButton /> : null}
-        {children}
-      </DialogForm>
-    </Wrapper>
-  )
-})
+>(
+  (
+    {
+      children,
+      includeClose = true,
+      borderRadius = '20px',
+      padding = '0',
+      margin = '0 auto',
+      border = '0',
+      boxShadow = '5px 5px 5px #90909090',
+      width = 'fit-content',
+      height = 'fit-content',
+      modalBackdropColor = 'unset',
+    },
+    dialogRef
+  ) => {
+    return (
+      <Wrapper
+        ref={dialogRef}
+        modalBackdropColor={modalBackdropColor}
+        borderRadius={borderRadius}
+        padding={padding}
+        margin={margin}
+        border={border}
+        boxShadow={boxShadow}
+        width={width}
+        height={height}
+      >
+        <DialogForm method="dialog">
+          {includeClose ? <CloseButton /> : null}
+          {children}
+        </DialogForm>
+      </Wrapper>
+    )
+  }
+)
 
 const Wrapper = styled.dialog<DialogProps>`
-  border-radius: 20px;
-  padding: 0;
+  position: absolute;
   overflow: hidden;
-  border: 0;
-  box-shadow: 5px 5px 5px #90909090;
+
+  border-radius: ${({ borderRadius }) => borderRadius};
+  padding: ${({ padding }) => padding};
+  margin: ${({ margin }) => margin};
+  border: ${({ border }) => border};
+  box-shadow: ${({ boxShadow }) => boxShadow};
+  width: ${({ width }) => width};
+  height: ${({ height }) => height};
 
   ::backdrop {
-    background: ${({ modalBackdropColor }) => modalBackdropColor || 'unset'};
+    background: ${({ modalBackdropColor }) => modalBackdropColor};
   }
 `
 

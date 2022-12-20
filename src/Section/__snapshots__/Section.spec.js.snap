@@ -10,8 +10,9 @@ exports[`Section default 1`] = `
 .c0 {
   background: #f0f0f0;
   padding: 1em;
-  width: 100ch;
+  width: auto;
   height: auto;
+  margin: 0;
 }
 
 .c2 {
@@ -25,7 +26,7 @@ exports[`Section default 1`] = `
   aria-labelledby="id1"
   className="c0"
   height="auto"
-  width="100ch"
+  width="auto"
 >
   <h1
     className="c1 c2"
@@ -49,6 +50,7 @@ exports[`Section overrides 1`] = `
   padding: 5ch;
   width: 20ch;
   height: 100%;
+  margin: 0;
 }
 
 .c2 {

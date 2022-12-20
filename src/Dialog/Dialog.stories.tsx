@@ -14,6 +14,41 @@ export default {
         type: 'boolean',
       },
     },
+    borderRadius: {
+      control: {
+        type: 'text'
+      }
+    },
+    padding: {
+      control: {
+        type: 'text'
+      }
+    },
+    margin: {
+      control: {
+        type: 'text'
+      }
+    },
+    border: {
+      control: {
+        type: 'text'
+      }
+    },
+    boxShadow: {
+      control: {
+        type: 'text'
+      }
+    },
+    width: {
+      control: {
+        type: 'text'
+      }
+    },
+    height: {
+      control: {
+        type: 'text'
+      }
+    }
   },
 }
 
@@ -24,6 +59,13 @@ export const Dialog = DialogStoryTemplate.bind({})
 Dialog.args = {
   includeClose: true,
   modalBackdropColor: 'rgba(255, 0, 0, 0.05)',
+  borderRadius: '20px',
+  padding: '0',
+  margin: '0 auto',
+  border: '1px solid black',
+  boxShadow: '5px 5px 5px #90909090',
+  width: 'fit-content',
+  height: 'auto',
 }
 
 const ModalStoryTemplate: Story = (args) => {
@@ -33,6 +75,13 @@ export const Modal = ModalStoryTemplate.bind({})
 Modal.args = {
   includeClose: true,
   modalBackdropColor: 'rgba(255, 0, 0, 0.05)',
+  borderRadius: '20px',
+  padding: '0',
+  margin: '0 auto',
+  border: '0',
+  boxShadow: '5px 5px 5px #90909090',
+  width: 'fit-content',
+  height: 'fit-content',
 }
 
 const DefaultStoryHost: React.FC<any> = ({ useModal, ...args }) => {

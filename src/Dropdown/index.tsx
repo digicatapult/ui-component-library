@@ -5,7 +5,6 @@ import styled from 'styled-components'
 const Wrapper = styled('div')`
   ${({ width }: { width?: string }) => `
     width: ${width || '100%'}
-    min-width: 250px;
   `}
 `
 
@@ -13,6 +12,7 @@ const ValuesContainer = styled('div')`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  min-width: 250px;
 `
 
 const Value = styled('div')`

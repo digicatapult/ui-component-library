@@ -11,7 +11,6 @@ export default {
   features: {
     babelModeV7: true,
   },
-  staticDirs: ['../public'],
   typescript: {
     check: true,
     reactDocgen: 'react-docgen-typescript',

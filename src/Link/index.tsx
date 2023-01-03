@@ -46,7 +46,7 @@ const Link: React.FC<LinkProps> = ({
   iconMargin = '0 0.5em',
 }) => {
   const target = openInNewTab ? '_blank' : '_self'
-  console.log(visitedColor)
+
   return (
     <span>
       <A href={href} target={target} color={color} visitedColor={visitedColor}>

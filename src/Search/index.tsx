@@ -114,36 +114,36 @@ const SearchIcon = styled.button<SearchIconProps>`
   flex-shrink: 0;
   width: 2em;
   height: 2em;
-  box-sizing: border-box;
   background: transparent;
   border: 0;
 
+  &, ::before, ::after {
+    box-sizing: border-box;
+  }
+
   :focus {
-    ::before {
-      box-shadow: 0 0 5px 1px ${({ color }) => color};
-    }
-    ::after {
+    ::before, ::after {
       box-shadow: 0 0 5px 1px ${({ color }) => color};
     }
     outline: 0;
   }
 
-  ::before {
+  ::before, ::after {
     content: '';
     display: block;
     position: absolute;
+  }
+
+  ::before {
     left: 0;
     top: 0;
-    width: calc(80% - 2 * 4em / 16);
-    height: calc(80% - 2 * 4em / 16);
+    width: 80%;
+    height: 80%;
     border: calc(4em / 16) solid ${({ color }) => color};
     border-radius: 50%;
   }
 
   ::after {
-    content: '';
-    display: block;
-    position: absolute;
     right: 0;
     bottom: 0;
     height: calc(4em / 16);

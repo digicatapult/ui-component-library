@@ -57,39 +57,42 @@ exports[`Test default 1`] = `
   flex-shrink: 0;
   width: 2em;
   height: 2em;
-  box-sizing: border-box;
   background: transparent;
   border: 0;
+}
+
+.c2,
+.c2::before,
+.c2::after {
+  box-sizing: border-box;
 }
 
 .c2:focus {
   outline: 0;
 }
 
-.c2:focus::before {
-  box-shadow: 0 0 5px 1px black;
-}
-
+.c2:focus::before,
 .c2:focus::after {
   box-shadow: 0 0 5px 1px black;
 }
 
-.c2::before {
+.c2::before,
+.c2::after {
   content: '';
   display: block;
   position: absolute;
+}
+
+.c2::before {
   left: 0;
   top: 0;
-  width: calc(80% - 2 * 4em / 16);
-  height: calc(80% - 2 * 4em / 16);
+  width: 80%;
+  height: 80%;
   border: calc(4em / 16) solid black;
   border-radius: 50%;
 }
 
 .c2::after {
-  content: '';
-  display: block;
-  position: absolute;
   right: 0;
   bottom: 0;
   height: calc(4em / 16);
@@ -183,39 +186,42 @@ exports[`Test with props 1`] = `
   flex-shrink: 0;
   width: 2em;
   height: 2em;
-  box-sizing: border-box;
   background: transparent;
   border: 0;
+}
+
+.c2,
+.c2::before,
+.c2::after {
+  box-sizing: border-box;
 }
 
 .c2:focus {
   outline: 0;
 }
 
-.c2:focus::before {
-  box-shadow: 0 0 5px 1px green;
-}
-
+.c2:focus::before,
 .c2:focus::after {
   box-shadow: 0 0 5px 1px green;
 }
 
-.c2::before {
+.c2::before,
+.c2::after {
   content: '';
   display: block;
   position: absolute;
+}
+
+.c2::before {
   left: 0;
   top: 0;
-  width: calc(80% - 2 * 4em / 16);
-  height: calc(80% - 2 * 4em / 16);
+  width: 80%;
+  height: 80%;
   border: calc(4em / 16) solid green;
   border-radius: 50%;
 }
 
 .c2::after {
-  content: '';
-  display: block;
-  position: absolute;
   right: 0;
   bottom: 0;
   height: calc(4em / 16);

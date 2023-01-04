@@ -345,10 +345,10 @@ exports[`Dropdown multi - hii 1`] = `
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  -webkit-align-items: flext-start;
-  -webkit-box-align: flext-start;
-  -ms-flex-align: flext-start;
-  align-items: flext-start;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
 }
 
 .c2 {

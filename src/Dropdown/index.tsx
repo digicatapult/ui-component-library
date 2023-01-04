@@ -14,7 +14,7 @@ const Wrapper = styled('div')`
 const ValuesContainer = styled('div')`
   display: flex;
   flex-wrap: wrap;
-  align-items: flext-start;
+  align-items: flex-start;
 `
 
 const Value = styled('div')`

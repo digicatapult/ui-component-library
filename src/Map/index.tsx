@@ -199,7 +199,7 @@ const Map: React.FC<Props> = (props) => {
             '#C8B88A',
             'Government strategy',
             '#F1DDDF',
-            pointColor
+            pointColor,
           ],
           'circle-radius': pointRadius,
         },

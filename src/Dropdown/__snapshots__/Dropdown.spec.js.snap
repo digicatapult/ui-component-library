@@ -357,8 +357,7 @@ exports[`Dropdown multi - hii 1`] = `
   margin: 0.5rem;
   margin-left: 0;
   font-size: 1rem;
-  border-radius: 10px 0px 0px 10px;
-  color: #216968;
+  color: #FFFFFF;
   background-color: rgba(223,230,103,0.6);
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -369,7 +368,7 @@ exports[`Dropdown multi - hii 1`] = `
 .c3 {
   all: unset;
   margin-left: 1.3rem;
-  color: #216968;
+  color: #FFFFFF;
   -webkit-transition: fill 0.5s ease-in-out;
   transition: fill 0.5s ease-in-out;
   cursor: pointer;

@@ -2,7 +2,8 @@
 
 exports[`Dropdown default - selected 1`] = `
 .c0 {
-  width: 100% min-width:250px;
+  min-width: 250px;
+  width: 100%;
 }
 
 <div
@@ -110,7 +111,8 @@ exports[`Dropdown default - selected 1`] = `
 
 exports[`Dropdown default - with placeholder 1`] = `
 .c0 {
-  width: 100% min-width:250px;
+  min-width: 250px;
+  width: 100%;
 }
 
 <div
@@ -220,7 +222,8 @@ exports[`Dropdown default - with placeholder 1`] = `
 
 exports[`Dropdown default 1`] = `
 .c0 {
-  width: 100% min-width:250px;
+  min-width: 250px;
+  width: 100%;
 }
 
 <div
@@ -330,7 +333,8 @@ exports[`Dropdown default 1`] = `
 
 exports[`Dropdown multi - hii 1`] = `
 .c0 {
-  width: 100% min-width:250px;
+  min-width: 250px;
+  width: 100%;
 }
 
 .c1 {
@@ -341,10 +345,10 @@ exports[`Dropdown multi - hii 1`] = `
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+  -webkit-align-items: flext-start;
+  -webkit-box-align: flext-start;
+  -ms-flex-align: flext-start;
+  align-items: flext-start;
 }
 
 .c2 {
@@ -402,78 +406,79 @@ exports[`Dropdown multi - hii 1`] = `
       onTouchEnd={[Function]}
     >
       <div
-        className=" css-3w2yfm-ValueContainer"
+        className=" css-wu9vff-placeholder"
+      >
+        Select...
+      </div>
+      <div
+        className=" css-osof68-MultiValueGeneric"
       >
         <div
-          className=" css-osof68-MultiValueGeneric"
+          className=" css-1ktq6b3-MultiValueGeneric"
         >
-          <div
-            className=" css-1ktq6b3-MultiValueGeneric"
-          >
-            option 4
-          </div>
-          <div
-            aria-label="Remove option 4"
-            className=" css-1mbxqx5-MultiValueRemove"
-            onClick={[Function]}
-            onMouseDown={[Function]}
-            onTouchEnd={[Function]}
-            role="button"
-          >
-            <svg
-              aria-hidden="true"
-              className="css-tj5bde-Svg"
-              focusable="false"
-              height={14}
-              viewBox="0 0 20 20"
-              width={14}
-            >
-              <path
-                d="M14.348 14.849c-0.469 0.469-1.229 0.469-1.697 0l-2.651-3.030-2.651 3.029c-0.469 0.469-1.229 0.469-1.697 0-0.469-0.469-0.469-1.229 0-1.697l2.758-3.15-2.759-3.152c-0.469-0.469-0.469-1.228 0-1.697s1.228-0.469 1.697 0l2.652 3.031 2.651-3.031c0.469-0.469 1.228-0.469 1.697 0s0.469 1.229 0 1.697l-2.758 3.152 2.758 3.15c0.469 0.469 0.469 1.229 0 1.698z"
-              />
-            </svg>
-          </div>
+          option 4
         </div>
         <div
-          className=" css-qbdosj-Input"
-          data-value=""
+          aria-label="Remove option 4"
+          className=" css-1mbxqx5-MultiValueRemove"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          onTouchEnd={[Function]}
+          role="button"
         >
-          <input
-            aria-autocomplete="list"
-            aria-expanded={false}
-            aria-haspopup={true}
-            autoCapitalize="none"
-            autoComplete="off"
-            autoCorrect="off"
-            className=""
-            disabled={false}
-            id="react-select-5-input"
-            onBlur={[Function]}
-            onChange={[Function]}
-            onFocus={[Function]}
-            role="combobox"
-            spellCheck="false"
-            style={
-              {
-                "background": 0,
-                "border": 0,
-                "color": "inherit",
-                "font": "inherit",
-                "gridArea": "1 / 2",
-                "label": "input",
-                "margin": 0,
-                "minWidth": "2px",
-                "opacity": 1,
-                "outline": 0,
-                "padding": 0,
-                "width": "100%",
-              }
-            }
-            tabIndex={0}
-            type="text"
-            value=""
-          />
+          <svg
+            aria-hidden="true"
+            className="css-tj5bde-Svg"
+            focusable="false"
+            height={14}
+            viewBox="0 0 20 20"
+            width={14}
+          >
+            <path
+              d="M14.348 14.849c-0.469 0.469-1.229 0.469-1.697 0l-2.651-3.030-2.651 3.029c-0.469 0.469-1.229 0.469-1.697 0-0.469-0.469-0.469-1.229 0-1.697l2.758-3.15-2.759-3.152c-0.469-0.469-0.469-1.228 0-1.697s1.228-0.469 1.697 0l2.652 3.031 2.651-3.031c0.469-0.469 1.228-0.469 1.697 0s0.469 1.229 0 1.697l-2.758 3.152 2.758 3.15c0.469 0.469 0.469 1.229 0 1.698z"
+            />
+          </svg>
         </div>
+      </div>
+      <div
+        className=" css-qbdosj-Input"
+        data-value=""
+      >
+        <input
+          aria-autocomplete="list"
+          aria-expanded={false}
+          aria-haspopup={true}
+          autoCapitalize="none"
+          autoComplete="off"
+          autoCorrect="off"
+          className=""
+          disabled={false}
+          id="react-select-5-input"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          role="combobox"
+          spellCheck="false"
+          style={
+            {
+              "background": 0,
+              "border": 0,
+              "color": "inherit",
+              "font": "inherit",
+              "gridArea": "1 / 2",
+              "label": "input",
+              "margin": 0,
+              "minWidth": "2px",
+              "opacity": 1,
+              "outline": 0,
+              "padding": 0,
+              "width": "100%",
+            }
+          }
+          tabIndex={0}
+          type="text"
+          value=""
+        />
       </div>
       <div
         className=" css-1hb7zxy-IndicatorsContainer"

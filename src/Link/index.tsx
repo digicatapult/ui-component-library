@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+const iconSvg = require('./icon.svg') as string
 
 export interface LinkProps {
   text: string
@@ -41,7 +42,7 @@ const Link: React.FC<LinkProps> = ({
   openInNewTab = true,
   color = 'black',
   visitedColor = 'black',
-  iconSrc = '',
+  iconSrc = iconSvg,
   iconHeight = '1em',
   iconMargin = '0 0.5em',
 }) => {

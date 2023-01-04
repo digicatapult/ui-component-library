@@ -184,7 +184,23 @@ const Map: React.FC<Props> = (props) => {
         source: 'source',
         filter: ['!', ['has', 'point_count']],
         paint: {
-          'circle-color': pointColor,
+          'circle-color': [
+            'match',
+            ['get', 'Project Type'],
+            'Feasability Study',
+            '#27847A',
+            'Funding/Competition',
+            '#80CC72',
+            'Testing & certification',
+            '#B6EFA0',
+            'Innovation programme',
+            '#DFE667',
+            'R&D facility',
+            '#C8B88A',
+            'Government strategy',
+            '#F1DDDF',
+            pointColor
+          ],
           'circle-radius': pointRadius,
         },
       })

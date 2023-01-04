@@ -4,6 +4,7 @@ import { Story } from '@storybook/react'
 
 import Map from './index'
 import exampleJson from './example.json'
+import hiiJson from './hii.json'
 import colors from '../colors'
 
 export default {
@@ -11,114 +12,114 @@ export default {
   component: Map,
   argTypes: {
     sourceJson: {
-      control: 'object',
+      control: 'object'
     },
     style: {
       control: 'text',
       table: {
-        category: 'Initial state',
-      },
+        category: 'Initial state'
+      }
     },
     height: {
       control: 'text',
       table: {
-        category: 'Initial state',
-      },
+        category: 'Initial state'
+      }
     },
     width: {
       control: 'text',
       table: {
-        category: 'Initial state',
-      },
+        category: 'Initial state'
+      }
     },
     startPositionLong: {
       control: 'number',
       table: {
-        category: 'Initial state',
-      },
+        category: 'Initial state'
+      }
     },
     startPositionLat: {
       control: 'number',
       table: {
-        category: 'Initial state',
-      },
+        category: 'Initial state'
+      }
     },
     startPositionZoom: {
       control: 'number',
       table: {
-        category: 'Initial state',
-      },
+        category: 'Initial state'
+      }
     },
     cluster: {
       control: 'boolean',
       table: {
-        category: 'Clustering',
-      },
+        category: 'Clustering'
+      }
     },
     clusterMaxZoom: {
       control: 'number',
       table: {
-        category: 'Clustering',
-      },
+        category: 'Clustering'
+      }
     },
     clusterAreaRadius: {
       control: 'number',
       table: {
-        category: 'Clustering',
-      },
+        category: 'Clustering'
+      }
     },
     clusterColor: {
       control: 'color',
       table: {
-        category: 'Clustering',
-      },
+        category: 'Clustering'
+      }
     },
     clusterRadius: {
       control: 'number',
       table: {
-        category: 'Clustering',
-      },
+        category: 'Clustering'
+      }
     },
     countFont: {
       control: 'array',
       table: {
-        category: 'Clustering',
-      },
+        category: 'Clustering'
+      }
     },
     countFontSize: {
       control: 'number',
       table: {
-        category: 'Clustering',
-      },
+        category: 'Clustering'
+      }
     },
     countFontColor: {
       control: 'color',
       table: {
-        category: 'Clustering',
-      },
+        category: 'Clustering'
+      }
     },
     pointColor: {
       control: 'color',
       table: {
-        category: 'Point',
-      },
+        category: 'Point'
+      }
     },
     pointRadius: {
       control: 'number',
       table: {
-        category: 'Point',
-      },
+        category: 'Point'
+      }
     },
     onClickZoomIn: {
       control: 'number',
       table: {
-        category: 'Point',
-      },
-    },
-  },
+        category: 'Point'
+      }
+    }
+  }
 }
 
-const Template: Story = (args) => {
+const Template: Story = args => {
   const props = {
     token: process.env.STORYBOOK_MAPBOX_TOKEN || '',
     sourceJson: args.sourceJson,
@@ -128,7 +129,7 @@ const Template: Story = (args) => {
       zoom: args.startPositionZoom,
       height: args.height,
       width: args.width,
-      style: args.style,
+      style: args.style
     },
     cluster: args.cluster,
     clusterOptions: {
@@ -138,14 +139,14 @@ const Template: Story = (args) => {
       clusterRadius: args.clusterRadius,
       countFont: args.countFont,
       countFontSize: args.countFontSize,
-      countFontColor: args.countFontColor,
+      countFontColor: args.countFontColor
     },
     pointOptions: {
       pointColor: args.pointColor,
       pointRadius: args.pointRadius,
       onPointClick: action('click'),
-      onClickZoomIn: args.onClickZoomIn,
-    },
+      onClickZoomIn: args.onClickZoomIn
+    }
   }
 
   return <Map {...props} />
@@ -156,12 +157,19 @@ Cluster.args = {
   sourceJson: exampleJson,
   cluster: true,
   clusterColor: colors.green,
-  clusterRadius: 14,
+  clusterRadius: 15,
   pointColor: colors.green,
-  pointRadius: 4,
+  pointRadius: 4
 }
 
 export const NoCluster = Template.bind({})
 NoCluster.args = {
-  sourceJson: exampleJson,
+  sourceJson: exampleJson
+}
+
+export const HIIPointColour = Template.bind({})
+HIIPointColour.args = {
+  sourceJson: hiiJson,
+  pointColor: colors.green,
+  pointRadius: 4
 }

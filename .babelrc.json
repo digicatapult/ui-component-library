@@ -12,20 +12,5 @@
     "@babel/preset-typescript",
     "@babel/preset-react"
   ],
-  "plugins": [],
-  "env": {
-    "production": {
-      "presets": [
-        [
-          "@babel/preset-env",
-          {
-            "modules": false
-          }
-        ]
-      ],
-      "ignore": [
-        "**/*.stories.tsx"
-      ]
-    }
-  }
+  "plugins": []
 }

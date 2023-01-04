@@ -15,7 +15,6 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "typeRoots": ["./node_modules/@types", "./@types"],
-    "noEmit": true
   },
   "include": ["@types/**/*.ts", "src/**/*.ts",  "src/**/*.d.ts", "src/**/*.tsx"],
   "exclude": ["src/**/*.spec.js", "src/**/*.stories.*"]

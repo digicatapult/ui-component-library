@@ -10,7 +10,7 @@ export interface ListCardProps {
   background?: string
   width?: string
   height?: string
-  onClick: (title: string) => {}
+  onClick: (title: string) => void
 }
 
 interface WrapperProps extends React.DOMAttributes<HTMLButtonElement> {

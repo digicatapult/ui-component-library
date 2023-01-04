@@ -7,6 +7,9 @@ export default {
   core: {
     builder: 'webpack5'
   },
+  features: {
+    babelModeV7: true,
+  },
   framework: '@storybook/react',
   typescript: {
     check: true,

@@ -4,7 +4,6 @@
     [
       "@babel/preset-env",
       {
-        "modules": "commonjs",
         "targets": {
           "chrome": 100
         }
@@ -13,5 +12,20 @@
     "@babel/preset-typescript",
     "@babel/preset-react"
   ],
-  "plugins": []
+  "plugins": [],
+  "env": {
+    "production": {
+      "presets": [
+        [
+          "@babel/preset-env",
+          {
+            "modules": false
+          }
+        ]
+      ],
+      "ignore": [
+        "**/*.stories.tsx"
+      ]
+    }
+  }
 }

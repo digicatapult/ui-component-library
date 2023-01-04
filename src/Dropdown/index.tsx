@@ -1,18 +1,20 @@
 import React from 'react'
-import Select, { StylesConfig } from 'react-select'
+import Select, { StylesConfig, components } from 'react-select'
 import styled from 'styled-components'
 
+const { Placeholder } = components
+
 const Wrapper = styled('div')`
+  min-width: 250px;
   ${({ width }: { width?: string }) => `
     width: ${width || '100%'}
-    min-width: 250px;
   `}
 `
 
 const ValuesContainer = styled('div')`
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-start;
 `
 
 const Value = styled('div')`
@@ -21,16 +23,15 @@ const Value = styled('div')`
   margin: 0.5rem;
   margin-left: 0;
   font-size: 1rem;
-  border-radius: 10px 0px 0px 10px;
-  color: ${(props: any) => props.textColor || '#216968'};
-  background-color: ${(props) => props.color || 'rgba(247, 173, 46, 0.6)'};
+  color: ${(props: any) => props.textColor || '#FFFFFF'};
+  background-color: ${(props) => props.color || '#99A0A3'};
   user-select: none;
 `
 
 const X = styled('button')`
   all: unset;
   margin-left: 1.3rem;
-  color: ${(props: any) => props.textColor || '#216968'};
+  color: ${(props: any) => props.textColor || '#FFFFFF'};
   transition: fill 0.5s ease-in-out;
   cursor: pointer;
   &:hover {
@@ -53,6 +54,19 @@ interface Props {
 
 interface IDropdown {
   (args: Props): React.ReactElement
+}
+
+const CustomLabel = (props: any) => {
+  return (
+    <>
+      <Placeholder {...props} isFocused={props.isFocused}>
+        {props.selectProps.placeholder}
+      </Placeholder>
+      {React.Children.map(props.children, (child) =>
+        child && child.type !== Placeholder ? child : null
+      )}
+    </>
+  )
 }
 
 const MultiSelect = (props: any) => {
@@ -81,7 +95,10 @@ const MultiSelect = (props: any) => {
           borderRadius: 0,
         })}
         {...props}
-        closeMenuOnSelect={false}
+        components={{
+          ValueContainer: CustomLabel,
+        }}
+        closeMenuOnSelect={true}
         controlShouldRenderValue={true}
       />
       <ValuesContainer>
@@ -121,6 +138,10 @@ const Dropdown: IDropdown = ({ options, isMulti = false, ...props }) => {
             backgroundColor: '#B6EFA0',
             color: '#27847A',
           },
+        }),
+        placeholder: (provided: any, state: any) => ({
+          ...provided,
+          position: 'absolute',
         }),
         menuList: (styles: any) => ({
           ...styles,

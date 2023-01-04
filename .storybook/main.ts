@@ -7,10 +7,10 @@ export default {
   core: {
     builder: 'webpack5'
   },
+  framework: '@storybook/react',
   features: {
     babelModeV7: true,
   },
-  framework: '@storybook/react',
   typescript: {
     check: true,
     reactDocgen: 'react-docgen-typescript',
@@ -20,5 +20,5 @@ export default {
         esModuleInterop: false,
       }
     }
-  },
+  }
 }

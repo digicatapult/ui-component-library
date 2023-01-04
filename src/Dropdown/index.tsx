@@ -56,7 +56,7 @@ interface IDropdown {
   (args: Props): React.ReactElement
 }
 
-const CustomLabel = ({ value, ...props }: any) => {
+const CustomLabel = (props: any) => {
   return (
     <>
       <Placeholder {...props} isFocused={props.isFocused}>

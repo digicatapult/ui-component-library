@@ -33,6 +33,9 @@ export interface PointOptions {
   pointExpression?: Expression
   pointColor?: string
   pointRadius?: number
+  pointRadiusExpression?: Expression
+  pointStrokeWidth?: number
+  pointStrokeColor?: string
   onPointClick?: (feature: MapboxGeoJSONFeature) => void
   onClickZoomIn?: number
 }
@@ -66,7 +69,10 @@ const applyLayerDefaults = (props: Props) => {
     pointOptions: {
       pointExpression: props.pointOptions?.pointExpression || null,
       pointColor: props.pointOptions?.pointColor || colors.black,
-      pointRadius: props.pointOptions?.pointRadius || 6,
+      pointRadius: props.pointOptions?.pointRadius || 5,
+      pointRadiusExpression: props.pointOptions?.pointRadiusExpression || null,
+      pointStrokeWidth: props.pointOptions?.pointStrokeWidth || 0,
+      pointStrokeColor: props.pointOptions?.pointStrokeColor || colors.white,
       onPointClick: props.pointOptions?.onPointClick || Function(),
       onClickZoomIn: props.pointOptions?.onClickZoomIn || 12,
     },
@@ -92,6 +98,9 @@ const Map: React.FC<Props> = (props) => {
       pointExpression,
       pointColor,
       pointRadius,
+      pointRadiusExpression,
+      pointStrokeWidth,
+      pointStrokeColor,
       onPointClick,
       onClickZoomIn,
     },
@@ -195,7 +204,10 @@ const Map: React.FC<Props> = (props) => {
         paint: {
           'circle-color':
             pointExpression != null ? pointExpression : pointColor,
-          'circle-radius': pointRadius,
+          'circle-radius':
+            pointRadiusExpression != null ? pointRadiusExpression : pointRadius,
+          'circle-stroke-color': pointStrokeColor,
+          'circle-stroke-width': pointStrokeWidth,
         },
       })
 

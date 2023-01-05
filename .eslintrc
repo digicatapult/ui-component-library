@@ -31,13 +31,27 @@
     "react/no-array-index-key": 0,
     "import/no-extraneous-dependencies": [
       "error",
-      { "devDependencies": ["**/*.spec.tsx", "**/*.stories.*", "src/utils/story-helpers.tsx"], "peerDependencies": true }
-    ]
+      {
+        "devDependencies": [
+          "**/*.spec.tsx",
+          "**/*.stories.*",
+          "src/utils/story-helpers.tsx"
+        ],
+        "peerDependencies": true
+      }
+    ],
+    "import/extensions": ["error", "ignorePackages", { "js": "always" }]
   },
   "env": { "es6": true, "jest/globals": true },
   "overrides": [
     {
       "files": ["src/**/*.{js,jsx,ts,tsx}"]
+    },
+    {
+      "files": ["src/**/*.stories.{ts|tsx}"],
+      "rules": {
+        "import/extensions": ["error", "ignorePackages"]
+      }
     }
   ]
 }

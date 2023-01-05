@@ -165,6 +165,9 @@ const Template: Story = (args) => {
       pointExpression: args.pointExpression,
       pointColor: args.pointColor,
       pointRadius: args.pointRadius,
+      pointRadiusExpression: args.pointRadiusExpression,
+      pointStrokeWidth: args.pointStrokeWidth,
+      pointStrokeColor: args.pointStrokeColor,
       onPointClick: action('click'),
       onClickZoomIn: args.onClickZoomIn,
     },
@@ -192,5 +195,7 @@ export const HIIPointColour = Template.bind({})
 HIIPointColour.args = {
   sourceJson: hiiJson,
   pointExpression: pointColourExpression,
-  pointRadius: 4,
+  pointRadiusExpression: ['interpolate', ['linear'], ['zoom'], 1, 5, 10, 10],
+  pointStrokeColor: '#8a8988',
+  pointStrokeWidth: 1,
 }

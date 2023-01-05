@@ -6,6 +6,7 @@ import Map from './index'
 import exampleJson from './example.json'
 import hiiJson from './hii.json'
 import colors from '../colors'
+import { Expression } from 'mapbox-gl'
 
 export default {
   title: 'Components/Map',
@@ -119,6 +120,24 @@ export default {
   },
 }
 
+const pointColourExpression: Expression = [
+  'match',
+  ['get', 'Project Type'],
+  'Feasability Study',
+  '#27847A',
+  'Funding/Competition',
+  '#80CC72',
+  'Testing & certification',
+  '#B6EFA0',
+  'Innovation programme',
+  '#DFE667',
+  'R&D facility',
+  '#C8B88A',
+  'Government strategy',
+  '#F1DDDF',
+  '#27847A',
+]
+
 const Template: Story = (args) => {
   const props = {
     token: process.env.STORYBOOK_MAPBOX_TOKEN || '',
@@ -142,6 +161,7 @@ const Template: Story = (args) => {
       countFontColor: args.countFontColor,
     },
     pointOptions: {
+      pointExpression: args.pointExpression,
       pointColor: args.pointColor,
       pointRadius: args.pointRadius,
       onPointClick: action('click'),
@@ -170,6 +190,6 @@ NoCluster.args = {
 export const HIIPointColour = Template.bind({})
 HIIPointColour.args = {
   sourceJson: hiiJson,
-  pointColor: colors.green,
+  pointExpression: pointColourExpression,
   pointRadius: 4,
 }

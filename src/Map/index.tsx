@@ -4,6 +4,7 @@ import mapboxgl, {
   LngLatLike,
   MapboxGeoJSONFeature,
   GeoJSONSource,
+  Expression,
 } from 'mapbox-gl'
 import { FeatureCollection, GeoJSON } from 'geojson'
 
@@ -29,6 +30,7 @@ export interface ClusterOptions {
 }
 
 export interface PointOptions {
+  pointExpression?: Expression
   pointColor?: string
   pointRadius?: number
   onPointClick?: (feature: MapboxGeoJSONFeature) => void
@@ -62,6 +64,7 @@ const applyLayerDefaults = (props: Props) => {
       countFontColor: props.clusterOptions?.countFontColor || colors.white,
     },
     pointOptions: {
+      pointExpression: props.pointOptions?.pointExpression || null,
       pointColor: props.pointOptions?.pointColor || colors.black,
       pointRadius: props.pointOptions?.pointRadius || 6,
       onPointClick: props.pointOptions?.onPointClick || Function(),
@@ -85,7 +88,13 @@ const Map: React.FC<Props> = (props) => {
       countFontSize,
       countFontColor,
     },
-    pointOptions: { pointColor, pointRadius, onPointClick, onClickZoomIn },
+    pointOptions: {
+      pointExpression,
+      pointColor,
+      pointRadius,
+      onPointClick,
+      onClickZoomIn,
+    },
   } = applyLayerDefaults(props)
 
   const sourceJson = props.sourceJson
@@ -184,23 +193,8 @@ const Map: React.FC<Props> = (props) => {
         source: 'source',
         filter: ['!', ['has', 'point_count']],
         paint: {
-          'circle-color': [
-            'match',
-            ['get', 'Project Type'],
-            'Feasability Study',
-            '#27847A',
-            'Funding/Competition',
-            '#80CC72',
-            'Testing & certification',
-            '#B6EFA0',
-            'Innovation programme',
-            '#DFE667',
-            'R&D facility',
-            '#C8B88A',
-            'Government strategy',
-            '#F1DDDF',
-            pointColor,
-          ],
+          'circle-color':
+            pointExpression != null ? pointExpression : pointColor,
           'circle-radius': pointRadius,
         },
       })

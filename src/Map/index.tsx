@@ -8,7 +8,7 @@ import mapboxgl, {
 } from 'mapbox-gl'
 import { FeatureCollection, GeoJSON } from 'geojson'
 
-import colors from '../colors'
+import colors from '../colors.js'
 
 export interface InitialState {
   long?: number

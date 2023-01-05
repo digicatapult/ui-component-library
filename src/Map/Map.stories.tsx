@@ -1,12 +1,13 @@
 import React from 'react'
 import { action } from '@storybook/addon-actions'
 import { Story } from '@storybook/react'
+import { Expression } from 'mapbox-gl'
 
-import Map from './index'
+import Map from './index.js'
+import colors from '../colors.js'
+
 import exampleJson from './example.json'
 import hiiJson from './hii.json'
-import colors from '../colors'
-import { Expression } from 'mapbox-gl'
 
 export default {
   title: 'Components/Map',

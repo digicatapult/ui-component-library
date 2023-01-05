@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import renderer from 'react-test-renderer'
 import 'jest-styled-components'
 
-import { H1, H2, H3, H4, H5, H6, H6, HX } from './index.tsx'
+import { H1, H2, H3, H4, H5, H6, HX, HeadingLevel } from './index.js'
 
 describe('Heading', () => {
   test('H1', () => {
@@ -35,7 +35,7 @@ describe('Heading', () => {
     test(`HX - h${i}`, () => {
       const tree = renderer
         .create(
-          <HX headingLevel={i} id={`idx${i}`}>
+          <HX headingLevel={i as HeadingLevel} id={`idx${i}`}>
             Hello-x{i}
           </HX>
         )
@@ -45,7 +45,7 @@ describe('Heading', () => {
     test(`Restyled HX - h${i}`, () => {
       const tree = renderer
         .create(
-          <RestyledHX headingLevel={i} id={`idx${i}`}>
+          <RestyledHX headingLevel={i as HeadingLevel} id={`idx${i}`}>
             Hello-x{i}
           </RestyledHX>
         )

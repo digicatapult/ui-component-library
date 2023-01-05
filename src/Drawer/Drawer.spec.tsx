@@ -1,10 +1,9 @@
 import React from 'react'
 import renderer, { act } from 'react-test-renderer'
+import styled from 'styled-components'
 import 'jest-styled-components'
 
-import Drawer from './index.tsx'
-
-import styled from 'styled-components'
+import Drawer from './index.js'
 
 describe('Drawer', () => {
   test('simple', () => {

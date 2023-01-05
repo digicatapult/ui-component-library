@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "ESNext",
-    "allowJs": true,
+    "allowJs": false,
     "checkJs": false,
     "jsx": "react-jsx",
     "declaration": true,
@@ -17,5 +17,5 @@
     "typeRoots": ["./node_modules/@types", "./@types"]
   },
   "include": ["@types/**/*.ts", "src/**/*.ts",  "src/**/*.d.ts", "src/**/*.tsx"],
-  "exclude": ["src/**/*.spec.js", "src/**/*.stories.*"]
+  "exclude": ["src/**/*.spec.tsx", "src/**/*.stories.*"]
 }

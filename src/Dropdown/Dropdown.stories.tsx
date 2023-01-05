@@ -1,7 +1,8 @@
 import React from 'react'
-import Dropdown from './index'
 import { action } from '@storybook/addon-actions'
 import { Story } from '@storybook/react'
+
+import Dropdown from './index.js'
 
 export default {
   title: 'Components/Dropdown',

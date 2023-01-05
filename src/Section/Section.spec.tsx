@@ -2,7 +2,7 @@ import React from 'react'
 import renderer from 'react-test-renderer'
 import 'jest-styled-components'
 
-import Section from './index.tsx'
+import Section from './index.js'
 
 describe('Section', () => {
   test('default', () => {

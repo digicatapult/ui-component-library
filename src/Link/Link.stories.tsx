@@ -1,7 +1,7 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 
-import Link from './index'
+import Link from './index.js'
 
 export default {
   title: 'Components/Link',

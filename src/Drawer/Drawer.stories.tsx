@@ -1,7 +1,8 @@
 import React from 'react'
-import Drawer from './'
 import { Meta, Story } from '@storybook/react'
 import styled from 'styled-components'
+
+import Drawer from './index.js'
 
 export default {
   title: 'Components/Drawer',

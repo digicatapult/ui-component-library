@@ -1,8 +1,9 @@
 import React from 'react'
-import ListCard from './'
 import { Story } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import styled from 'styled-components'
+
+import ListCard from './index.js'
 
 export default {
   title: 'Components/ListCard',

@@ -2,13 +2,13 @@ import React from 'react'
 import renderer, { act } from 'react-test-renderer'
 import 'jest-styled-components'
 
-import Search from './index.tsx'
+import Search, { SubmitValue } from './index.js'
 
 describe('Test', () => {
   jest.useFakeTimers()
 
   test('default', () => {
-    const submitEvents = []
+    const submitEvents: SubmitValue[] = []
     const instance = renderer.create(
       <Search onSubmit={(v) => submitEvents.push(v)} />
     )
@@ -18,7 +18,7 @@ describe('Test', () => {
   })
 
   test('with props', () => {
-    const submitEvents = []
+    const submitEvents: SubmitValue[] = []
     const instance = renderer.create(
       <Search
         placeholder="placeholder"
@@ -33,7 +33,7 @@ describe('Test', () => {
   })
 
   test('auto-submit (immediate)', async () => {
-    const submitEvents = []
+    const submitEvents: SubmitValue[] = []
     const instance = renderer.create(
       <Search
         placeholder="placeholder"
@@ -54,7 +54,7 @@ describe('Test', () => {
   })
 
   test('auto-submit (after 500ms)', async () => {
-    const submitEvents = []
+    const submitEvents: SubmitValue[] = []
     const instance = renderer.create(
       <Search
         placeholder="placeholder"
@@ -78,7 +78,7 @@ describe('Test', () => {
   })
 
   test('manual-submit (immediate)', async () => {
-    const submitEvents = []
+    const submitEvents: SubmitValue[] = []
     const instance = renderer.create(
       <Search
         placeholder="placeholder"
@@ -106,7 +106,7 @@ describe('Test', () => {
   })
 
   test('manual-submit (wait 500ms)', async () => {
-    const submitEvents = []
+    const submitEvents: SubmitValue[] = []
     const instance = renderer.create(
       <Search
         placeholder="placeholder"
@@ -133,7 +133,7 @@ describe('Test', () => {
   })
 
   test('reset to null', async () => {
-    const submitEvents = []
+    const submitEvents: SubmitValue[] = []
     const instance = renderer.create(
       <Search
         placeholder="placeholder"

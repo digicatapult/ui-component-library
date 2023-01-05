@@ -2,8 +2,9 @@ import React, { PropsWithChildren, useEffect, useRef, useState } from 'react'
 import { Story } from '@storybook/react'
 import styled from 'styled-components'
 
-import { Grid, Section } from '../'
-import { default as DialogComponent } from './index'
+import Grid from '../Grid/index.js'
+import Section from '../Section/index.js'
+import { default as DialogComponent } from './index.js'
 
 export default {
   title: 'Components/Dialog',

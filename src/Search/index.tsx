@@ -1,12 +1,14 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 
+export type SubmitValue = string | null
+
 export interface SearchProps {
   placeholder?: string
   color?: string
   background?: string
   debounce?: number
-  onSubmit: (value: string | null) => void
+  onSubmit: (value: SubmitValue) => void
 }
 
 interface SearchWrapperProps extends React.DOMAttributes<HTMLFormElement> {

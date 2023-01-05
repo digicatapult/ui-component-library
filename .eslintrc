@@ -31,7 +31,7 @@
     "react/no-array-index-key": 0,
     "import/no-extraneous-dependencies": [
       "error",
-      { "devDependencies": ["**/*.spec.js", "**/*.stories.*", "src/utils/story-helpers.tsx"], "peerDependencies": true }
+      { "devDependencies": ["**/*.spec.tsx", "**/*.stories.*", "src/utils/story-helpers.tsx"], "peerDependencies": true }
     ]
   },
   "env": { "es6": true, "jest/globals": true },

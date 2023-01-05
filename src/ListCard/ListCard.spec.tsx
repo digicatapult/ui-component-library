@@ -71,6 +71,8 @@ describe('Test', () => {
     })
 
     expect(clickHandler.mock.calls).toHaveLength(1)
-    expect(clickHandler.mock.calls[0][0]).toBe('Test')
+
+    const call: string[] = clickHandler.mock.calls[0]
+    expect(call[0]).toBe('Test')
   })
 })

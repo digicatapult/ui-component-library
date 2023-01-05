@@ -4,7 +4,7 @@ import mapboxgl from 'mapbox-gl'
 
 import 'jest-styled-components'
 
-import Map from './index.tsx'
+import Map from './index.js'
 
 jest.mock('mapbox-gl')
 

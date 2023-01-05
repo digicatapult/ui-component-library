@@ -6,7 +6,7 @@ import React, {
 import { useId } from 'react-id-generator'
 import styled from 'styled-components'
 
-import { HeadingLevel, HX } from '../'
+import { HeadingLevel, HX } from '../Heading/index.js'
 
 export interface SectionProps {
   headingLevel: HeadingLevel

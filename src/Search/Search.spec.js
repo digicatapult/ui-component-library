@@ -2,7 +2,7 @@ import React from 'react'
 import renderer, { act } from 'react-test-renderer'
 import 'jest-styled-components'
 
-import Search from './index.tsx'
+import Search from './index.js'
 
 describe('Test', () => {
   jest.useFakeTimers()

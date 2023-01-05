@@ -1,6 +1,6 @@
 import React from 'react'
-import { IAppBar, IItem } from './types'
-import { Li, Link, ToolBar, Wrapper } from './common'
+import { IAppBar, IItem } from './types.js'
+import { Li, Link, ToolBar, Wrapper } from './common.js'
 
 const Item: IItem = ({ children, ...props }) => (
   <Li>

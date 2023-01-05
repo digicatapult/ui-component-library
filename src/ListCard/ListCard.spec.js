@@ -2,7 +2,7 @@ import React from 'react'
 import renderer, { act } from 'react-test-renderer'
 import 'jest-styled-components'
 
-import ListCard from './index.tsx'
+import ListCard from './index.js'
 
 describe('Test', () => {
   test('default', () => {

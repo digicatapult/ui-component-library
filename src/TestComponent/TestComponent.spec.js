@@ -2,7 +2,7 @@ import React from 'react'
 import renderer from 'react-test-renderer'
 import 'jest-styled-components'
 
-import TestComponent from './index.tsx'
+import TestComponent from './index.js'
 
 describe('Test', () => {
   test('default', () => {

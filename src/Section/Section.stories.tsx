@@ -1,7 +1,7 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 
-import Section from './index'
+import Section from './index.js'
 
 export default {
   title: 'Components/Section',

@@ -53,7 +53,7 @@ export default {
 }
 
 export const Default: Story<typeof Dropdown> = (args) => (
-  <Dropdown isMulti={false} update={action('select')} {...args} />
+  <Dropdown theme={'default'} isMulti={false} update={action('select')} {...args} />
 )
 
 export const Multi: Story<typeof Dropdown> = (args) => {
@@ -67,6 +67,7 @@ export const Multi: Story<typeof Dropdown> = (args) => {
 
   return (
     <Dropdown
+      theme={'hii'}
       selected={selected}
       isMulti={true}
       update={action('select')}

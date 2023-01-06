@@ -5,6 +5,9 @@ import styled from 'styled-components'
 const { Placeholder } = components
 
 const Wrapper = styled('div')`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   min-width: 250px;
   ${({ width }: { width?: string }) => `
     width: ${width || '100%'}
@@ -42,35 +45,72 @@ const X = styled('button')`
   }
 `
 
+const Title2 = styled('p')`
+  padding: 0;
+  margin: 0;
+  display: inline;
+`
+
 // TODO create types.d.ts
 interface Props {
   options?: Array<any>
   styles?: StylesConfig
-  selected?: any
+  theme: 'hii' | 'default'
+  selected?: string
+  value?: string & string[]
   placeholder?: string
+  onChange?: any
   isMulti: boolean
-  update: (val: any[]) => void
+  update: (val: string[]) => void
 }
 
 interface IDropdown {
   (args: Props): React.ReactElement
 }
 
-const CustomLabel = (props: any) => {
-  return (
-    <>
-      <Placeholder {...props} isFocused={props.isFocused}>
-        {props.selectProps.placeholder}
-      </Placeholder>
-      {React.Children.map(props.children, (child) =>
-        child && child.type !== Placeholder ? child : null
-      )}
-    </>
-  )
-}
+// HII props TODO extract to theme and etc... when we will review theming
+// this mainsly sets placehgolder and renders badges outside as custom styled element, i think we should have
+// encaurage antonio to use badges inside as react-select was designed, anyway this is just a note
 
-const MultiSelect = (props: any) => {
+
+const HiiMultiSelect: IDropdown = ({ theme, ...props }) => {
   const { value = [], onChange } = props
+  // From here up un til ..... ==> and this just all that in one place
+  const Label = (labelProps: any) => {
+    return (
+      <>
+        <Placeholder {...labelProps} isFocused={labelProps.isFocused}>
+          {labelProps.selectProps.placeholder}
+        </Placeholder>
+        {React.Children.map(labelProps.children, (child: any) =>
+          child && child.type !== Placeholder ? child : null
+        )}
+      </>
+    )
+  }
+  const styles = {
+    multiValue: () => ({
+      display: 'none',
+    }),
+    option: (styles: any) => ({
+      ...styles,
+      ':hover': {
+        ...styles[':hover'],
+        backgroundColor: '#B6EFA0',
+        color: '#27847A',
+      },
+    }),
+    placeholder: (provided: any, state: any) => ({
+      ...provided,
+      position: 'absolute',
+    }),
+    menuList: (styles: any) => ({
+      ...styles,
+      color: '#fff',
+      backgroundColor: '#27847A',
+    }),
+  }
+  // up until here could have been avoided if not tweaking react-select. theming might be a nightmare due to uniqness
 
   const handleRemoveValue = (e: any) => {
     if (!onChange) return null
@@ -89,14 +129,14 @@ const MultiSelect = (props: any) => {
   return (
     <Wrapper>
       <Select
-        isMulti
+        styles={styles}
         theme={(theme) => ({
           ...theme,
           borderRadius: 0,
         })}
         {...props}
         components={{
-          ValueContainer: CustomLabel,
+          ValueContainer: Label,
         }}
         closeMenuOnSelect={true}
         controlShouldRenderValue={true}
@@ -104,10 +144,8 @@ const MultiSelect = (props: any) => {
       <ValuesContainer>
         {value.map((val: any) => (
           <Value {...val} key={val.value}>
-            {val.label}
-            <X {...val} name={val.value} onClick={handleRemoveValue}>
-              ✕
-            </X>
+            <Title2>{val.label}</Title2>
+            <X {...val} name={val.value} onClick={handleRemoveValue} value='x' />
           </Value>
         ))}
       </ValuesContainer>
@@ -115,7 +153,7 @@ const MultiSelect = (props: any) => {
   )
 }
 
-const Dropdown: IDropdown = ({ options, isMulti = false, ...props }) => {
+const Dropdown: IDropdown = ({ theme = 'default', options, isMulti = false, ...props }) => {
   const [value, setValue] = React.useState(props.selected)
 
   const update = (val: any) => props.update(val)
@@ -124,50 +162,22 @@ const Dropdown: IDropdown = ({ options, isMulti = false, ...props }) => {
     setValue(val)
   }
 
-  // TODO show selected in drop down as well.
-  if (isMulti) {
-    const multiProps = {
-      styles: {
-        multiValue: () => ({
-          display: 'none',
-        }),
-        option: (styles: any) => ({
-          ...styles,
-          ':hover': {
-            ...styles[':hover'],
-            backgroundColor: '#B6EFA0',
-            color: '#27847A',
-          },
-        }),
-        placeholder: (provided: any, state: any) => ({
-          ...provided,
-          position: 'absolute',
-        }),
-        menuList: (styles: any) => ({
-          ...styles,
-          color: '#fff',
-          backgroundColor: '#27847A',
-        }),
-      },
-      options,
-      onChange,
-      value,
-      ...props,
-    }
-
-    return <MultiSelect {...multiProps} />
-  }
-
   return (
     <Wrapper width={'100%'}>
+      {theme === 'hii' ?
+       <HiiMultiSelect 
+        isMulti={true}
+        options={options}
+        theme={'hii'}
+        {...props}
+      /> :
       <Select
-        value={props.selected}
+        value={value}
         options={options}
         onChange={onChange}
-        isMulti={isMulti}
         closeMenuOnSelect={true}
         {...props}
-      />
+      />}
     </Wrapper>
   )
 }

@@ -41,6 +41,7 @@ export default {
 const DefaultStoryTemplate: Story = (args) => {
   return (
     <ListCard
+      id={'example-id'}
       title={args.title}
       subtitle={args.subtitle}
       orientation={args.orientation}
@@ -89,6 +90,7 @@ export const ListCardMultiple: Story = () => {
     <ListWrapper>
       {arr.map((i) => (
         <ListCard
+          id={`id${i}`}
           title={`Card ${i}`}
           subtitle="Name of lead partner"
           orientation="left"

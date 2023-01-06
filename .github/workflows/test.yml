@@ -63,11 +63,10 @@ jobs:
         id: get_version
         run: ./scripts/check-version.sh
         shell: bash
-      - name: Skipping release as version has not increased
-        if: steps.get_version.outputs.IS_NEW_VERSION != 'true'
+      - name: Error if version is not increased
         shell: bash
         run: |
-          echo "Skipping release as current version has already been published"
+          exit $([[ "${{steps.get_version.outputs.IS_NEW_VERSION}}" = "true" ]] && echo 0 || echo 1)
   test:
     name: Run tests
     runs-on: ubuntu-latest

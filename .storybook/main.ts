@@ -11,7 +11,7 @@ export default {
   webpackFinal(config) {
     delete config.resolve.extensions
     config.resolve.extensionAlias = {
-      '.js': ['.ts', '.js', '.tsx'],
+      '.js': ['.ts', '.js', '.tsx']
     }
     return config
   },

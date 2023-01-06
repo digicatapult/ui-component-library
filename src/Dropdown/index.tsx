@@ -15,9 +15,6 @@ const Value = styled('div')`
   user-select: none;
 `
 
-// from here ->>
-// again this is when it comes to theming
-// we can see same across the board pretty much
 const Wrapper = styled('div')`
   min-width: 250px;
   ${({ width }: { width?: string }) => `
@@ -31,7 +28,7 @@ const ValuesContainer = styled('div')`
   align-items: flex-start;
 `
 
-const Button_X = styled('button')`
+const Close = styled('button')`
   all: unset;
   margin-left: 1.3rem;
   color: ${({ color }) => color || '#FFFFFF'};
@@ -44,13 +41,12 @@ const Button_X = styled('button')`
     color: #c82f21;
   }
 `
-// <<- to here
 
 // TODO create types.d.ts
 interface Props {
   options: Array<any>
   styles?: StylesConfig
-  theme?: 'hii' | 'default'
+  variant?: 'hii' | null
   label?: string
   value?: any // for later same with selected?
   selected?: any // due to uniqueness
@@ -64,18 +60,7 @@ interface IDropdown {
   (args: Props): React.ReactElement
 }
 
-// HII props TODO extract to theme and etc... when we will review theming
-// this mainsly sets placehgolder and renders badges outside as custom styled element, i think we should have
-// encaurage antonio to use badges inside as react-select was designed, anyway this is just a note
-const HiiMultiSelect: IDropdown = ({
-  onChange,
-  value = [],
-  theme,
-  ...props
-}) => {
-  // from here ->>
-  // could have been avoided if not tweaking react-select
-  // theming might be a nightmare due to uniqness of projects - from UI perpective
+const HiiMultiSelect: IDropdown = ({ onChange, value = [], ...props }) => {
   const HiiLabel = (labelProps: any) => {
     return (
       <>
@@ -111,7 +96,7 @@ const HiiMultiSelect: IDropdown = ({
       backgroundColor: '#27847A',
     }),
   }
-  // <<- to here
+
   const handleRemoveValue = (e: any) => {
     if (!onChange) return null
     const { name } = e.currentTarget
@@ -127,7 +112,7 @@ const HiiMultiSelect: IDropdown = ({
   }
 
   return (
-    <Wrapper>
+    <>
       <Select
         styles={styles}
         theme={(provided) => ({
@@ -146,45 +131,42 @@ const HiiMultiSelect: IDropdown = ({
         {value.map((val: any) => (
           <Value {...val} key={val.value}>
             <span>{val.label}</span>
-            <Button_X
+            <Close
               color={val.textColor}
               name={val.value}
               onClick={handleRemoveValue}
             >
               x
-            </Button_X>
+            </Close>
           </Value>
         ))}
       </ValuesContainer>
-    </Wrapper>
+    </>
   )
 }
 
 const Dropdown: IDropdown = ({
-  theme = 'default',
+  variant = null,
   options,
   isMulti = false,
   ...props
 }) => {
   const [value, setValue] = React.useState(props.selected)
 
-  // <<- from here, as well due to tweaking react-select
-  // i'm just trying to highlight how much time we could save
-  // if there would be less uniqness in UI
   const update = (val: any) => props.update(val)
   const onChange = (val: any) => {
     update(val)
     setValue(val)
   }
-  // <<- to here check .stories.tsx there is a default multi as well now
 
   return (
-    <Wrapper width={'100%'}>
-      {theme === 'hii' ? (
+    <Wrapper>
+      {props.label && <h2>{props.label}</h2>}
+      {variant ? (
         <HiiMultiSelect
           isMulti={true}
           options={options}
-          theme={'hii'}
+          variant={'hii'}
           value={value}
           onChange={onChange}
           {...props}

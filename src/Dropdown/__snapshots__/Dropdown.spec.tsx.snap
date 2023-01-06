@@ -8,7 +8,6 @@ exports[`Dropdown default - selected 1`] = `
 
 <div
   className="c0"
-  width="100%"
 >
   <div
     className=" css-b62m3t-container"
@@ -117,7 +116,6 @@ exports[`Dropdown default - with placeholder 1`] = `
 
 <div
   className="c0"
-  width="100%"
 >
   <div
     className=" css-b62m3t-container"
@@ -228,7 +226,6 @@ exports[`Dropdown default 1`] = `
 
 <div
   className="c0"
-  width="100%"
 >
   <div
     className=" css-b62m3t-container"
@@ -339,7 +336,6 @@ exports[`Dropdown multi - hii 1`] = `
 
 <div
   className="c0"
-  width="100%"
 >
   <div
     className=" css-b62m3t-container"

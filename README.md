@@ -4,7 +4,6 @@ React components built for Digital Catapult projects 🧠
 
 ## Installation
 
-
 `@digicatapult/ui-component-library` are available as an [npm package](https://www.npmjs.com/package/@digicatapult/ui-component-library).
 
 ```sh

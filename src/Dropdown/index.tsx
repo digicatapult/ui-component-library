@@ -4,6 +4,17 @@ import styled from 'styled-components'
 
 const { Placeholder } = components
 
+const Value = styled('div')`
+  padding: 0.5rem;
+  padding-left: 0.75rem;
+  margin: 0.5rem;
+  margin-left: 0;
+  font-size: 1rem;
+  color: ${(props: any) => props.textColor || '#FFFFFF'};
+  background-color: ${(props) => props.color || '#99A0A3'};
+  user-select: none;
+`
+
 const Wrapper = styled('div')`
   min-width: 250px;
   ${({ width }: { width?: string }) => `
@@ -17,21 +28,10 @@ const ValuesContainer = styled('div')`
   align-items: flex-start;
 `
 
-const Value = styled('div')`
-  padding: 0.5rem;
-  padding-left: 0.75rem;
-  margin: 0.5rem;
-  margin-left: 0;
-  font-size: 1rem;
-  color: ${(props: any) => props.textColor || '#FFFFFF'};
-  background-color: ${(props) => props.color || '#99A0A3'};
-  user-select: none;
-`
-
-const X = styled('button')`
+const Close = styled('button')`
   all: unset;
   margin-left: 1.3rem;
-  color: ${(props: any) => props.textColor || '#FFFFFF'};
+  color: ${({ color }) => color || '#FFFFFF'};
   transition: fill 0.5s ease-in-out;
   cursor: pointer;
   &:hover {
@@ -44,78 +44,113 @@ const X = styled('button')`
 
 // TODO create types.d.ts
 interface Props {
-  options?: Array<any>
+  options: Array<any>
   styles?: StylesConfig
-  selected?: any
+  variant?: 'hii' | null
+  label?: string
+  value?: any // for later same with selected?
+  selected?: any // due to uniqueness
   placeholder?: string
-  isMulti: boolean
-  update: (val: any[]) => void
+  onChange?: any
+  isMulti?: boolean
+  update: (val: string[]) => void
 }
 
 interface IDropdown {
   (args: Props): React.ReactElement
 }
 
-const CustomLabel = (props: any) => {
-  return (
-    <>
-      <Placeholder {...props} isFocused={props.isFocused}>
-        {props.selectProps.placeholder}
-      </Placeholder>
-      {React.Children.map(props.children, (child) =>
-        child && child.type !== Placeholder ? child : null
-      )}
-    </>
-  )
-}
-
-const MultiSelect = (props: any) => {
-  const { value = [], onChange } = props
+const HiiMultiSelect: IDropdown = ({ onChange, value = [], ...props }) => {
+  const HiiLabel = (labelProps: any) => {
+    return (
+      <>
+        <Placeholder {...labelProps} isFocused={labelProps.isFocused}>
+          {labelProps.selectProps.placeholder}
+        </Placeholder>
+        {React.Children.map(labelProps.children, (child: any) =>
+          child && child.type !== Placeholder ? child : null
+        )}
+      </>
+    )
+  }
+  const styles = {
+    multiValue: () => ({
+      display: 'none',
+    }),
+    option: (provided: any) => ({
+      ...provided,
+      ':hover': {
+        ...provided[':hover'],
+        backgroundColor: '#B6EFA0',
+        color: '#27847A',
+      },
+    }),
+    placeholder: (provided: any) => ({
+      ...provided,
+      position: 'absolute',
+      padding: '8px 4px',
+    }),
+    menuList: (provided: any) => ({
+      ...provided,
+      color: '#fff',
+      backgroundColor: '#27847A',
+    }),
+  }
 
   const handleRemoveValue = (e: any) => {
     if (!onChange) return null
-    const { name: buttonName } = e.currentTarget
-    const removedValue = value.find((val: any) => val.value === buttonName)
+    const { name } = e.currentTarget
+    const removedValue = value.find((val: any) => val.value === name)
 
     if (!removedValue) return null
     props.update(value)
 
     onChange(
-      value.filter((val: any) => val.value !== buttonName),
+      value.filter((val: any) => val.value !== name),
       { name, action: 'remove-value', removedValue }
     )
   }
 
   return (
-    <Wrapper>
+    <>
       <Select
-        isMulti
-        theme={(theme) => ({
-          ...theme,
+        styles={styles}
+        theme={(provided) => ({
+          ...provided,
           borderRadius: 0,
         })}
-        {...props}
         components={{
-          ValueContainer: CustomLabel,
+          ValueContainer: HiiLabel,
         }}
         closeMenuOnSelect={true}
         controlShouldRenderValue={true}
+        {...props}
+        onChange={onChange}
       />
       <ValuesContainer>
         {value.map((val: any) => (
           <Value {...val} key={val.value}>
-            {val.label}
-            <X {...val} name={val.value} onClick={handleRemoveValue}>
-              ✕
-            </X>
+            <span>{val.label}</span>
+            <Close
+              color={val.textColor}
+              name={val.value}
+              onClick={handleRemoveValue}
+            >
+              x
+            </Close>
           </Value>
         ))}
       </ValuesContainer>
-    </Wrapper>
+    </>
   )
 }
 
-const Dropdown: IDropdown = ({ options, isMulti = false, ...props }) => {
+const Dropdown: IDropdown = ({
+  variant = null,
+  options,
+  isMulti = false,
+  ...props
+}) => {
   const [value, setValue] = React.useState(props.selected)
 
   const update = (val: any) => props.update(val)
@@ -124,50 +159,28 @@ const Dropdown: IDropdown = ({ options, isMulti = false, ...props }) => {
     setValue(val)
   }
 
-  // TODO show selected in drop down as well.
-  if (isMulti) {
-    const multiProps = {
-      styles: {
-        multiValue: () => ({
-          display: 'none',
-        }),
-        option: (styles: any) => ({
-          ...styles,
-          ':hover': {
-            ...styles[':hover'],
-            backgroundColor: '#B6EFA0',
-            color: '#27847A',
-          },
-        }),
-        placeholder: (provided: any, state: any) => ({
-          ...provided,
-          position: 'absolute',
-        }),
-        menuList: (styles: any) => ({
-          ...styles,
-          color: '#fff',
-          backgroundColor: '#27847A',
-        }),
-      },
-      options,
-      onChange,
-      value,
-      ...props,
-    }
-
-    return <MultiSelect {...multiProps} />
-  }
-
   return (
-    <Wrapper width={'100%'}>
-      <Select
-        value={props.selected}
-        options={options}
-        onChange={onChange}
-        isMulti={isMulti}
-        closeMenuOnSelect={true}
-        {...props}
-      />
+    <Wrapper>
+      {props.label && <h2>{props.label}</h2>}
+      {variant ? (
+        <HiiMultiSelect
+          isMulti={true}
+          options={options}
+          variant={'hii'}
+          value={value}
+          onChange={onChange}
+          {...props}
+        />
+      ) : (
+        <Select
+          value={value}
+          options={options}
+          isMulti={isMulti}
+          onChange={onChange}
+          closeMenuOnSelect={true}
+          {...props}
+        />
+      )}
     </Wrapper>
   )
 }

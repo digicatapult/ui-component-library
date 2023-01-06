@@ -11,6 +11,12 @@ export default {
   },
   component: Dropdown,
   argTypes: {
+    variant: {
+      control: {
+        type: 'select',
+        options: ['default', 'hii'],
+      },
+    },
     placeholder: {
       control: {
         type: 'text',
@@ -21,8 +27,14 @@ export default {
         type: 'boolean',
       },
     },
+    label: {
+      control: {
+        type: 'text',
+      },
+    },
   },
   args: {
+    label: null,
     placeholder: 'some placeholder',
     options: [
       {
@@ -52,25 +64,42 @@ export default {
   },
 }
 
-export const Default: Story<typeof Dropdown> = (args) => (
-  <Dropdown isMulti={false} update={action('select')} {...args} />
+const DefaultStoryTemplate: Story = (args) => (
+  <Dropdown
+    placeholder={args.placeholder} // so silly that spread does not work as it should... as ts complains - define me please
+    options={args.options}
+    variant={args.variant}
+    label={args.label}
+    update={action('select')}
+  />
 )
 
-export const Multi: Story<typeof Dropdown> = (args) => {
-  const selected = [
+export const Default = DefaultStoryTemplate.bind({})
+
+export const Labelled = DefaultStoryTemplate.bind({})
+Labelled.args = {
+  label: "i'm a label",
+}
+
+export const Multi = DefaultStoryTemplate.bind({})
+Multi.args = {
+  isMulti: true,
+}
+
+export const PreselectedExample = DefaultStoryTemplate.bind({})
+PreselectedExample.args = {
+  selected: [
     {
       value: '4',
       label: 'option 4',
       color: 'rgba(223, 230, 103, 0.6)',
+      textColor: '#216968',
     },
-  ]
+  ],
+}
 
-  return (
-    <Dropdown
-      selected={selected}
-      isMulti={true}
-      update={action('select')}
-      {...args}
-    />
-  )
+export const HII = DefaultStoryTemplate.bind({})
+HII.args = {
+  label: 'Categories',
+  variant: 'hii',
 }

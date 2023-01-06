@@ -1,8 +1,8 @@
 import React, { useRef } from 'react'
 import styled from 'styled-components'
-import { useId } from 'react-id-generator'
 
 export interface ListCardProps {
+  id: string
   title: string
   subtitle?: string
   orientation?: 'left' | 'right'
@@ -22,6 +22,7 @@ interface WrapperProps extends React.DOMAttributes<HTMLButtonElement> {
 }
 
 const ListCard: React.FC<ListCardProps> = ({
+  id,
   flashColor = '#e0e0e0',
   background = '#f0f0f0',
   title,
@@ -31,8 +32,6 @@ const ListCard: React.FC<ListCardProps> = ({
   height = '100%',
   onClick,
 }) => {
-  const [id] = useId()
-
   return (
     <Wrapper
       orientation={orientation}

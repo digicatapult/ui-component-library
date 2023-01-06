@@ -8,7 +8,7 @@ describe('Test', () => {
   test('default', () => {
     const clickHandler = jest.fn(() => {})
     const tree = renderer
-      .create(<ListCard title="LIST CARD" onClick={clickHandler} />)
+      .create(<ListCard id="id" title="LIST CARD" onClick={clickHandler} />)
       .toJSON()
     expect(tree).toMatchSnapshot()
   })
@@ -18,6 +18,7 @@ describe('Test', () => {
     const tree = renderer
       .create(
         <ListCard
+          id="id"
           title="Name"
           subtitle="Name of lead partner"
           orientation="left"
@@ -37,6 +38,7 @@ describe('Test', () => {
     const tree = renderer
       .create(
         <ListCard
+          id="id"
           title="Name"
           subtitle="Name of lead partner"
           orientation="right"
@@ -55,6 +57,7 @@ describe('Test', () => {
     const clickHandler = jest.fn(() => {})
     const instance = renderer.create(
       <ListCard
+        id="id"
         title="Test"
         subtitle="Name of lead partner"
         orientation="left"

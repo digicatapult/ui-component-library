@@ -68,13 +68,13 @@ exports[`Test default 1`] = `
 <button
   className="c0"
   height="100%"
-  id="id1"
+  id="id"
   onClick={[Function]}
   orientation="left"
   width="100%"
 >
   <label
-    htmlFor="id1"
+    htmlFor="id"
   >
     LIST CARD
   </label>
@@ -149,13 +149,13 @@ exports[`Test hii 1`] = `
 <button
   className="c0"
   height="67px"
-  id="id2"
+  id="id"
   onClick={[Function]}
   orientation="left"
   width="467px"
 >
   <label
-    htmlFor="id2"
+    htmlFor="id"
   >
     Name
   </label>
@@ -233,13 +233,13 @@ exports[`Test orientation: right 1`] = `
 <button
   className="c0"
   height="67px"
-  id="id3"
+  id="id"
   onClick={[Function]}
   orientation="right"
   width="467px"
 >
   <label
-    htmlFor="id3"
+    htmlFor="id"
   >
     Name
   </label>

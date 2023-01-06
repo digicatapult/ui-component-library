@@ -4,10 +4,21 @@ import styled from 'styled-components'
 
 const { Placeholder } = components
 
+const Value = styled('div')`
+  padding: 0.5rem;
+  padding-left: 0.75rem;
+  margin: 0.5rem;
+  margin-left: 0;
+  font-size: 1rem;
+  color: ${(props: any) => props.textColor || '#FFFFFF'};
+  background-color: ${(props) => props.color || '#99A0A3'};
+  user-select: none;
+`
+
+// from here ->> 
+// again this is when it comes to theming
+// we can see same across the board pretty much 
 const Wrapper = styled('div')`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
   min-width: 250px;
   ${({ width }: { width?: string }) => `
     width: ${width || '100%'}
@@ -20,21 +31,10 @@ const ValuesContainer = styled('div')`
   align-items: flex-start;
 `
 
-const Value = styled('div')`
-  padding: 0.5rem;
-  padding-left: 0.75rem;
-  margin: 0.5rem;
-  margin-left: 0;
-  font-size: 1rem;
-  color: ${(props: any) => props.textColor || '#FFFFFF'};
-  background-color: ${(props) => props.color || '#99A0A3'};
-  user-select: none;
-`
-
-const X = styled('button')`
+const Button_X = styled('button')`
   all: unset;
   margin-left: 1.3rem;
-  color: ${(props: any) => props.textColor || '#FFFFFF'};
+  color: ${({ color }) => color || '#FFFFFF'};
   transition: fill 0.5s ease-in-out;
   cursor: pointer;
   &:hover {
@@ -44,23 +44,18 @@ const X = styled('button')`
     color: #c82f21;
   }
 `
-
-const Title2 = styled('p')`
-  padding: 0;
-  margin: 0;
-  display: inline;
-`
+// <<- to here 
 
 // TODO create types.d.ts
 interface Props {
   options?: Array<any>
   styles?: StylesConfig
   theme: 'hii' | 'default'
-  selected?: string
-  value?: string & string[]
+  value?: any 
+  selected?: any
   placeholder?: string
   onChange?: any
-  isMulti: boolean
+  isMulti?: boolean
   update: (val: string[]) => void
 }
 
@@ -72,11 +67,10 @@ interface IDropdown {
 // this mainsly sets placehgolder and renders badges outside as custom styled element, i think we should have
 // encaurage antonio to use badges inside as react-select was designed, anyway this is just a note
 
-
-const HiiMultiSelect: IDropdown = ({ theme, ...props }) => {
-  const { value = [], onChange } = props
-  // From here up un til ..... ==> and this just all that in one place
-  const Label = (labelProps: any) => {
+  // from here ->> 
+  // could have been avoided if not tweaking react-select
+  // theming might be a nightmare due to uniqness of projects - from UI perpective
+  const HiiLabel = (labelProps: any) => {
     return (
       <>
         <Placeholder {...labelProps} isFocused={labelProps.isFocused}>
@@ -88,40 +82,41 @@ const HiiMultiSelect: IDropdown = ({ theme, ...props }) => {
       </>
     )
   }
+const HiiMultiSelect: IDropdown = ({ onChange, value = [], theme, ...props }) => {
+
   const styles = {
     multiValue: () => ({
-      display: 'none',
+      display: 'none'
     }),
-    option: (styles: any) => ({
-      ...styles,
+    option: (provided: any) => ({
+      ...provided,
       ':hover': {
-        ...styles[':hover'],
+        ...provided[':hover'],
         backgroundColor: '#B6EFA0',
         color: '#27847A',
       },
     }),
-    placeholder: (provided: any, state: any) => ({
+    placeholder: (provided: any) => ({
       ...provided,
       position: 'absolute',
     }),
-    menuList: (styles: any) => ({
-      ...styles,
+    menuList: (provided: any) => ({
+      ...provided,
       color: '#fff',
       backgroundColor: '#27847A',
     }),
   }
-  // up until here could have been avoided if not tweaking react-select. theming might be a nightmare due to uniqness
-
+  // <<- to here
   const handleRemoveValue = (e: any) => {
     if (!onChange) return null
-    const { name: buttonName } = e.currentTarget
-    const removedValue = value.find((val: any) => val.value === buttonName)
+    const { name } = e.currentTarget
+    const removedValue = value.find((val: any) => val.value === name)
 
     if (!removedValue) return null
     props.update(value)
 
     onChange(
-      value.filter((val: any) => val.value !== buttonName),
+      value.filter((val: any) => val.value !== name),
       { name, action: 'remove-value', removedValue }
     )
   }
@@ -130,22 +125,25 @@ const HiiMultiSelect: IDropdown = ({ theme, ...props }) => {
     <Wrapper>
       <Select
         styles={styles}
-        theme={(theme) => ({
-          ...theme,
+        theme={(provided) => ({
+          ...provided,
           borderRadius: 0,
         })}
-        {...props}
         components={{
-          ValueContainer: Label,
+          ValueContainer: HiiLabel,
         }}
         closeMenuOnSelect={true}
         controlShouldRenderValue={true}
+        {...props}
+        onChange={onChange}
       />
       <ValuesContainer>
         {value.map((val: any) => (
-          <Value {...val} key={val.value}>
-            <Title2>{val.label}</Title2>
-            <X {...val} name={val.value} onClick={handleRemoveValue} value='x' />
+          <Value {...val} key={val.value}> 
+            <span>{val.label}</span>
+            <Button_X color={val.textColor} name={val.value} onClick={handleRemoveValue}>
+              x
+            </Button_X>
           </Value>
         ))}
       </ValuesContainer>
@@ -156,11 +154,15 @@ const HiiMultiSelect: IDropdown = ({ theme, ...props }) => {
 const Dropdown: IDropdown = ({ theme = 'default', options, isMulti = false, ...props }) => {
   const [value, setValue] = React.useState(props.selected)
 
+  // <<- from here, as well due to tweaking react-select
+  // i'm just trying to highlight how much time we could save
+  // if there would be less uniqness in UI
   const update = (val: any) => props.update(val)
   const onChange = (val: any) => {
     update(val)
     setValue(val)
   }
+  // <<- to here check .stories.tsx there is a default multi as well now
 
   return (
     <Wrapper width={'100%'}>
@@ -169,11 +171,14 @@ const Dropdown: IDropdown = ({ theme = 'default', options, isMulti = false, ...p
         isMulti={true}
         options={options}
         theme={'hii'}
+        value={value}
+        onChange={onChange}
         {...props}
       /> :
       <Select
         value={value}
         options={options}
+        isMulti={isMulti}
         onChange={onChange}
         closeMenuOnSelect={true}
         {...props}

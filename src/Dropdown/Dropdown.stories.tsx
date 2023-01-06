@@ -52,16 +52,32 @@ export default {
   },
 }
 
+// TODO unify how we use storybook e.g. .bind or not
+// across when we have move covereed in regards to components etc.
 export const Default: Story<typeof Dropdown> = (args) => (
-  <Dropdown theme={'default'} isMulti={false} update={action('select')} {...args} />
+  <Dropdown
+    theme={'default'}
+    update={action('select')}
+    {...args}
+  />
 )
 
-export const Multi: Story<typeof Dropdown> = (args) => {
+export const Multi: Story<typeof Dropdown> = (args) => (
+  <Dropdown
+    theme={'default'}
+    isMulti={true}
+    update={action('select')}
+    {...args}
+  />
+)
+
+export const Hii: Story<typeof Dropdown> = (args) => {
   const selected = [
     {
       value: '4',
       label: 'option 4',
       color: 'rgba(223, 230, 103, 0.6)',
+      textColor: '#216968',
     },
   ]
 
@@ -69,7 +85,6 @@ export const Multi: Story<typeof Dropdown> = (args) => {
     <Dropdown
       theme={'hii'}
       selected={selected}
-      isMulti={true}
       update={action('select')}
       {...args}
     />

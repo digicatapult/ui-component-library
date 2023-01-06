@@ -15,9 +15,9 @@ const Value = styled('div')`
   user-select: none;
 `
 
-// from here ->> 
+// from here ->>
 // again this is when it comes to theming
-// we can see same across the board pretty much 
+// we can see same across the board pretty much
 const Wrapper = styled('div')`
   min-width: 250px;
   ${({ width }: { width?: string }) => `
@@ -44,15 +44,16 @@ const Button_X = styled('button')`
     color: #c82f21;
   }
 `
-// <<- to here 
+// <<- to here
 
 // TODO create types.d.ts
 interface Props {
-  options?: Array<any>
+  options: Array<any>
   styles?: StylesConfig
-  theme: 'hii' | 'default'
-  value?: any 
-  selected?: any
+  theme?: 'hii' | 'default'
+  label?: string
+  value?: any // for later same with selected?
+  selected?: any // due to uniqueness
   placeholder?: string
   onChange?: any
   isMulti?: boolean
@@ -66,8 +67,13 @@ interface IDropdown {
 // HII props TODO extract to theme and etc... when we will review theming
 // this mainsly sets placehgolder and renders badges outside as custom styled element, i think we should have
 // encaurage antonio to use badges inside as react-select was designed, anyway this is just a note
-
-  // from here ->> 
+const HiiMultiSelect: IDropdown = ({
+  onChange,
+  value = [],
+  theme,
+  ...props
+}) => {
+  // from here ->>
   // could have been avoided if not tweaking react-select
   // theming might be a nightmare due to uniqness of projects - from UI perpective
   const HiiLabel = (labelProps: any) => {
@@ -82,11 +88,9 @@ interface IDropdown {
       </>
     )
   }
-const HiiMultiSelect: IDropdown = ({ onChange, value = [], theme, ...props }) => {
-
   const styles = {
     multiValue: () => ({
-      display: 'none'
+      display: 'none',
     }),
     option: (provided: any) => ({
       ...provided,
@@ -99,6 +103,7 @@ const HiiMultiSelect: IDropdown = ({ onChange, value = [], theme, ...props }) =>
     placeholder: (provided: any) => ({
       ...provided,
       position: 'absolute',
+      padding: '8px 4px',
     }),
     menuList: (provided: any) => ({
       ...provided,
@@ -139,9 +144,13 @@ const HiiMultiSelect: IDropdown = ({ onChange, value = [], theme, ...props }) =>
       />
       <ValuesContainer>
         {value.map((val: any) => (
-          <Value {...val} key={val.value}> 
+          <Value {...val} key={val.value}>
             <span>{val.label}</span>
-            <Button_X color={val.textColor} name={val.value} onClick={handleRemoveValue}>
+            <Button_X
+              color={val.textColor}
+              name={val.value}
+              onClick={handleRemoveValue}
+            >
               x
             </Button_X>
           </Value>
@@ -151,7 +160,12 @@ const HiiMultiSelect: IDropdown = ({ onChange, value = [], theme, ...props }) =>
   )
 }
 
-const Dropdown: IDropdown = ({ theme = 'default', options, isMulti = false, ...props }) => {
+const Dropdown: IDropdown = ({
+  theme = 'default',
+  options,
+  isMulti = false,
+  ...props
+}) => {
   const [value, setValue] = React.useState(props.selected)
 
   // <<- from here, as well due to tweaking react-select
@@ -166,23 +180,25 @@ const Dropdown: IDropdown = ({ theme = 'default', options, isMulti = false, ...p
 
   return (
     <Wrapper width={'100%'}>
-      {theme === 'hii' ?
-       <HiiMultiSelect 
-        isMulti={true}
-        options={options}
-        theme={'hii'}
-        value={value}
-        onChange={onChange}
-        {...props}
-      /> :
-      <Select
-        value={value}
-        options={options}
-        isMulti={isMulti}
-        onChange={onChange}
-        closeMenuOnSelect={true}
-        {...props}
-      />}
+      {theme === 'hii' ? (
+        <HiiMultiSelect
+          isMulti={true}
+          options={options}
+          theme={'hii'}
+          value={value}
+          onChange={onChange}
+          {...props}
+        />
+      ) : (
+        <Select
+          value={value}
+          options={options}
+          isMulti={isMulti}
+          onChange={onChange}
+          closeMenuOnSelect={true}
+          {...props}
+        />
+      )}
     </Wrapper>
   )
 }

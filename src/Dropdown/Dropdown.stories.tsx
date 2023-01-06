@@ -52,41 +52,32 @@ export default {
   },
 }
 
-// TODO unify how we use storybook e.g. .bind or not
-// across when we have move covereed in regards to components etc.
-export const Default: Story<typeof Dropdown> = (args) => (
+const DefaultStoryTemplate: Story = (args) => (
   <Dropdown
-    theme={'default'}
+    placeholder={args.placeholder} // so silly that spread does not work as it should... as ts complains - define me please
+    options={args.options}
     update={action('select')}
     {...args}
   />
 )
 
-export const Multi: Story<typeof Dropdown> = (args) => (
-  <Dropdown
-    theme={'default'}
-    isMulti={true}
-    update={action('select')}
-    {...args}
-  />
-)
+export const Default = DefaultStoryTemplate.bind({})
 
-export const Hii: Story<typeof Dropdown> = (args) => {
-  const selected = [
-    {
-      value: '4',
-      label: 'option 4',
-      color: 'rgba(223, 230, 103, 0.6)',
-      textColor: '#216968',
-    },
-  ]
+export const Labelled = DefaultStoryTemplate.bind({})
+Labelled.args.label = "i'm a label"
 
-  return (
-    <Dropdown
-      theme={'hii'}
-      selected={selected}
-      update={action('select')}
-      {...args}
-    />
-  )
-}
+export const Multi = DefaultStoryTemplate.bind({})
+Multi.args.isMulti = true
+
+export const PreselectedExample = DefaultStoryTemplate.bind({})
+PreselectedExample.args.selected = [
+  {
+    value: '4',
+    label: 'option 4',
+    color: 'rgba(223, 230, 103, 0.6)',
+    textColor: '#216968',
+  },
+]
+
+export const HII = DefaultStoryTemplate.bind({})
+HII.args.theme.HII

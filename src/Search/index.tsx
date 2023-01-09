@@ -1,9 +1,35 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import styled from 'styled-components'
 
-export type SubmitValue = string | null
+import { buildLexer, parseSearch } from './lexer.js'
+
+export interface SearchFields {
+  [fieldName: string]: {
+    // allows us to implement correct input elements for search input helper box
+    fieldType: 'text' | 'number' | 'currency' | 'date'
+  }
+}
+
+interface SearchTermLit {
+  type: 'term'
+  value: string
+  modifier: 'positive' | 'negative' | null
+  isQuoted: boolean
+}
+
+interface SearchFieldMatch {
+  type: 'fieldMatch'
+  field: string
+  value: string
+  modifier: 'positive' | 'negative' | null
+  isQuoted: boolean
+}
+
+export type SearchTerm = SearchTermLit | SearchFieldMatch
+export type SubmitValue = SearchTerm[]
 
 export interface SearchProps {
+  fields?: SearchFields
   placeholder?: string
   color?: string
   background?: string
@@ -24,24 +50,28 @@ interface SearchIconProps extends React.DOMAttributes<HTMLButtonElement> {
 }
 
 const Search: React.FC<SearchProps> = ({
+  fields = {},
   placeholder,
   color = 'black',
   background = 'transparent',
   debounce = 250,
   onSubmit,
 }) => {
-  const [search, setSearch] = useState<string | null>(null)
+  const [search, setSearch] = useState<SubmitValue>([])
   const [hasSubmitted, setHasSubmitted] = useState(true)
   const buttonRef = useRef<HTMLButtonElement | null>(null)
+
+  const lexer = useMemo(() => buildLexer(fields), [fields])
 
   const handleSearchChange: React.ChangeEventHandler<HTMLInputElement> =
     useCallback(
       (event) => {
         const target = event.target as HTMLInputElement
-        setSearch(target.value || null)
+        const terms = parseSearch(lexer, target.value)
+        setSearch(terms)
         setHasSubmitted(false)
       },
-      [setSearch, setHasSubmitted]
+      [setSearch, setHasSubmitted, lexer]
     )
 
   const handleSubmit = useCallback(

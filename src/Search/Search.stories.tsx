@@ -18,6 +18,13 @@ const DefaultStoryTemplate: Story = (args) => {
       fontSize={args.fontSize}
     >
       <Search
+        fields={{
+          project: { fieldType: 'text' },
+          startDate: { fieldType: 'date' },
+          endDate: { fieldType: 'date' },
+          funding: { fieldType: 'currency' },
+          publicationCount: { fieldType: 'number' },
+        }}
         placeholder={args.placeholder}
         color={args.color}
         background={args.background}

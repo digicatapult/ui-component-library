@@ -74,7 +74,16 @@ describe('Test', () => {
     })
 
     const tree = instance.toJSON()
-    expect(submitEvents).toEqual(['test'])
+    expect(submitEvents).toEqual([
+      [
+        {
+          isQuoted: false,
+          modifier: null,
+          type: 'term',
+          value: 'test',
+        },
+      ],
+    ])
   })
 
   test('manual-submit (immediate)', async () => {
@@ -101,7 +110,16 @@ describe('Test', () => {
     })
 
     const tree = instance.toJSON()
-    expect(submitEvents).toEqual(['test'])
+    expect(submitEvents).toEqual([
+      [
+        {
+          isQuoted: false,
+          modifier: null,
+          type: 'term',
+          value: 'test',
+        },
+      ],
+    ])
     expect(eventMock.preventDefault.mock.calls).toHaveLength(1)
   })
 
@@ -129,7 +147,16 @@ describe('Test', () => {
     })
 
     const tree = instance.toJSON()
-    expect(submitEvents).toEqual(['test'])
+    expect(submitEvents).toEqual([
+      [
+        {
+          isQuoted: false,
+          modifier: null,
+          type: 'term',
+          value: 'test',
+        },
+      ],
+    ])
   })
 
   test('reset to null', async () => {
@@ -161,6 +188,16 @@ describe('Test', () => {
     })
 
     const tree = instance.toJSON()
-    expect(submitEvents).toEqual(['test', null])
+    expect(submitEvents).toEqual([
+      [
+        {
+          isQuoted: false,
+          modifier: null,
+          type: 'term',
+          value: 'test',
+        },
+      ],
+      [],
+    ])
   })
 })

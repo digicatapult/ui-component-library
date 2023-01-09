@@ -160,12 +160,11 @@ export const HII: Story = () => {
       >
         {!isOpen ? 'Open' : 'Close'}
       </button>
-      <DialogComponent ref={dialogRef} includeClose={true}>
+      <DialogComponent width="47ch" ref={dialogRef} includeClose={true}>
         <Section
           headingLevel={2}
           title="Name"
           padding="1em 1.5em"
-          width="47ch"
           headingSize="2em"
           background="white"
         >

@@ -21,32 +21,38 @@ interface WrapperProps extends React.DOMAttributes<HTMLButtonElement> {
   height: string
 }
 
-const ListCard: React.FC<ListCardProps> = ({
-  id,
-  flashColor = '#e0e0e0',
-  background = '#f0f0f0',
-  title,
-  subtitle = '',
-  orientation = 'left',
-  width = '100%',
-  height = '100%',
-  onClick,
-}) => {
-  return (
-    <Wrapper
-      orientation={orientation}
-      flashColor={flashColor}
-      background={background}
-      width={width}
-      height={height}
-      id={id}
-      onClick={() => onClick(title)}
-    >
-      <label htmlFor={id}>{title}</label>
-      {subtitle && <span>{subtitle}</span>}
-    </Wrapper>
-  )
-}
+const ListCard = React.forwardRef<HTMLButtonElement, ListCardProps>(
+  (
+    {
+      id,
+      flashColor = '#e0e0e0',
+      background = '#f0f0f0',
+      title,
+      subtitle = '',
+      orientation = 'left',
+      width = '100%',
+      height = '100%',
+      onClick,
+    },
+    listCardRef
+  ) => {
+    return (
+      <Wrapper
+        ref={listCardRef}
+        orientation={orientation}
+        flashColor={flashColor}
+        background={background}
+        width={width}
+        height={height}
+        id={id}
+        onClick={() => onClick(title)}
+      >
+        <label htmlFor={id}>{title}</label>
+        {subtitle && <span>{subtitle}</span>}
+      </Wrapper>
+    )
+  }
+)
 
 const Wrapper = styled.button<WrapperProps>`
   border: 0;

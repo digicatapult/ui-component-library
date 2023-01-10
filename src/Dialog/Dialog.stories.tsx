@@ -160,7 +160,12 @@ export const HII: Story = () => {
       >
         {!isOpen ? 'Open' : 'Close'}
       </button>
-      <DialogComponent width="47ch" ref={dialogRef} includeClose={true}>
+      <DialogComponent
+        width="47ch"
+        maxHeight="60ch"
+        ref={dialogRef}
+        includeClose={true}
+      >
         <Section
           headingLevel={2}
           title="Name"
@@ -204,7 +209,14 @@ export const HII: Story = () => {
                 at projects at a TRL of 4 to 7, which could result in lower
                 capital or operating costs when compared to Steam Methane
                 Reformation with Carbon Capture & Storage (SMR+CCS), or improve
-                the carbon capture rates at a comparable cost.
+                the carbon capture rates at a comparable cost. Scope / goal -
+                The £33 million Low Carbon Hydrogen Supply competition aimed to
+                accelerate the development of low carbon bulk hydrogen supply
+                solutions in specific sectors. It was aimed at projects at a TRL
+                of 4 to 7, which could result in lower capital or operating
+                costs when compared to Steam Methane Reformation with Carbon
+                Capture & Storage (SMR+CCS), or improve the carbon capture rates
+                at a comparable cost.
               </Section>
             </Grid.Panel>
 

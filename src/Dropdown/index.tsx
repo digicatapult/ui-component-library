@@ -180,11 +180,6 @@ const Dropdown: IDropdown = ({
         />
       ) : (
         <Select
-          styles={{
-            multiValue: (provided) => ({
-              ...provided,
-            }),
-          }}
           value={value}
           options={options}
           isMulti={isMulti}

@@ -99,6 +99,7 @@ const HiiMultiSelect: IDropdown = ({ onChange, value = [], ...props }) => {
     }),
     menuList: (provided: any) => ({
       ...provided,
+      zIndex: 999,
       color: '#fff',
       backgroundColor: '#27847A',
     }),

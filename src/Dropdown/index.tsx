@@ -108,14 +108,14 @@ const HiiMultiSelect: IDropdown = ({ onChange, value = [], ...props }) => {
   const handleRemoveValue = (e: any) => {
     if (!onChange) return null
     const { name } = e.currentTarget
-    console.log(name)
     const removedValue = value.find((val: any) => val.value === name)
 
     if (!removedValue) return null
 
     onChange(
       value.filter((val: any) => val.value !== name)
-      // { name, action: 'remove-value', removedValue }
+      // TODO, something to review later in case we want to log events
+      // we could pass a second arg as exmpl: { name, action: 'remove-value', removedValue }
     )
   }
 

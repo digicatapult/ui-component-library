@@ -12,7 +12,6 @@ export interface DialogProps {
   boxShadow?: string
   width?: string
   height?: string
-  maxHeight?: string
 }
 
 const Dialog = React.forwardRef<
@@ -29,9 +28,8 @@ const Dialog = React.forwardRef<
       border = '0',
       boxShadow = '5px 5px 5px #90909090',
       width = 'fit-content',
-      height,
+      height = 'fit-content',
       modalBackdropColor = 'unset',
-      maxHeight,
     },
     dialogRef
   ) => {
@@ -46,7 +44,6 @@ const Dialog = React.forwardRef<
         boxShadow={boxShadow}
         width={width}
         height={height}
-        maxHeight={maxHeight}
       >
         <DialogForm method="dialog">
           {includeClose ? <CloseButton /> : null}
@@ -68,7 +65,6 @@ const Wrapper = styled.dialog<DialogProps>`
   box-shadow: ${({ boxShadow }) => boxShadow};
   width: ${({ width }) => width};
   height: ${({ height }) => height};
-  max-height: ${({ maxHeight }) => maxHeight};
 
   ::backdrop {
     background: ${({ modalBackdropColor }) => modalBackdropColor};
@@ -78,9 +74,9 @@ const Wrapper = styled.dialog<DialogProps>`
 const DialogForm = styled.form`
   display: inline-block;
   position: relative;
-  overflow: auto;
-  max-height: inherit;
-  height: inherit;
+  overflow: scroll;
+  width: 100%;
+  height: 100%;
 `
 
 const CloseButton = styled.button`

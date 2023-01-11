@@ -9,12 +9,12 @@ jobs:
     name: Run lint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@master
         with:
           node-version: 16.x
       - name: Cache Node.js modules
-        uses: actions/cache@v3
+        uses: actions/cache@v1
         with:
           path: ~/.npm # npm cache files are stored in `~/.npm` on Linux/macOS
           key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
@@ -29,12 +29,12 @@ jobs:
     name: Run dependency check
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@master
         with:
           node-version: 16.x
       - name: Cache Node.js modules
-        uses: actions/cache@v3
+        uses: actions/cache@v1
         with:
           path: ~/.npm # npm cache files are stored in `~/.npm` on Linux/macOS
           key: ${{ runner.OS }}-node-${{ hashFiles('**/package-json.json') }}
@@ -63,20 +63,21 @@ jobs:
         id: get_version
         run: ./scripts/check-version.sh
         shell: bash
-      - name: Error if version is not increased
+      - name: Skipping release as version has not increased
+        if: steps.get_version.outputs.IS_NEW_VERSION != 'true'
         shell: bash
         run: |
-          exit $([[ "${{steps.get_version.outputs.IS_NEW_VERSION}}" = "true" ]] && echo 0 || echo 1)
+          echo "Skipping release as current version has already been published"
   test:
     name: Run tests
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@master
         with:
           node-version: 16.x
       - name: Cache Node.js modules
-        uses: actions/cache@v3
+        uses: actions/cache@v1
         with:
           path: ~/.npm # npm cache files are stored in `~/.npm` on Linux/macOS
           key: ${{ runner.OS }}-node-${{ hashFiles('**/package-json.json') }}

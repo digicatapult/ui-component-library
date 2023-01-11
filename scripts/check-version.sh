@@ -37,8 +37,8 @@ function check_version_greater () {
   fi
 }
 
-# Get published versions from the npm registry
-PUBLISHED_VERSIONS=$(curl -s https://registry.npmjs.org/@digicatapult/ui-component-library |jq -r ' .versions[].version')
+# Get published git tags that match semver regex with a "v" prefix then remove the "v" character
+PUBLISHED_VERSIONS=$(git tag | grep "^v[0-9]\+\.[0-9]\+\.[0-9]\+\(\-[a-zA-Z-]\+\(\.[0-9]\+\)*\)\{0,1\}$" | sed 's/^v\(.*\)$/\1/')
 # Get the current version from package.json
 CURRENT_VERSION=$(yq eval '.version' ./package.json)
 

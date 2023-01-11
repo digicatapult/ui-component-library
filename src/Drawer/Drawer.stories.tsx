@@ -1,8 +1,10 @@
 import React from 'react'
 import { Meta, Story } from '@storybook/react'
+import { action } from '@storybook/addon-actions'
 import styled from 'styled-components'
 
 import Drawer from './index.js'
+import Dropdown from '../'
 
 export default {
   title: 'Components/Drawer',
@@ -44,6 +46,44 @@ export const NoParams: Story = () => {
         <DrawerContentMock />
         Test2
         <DrawerContentMock />
+      </Drawer>
+      Some other content
+    </StoryWrapper>
+  )
+}
+
+export const WithOverflow: Story = () => {
+  return (
+    <StoryWrapper>
+      <Drawer>
+        <Dropdown
+          update={action('select')}
+          options={[
+            {
+              value: '1',
+              label: 'option 1',
+              color: 'rgba(128, 204, 114, 0.6)',
+            },
+            {
+              value: '2',
+              label: 'option 2',
+              color: 'rgba(182, 239, 160, 0.6)',
+              textColor: '#216968',
+            },
+            {
+              value: '3',
+              label: 'option 3',
+              color: 'rgba(223, 230, 103, 0.6)',
+              textColor: '#216968',
+            },
+            {
+              value: '4',
+              label: 'option 4',
+              color: 'rgba(223, 230, 103, 0.6)',
+              textColor: '#216968',
+            },
+          ]}
+        />
       </Drawer>
       Some other content
     </StoryWrapper>

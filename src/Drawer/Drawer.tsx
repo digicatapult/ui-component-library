@@ -1,12 +1,13 @@
 import React, {
   PropsWithChildren,
   useCallback,
+  useEffect,
   useRef,
   useState,
 } from 'react'
 import styled from 'styled-components'
 
-import Grid from '../Grid/index.js'
+import Grid from '../Grid'
 
 export interface DrawerProps {
   defaultIsOpen?: boolean

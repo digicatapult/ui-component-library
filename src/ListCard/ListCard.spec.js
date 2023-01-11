@@ -2,7 +2,7 @@ import React from 'react'
 import renderer, { act } from 'react-test-renderer'
 import 'jest-styled-components'
 
-import ListCard from './index.js'
+import ListCard from './index.tsx'
 
 describe('Test', () => {
   test('default', () => {
@@ -71,8 +71,6 @@ describe('Test', () => {
     })
 
     expect(clickHandler.mock.calls).toHaveLength(1)
-
-    const call: string[] = clickHandler.mock.calls[0]
-    expect(call[0]).toBe('Test')
+    expect(clickHandler.mock.calls[0][0]).toBe('Test')
   })
 })

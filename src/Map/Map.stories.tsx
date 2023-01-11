@@ -1,13 +1,10 @@
 import React from 'react'
 import { action } from '@storybook/addon-actions'
 import { Story } from '@storybook/react'
-import { Expression } from 'mapbox-gl'
 
-import Map from './index.js'
-import colors from '../colors.js'
-
+import Map from './index'
 import exampleJson from './example.json'
-import hiiJson from './hii.json'
+import colors from '../colors'
 
 export default {
   title: 'Components/Map',
@@ -121,24 +118,6 @@ export default {
   },
 }
 
-const pointColourExpression: Expression = [
-  'match',
-  ['get', 'Project Type'],
-  'Feasability Study',
-  '#27847A',
-  'Funding/Competition',
-  '#80CC72',
-  'Testing & certification',
-  '#B6EFA0',
-  'Innovation programme',
-  '#DFE667',
-  'R&D facility',
-  '#C8B88A',
-  'Government strategy',
-  '#F1DDDF',
-  '#27847A',
-]
-
 const Template: Story = (args) => {
   const props = {
     token: process.env.STORYBOOK_MAPBOX_TOKEN || '',
@@ -162,12 +141,8 @@ const Template: Story = (args) => {
       countFontColor: args.countFontColor,
     },
     pointOptions: {
-      pointExpression: args.pointExpression,
       pointColor: args.pointColor,
       pointRadius: args.pointRadius,
-      pointRadiusExpression: args.pointRadiusExpression,
-      pointStrokeWidth: args.pointStrokeWidth,
-      pointStrokeColor: args.pointStrokeColor,
       onPointClick: action('click'),
       onClickZoomIn: args.onClickZoomIn,
     },
@@ -181,7 +156,7 @@ Cluster.args = {
   sourceJson: exampleJson,
   cluster: true,
   clusterColor: colors.green,
-  clusterRadius: 15,
+  clusterRadius: 14,
   pointColor: colors.green,
   pointRadius: 4,
 }
@@ -189,13 +164,4 @@ Cluster.args = {
 export const NoCluster = Template.bind({})
 NoCluster.args = {
   sourceJson: exampleJson,
-}
-
-export const HIIPointColour = Template.bind({})
-HIIPointColour.args = {
-  sourceJson: hiiJson,
-  pointExpression: pointColourExpression,
-  pointRadiusExpression: ['interpolate', ['linear'], ['zoom'], 1, 5, 10, 10],
-  pointStrokeColor: '#8a8988',
-  pointStrokeWidth: 1,
 }

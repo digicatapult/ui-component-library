@@ -72,7 +72,7 @@ This will open the browser and will run storybook at [localhost:9000](http://loc
 
 ## Local linking for development
 
-If you want to link `@digicatapult/ui-component-library` to your project while developing
+If you want to link @digicatapult/ui-component-library to your project while developing
 
 run
 
@@ -80,14 +80,11 @@ run
 npm run build:watch
 ```
 
-In another terminal, `npm link` to your project's `react`. This prevents issues arising from two Reacts — one in the project folder and the one in `ui-component-library`. Next create a global symlink for `ui-component-library` e.g.
-
 ```bash
-npm link ../hii-client/node_modules/react
-npm link
+npm run link
 ```
 
-Finally, in your project run the following command
+In your project run the following command
 
 ```bash
 npm link "@digicatapult/ui-component-library"

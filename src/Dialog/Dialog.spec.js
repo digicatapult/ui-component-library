@@ -3,7 +3,7 @@ import renderer, { act } from 'react-test-renderer'
 import styled from 'styled-components'
 import 'jest-styled-components'
 
-import Dialog from './index.js'
+import Dialog from './index'
 
 describe('Dialog', () => {
   test('default', () => {

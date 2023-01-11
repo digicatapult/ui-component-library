@@ -1,13 +1,13 @@
 import React from 'react'
 import Select, { StylesConfig, components } from 'react-select'
 import styled from 'styled-components'
+import { HX } from '../Heading/index.js'
 
 const { Placeholder } = components
 
 const Value = styled('div')`
-  padding: 0.5rem;
-  padding-left: 0.75rem;
-  margin: 0.5rem;
+  padding: 4px;
+  margin: 4px;
   margin-left: 0;
   font-size: 1rem;
   color: ${(props: any) => props.textColor || '#FFFFFF'};
@@ -16,7 +16,7 @@ const Value = styled('div')`
 `
 
 const Wrapper = styled('div')`
-  min-width: 250px;
+  min-width: 275px;
   ${({ width }: { width?: string }) => `
     width: ${width || '100%'}
   `}
@@ -30,7 +30,7 @@ const ValuesContainer = styled('div')`
 
 const Close = styled('button')`
   all: unset;
-  margin-left: 1.3rem;
+  margin-left: 20px;
   color: ${({ color }) => color || '#FFFFFF'};
   transition: fill 0.5s ease-in-out;
   cursor: pointer;
@@ -40,6 +40,12 @@ const Close = styled('button')`
   &:focus {
     color: #c82f21;
   }
+`
+
+const Title = styled(HX)`
+  margin: 0;
+  padding: 0;
+  margin-bottom: 5px;
 `
 
 // TODO create types.d.ts
@@ -74,7 +80,8 @@ const HiiMultiSelect: IDropdown = ({ onChange, value = [], ...props }) => {
     )
   }
   const styles = {
-    multiValue: () => ({
+    multiValue: (provided: any) => ({
+      ...provided,
       display: 'none',
     }),
     option: (provided: any) => ({
@@ -92,6 +99,7 @@ const HiiMultiSelect: IDropdown = ({ onChange, value = [], ...props }) => {
     }),
     menuList: (provided: any) => ({
       ...provided,
+      zIndex: 999,
       color: '#fff',
       backgroundColor: '#27847A',
     }),
@@ -103,11 +111,11 @@ const HiiMultiSelect: IDropdown = ({ onChange, value = [], ...props }) => {
     const removedValue = value.find((val: any) => val.value === name)
 
     if (!removedValue) return null
-    props.update(value)
 
     onChange(
-      value.filter((val: any) => val.value !== name),
-      { name, action: 'remove-value', removedValue }
+      value.filter((val: any) => val.value !== name)
+      // TODO, something to review later in case we want to log events
+      // we could pass a second arg as exmpl: { name, action: 'remove-value', removedValue }
     )
   }
 
@@ -161,7 +169,7 @@ const Dropdown: IDropdown = ({
 
   return (
     <Wrapper>
-      {props.label && <h2>{props.label}</h2>}
+      {props.label && <Title headingLevel={4}>{props.label}</Title>}
       {variant ? (
         <HiiMultiSelect
           isMulti={true}

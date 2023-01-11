@@ -1,19 +1,15 @@
 export default {
-  stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
+  stories: [
+    '../src/**/*.stories.mdx',
+    '../src/**/*.stories.@(js|jsx|ts|tsx)'
+  ],
   addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
   core: {
     builder: 'webpack5'
   },
   framework: '@storybook/react',
   features: {
-    babelModeV7: true
-  },
-  webpackFinal(config) {
-    delete config.resolve.extensions
-    config.resolve.extensionAlias = {
-      '.js': ['.ts', '.js', '.tsx']
-    }
-    return config
+    babelModeV7: true,
   },
   typescript: {
     check: true,
@@ -21,7 +17,7 @@ export default {
     reactDocgenTypescriptOptions: {
       compilerOptions: {
         allowSyntheticDefaultImports: false,
-        esModuleInterop: false
+        esModuleInterop: false,
       }
     }
   }

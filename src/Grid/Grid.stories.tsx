@@ -2,7 +2,7 @@ import React from 'react'
 import { Story } from '@storybook/react'
 import styled from 'styled-components'
 
-import Grid from './index.js'
+import Grid from './index'
 
 export default {
   title: 'Layout/Grid',

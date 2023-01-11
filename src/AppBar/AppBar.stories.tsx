@@ -1,7 +1,7 @@
 import React from 'react'
 import { Story, Meta } from '@storybook/react'
 
-import AppBar from './index.js'
+import AppBar from './index'
 
 export default {
   title: 'Components/AppBar',

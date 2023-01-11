@@ -88,6 +88,7 @@ Multi.args = {
 
 export const PreselectedExample = DefaultStoryTemplate.bind({})
 PreselectedExample.args = {
+  isMulti: true,
   selected: [
     {
       value: '4',
@@ -100,6 +101,6 @@ PreselectedExample.args = {
 
 export const HII = DefaultStoryTemplate.bind({})
 HII.args = {
-  label: 'Categories',
+  label: 'TYPE OF PROJECT',
   variant: 'hii',
 }

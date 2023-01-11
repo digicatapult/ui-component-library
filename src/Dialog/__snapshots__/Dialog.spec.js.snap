@@ -12,6 +12,9 @@ exports[`Dialog default 1`] = `
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 
 .c0::backdrop {
@@ -21,9 +24,9 @@ exports[`Dialog default 1`] = `
 .c1 {
   display: inline-block;
   position: relative;
-  overflow: auto;
-  max-height: inherit;
-  height: inherit;
+  overflow: scroll;
+  width: 100%;
+  height: 100%;
 }
 
 .c2 {
@@ -68,6 +71,7 @@ exports[`Dialog default 1`] = `
 
 <dialog
   className="c0"
+  height="fit-content"
   width="fit-content"
 >
   <form
@@ -96,6 +100,9 @@ exports[`Dialog no close 1`] = `
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 
 .c0::backdrop {
@@ -105,9 +112,9 @@ exports[`Dialog no close 1`] = `
 .c1 {
   display: inline-block;
   position: relative;
-  overflow: auto;
-  max-height: inherit;
-  height: inherit;
+  overflow: scroll;
+  width: 100%;
+  height: 100%;
 }
 
 .c2 {
@@ -119,6 +126,7 @@ exports[`Dialog no close 1`] = `
 
 <dialog
   className="c0"
+  height="fit-content"
   width="fit-content"
 >
   <form
@@ -152,9 +160,9 @@ exports[`Dialog style overrides 1`] = `
 .c1 {
   display: inline-block;
   position: relative;
-  overflow: auto;
-  max-height: inherit;
-  height: inherit;
+  overflow: scroll;
+  width: 100%;
+  height: 100%;
 }
 
 .c2 {

@@ -76,7 +76,7 @@ const applyLayerDefaults = (props: Props) => {
       pointStrokeColor: props.pointOptions?.pointStrokeColor || colors.white,
       onPointClick: props.pointOptions?.onPointClick || Function(),
       onClickZoomIn: props.pointOptions?.onClickZoomIn || 12,
-      zoomLocation: props.pointOptions?.zoomLocation || [-3.5, 55],
+      zoomLocation: props.pointOptions?.zoomLocation,
     },
   }
 }
@@ -167,7 +167,7 @@ const Map: React.FC<Props> = (props) => {
     } else if (map != null && props.pointOptions?.zoomLocation != null) {
       map.easeTo({
         center: props.pointOptions?.zoomLocation as LngLatLike,
-        zoom: 9,
+        zoom: onClickZoomIn,
       })
     }
   }, [props.pointOptions?.zoomLocation])

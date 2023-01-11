@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import mapboxgl, {
   LngLatLike,
@@ -38,6 +38,7 @@ export interface PointOptions {
   pointStrokeColor?: string
   onPointClick?: (feature: MapboxGeoJSONFeature) => void
   onClickZoomIn?: number
+  zoomLocation?: [number, number]
 }
 
 export interface Props {
@@ -75,6 +76,7 @@ const applyLayerDefaults = (props: Props) => {
       pointStrokeColor: props.pointOptions?.pointStrokeColor || colors.white,
       onPointClick: props.pointOptions?.onPointClick || Function(),
       onClickZoomIn: props.pointOptions?.onClickZoomIn || 12,
+      zoomLocation: props.pointOptions?.zoomLocation || [-3.5, 55],
     },
   }
 }
@@ -82,6 +84,7 @@ const applyLayerDefaults = (props: Props) => {
 const Map: React.FC<Props> = (props) => {
   const mapContainer = useRef(null)
   const mapRef = useRef<mapboxgl.Map | null>(null)
+  const [firstRender, setFirstRender] = useState(true)
 
   const {
     cluster,
@@ -103,13 +106,13 @@ const Map: React.FC<Props> = (props) => {
       pointStrokeColor,
       onPointClick,
       onClickZoomIn,
+      zoomLocation,
     },
   } = applyLayerDefaults(props)
 
   const sourceJson = props.sourceJson
   const height = props.initialState?.height || '800px'
   const width = props.initialState?.width || '800px'
-
   mapboxgl.accessToken = props.token
 
   // initialize map
@@ -155,6 +158,19 @@ const Map: React.FC<Props> = (props) => {
     const geojsonSource = map.getSource('source') as GeoJSONSource
     geojsonSource?.setData(sourceJson as FeatureCollection)
   }, [sourceJson])
+
+  // Use to travel to location on card click
+  useEffect(() => {
+    const map = mapRef.current
+    if (firstRender) {
+      setFirstRender(false)
+    } else if (map != null && props.pointOptions?.zoomLocation != null) {
+      map.easeTo({
+        center: props.pointOptions?.zoomLocation as LngLatLike,
+        zoom: 9,
+      })
+    }
+  }, [props.pointOptions?.zoomLocation])
 
   // add layers after map load
   useEffect(() => {

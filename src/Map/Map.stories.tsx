@@ -198,4 +198,5 @@ HIIPointColour.args = {
   pointRadiusExpression: ['interpolate', ['linear'], ['zoom'], 1, 5, 10, 10],
   pointStrokeColor: '#8a8988',
   pointStrokeWidth: 1,
+  zoomLocation: [-3.5, 55],
 }

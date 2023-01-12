@@ -161,16 +161,28 @@ const DrawerHeaderWrapper = styled('button')<DrawerHeaderProps>`
 // Overflow wrapper to ensure that when we hide the content the translated element
 // doesn't overflow and instead hides the content
 const DrawerContentOverflow = styled.div<DrawerContentProps>`
+  overflow-y: hidden;
   width: 100%;
   transition: max-height 0.5s ease;
   ${({ isOpen, maxHeight }) =>
     isOpen
       ? `
     max-height: ${maxHeight}px;
+    animation: 1s fadeIn;
+    animation-fill-mode: forwards;
   `
       : `
     max-height: 0px;
   `}
+
+  @keyframes fadeIn {
+    99% {
+      overflow: hidden;
+    }
+    100% {
+      overflow: visible;
+    }
+  }
 `
 
 const DrawerContentWrapper = styled.div`

@@ -76,7 +76,6 @@ const applyLayerDefaults = (props: Props) => {
       pointStrokeColor: props.pointOptions?.pointStrokeColor || colors.white,
       onPointClick: props.pointOptions?.onPointClick || Function(),
       onClickZoomIn: props.pointOptions?.onClickZoomIn || 9,
-      zoomLocation: props.pointOptions?.zoomLocation,
     },
   }
 }
@@ -106,7 +105,6 @@ const Map: React.FC<Props> = (props) => {
       pointStrokeColor,
       onPointClick,
       onClickZoomIn,
-      zoomLocation,
     },
   } = applyLayerDefaults(props)
 
@@ -162,10 +160,7 @@ const Map: React.FC<Props> = (props) => {
   // Use to travel to location on card click
   useEffect(() => {
     const map = mapRef.current
-    // Stops the map from zooming in immediately after render
-    if (firstRender) {
-      setFirstRender(false)
-    } else if (map != null && props.pointOptions?.zoomLocation != null) {
+    if (map != null && props.pointOptions?.zoomLocation != null) {
       map.easeTo({
         center: props.pointOptions?.zoomLocation as LngLatLike,
         zoom: onClickZoomIn,

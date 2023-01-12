@@ -200,4 +200,5 @@ HIIPointColour.args = {
   pointStrokeColor: '#8a8988',
   pointStrokeWidth: 1,
   zoomLocation: [-3.5, 55],
+  onClickZoom: 5,
 }

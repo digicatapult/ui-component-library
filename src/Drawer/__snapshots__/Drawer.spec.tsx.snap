@@ -88,6 +88,7 @@ exports[`Drawer onClick 1`] = `
 }
 
 .c9 {
+  overflow-y: hidden;
   width: 100%;
   -webkit-transition: max-height 0.5s ease;
   transition: max-height 0.5s ease;
@@ -252,6 +253,7 @@ exports[`Drawer simple 1`] = `
 }
 
 .c9 {
+  overflow-y: hidden;
   width: 100%;
   -webkit-transition: max-height 0.5s ease;
   transition: max-height 0.5s ease;
@@ -416,6 +418,7 @@ exports[`Drawer with overrides 1`] = `
 }
 
 .c9 {
+  overflow-y: hidden;
   width: 100%;
   -webkit-transition: max-height 0.5s ease;
   transition: max-height 0.5s ease;

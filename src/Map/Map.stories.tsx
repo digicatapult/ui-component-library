@@ -170,6 +170,7 @@ const Template: Story = (args) => {
       pointStrokeColor: args.pointStrokeColor,
       onPointClick: action('click'),
       onClickZoomIn: args.onClickZoomIn,
+      zoomLocation: args.zoomLocation,
     },
   }
 

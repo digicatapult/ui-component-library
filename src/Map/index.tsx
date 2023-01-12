@@ -75,7 +75,7 @@ const applyLayerDefaults = (props: Props) => {
       pointStrokeWidth: props.pointOptions?.pointStrokeWidth || 0,
       pointStrokeColor: props.pointOptions?.pointStrokeColor || colors.white,
       onPointClick: props.pointOptions?.onPointClick || Function(),
-      onClickZoomIn: props.pointOptions?.onClickZoomIn || 12,
+      onClickZoomIn: props.pointOptions?.onClickZoomIn || 9,
       zoomLocation: props.pointOptions?.zoomLocation,
     },
   }

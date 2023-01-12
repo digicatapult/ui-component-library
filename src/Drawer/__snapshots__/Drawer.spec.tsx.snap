@@ -88,10 +88,15 @@ exports[`Drawer onClick 1`] = `
 }
 
 .c9 {
+  overflow-y: hidden;
   width: 100%;
   -webkit-transition: max-height 0.5s ease;
   transition: max-height 0.5s ease;
   max-height: 1000px;
+  -webkit-animation: 1s fadeIn;
+  animation: 1s fadeIn;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
 }
 
 .c10 {
@@ -252,6 +257,7 @@ exports[`Drawer simple 1`] = `
 }
 
 .c9 {
+  overflow-y: hidden;
   width: 100%;
   -webkit-transition: max-height 0.5s ease;
   transition: max-height 0.5s ease;
@@ -416,6 +422,7 @@ exports[`Drawer with overrides 1`] = `
 }
 
 .c9 {
+  overflow-y: hidden;
   width: 100%;
   -webkit-transition: max-height 0.5s ease;
   transition: max-height 0.5s ease;

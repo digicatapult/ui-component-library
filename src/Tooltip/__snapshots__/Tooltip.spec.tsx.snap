@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tooltip default 1`] = `
+.c0 {
+  background: #f0f0f0;
+  padding: 1em;
+  width: auto;
+  height: auto;
+  margin: 0;
+  border-radius: 1em;
+  box-shadow: 0px 4px 5px rgba(0,0,0,0.1);
+  position: relative;
+  box-sizing: border-box;
+}
+
+.c0::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  bottom: -0.7em;
+  border: 0.8em solid #f0f0f0;
+  rotate: 45deg;
+  border-bottom-right-radius: 0.8em;
+  box-shadow: 4px 4px 5px rgba(0,0,0,0.1);
+  right: 2em;
+}
+
+<div
+  className="c0"
+  height="auto"
+  width="auto"
+>
+  Some content
+</div>
+`;
+
+exports[`Tooltip overrides 1`] = `
+.c0 {
+  background: #FFF;
+  padding: 1em;
+  width: 28ch;
+  height: auto;
+  margin: 0;
+  border-radius: 1em;
+  box-shadow: 0px 4px 5px rgba(0,0,0,0.1);
+  position: relative;
+  box-sizing: border-box;
+}
+
+.c0::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  bottom: -0.7em;
+  border: 0.8em solid #FFF;
+  rotate: 45deg;
+  border-bottom-right-radius: 0.8em;
+  box-shadow: 4px 4px 5px rgba(0,0,0,0.1);
+  left: 2em;
+}
+
+<div
+  className="c0"
+  height="auto"
+  width="28ch"
+>
+  Some content
+</div>
+`;

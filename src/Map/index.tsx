@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import mapboxgl, {
   LngLatLike,
@@ -47,6 +47,7 @@ export interface Props {
   cluster?: boolean
   clusterOptions?: ClusterOptions
   pointOptions?: PointOptions
+  zoomLocation?: [number, number]
 }
 
 const Wrapper = styled('div')<InitialState>`
@@ -74,7 +75,7 @@ const applyLayerDefaults = (props: Props) => {
       pointStrokeWidth: props.pointOptions?.pointStrokeWidth || 0,
       pointStrokeColor: props.pointOptions?.pointStrokeColor || colors.white,
       onPointClick: props.pointOptions?.onPointClick || Function(),
-      onClickZoomIn: props.pointOptions?.onClickZoomIn || 12,
+      onClickZoomIn: props.pointOptions?.onClickZoomIn || 9,
     },
   }
 }
@@ -109,7 +110,6 @@ const Map: React.FC<Props> = (props) => {
   const sourceJson = props.sourceJson
   const height = props.initialState?.height || '800px'
   const width = props.initialState?.width || '800px'
-
   mapboxgl.accessToken = props.token
 
   // initialize map
@@ -155,6 +155,18 @@ const Map: React.FC<Props> = (props) => {
     const geojsonSource = map.getSource('source') as GeoJSONSource
     geojsonSource?.setData(sourceJson as FeatureCollection)
   }, [sourceJson])
+
+  // Use to travel to location on card click
+  useEffect(() => {
+    const map = mapRef.current
+    // Check that map exists before looking to zoom in (given coordinates exist)
+    if (map != null && props?.zoomLocation != null) {
+      map.easeTo({
+        center: props?.zoomLocation as LngLatLike,
+        zoom: onClickZoomIn,
+      })
+    }
+  }, [props?.zoomLocation, onClickZoomIn])
 
   // add layers after map load
   useEffect(() => {

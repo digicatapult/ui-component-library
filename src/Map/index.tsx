@@ -38,7 +38,6 @@ export interface PointOptions {
   pointStrokeColor?: string
   onPointClick?: (feature: MapboxGeoJSONFeature) => void
   onClickZoomIn?: number
-  zoomLocation?: [number, number]
 }
 
 export interface Props {
@@ -48,6 +47,7 @@ export interface Props {
   cluster?: boolean
   clusterOptions?: ClusterOptions
   pointOptions?: PointOptions
+  zoomLocation?: [number, number]
 }
 
 const Wrapper = styled('div')<InitialState>`
@@ -159,13 +159,14 @@ const Map: React.FC<Props> = (props) => {
   // Use to travel to location on card click
   useEffect(() => {
     const map = mapRef.current
-    if (map != null && props.pointOptions?.zoomLocation != null) {
+    // Check that map exists before looking to zoom in (given coordinates exist)
+    if (map != null && props?.zoomLocation != null) {
       map.easeTo({
-        center: props.pointOptions?.zoomLocation as LngLatLike,
+        center: props?.zoomLocation as LngLatLike,
         zoom: onClickZoomIn,
       })
     }
-  }, [props.pointOptions?.zoomLocation, onClickZoomIn])
+  }, [props?.zoomLocation, onClickZoomIn])
 
   // add layers after map load
   useEffect(() => {

@@ -143,6 +143,7 @@ const Template: Story = (args) => {
   const props = {
     token: process.env.STORYBOOK_MAPBOX_TOKEN || '',
     sourceJson: args.sourceJson,
+    zoomLocation: args.zoomLocation,
     initialState: {
       long: args.startPositionLong,
       lat: args.startPositionLat,
@@ -170,7 +171,6 @@ const Template: Story = (args) => {
       pointStrokeColor: args.pointStrokeColor,
       onPointClick: action('click'),
       onClickZoomIn: args.onClickZoomIn,
-      zoomLocation: args.zoomLocation,
     },
   }
 

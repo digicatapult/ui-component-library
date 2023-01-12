@@ -83,7 +83,6 @@ const applyLayerDefaults = (props: Props) => {
 const Map: React.FC<Props> = (props) => {
   const mapContainer = useRef(null)
   const mapRef = useRef<mapboxgl.Map | null>(null)
-  const [firstRender, setFirstRender] = useState(true)
 
   const {
     cluster,
@@ -166,7 +165,7 @@ const Map: React.FC<Props> = (props) => {
         zoom: onClickZoomIn,
       })
     }
-  }, [props.pointOptions?.zoomLocation])
+  }, [props.pointOptions?.zoomLocation, onClickZoomIn])
 
   // add layers after map load
   useEffect(() => {

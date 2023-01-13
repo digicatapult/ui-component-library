@@ -9,7 +9,7 @@ export default {
   component: Tooltip,
   argTypes: {
     background: {
-      control: 'text',
+      control: 'color',
     },
     width: {
       control: 'text',

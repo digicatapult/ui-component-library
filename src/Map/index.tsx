@@ -75,7 +75,7 @@ const applyLayerDefaults = (props: Props) => {
       pointStrokeWidth: props.pointOptions?.pointStrokeWidth || 0,
       pointStrokeColor: props.pointOptions?.pointStrokeColor || colors.white,
       onPointClick: props.pointOptions?.onPointClick || Function(),
-      onClickZoomIn: props.pointOptions?.onClickZoomIn || 9,
+      onClickZoomIn: props.pointOptions?.onClickZoomIn || 11,
     },
   }
 }
@@ -111,6 +111,7 @@ const Map: React.FC<Props> = (props) => {
   const height = props.initialState?.height || '800px'
   const width = props.initialState?.width || '800px'
   mapboxgl.accessToken = props.token
+  const easeSpeed = 4000
 
   // initialize map
   useEffect(() => {
@@ -164,6 +165,8 @@ const Map: React.FC<Props> = (props) => {
       map.easeTo({
         center: props?.zoomLocation as LngLatLike,
         zoom: onClickZoomIn,
+        duration: easeSpeed, // milliseconds
+        essential: true,
       })
     }
   }, [props?.zoomLocation, onClickZoomIn])
@@ -181,6 +184,8 @@ const Map: React.FC<Props> = (props) => {
         clusterMaxZoom: clusterMaxZoom, // Max zoom to cluster points on
         clusterRadius: clusterAreaRadius, // Radius of each cluster when clustering points
       })
+
+      console.log(sourceJson)
 
       map.addLayer({
         id: 'clusters',

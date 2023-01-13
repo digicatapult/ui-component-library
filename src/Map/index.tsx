@@ -170,7 +170,7 @@ const Map: React.FC<Props> = (props) => {
         essential: true,
       })
     }
-  }, [props?.zoomLocation, onClickZoomIn])
+  }, [props?.zoomLocation, onClickZoomIn, easeSpeed])
 
   // add layers after map load
   useEffect(() => {

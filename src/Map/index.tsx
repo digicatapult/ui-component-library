@@ -185,8 +185,6 @@ const Map: React.FC<Props> = (props) => {
         clusterRadius: clusterAreaRadius, // Radius of each cluster when clustering points
       })
 
-      console.log(sourceJson)
-
       map.addLayer({
         id: 'clusters',
         type: 'circle',

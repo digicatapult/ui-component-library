@@ -1,7 +1,7 @@
 import React, { PropsWithChildren } from 'react'
 import styled from 'styled-components'
 
-export interface TooltipProps {
+export interface HelpDivProps {
   background?: string
   padding?: string
   margin?: string
@@ -11,7 +11,7 @@ export interface TooltipProps {
   leftOrRight?: string
 }
 
-const Tooltip: React.FC<PropsWithChildren<TooltipProps>> = ({
+const HelpDiv: React.FC<PropsWithChildren<HelpDivProps>> = ({
   children,
   background = '#f0f0f0',
   padding = '1em',
@@ -36,7 +36,7 @@ const Tooltip: React.FC<PropsWithChildren<TooltipProps>> = ({
   )
 }
 
-const Wrapper = styled.div<TooltipProps>`
+const Wrapper = styled.div<HelpDivProps>`
   background: ${({ background }) => background};
   padding: ${({ padding }) => padding};
   width: ${({ width }) => width};
@@ -61,4 +61,4 @@ const Wrapper = styled.div<TooltipProps>`
   }
 `
 
-export default Tooltip
+export default HelpDiv

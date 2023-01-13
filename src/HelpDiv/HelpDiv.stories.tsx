@@ -2,11 +2,11 @@ import React from 'react'
 import { Story } from '@storybook/react'
 import styled from 'styled-components'
 
-import Tooltip from './index.js'
+import HelpDiv from './index.js'
 
 export default {
-  title: 'Components/Tooltip',
-  component: Tooltip,
+  title: 'Components/HelpDiv',
+  component: HelpDiv,
   argTypes: {
     background: {
       control: 'color',
@@ -34,7 +34,7 @@ export default {
 }
 
 const DefaultStoryTemplate: Story = (args) => {
-  return <Tooltip {...args}></Tooltip>
+  return <HelpDiv {...args}></HelpDiv>
 }
 export const Default = DefaultStoryTemplate.bind({})
 Default.args = {

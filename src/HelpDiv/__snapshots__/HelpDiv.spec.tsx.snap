@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Tooltip default 1`] = `
+exports[`HelpDiv default 1`] = `
 .c0 {
   background: #f0f0f0;
   padding: 1em;
@@ -35,7 +35,7 @@ exports[`Tooltip default 1`] = `
 </div>
 `;
 
-exports[`Tooltip overrides 1`] = `
+exports[`HelpDiv overrides 1`] = `
 .c0 {
   background: #FFF;
   padding: 1em;

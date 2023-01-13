@@ -1,8 +1,4 @@
-import React, {
-  DetailedHTMLProps,
-  HTMLAttributes,
-  PropsWithChildren,
-} from 'react'
+import React, { PropsWithChildren } from 'react'
 import styled from 'styled-components'
 
 export interface TooltipProps {
@@ -11,17 +7,6 @@ export interface TooltipProps {
   margin?: string
   width?: string
   height?: string
-  borderRadius?: string
-  leftOrRight?: string
-}
-
-interface TooltipWrapperProps
-  extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {
-  background: string
-  padding: string
-  margin: string
-  width: string
-  height: string
   borderRadius?: string
   leftOrRight?: string
 }
@@ -51,7 +36,7 @@ const Tooltip: React.FC<PropsWithChildren<TooltipProps>> = ({
   )
 }
 
-const Wrapper = styled.div<TooltipWrapperProps>`
+const Wrapper = styled.div<TooltipProps>`
   background: ${({ background }) => background};
   padding: ${({ padding }) => padding};
   width: ${({ width }) => width};

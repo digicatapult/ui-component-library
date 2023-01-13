@@ -112,7 +112,7 @@ const Map: React.FC<Props> = (props) => {
   const height = props.initialState?.height || '800px'
   const width = props.initialState?.width || '800px'
   mapboxgl.accessToken = props.token
-  const easeSpeed = props?.easeSpeed || 4000
+  const easeSpeed = props?.easeSpeed || 4000 // milliseconds
 
   // initialize map
   useEffect(() => {
@@ -166,7 +166,7 @@ const Map: React.FC<Props> = (props) => {
       map.easeTo({
         center: props?.zoomLocation as LngLatLike,
         zoom: onClickZoomIn,
-        duration: easeSpeed, // milliseconds
+        duration: easeSpeed,
         essential: true,
       })
     }

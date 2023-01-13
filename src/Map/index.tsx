@@ -48,6 +48,7 @@ export interface Props {
   clusterOptions?: ClusterOptions
   pointOptions?: PointOptions
   zoomLocation?: [number, number]
+  easeSpeed?: number
 }
 
 const Wrapper = styled('div')<InitialState>`
@@ -111,7 +112,7 @@ const Map: React.FC<Props> = (props) => {
   const height = props.initialState?.height || '800px'
   const width = props.initialState?.width || '800px'
   mapboxgl.accessToken = props.token
-  const easeSpeed = 4000
+  const easeSpeed = props?.easeSpeed || 4000
 
   // initialize map
   useEffect(() => {

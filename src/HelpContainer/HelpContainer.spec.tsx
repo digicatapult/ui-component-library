@@ -2,19 +2,21 @@ import React from 'react'
 import renderer from 'react-test-renderer'
 import 'jest-styled-components'
 
-import HelpDiv from './index.js'
+import HelpContainer from './index.js'
 
-describe('HelpDiv', () => {
+describe('HelpContainer', () => {
   test('default', () => {
-    const tree = renderer.create(<HelpDiv>Some content</HelpDiv>).toJSON()
+    const tree = renderer
+      .create(<HelpContainer>Some content</HelpContainer>)
+      .toJSON()
     expect(tree).toMatchSnapshot()
   })
   test('overrides', () => {
     const tree = renderer
       .create(
-        <HelpDiv width="28ch" background="#FFF" leftOrRight="left">
+        <HelpContainer width="28ch" background="#FFF" tailPosition="bottomLeft">
           Some content
-        </HelpDiv>
+        </HelpContainer>
       )
       .toJSON()
     expect(tree).toMatchSnapshot()

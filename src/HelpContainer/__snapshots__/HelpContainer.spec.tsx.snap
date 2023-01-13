@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`HelpDiv default 1`] = `
+exports[`HelpContainer default 1`] = `
 .c0 {
   background: #f0f0f0;
   padding: 1em;
@@ -35,7 +35,7 @@ exports[`HelpDiv default 1`] = `
 </div>
 `;
 
-exports[`HelpDiv overrides 1`] = `
+exports[`HelpContainer overrides 1`] = `
 .c0 {
   background: #FFF;
   padding: 1em;

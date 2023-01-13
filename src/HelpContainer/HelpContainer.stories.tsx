@@ -2,11 +2,11 @@ import React from 'react'
 import { Story } from '@storybook/react'
 import styled from 'styled-components'
 
-import HelpDiv from './index.js'
+import HelpContainer from './index.js'
 
 export default {
-  title: 'Components/HelpDiv',
-  component: HelpDiv,
+  title: 'Components/HelpContainer',
+  component: HelpContainer,
   argTypes: {
     background: {
       control: 'color',
@@ -26,15 +26,15 @@ export default {
     borderRadius: {
       control: 'text',
     },
-    leftOrRight: {
-      options: ['left', 'right'],
+    tailPosition: {
+      options: ['bottomLeft', 'bottomRight'],
       control: { type: 'radio' },
     },
   },
 }
 
 const DefaultStoryTemplate: Story = (args) => {
-  return <HelpDiv {...args}></HelpDiv>
+  return <HelpContainer {...args}></HelpContainer>
 }
 export const Default = DefaultStoryTemplate.bind({})
 Default.args = {
@@ -46,7 +46,7 @@ export const Left = DefaultStoryTemplate.bind({})
 Left.args = {
   width: '200px',
   height: '200px',
-  leftOrRight: 'left',
+  tailPosition: 'bottomLeft',
 }
 
 const colours = {

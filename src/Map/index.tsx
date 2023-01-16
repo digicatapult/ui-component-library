@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react'
+import React, { useRef, useEffect, useMemo } from 'react'
 import styled from 'styled-components'
 import mapboxgl, {
   LngLatLike,
@@ -82,7 +82,7 @@ const applyLayerDefaults = (props: Props) => {
   }
 }
 
-const updateMap = (sourceJson: GeoJSON, map: mapboxgl.Map) => {
+const updateMap = (sourceJson: any) => {
   if ((sourceJson as FeatureCollection).features.length > 0) {
     let bounds = (sourceJson as FeatureCollection).features.reduce(function (
       bounds: any,
@@ -101,12 +101,7 @@ const updateMap = (sourceJson: GeoJSON, map: mapboxgl.Map) => {
       }
     },
     new mapboxgl.LngLatBounds())
-    map.fitBounds(bounds, {
-      linear: false,
-      maxZoom: 12,
-      speed: 0.6,
-      padding: 100,
-    })
+    return bounds
   }
 }
 
@@ -143,7 +138,7 @@ const Map: React.FC<Props> = (props) => {
   mapboxgl.accessToken = props.token
   const easeSpeed = props?.easeSpeed || 4000 // milliseconds
   const markerSearchZoom = props?.markerSearchZoom || false
-
+  const bounds = useMemo(() => updateMap(sourceJson), [sourceJson])
   // initialize map
   useEffect(() => {
     if (mapRef.current) return undefined
@@ -194,8 +189,15 @@ const Map: React.FC<Props> = (props) => {
     if (!map || !sourceJson) return undefined
 
     // Update map on search
-    if (markerSearchZoom) updateMap(sourceJson, map)
-  }, [sourceJson, markerSearchZoom])
+    if (markerSearchZoom) updateMap(sourceJson)
+
+    map.fitBounds(bounds, {
+      linear: false,
+      maxZoom: 12,
+      speed: 0.6,
+      padding: 100,
+    })
+  }, [sourceJson, markerSearchZoom, bounds])
 
   // Use to travel to location on card click
   useEffect(() => {

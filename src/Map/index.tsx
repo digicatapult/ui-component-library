@@ -81,6 +81,34 @@ const applyLayerDefaults = (props: Props) => {
   }
 }
 
+const updateMap = (sourceJson: GeoJSON, map: mapboxgl.Map) => {
+  if ((sourceJson as FeatureCollection).features.length > 0) {
+    let bounds = (sourceJson as FeatureCollection).features.reduce(function (
+      bounds: any,
+      feature: any
+    ) {
+      if (!Array.isArray(feature.geometry.coordinates[0])) {
+        return bounds.extend(feature.geometry.coordinates)
+      } else {
+        return feature.geometry.coordinates.reduce(function (
+          bounds: any,
+          coord: any
+        ) {
+          return bounds.extend(coord)
+        },
+        bounds)
+      }
+    },
+    new mapboxgl.LngLatBounds())
+    map.fitBounds(bounds, {
+      linear: false,
+      maxZoom: 12,
+      speed: 0.6,
+      padding: 100,
+    })
+  }
+}
+
 const Map: React.FC<Props> = (props) => {
   const mapContainer = useRef(null)
   const mapRef = useRef<mapboxgl.Map | null>(null)
@@ -156,6 +184,9 @@ const Map: React.FC<Props> = (props) => {
 
     const geojsonSource = map.getSource('source') as GeoJSONSource
     geojsonSource?.setData(sourceJson as FeatureCollection)
+
+    // Update map on search
+    updateMap(sourceJson, map)
   }, [sourceJson])
 
   // Use to travel to location on card click

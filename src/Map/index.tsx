@@ -49,6 +49,7 @@ export interface Props {
   pointOptions?: PointOptions
   zoomLocation?: [number, number]
   easeSpeed?: number
+  markerSearchZoom?: boolean
 }
 
 const Wrapper = styled('div')<InitialState>`
@@ -141,6 +142,7 @@ const Map: React.FC<Props> = (props) => {
   const width = props.initialState?.width || '800px'
   mapboxgl.accessToken = props.token
   const easeSpeed = props?.easeSpeed || 4000 // milliseconds
+  const markerSearchZoom = props?.markerSearchZoom || false
 
   // initialize map
   useEffect(() => {
@@ -184,10 +186,16 @@ const Map: React.FC<Props> = (props) => {
 
     const geojsonSource = map.getSource('source') as GeoJSONSource
     geojsonSource?.setData(sourceJson as FeatureCollection)
+  }, [sourceJson])
+
+  // update map fitBound area
+  useEffect(() => {
+    const map = mapRef.current
+    if (!map || !sourceJson) return undefined
 
     // Update map on search
-    updateMap(sourceJson, map)
-  }, [sourceJson])
+    if (markerSearchZoom) updateMap(sourceJson, map)
+  }, [sourceJson, markerSearchZoom])
 
   // Use to travel to location on card click
   useEffect(() => {

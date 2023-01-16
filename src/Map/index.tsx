@@ -83,25 +83,27 @@ const applyLayerDefaults = (props: Props) => {
 }
 
 const updateMap = (sourceJson: any) => {
-  if ((sourceJson as FeatureCollection).features.length > 0) {
-    let bounds = (sourceJson as FeatureCollection).features.reduce(function (
-      bounds: any,
-      feature: any
-    ) {
-      if (!Array.isArray(feature.geometry.coordinates[0])) {
-        return bounds.extend(feature.geometry.coordinates)
-      } else {
-        return feature.geometry.coordinates.reduce(function (
-          bounds: any,
-          coord: any
-        ) {
-          return bounds.extend(coord)
-        },
-        bounds)
-      }
-    },
-    new mapboxgl.LngLatBounds())
-    return bounds
+  if (sourceJson != null || sourceJson != undefined) {
+    if ((sourceJson as FeatureCollection).features.length > 0) {
+      let bounds = (sourceJson as FeatureCollection).features.reduce(function (
+        bounds: any,
+        feature: any
+      ) {
+        if (!Array.isArray(feature.geometry.coordinates[0])) {
+          return bounds.extend(feature.geometry.coordinates)
+        } else {
+          return feature.geometry.coordinates.reduce(function (
+            bounds: any,
+            coord: any
+          ) {
+            return bounds.extend(coord)
+          },
+          bounds)
+        }
+      },
+      new mapboxgl.LngLatBounds())
+      return bounds
+    }
   }
 }
 

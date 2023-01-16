@@ -82,7 +82,7 @@ const applyLayerDefaults = (props: Props) => {
   }
 }
 
-const updateMap = (sourceJson: any) => {
+const updateMap = (sourceJson: GeoJSON | undefined) => {
   if (sourceJson != null || sourceJson != undefined) {
     if ((sourceJson as FeatureCollection).features.length > 0) {
       let bounds = (sourceJson as FeatureCollection).features.reduce(function (

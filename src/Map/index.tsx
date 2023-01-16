@@ -58,7 +58,6 @@ export interface Props {
   markerOptions?: MarkerOptions
   zoomLocation?: [number, number]
   easeSpeed?: number
-  markerSearchZoom?: boolean
 }
 
 const Wrapper = styled('div')<InitialState>`
@@ -162,7 +161,6 @@ const Map: React.FC<Props> = (props) => {
   const width = props.initialState?.width || '800px'
   mapboxgl.accessToken = props.token
   const easeSpeed = props?.easeSpeed || 4000 // milliseconds
-  const markerSearchZoom = props?.markerSearchZoom || false
   const bounds = useMemo(() => updateMap(sourceJson), [sourceJson])
   // initialize map
   useEffect(() => {
@@ -225,7 +223,6 @@ const Map: React.FC<Props> = (props) => {
     }
   }, [
     sourceJson,
-    markerSearchZoom,
     bounds,
     markerSearchFocus,
     markerLinear,

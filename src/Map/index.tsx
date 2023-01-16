@@ -40,6 +40,14 @@ export interface PointOptions {
   onClickZoomIn?: number
 }
 
+export interface MarkerOptions {
+  markerSearchFocus?: boolean
+  markerLinear?: boolean
+  markerMaxZoom?: number
+  markerSpeed?: number
+  markerPadding?: number
+}
+
 export interface Props {
   token: string
   sourceJson?: GeoJSON
@@ -47,6 +55,7 @@ export interface Props {
   cluster?: boolean
   clusterOptions?: ClusterOptions
   pointOptions?: PointOptions
+  markerOptions?: MarkerOptions
   zoomLocation?: [number, number]
   easeSpeed?: number
   markerSearchZoom?: boolean
@@ -78,6 +87,13 @@ const applyLayerDefaults = (props: Props) => {
       pointStrokeColor: props.pointOptions?.pointStrokeColor || colors.white,
       onPointClick: props.pointOptions?.onPointClick || Function(),
       onClickZoomIn: props.pointOptions?.onClickZoomIn || 11,
+    },
+    markerOptions: {
+      markerSearchFocus: props.markerOptions?.markerSearchFocus || false,
+      markerLinear: props.markerOptions?.markerLinear || false,
+      markerMaxZoom: props.markerOptions?.markerMaxZoom || 12,
+      markerSpeed: props.markerOptions?.markerSpeed || 0.6,
+      markerPadding: props.markerOptions?.markerPadding || 100,
     },
   }
 }
@@ -131,6 +147,13 @@ const Map: React.FC<Props> = (props) => {
       pointStrokeColor,
       onPointClick,
       onClickZoomIn,
+    },
+    markerOptions: {
+      markerSearchFocus,
+      markerLinear,
+      markerMaxZoom,
+      markerSpeed,
+      markerPadding,
     },
   } = applyLayerDefaults(props)
 
@@ -191,15 +214,25 @@ const Map: React.FC<Props> = (props) => {
     if (!map || !sourceJson) return undefined
 
     // Update map on search
-    if (markerSearchZoom) updateMap(sourceJson)
-
-    map.fitBounds(bounds, {
-      linear: false,
-      maxZoom: 12,
-      speed: 0.6,
-      padding: 100,
-    })
-  }, [sourceJson, markerSearchZoom, bounds])
+    if (markerSearchFocus) {
+      updateMap(sourceJson)
+      map.fitBounds(bounds, {
+        linear: markerLinear,
+        maxZoom: markerMaxZoom,
+        speed: markerSpeed,
+        padding: markerPadding,
+      })
+    }
+  }, [
+    sourceJson,
+    markerSearchZoom,
+    bounds,
+    markerSearchFocus,
+    markerLinear,
+    markerMaxZoom,
+    markerSpeed,
+    markerPadding,
+  ])
 
   // Use to travel to location on card click
   useEffect(() => {

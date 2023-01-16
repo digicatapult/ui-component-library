@@ -27,6 +27,11 @@ export default {
         type: 'boolean',
       },
     },
+    isSearchable: {
+      control: {
+        type: 'boolean',
+      },
+    },
     label: {
       control: {
         type: 'text',
@@ -84,6 +89,12 @@ Labelled.args = {
 export const Multi = DefaultStoryTemplate.bind({})
 Multi.args = {
   isMulti: true,
+}
+
+export const Searchable = DefaultStoryTemplate.bind({})
+Searchable.args = {
+  label: 'Search me',
+  isSearchable: true,
 }
 
 export const PreselectedExample = DefaultStoryTemplate.bind({})

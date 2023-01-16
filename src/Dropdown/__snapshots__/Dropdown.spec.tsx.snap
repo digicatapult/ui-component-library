@@ -2,7 +2,6 @@
 
 exports[`Dropdown default - selected 1`] = `
 .c0 {
-  min-height: 95px;
   min-width: 275px;
   width: 100%;
 }
@@ -111,7 +110,6 @@ exports[`Dropdown default - selected 1`] = `
 
 exports[`Dropdown default - with placeholder 1`] = `
 .c0 {
-  min-height: 95px;
   min-width: 275px;
   width: 100%;
 }
@@ -222,7 +220,6 @@ exports[`Dropdown default - with placeholder 1`] = `
 
 exports[`Dropdown default 1`] = `
 .c0 {
-  min-height: 95px;
   min-width: 275px;
   width: 100%;
 }
@@ -333,7 +330,6 @@ exports[`Dropdown default 1`] = `
 
 exports[`Dropdown multi - hii 1`] = `
 .c0 {
-  min-height: 95px;
   min-width: 275px;
   width: 100%;
 }

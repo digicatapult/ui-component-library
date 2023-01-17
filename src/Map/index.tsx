@@ -213,7 +213,7 @@ const Map: React.FC<Props> = (props) => {
 
     // Update map on search
     if (markerSearchFocus) {
-      if (bounds != undefined || bounds != null) {
+      if (bounds != undefined && bounds != null) {
         {
           map.fitBounds(bounds, {
             linear: markerLinear,

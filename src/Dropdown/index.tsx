@@ -133,6 +133,7 @@ const HiiMultiSelect: IDropdown = ({ onChange, value = [], ...props }) => {
           ValueContainer: HiiLabel,
         }}
         {...props}
+        value={value}
         closeMenuOnSelect={true}
         controlShouldRenderValue={true}
         onChange={onChange}

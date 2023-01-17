@@ -34,6 +34,8 @@ export interface SearchProps {
   color?: string
   background?: string
   debounce?: number
+  value?: string
+  setValue: React.Dispatch<React.SetStateAction<string>>
   onSubmit: (value: SubmitValue) => void
 }
 
@@ -55,6 +57,8 @@ const Search: React.FC<SearchProps> = ({
   color = 'black',
   background = 'transparent',
   debounce = 250,
+  value = '',
+  setValue,
   onSubmit,
 }) => {
   const [search, setSearch] = useState<SubmitValue>([])
@@ -63,15 +67,31 @@ const Search: React.FC<SearchProps> = ({
 
   const lexer = useMemo(() => buildLexer(fields), [fields])
 
+  const parseAndSetSearch = useCallback(
+    (searchValue: string) => {
+      const terms = parseSearch(lexer, searchValue)
+      setSearch(terms)
+      setHasSubmitted(false)
+      setValue(searchValue)
+    },
+    [lexer, setValue]
+  )
+
+  useEffect(() => {
+    if (value) {
+      const terms = parseSearch(lexer, value)
+      setSearch(terms)
+      setHasSubmitted(true)
+    }
+  }, [value, lexer])
+
   const handleSearchChange: React.ChangeEventHandler<HTMLInputElement> =
     useCallback(
       (event) => {
         const target = event.target as HTMLInputElement
-        const terms = parseSearch(lexer, target.value)
-        setSearch(terms)
-        setHasSubmitted(false)
+        parseAndSetSearch(target.value)
       },
-      [setSearch, setHasSubmitted, lexer]
+      [parseAndSetSearch]
     )
 
   const handleSubmit = useCallback(
@@ -103,6 +123,7 @@ const Search: React.FC<SearchProps> = ({
         type="search"
         name="search"
         color={color}
+        value={value}
         onChange={handleSearchChange}
       ></SearchInput>
       <SearchIcon color={color} ref={buttonRef} />

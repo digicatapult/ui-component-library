@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Story } from '@storybook/react'
 import styled from 'styled-components'
 import { action } from '@storybook/addon-actions'
@@ -11,6 +11,8 @@ export default {
 }
 
 const DefaultStoryTemplate: Story = (args) => {
+  const [value, setValue] = useState(args.value)
+
   return (
     <SearchHost
       background={args.color}
@@ -26,6 +28,8 @@ const DefaultStoryTemplate: Story = (args) => {
           publicationCount: { fieldType: 'number' },
         }}
         placeholder={args.placeholder}
+        value={value}
+        setValue={setValue}
         color={args.color}
         background={args.background}
         onSubmit={action('submit')}
@@ -33,6 +37,7 @@ const DefaultStoryTemplate: Story = (args) => {
     </SearchHost>
   )
 }
+
 export const Default = DefaultStoryTemplate.bind({})
 Default.args = {
   placeholder: 'Hello',
@@ -40,6 +45,15 @@ Default.args = {
   background: 'white',
   containerWidth: 'min-content',
   fontSize: '1rem',
+}
+
+export const PresetValue = DefaultStoryTemplate.bind({})
+PresetValue.args = {
+  placeholder: 'Hello',
+  value: 'A previous search',
+  color: '#216968',
+  background: 'white',
+  containerWidth: 'min-content',
 }
 
 interface SearchHostProps {

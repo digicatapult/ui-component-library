@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test default 1`] = `
+.c0 {
+  width: auto;
+  height: auto;
+  border: 0;
+  cursor: pointer;
+  color: black;
+  font-weight: inherit;
+  background: #FFF;
+}
+
+<button
+  className="c0"
+  fontWeight="inherit"
+  height="auto"
+  onClick={[MockFunction]}
+  width="auto"
+>
+  ?
+</button>
+`;
+
+exports[`Test hii 1`] = `
+.c0 {
+  width: 2.5em;
+  height: 2.5em;
+  border: 0;
+  cursor: pointer;
+  color: #FFF;
+  font-weight: bold;
+  background: #27847A;
+  border-radius: 1.25em;
+}
+
+<button
+  className="c0"
+  fontWeight="bold"
+  height="2.5em"
+  onClick={[MockFunction]}
+  width="2.5em"
+>
+  ?
+</button>
+`;

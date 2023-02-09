@@ -168,10 +168,21 @@ const DrawerContentOverflow = styled.div<DrawerContentProps>`
     isOpen
       ? `
     max-height: ${maxHeight}px;
+    animation: 1s fadeIn;
+    animation-fill-mode: forwards;
   `
       : `
     max-height: 0px;
   `}
+
+  @keyframes fadeIn {
+    99% {
+      overflow: hidden;
+    }
+    100% {
+      overflow: visible;
+    }
+  }
 `
 
 const DrawerContentWrapper = styled.div`

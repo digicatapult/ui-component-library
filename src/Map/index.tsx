@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, useMemo } from 'react'
 import styled from 'styled-components'
 import mapboxgl, {
   LngLatLike,
@@ -40,6 +40,14 @@ export interface PointOptions {
   onClickZoomIn?: number
 }
 
+export interface MarkerOptions {
+  markerSearchFocus?: boolean
+  markerLinear?: boolean
+  markerMaxZoom?: number
+  markerSpeed?: number
+  markerPadding?: number
+}
+
 export interface Props {
   token: string
   sourceJson?: GeoJSON
@@ -47,6 +55,9 @@ export interface Props {
   cluster?: boolean
   clusterOptions?: ClusterOptions
   pointOptions?: PointOptions
+  markerOptions?: MarkerOptions
+  zoomLocation?: [number, number]
+  easeSpeed?: number
 }
 
 const Wrapper = styled('div')<InitialState>`
@@ -74,8 +85,40 @@ const applyLayerDefaults = (props: Props) => {
       pointStrokeWidth: props.pointOptions?.pointStrokeWidth || 0,
       pointStrokeColor: props.pointOptions?.pointStrokeColor || colors.white,
       onPointClick: props.pointOptions?.onPointClick || Function(),
-      onClickZoomIn: props.pointOptions?.onClickZoomIn || 12,
+      onClickZoomIn: props.pointOptions?.onClickZoomIn || 11,
     },
+    markerOptions: {
+      markerSearchFocus: props.markerOptions?.markerSearchFocus || false,
+      markerLinear: props.markerOptions?.markerLinear || false,
+      markerMaxZoom: props.markerOptions?.markerMaxZoom || 12,
+      markerSpeed: props.markerOptions?.markerSpeed || 0.6,
+      markerPadding: props.markerOptions?.markerPadding || 100,
+    },
+  }
+}
+
+const updateMap = (sourceJson: GeoJSON | undefined) => {
+  if (sourceJson != null || sourceJson != undefined) {
+    if ((sourceJson as FeatureCollection).features.length > 0) {
+      let bounds = (sourceJson as FeatureCollection).features.reduce(function (
+        bounds: any,
+        feature: any
+      ) {
+        if (!Array.isArray(feature.geometry.coordinates[0])) {
+          return bounds.extend(feature.geometry.coordinates)
+        } else {
+          return feature.geometry.coordinates.reduce(function (
+            bounds: any,
+            coord: any
+          ) {
+            return bounds.extend(coord)
+          },
+          bounds)
+        }
+      },
+      new mapboxgl.LngLatBounds())
+      return bounds
+    }
   }
 }
 
@@ -104,14 +147,21 @@ const Map: React.FC<Props> = (props) => {
       onPointClick,
       onClickZoomIn,
     },
+    markerOptions: {
+      markerSearchFocus,
+      markerLinear,
+      markerMaxZoom,
+      markerSpeed,
+      markerPadding,
+    },
   } = applyLayerDefaults(props)
 
   const sourceJson = props.sourceJson
   const height = props.initialState?.height || '800px'
   const width = props.initialState?.width || '800px'
-
   mapboxgl.accessToken = props.token
-
+  const easeSpeed = props?.easeSpeed || 4000 // milliseconds
+  const bounds = useMemo(() => updateMap(sourceJson), [sourceJson])
   // initialize map
   useEffect(() => {
     if (mapRef.current) return undefined
@@ -155,6 +205,48 @@ const Map: React.FC<Props> = (props) => {
     const geojsonSource = map.getSource('source') as GeoJSONSource
     geojsonSource?.setData(sourceJson as FeatureCollection)
   }, [sourceJson])
+
+  // update map fitBound area
+  useEffect(() => {
+    const map = mapRef.current
+    if (!map || !sourceJson) return undefined
+
+    // Update map on search
+    if (markerSearchFocus) {
+      if (bounds != undefined && bounds != null) {
+        {
+          map.fitBounds(bounds, {
+            linear: markerLinear,
+            maxZoom: markerMaxZoom,
+            speed: markerSpeed,
+            padding: markerPadding,
+          })
+        }
+      }
+    }
+  }, [
+    sourceJson,
+    bounds,
+    markerSearchFocus,
+    markerLinear,
+    markerMaxZoom,
+    markerSpeed,
+    markerPadding,
+  ])
+
+  // Use to travel to location on card click
+  useEffect(() => {
+    const map = mapRef.current
+    // Check that map exists before looking to zoom in (given coordinates exist)
+    if (map != null && props?.zoomLocation != null) {
+      map.easeTo({
+        center: props?.zoomLocation as LngLatLike,
+        zoom: onClickZoomIn,
+        duration: easeSpeed,
+        essential: true,
+      })
+    }
+  }, [props?.zoomLocation, onClickZoomIn, easeSpeed])
 
   // add layers after map load
   useEffect(() => {

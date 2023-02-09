@@ -143,6 +143,7 @@ const Template: Story = (args) => {
   const props = {
     token: process.env.STORYBOOK_MAPBOX_TOKEN || '',
     sourceJson: args.sourceJson,
+    zoomLocation: args.zoomLocation,
     initialState: {
       long: args.startPositionLong,
       lat: args.startPositionLat,
@@ -198,4 +199,15 @@ HIIPointColour.args = {
   pointRadiusExpression: ['interpolate', ['linear'], ['zoom'], 1, 5, 10, 10],
   pointStrokeColor: '#8a8988',
   pointStrokeWidth: 1,
+}
+
+export const HIIPointZoom = Template.bind({})
+HIIPointZoom.args = {
+  sourceJson: hiiJson,
+  pointExpression: pointColourExpression,
+  pointRadiusExpression: ['interpolate', ['linear'], ['zoom'], 1, 5, 10, 10],
+  pointStrokeColor: '#8a8988',
+  pointStrokeWidth: 1,
+  zoomLocation: [-3.5, 55],
+  onClickZoom: 5,
 }

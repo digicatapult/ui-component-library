@@ -16,6 +16,7 @@ const Value = styled('div')`
 `
 
 const Wrapper = styled('div')`
+  min-height: 95px;
   min-width: 275px;
   ${({ width }: { width?: string }) => `
     width: ${width || '100%'}
@@ -59,6 +60,7 @@ interface Props {
   placeholder?: string
   onChange?: any
   isMulti?: boolean
+  isSearchable?: boolean
   update: (val: string[]) => void
 }
 
@@ -130,10 +132,12 @@ const HiiMultiSelect: IDropdown = ({ onChange, value = [], ...props }) => {
         components={{
           ValueContainer: HiiLabel,
         }}
+        {...props}
+        value={value}
         closeMenuOnSelect={true}
         controlShouldRenderValue={true}
-        {...props}
         onChange={onChange}
+        isSearchable={false}
       />
       <ValuesContainer>
         {value.map((val: any) => (
@@ -170,7 +174,7 @@ const Dropdown: IDropdown = ({
   return (
     <Wrapper>
       {props.label && <Title headingLevel={4}>{props.label}</Title>}
-      {variant ? (
+      {variant === 'hii' ? (
         <HiiMultiSelect
           isMulti={true}
           options={options}

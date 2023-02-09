@@ -4,7 +4,7 @@
     "config:base"
   ],
   "baseBranches": ["main"],
-  "enabledManagers": ["npm", "github-actions"],
+  "enabledManagers": ["npm", "github-actions", "docker-compose", "dockerfile"],
   "rangeStrategy": "replace",
   "bumpVersion": "patch",
   "timezone": "Europe/London",
@@ -12,8 +12,29 @@
   "packageRules": [
     {
       "matchPackagePatterns": ["*"],
+      "matchManagers": [
+        "npm"
+      ],
       "matchUpdateTypes": ["minor", "patch"],
-      "groupName": "all non-major dependencies"
+      "groupName": "npm - all non-major dependencies",
+      "automerge": true
+    },
+    {
+      "matchPackagePatterns": ["*"],
+      "matchManagers": [
+        "github-actions"
+      ],
+      "matchUpdateTypes": ["major", "minor", "patch"],
+      "groupName": "github-actions - all dependencies"
+    },
+    {
+      "matchPackagePatterns": ["*"],
+      "matchManagers": [
+        "dockerfile",
+        "docker-compose"
+      ],
+      "matchUpdateTypes": ["major", "minor", "patch"],
+      "groupName": "docker - all dependencies"
     }
   ]
 }

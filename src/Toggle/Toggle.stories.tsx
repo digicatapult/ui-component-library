@@ -23,7 +23,7 @@ export default {
     offBackground: {
       control: 'color',
     },
-    onBackground: {
+    checkedBackground: {
       control: 'color',
     },
     buttonColor: {

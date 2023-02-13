@@ -19,7 +19,7 @@ describe('Test', () => {
           height="2.5em"
           width="2.5em"
           offBackground="#27847A"
-          onBackground="#000"
+          checkedBackground="#000"
           borderRadius="1.25em"
           onChange={changeHandler}
         />

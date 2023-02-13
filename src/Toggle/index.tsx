@@ -7,7 +7,7 @@ export interface ToggleProps {
   borderRadius?: string
   padding?: number
   offBackground?: string
-  onBackground?: string
+  checkedBackground?: string
   buttonColor?: string
   checked?: boolean
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
@@ -19,7 +19,7 @@ const Toggle: React.FC<ToggleProps> = ({
   borderRadius = '20px',
   padding = 5,
   offBackground = 'lightgray',
-  onBackground = 'green',
+  checkedBackground = 'green',
   buttonColor = 'white',
   checked,
   onChange,
@@ -29,7 +29,7 @@ const Toggle: React.FC<ToggleProps> = ({
       type="checkbox"
       id="switch"
       checked={checked}
-      onBackground={onBackground}
+      checkedBackground={checkedBackground}
       padding={padding}
       onChange={(e) => onChange?.(e)}
     />
@@ -39,12 +39,10 @@ const Toggle: React.FC<ToggleProps> = ({
       borderRadius={borderRadius}
       padding={padding}
       offBackground={offBackground}
-      onBackground={onBackground}
+      checkedBackground={checkedBackground}
       buttonColor={buttonColor}
       htmlFor="switch"
-    >
-      Toggle
-    </Label>
+    />
   </>
 )
 
@@ -54,7 +52,7 @@ const HiddenCheckbox = styled.input<ToggleProps>`
   visibility: hidden;
 
   :checked + label {
-    background: ${({ onBackground }) => onBackground};
+    background: ${({ checkedBackground }) => checkedBackground};
   }
 
   :checked + label:after {
@@ -65,7 +63,6 @@ const HiddenCheckbox = styled.input<ToggleProps>`
 
 const Label = styled.label<ToggleProps>`
   cursor: pointer;
-  text-indent: -9999px;
   width: ${({ width }) => width};
   height: ${({ height }) => height};
   background: ${({ offBackground }) => offBackground};

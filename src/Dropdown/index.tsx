@@ -15,12 +15,10 @@ const Value = styled('div')`
   user-select: none;
 `
 
-const Wrapper = styled('div')`
-  min-height: 95px;
-  min-width: 275px;
-  ${({ width }: { width?: string }) => `
-    width: ${width || '100%'}
-  `}
+const Wrapper = styled.div<WrapperProps>`
+  min-height: ${({ minHeight }) => minHeight || ''};
+  min-width: ${({ minWidth }) => minWidth || ''};
+  width: ${({ width }) => width || '100%'};
 `
 
 const ValuesContainer = styled('div')`
@@ -49,8 +47,14 @@ const Title = styled(HX)`
   margin-bottom: 5px;
 `
 
+type WrapperProps = {
+  minHeight?: string
+  minWidth?: string
+  width?: string
+}
+
 // TODO create types.d.ts
-interface Props {
+interface Props extends WrapperProps {
   options: Array<any>
   styles?: StylesConfig
   variant?: 'hii' | null
@@ -172,7 +176,7 @@ const Dropdown: IDropdown = ({
   }
 
   return (
-    <Wrapper>
+    <Wrapper minHeight={props.minHeight} minWidth={props.minWidth}>
       {props.label && <Title headingLevel={4}>{props.label}</Title>}
       {variant === 'hii' ? (
         <HiiMultiSelect

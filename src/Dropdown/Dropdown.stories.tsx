@@ -76,6 +76,8 @@ const DefaultStoryTemplate: Story = (args) => (
     variant={args.variant}
     label={args.label}
     update={action('select')}
+    minWidth="275px"
+    minHeight="95px"
   />
 )
 

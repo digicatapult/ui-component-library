@@ -1,6 +1,6 @@
 {
   "name": "@digicatapult/ui-component-library",
-  "version": "0.8.4",
+  "version": "0.8.5",
   "description": "UI Component Library",
   "author": "Digital Catapult (https://www.digicatapult.org.uk)",
   "license": "Apache-2.0",
@@ -78,6 +78,6 @@
     "react-dom": "^18.2.0",
     "react-test-renderer": "^18.2.0",
     "ts-jest": "^29.0.3",
-    "typescript": "^4.9.4"
+    "typescript": "^5.0.0"
   }
 }

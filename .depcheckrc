@@ -1,13 +1,9 @@
 {
   "ignores": [
     "@storybook/addon-essentials",
-    "@storybook/addon-a11y",
     "@storybook/addon-actions",
-    "@storybook/builder-webpack5",
-    "@storybook/manager-webpack5",
-    "@storybook/source-loader",
+    "@storybook/react-webpack5",
     "@types/*",
-    "jest-environment-jsdom",
-    "geojson"
+    "jest-environment-jsdom"
   ]
 }

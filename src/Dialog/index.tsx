@@ -33,7 +33,7 @@ const Dialog = React.forwardRef<
       modalBackdropColor = 'unset',
       maxHeight,
     },
-    dialogRef
+    dialogRef,
   ) => {
     return (
       <Wrapper
@@ -54,7 +54,7 @@ const Dialog = React.forwardRef<
         </DialogForm>
       </Wrapper>
     )
-  }
+  },
 )
 
 const Wrapper = styled.dialog<DialogProps>`

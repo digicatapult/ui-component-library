@@ -71,7 +71,7 @@ const Search: React.FC<SearchProps> = ({
         setSearch(terms)
         setHasSubmitted(false)
       },
-      [setSearch, setHasSubmitted, lexer]
+      [setSearch, setHasSubmitted, lexer],
     )
 
   const handleSubmit = useCallback(
@@ -85,7 +85,7 @@ const Search: React.FC<SearchProps> = ({
         setHasSubmitted(true)
       }
     },
-    [search, hasSubmitted, setHasSubmitted, onSubmit]
+    [search, hasSubmitted, setHasSubmitted, onSubmit],
   )
 
   useEffect(() => {

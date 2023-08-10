@@ -12,7 +12,7 @@ describe('AppBar', () => {
           <AppBar.Item active={true}>what we do</AppBar.Item>
           <AppBar.Item>maps</AppBar.Item>
           <AppBar.Item>contact us</AppBar.Item>
-        </AppBar>
+        </AppBar>,
       )
       .toJSON()
     expect(tree).toMatchSnapshot()
@@ -24,7 +24,7 @@ describe('AppBar', () => {
           <AppBar.Item>what we do</AppBar.Item>
           <AppBar.Item>maps</AppBar.Item>
           <AppBar.Item active={true}>contact us</AppBar.Item>
-        </AppBar>
+        </AppBar>,
       )
       .toJSON()
     expect(tree).toMatchSnapshot()
@@ -36,7 +36,7 @@ describe('AppBar', () => {
           <AppBar.Item>what we do</AppBar.Item>
           <AppBar.Item>maps</AppBar.Item>
           <AppBar.Item active={true}>contact us</AppBar.Item>
-        </AppBar>
+        </AppBar>,
       )
       .toJSON()
     expect(tree).toMatchSnapshot()
@@ -48,7 +48,7 @@ describe('AppBar', () => {
           <AppBar.Item>what we do</AppBar.Item>
           <AppBar.Item>maps</AppBar.Item>
           <AppBar.Item active={true}>contact us</AppBar.Item>
-        </AppBar>
+        </AppBar>,
       )
       .toJSON()
     expect(tree).toMatchSnapshot()
@@ -66,7 +66,7 @@ describe('AppBar', () => {
           <AppBar.Item>what we do</AppBar.Item>
           <AppBar.Item active={true}>maps</AppBar.Item>
           <AppBar.Item>contact us</AppBar.Item>
-        </AppBar>
+        </AppBar>,
       )
       .toJSON()
     expect(tree).toMatchSnapshot()

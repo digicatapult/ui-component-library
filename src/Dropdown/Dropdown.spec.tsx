@@ -36,7 +36,7 @@ describe('Dropdown', () => {
           isMulti={false}
           update={(val) => console.log(val)}
           options={options}
-        />
+        />,
       )
       .toJSON()
     expect(tree).toMatchSnapshot()
@@ -54,7 +54,7 @@ describe('Dropdown', () => {
           isMulti={false}
           update={(val) => console.log(val)}
           options={options}
-        />
+        />,
       )
       .toJSON()
     expect(tree).toMatchSnapshot()
@@ -68,7 +68,7 @@ describe('Dropdown', () => {
           isMulti={false}
           update={(val) => console.log(val)}
           options={options}
-        />
+        />,
       )
       .toJSON()
     expect(tree).toMatchSnapshot()
@@ -89,7 +89,7 @@ describe('Dropdown', () => {
           isMulti={true}
           update={(val) => console.log(val)}
           options={options}
-        />
+        />,
       )
       .toJSON()
     expect(tree).toMatchSnapshot()

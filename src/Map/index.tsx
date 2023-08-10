@@ -102,21 +102,19 @@ const updateMap = (sourceJson: GeoJSON | undefined) => {
     if ((sourceJson as FeatureCollection).features.length > 0) {
       let bounds = (sourceJson as FeatureCollection).features.reduce(function (
         bounds: any,
-        feature: any
+        feature: any,
       ) {
         if (!Array.isArray(feature.geometry.coordinates[0])) {
           return bounds.extend(feature.geometry.coordinates)
         } else {
           return feature.geometry.coordinates.reduce(function (
             bounds: any,
-            coord: any
+            coord: any,
           ) {
             return bounds.extend(coord)
-          },
-          bounds)
+          }, bounds)
         }
-      },
-      new mapboxgl.LngLatBounds())
+      }, new mapboxgl.LngLatBounds())
       return bounds
     }
   }
@@ -311,7 +309,7 @@ const Map: React.FC<Props> = (props) => {
 
         const clusterId = features[0]?.properties?.cluster_id
         const source: mapboxgl.GeoJSONSource = map.getSource(
-          'source'
+          'source',
         ) as mapboxgl.GeoJSONSource
         source.getClusterExpansionZoom(clusterId, (err, zoom) => {
           if (err) return

@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { StyledInterface } from 'styled-components'
+import styled from 'styled-components'
 
 export interface ToggleButtonProps {
   width?: string

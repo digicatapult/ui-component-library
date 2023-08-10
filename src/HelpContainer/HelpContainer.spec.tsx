@@ -16,7 +16,7 @@ describe('HelpContainer', () => {
       .create(
         <HelpContainer width="28ch" background="#FFF" tailPosition="bottomLeft">
           Some content
-        </HelpContainer>
+        </HelpContainer>,
       )
       .toJSON()
     expect(tree).toMatchSnapshot()

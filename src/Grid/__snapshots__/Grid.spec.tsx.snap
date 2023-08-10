@@ -19,8 +19,8 @@ exports[`Grid responsive 1`] = `
 
 .c0 {
   display: grid;
-  grid-template-areas: "header""sidebar""main""footer";
-  grid-template-rows: minmax(50px,auto);
+  grid-template-areas: "header" "sidebar" "main" "footer";
+  grid-template-rows: minmax(50px, auto);
   grid-template-columns: auto;
   gap: 5px;
 }
@@ -48,17 +48,74 @@ exports[`Grid responsive 1`] = `
   min-height: 600px;
 }
 
-@media (min-width:500px) {
+@media (min-width: 500px) {
   .c0 {
-    grid-template-areas: "sidebar header header""sidebar main main""footer footer footer";
-    grid-template-rows: minmax(5%,10%) 1fr minmax(5%,10%);
-    grid-template-columns: minmax(10%,20%) 1fr 1fr;
+    grid-template-areas: "sidebar header header" "sidebar main main" "footer footer footer";
+    grid-template-rows: minmax(5%, 10%) 1fr minmax(5%, 10%);
+    grid-template-columns: minmax(10%, 20%) 1fr 1fr;
     gap: 20px;
   }
 }
 
 <div
+  areas={
+    [
+      [
+        "header",
+      ],
+      [
+        "sidebar",
+      ],
+      [
+        "main",
+      ],
+      [
+        "footer",
+      ],
+    ]
+  }
+  byWidth={
+    [
+      {
+        "areas": [
+          [
+            "sidebar",
+            "header",
+            "header",
+          ],
+          [
+            "sidebar",
+            "main",
+            "main",
+          ],
+          [
+            "footer",
+            "footer",
+            "footer",
+          ],
+        ],
+        "columns": [
+          "minmax(10%, 20%)",
+          "1fr",
+          "1fr",
+        ],
+        "gap": "20px",
+        "minWidth": 500,
+        "rows": [
+          "minmax(5%, 10%)",
+          "1fr",
+          "minmax(5%, 10%)",
+        ],
+      },
+    ]
+  }
   className="c0"
+  columns={
+    [
+      "auto",
+    ]
+  }
+  gap="5px"
   rows={
     [
       "minmax(50px, auto)",
@@ -66,6 +123,7 @@ exports[`Grid responsive 1`] = `
   }
 >
   <div
+    area="header"
     className="c1"
   >
     <div
@@ -73,6 +131,7 @@ exports[`Grid responsive 1`] = `
     />
   </div>
   <div
+    area="sidebar"
     className="c3"
   >
     <div
@@ -80,6 +139,7 @@ exports[`Grid responsive 1`] = `
     />
   </div>
   <div
+    area="main"
     className="c5"
   >
     <div
@@ -87,6 +147,7 @@ exports[`Grid responsive 1`] = `
     />
   </div>
   <div
+    area="footer"
     className="c7"
   >
     <div
@@ -115,9 +176,9 @@ exports[`Grid simple 1`] = `
 
 .c0 {
   display: grid;
-  grid-template-areas: "sidebar header header""sidebar main main""footer footer footer";
-  grid-template-rows: minmax(5%,10%) 1fr minmax(5%,10%);
-  grid-template-columns: minmax(10%,20%) 1fr 1fr;
+  grid-template-areas: "sidebar header header" "sidebar main main" "footer footer footer";
+  grid-template-rows: minmax(5%, 10%) 1fr minmax(5%, 10%);
+  grid-template-columns: minmax(10%, 20%) 1fr 1fr;
   gap: 0px;
 }
 
@@ -145,7 +206,33 @@ exports[`Grid simple 1`] = `
 }
 
 <div
+  areas={
+    [
+      [
+        "sidebar",
+        "header",
+        "header",
+      ],
+      [
+        "sidebar",
+        "main",
+        "main",
+      ],
+      [
+        "footer",
+        "footer",
+        "footer",
+      ],
+    ]
+  }
   className="c0"
+  columns={
+    [
+      "minmax(10%, 20%)",
+      "1fr",
+      "1fr",
+    ]
+  }
   rows={
     [
       "minmax(5%, 10%)",
@@ -155,6 +242,7 @@ exports[`Grid simple 1`] = `
   }
 >
   <div
+    area="header"
     className="c1"
   >
     <div
@@ -162,6 +250,7 @@ exports[`Grid simple 1`] = `
     />
   </div>
   <div
+    area="sidebar"
     className="c3"
   >
     <div
@@ -169,6 +258,7 @@ exports[`Grid simple 1`] = `
     />
   </div>
   <div
+    area="main"
     className="c5"
   >
     <div
@@ -176,6 +266,7 @@ exports[`Grid simple 1`] = `
     />
   </div>
   <div
+    area="footer"
     className="c7"
   >
     <div

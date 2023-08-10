@@ -24,12 +24,16 @@ exports[`Section default 1`] = `
 
 <section
   aria-labelledby="id1"
+  background="#f0f0f0"
   className="c0"
   height="auto"
+  margin="0"
+  padding="1em"
   width="auto"
 >
   <h1
     className="c1 c2"
+    gap="0.5em"
     size="1.2em"
   >
     TITLE
@@ -62,12 +66,16 @@ exports[`Section overrides 1`] = `
 
 <section
   aria-labelledby="id2"
+  background="blue"
   className="c0"
   height="100%"
+  margin="0"
+  padding="5ch"
   width="20ch"
 >
   <h1
     className="c1 c2"
+    gap="1ch"
     size="1.2em"
   >
     TITLE

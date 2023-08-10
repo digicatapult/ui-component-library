@@ -33,7 +33,7 @@ const ListCard = React.forwardRef<HTMLButtonElement, ListCardProps>(
       height = '100%',
       onClick,
     },
-    listCardRef
+    listCardRef,
   ) => {
     const [id] = useId()
 
@@ -52,7 +52,7 @@ const ListCard = React.forwardRef<HTMLButtonElement, ListCardProps>(
         {subtitle && <span>{subtitle}</span>}
       </Wrapper>
     )
-  }
+  },
 )
 
 const Wrapper = styled.button<WrapperProps>`

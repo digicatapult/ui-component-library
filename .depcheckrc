@@ -3,7 +3,6 @@
     "@storybook/addon-essentials",
     "@storybook/addon-a11y",
     "@storybook/addon-actions",
-    "@storybook/addon-links",
     "@storybook/builder-webpack5",
     "@storybook/manager-webpack5",
     "@storybook/source-loader",

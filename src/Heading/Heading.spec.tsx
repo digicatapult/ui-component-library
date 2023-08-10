@@ -37,7 +37,7 @@ describe('Heading', () => {
         .create(
           <HX headingLevel={i as HeadingLevel} id={`idx${i}`}>
             Hello-x{i}
-          </HX>
+          </HX>,
         )
         .toJSON()
       expect(tree).toMatchSnapshot()
@@ -47,7 +47,7 @@ describe('Heading', () => {
         .create(
           <RestyledHX headingLevel={i as HeadingLevel} id={`idx${i}`}>
             Hello-x{i}
-          </RestyledHX>
+          </RestyledHX>,
         )
         .toJSON()
       expect(tree).toMatchSnapshot()

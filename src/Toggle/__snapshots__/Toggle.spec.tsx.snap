@@ -8,21 +8,21 @@ exports[`Test default 1`] = `
   visibility: hidden;
 }
 
-.c0:checked + label {
+.c0 :checked+label {
   background: green;
 }
 
-.c0:checked + label:after {
+.c0 :checked+label:after {
   left: calc(100% - 5px);
-  -webkit-transform: translateX(-100%);
-  -ms-transform: translateX(-100%);
   transform: translateX(-100%);
 }
 
 <input
+    checkedBackground="green"
     className="c0"
     id="switch"
     onChange={[Function]}
+    padding={5}
     type="checkbox"
   />,
   .c0 {
@@ -35,7 +35,7 @@ exports[`Test default 1`] = `
   position: relative;
 }
 
-.c0:after {
+.c0 :after {
   content: '';
   position: absolute;
   top: 5px;
@@ -44,18 +44,22 @@ exports[`Test default 1`] = `
   height: calc(100% - 10px);
   background: white;
   border-radius: 20px;
-  -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
-.c0:active:after {
+.c0 :active:after {
   width: 60%;
 }
 
 <label
+    borderRadius="20px"
+    buttonColor="white"
+    checkedBackground="green"
     className="c0"
     height="50px"
     htmlFor="switch"
+    offBackground="lightgray"
+    padding={5}
     width="100px"
   />,
 ]
@@ -69,21 +73,21 @@ exports[`Test with props 1`] = `
   visibility: hidden;
 }
 
-.c0:checked + label {
+.c0 :checked+label {
   background: #000;
 }
 
-.c0:checked + label:after {
+.c0 :checked+label:after {
   left: calc(100% - 5px);
-  -webkit-transform: translateX(-100%);
-  -ms-transform: translateX(-100%);
   transform: translateX(-100%);
 }
 
 <input
+    checkedBackground="#000"
     className="c0"
     id="switch"
     onChange={[Function]}
+    padding={5}
     type="checkbox"
   />,
   .c0 {
@@ -96,7 +100,7 @@ exports[`Test with props 1`] = `
   position: relative;
 }
 
-.c0:after {
+.c0 :after {
   content: '';
   position: absolute;
   top: 5px;
@@ -105,18 +109,22 @@ exports[`Test with props 1`] = `
   height: calc(100% - 10px);
   background: white;
   border-radius: 1.25em;
-  -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
-.c0:active:after {
+.c0 :active:after {
   width: 60%;
 }
 
 <label
+    borderRadius="1.25em"
+    buttonColor="white"
+    checkedBackground="#000"
     className="c0"
     height="2.5em"
     htmlFor="switch"
+    offBackground="#27847A"
+    padding={5}
     width="2.5em"
   />,
 ]

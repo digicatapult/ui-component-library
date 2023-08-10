@@ -10,7 +10,7 @@ describe('Section', () => {
       .create(
         <Section headingLevel={1} title="TITLE">
           Body content goes here
-        </Section>
+        </Section>,
       )
       .toJSON()
     expect(tree).toMatchSnapshot()
@@ -28,7 +28,7 @@ describe('Section', () => {
           background="blue"
         >
           Body content goes here
-        </Section>
+        </Section>,
       )
       .toJSON()
     expect(tree).toMatchSnapshot()

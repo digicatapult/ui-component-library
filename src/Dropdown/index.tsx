@@ -80,7 +80,7 @@ const HiiMultiSelect: IDropdown = ({ onChange, value = [], ...props }) => {
           {labelProps.selectProps.placeholder}
         </Placeholder>
         {React.Children.map(labelProps.children, (child: any) =>
-          child && child.type !== Placeholder ? child : null
+          child && child.type !== Placeholder ? child : null,
         )}
       </>
     )
@@ -119,7 +119,7 @@ const HiiMultiSelect: IDropdown = ({ onChange, value = [], ...props }) => {
     if (!removedValue) return null
 
     onChange(
-      value.filter((val: any) => val.value !== name)
+      value.filter((val: any) => val.value !== name),
       // TODO, something to review later in case we want to log events
       // we could pass a second arg as exmpl: { name, action: 'remove-value', removedValue }
     )

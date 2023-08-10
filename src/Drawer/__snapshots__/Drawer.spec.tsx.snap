@@ -20,9 +20,6 @@ exports[`Drawer onClick 1`] = `
   grid-template-rows: auto;
   grid-template-columns: auto 1fr auto;
   gap: 1em;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -37,25 +34,21 @@ exports[`Drawer onClick 1`] = `
   margin: 0 calc(1em * 0.35 / 2);
 }
 
-.c4::before {
+.c4 ::before {
   content: '';
   display: block;
   background: black;
   height: calc(1em / 16);
   width: 1em;
-  -webkit-transform: translateY(calc(-4 * 1em / 16)) scaleX(1.35);
-  -ms-transform: translateY(calc(-4 * 1em / 16)) scaleX(1.35);
   transform: translateY(calc(-4 * 1em / 16)) scaleX(1.35);
 }
 
-.c4::after {
+.c4 ::after {
   content: '';
   display: block;
   background: black;
   height: calc(1em / 16);
   width: 1em;
-  -webkit-transform: translateY(calc(3 * 1em / 16)) scaleX(0.51);
-  -ms-transform: translateY(calc(3 * 1em / 16)) scaleX(0.51);
   transform: translateY(calc(3 * 1em / 16)) scaleX(0.51);
 }
 
@@ -67,11 +60,7 @@ exports[`Drawer onClick 1`] = `
   margin: 0 0.5em;
   font-size: 0.5em;
   color: black;
-  -webkit-transition: -webkit-transform 0.5s ease;
-  -webkit-transition: transform 0.5s ease;
   transition: transform 0.5s ease;
-  -webkit-transform: scaleX(2) scaleY(-1);
-  -ms-transform: scaleX(2) scaleY(-1);
   transform: scaleX(2) scaleY(-1);
 }
 
@@ -83,19 +72,16 @@ exports[`Drawer onClick 1`] = `
   border: 0;
 }
 
-.c1:hover {
+.c1 :hover {
   cursor: pointer;
 }
 
 .c9 {
   overflow-y: hidden;
   width: 100%;
-  -webkit-transition: max-height 0.5s ease;
   transition: max-height 0.5s ease;
   max-height: 1000px;
-  -webkit-animation: 1s fadeIn;
   animation: 1s fadeIn;
-  -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
 }
 
@@ -114,13 +100,33 @@ exports[`Drawer onClick 1`] = `
   width="100%"
 >
   <button
+    background="transparent"
     className="c1"
     color="black"
+    isOpen={true}
     onClick={[Function]}
     title=""
   >
     <div
+      alignItems="center"
+      areas={
+        [
+          [
+            "icon",
+            "title",
+            "indicator",
+          ],
+        ]
+      }
       className="c2"
+      columns={
+        [
+          "auto",
+          "1fr",
+          "auto",
+        ]
+      }
+      gap="1em"
       rows={
         [
           "auto",
@@ -128,6 +134,7 @@ exports[`Drawer onClick 1`] = `
       }
     >
       <div
+        area="icon"
         className="c3"
       >
         <div
@@ -136,7 +143,9 @@ exports[`Drawer onClick 1`] = `
         />
       </div>
       <div
+        area="title"
         className="c5"
+        justifySelf="left"
       >
         <div
           className="c6"
@@ -144,11 +153,13 @@ exports[`Drawer onClick 1`] = `
         />
       </div>
       <div
+        area="indicator"
         className="c7"
       >
         <div
           className="c8"
           color="black"
+          isOpen={true}
         >
           ▼
         </div>
@@ -157,6 +168,8 @@ exports[`Drawer onClick 1`] = `
   </button>
   <div
     className="c9"
+    isOpen={true}
+    maxHeight={1000}
   >
     <div
       className="c10"
@@ -189,9 +202,6 @@ exports[`Drawer simple 1`] = `
   grid-template-rows: auto;
   grid-template-columns: auto 1fr auto;
   gap: 1em;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -206,25 +216,21 @@ exports[`Drawer simple 1`] = `
   margin: 0 calc(1em * 0.35 / 2);
 }
 
-.c4::before {
+.c4 ::before {
   content: '';
   display: block;
   background: black;
   height: calc(1em / 16);
   width: 1em;
-  -webkit-transform: translateY(calc(-4 * 1em / 16)) scaleX(1.35);
-  -ms-transform: translateY(calc(-4 * 1em / 16)) scaleX(1.35);
   transform: translateY(calc(-4 * 1em / 16)) scaleX(1.35);
 }
 
-.c4::after {
+.c4 ::after {
   content: '';
   display: block;
   background: black;
   height: calc(1em / 16);
   width: 1em;
-  -webkit-transform: translateY(calc(3 * 1em / 16)) scaleX(0.51);
-  -ms-transform: translateY(calc(3 * 1em / 16)) scaleX(0.51);
   transform: translateY(calc(3 * 1em / 16)) scaleX(0.51);
 }
 
@@ -236,11 +242,7 @@ exports[`Drawer simple 1`] = `
   margin: 0 0.5em;
   font-size: 0.5em;
   color: black;
-  -webkit-transition: -webkit-transform 0.5s ease;
-  -webkit-transition: transform 0.5s ease;
   transition: transform 0.5s ease;
-  -webkit-transform: scaleX(2);
-  -ms-transform: scaleX(2);
   transform: scaleX(2);
 }
 
@@ -252,14 +254,13 @@ exports[`Drawer simple 1`] = `
   border: 0;
 }
 
-.c1:hover {
+.c1 :hover {
   cursor: pointer;
 }
 
 .c9 {
   overflow-y: hidden;
   width: 100%;
-  -webkit-transition: max-height 0.5s ease;
   transition: max-height 0.5s ease;
   max-height: 0px;
 }
@@ -279,13 +280,33 @@ exports[`Drawer simple 1`] = `
   width="100%"
 >
   <button
+    background="transparent"
     className="c1"
     color="black"
+    isOpen={false}
     onClick={[Function]}
     title=""
   >
     <div
+      alignItems="center"
+      areas={
+        [
+          [
+            "icon",
+            "title",
+            "indicator",
+          ],
+        ]
+      }
       className="c2"
+      columns={
+        [
+          "auto",
+          "1fr",
+          "auto",
+        ]
+      }
+      gap="1em"
       rows={
         [
           "auto",
@@ -293,6 +314,7 @@ exports[`Drawer simple 1`] = `
       }
     >
       <div
+        area="icon"
         className="c3"
       >
         <div
@@ -301,7 +323,9 @@ exports[`Drawer simple 1`] = `
         />
       </div>
       <div
+        area="title"
         className="c5"
+        justifySelf="left"
       >
         <div
           className="c6"
@@ -309,11 +333,13 @@ exports[`Drawer simple 1`] = `
         />
       </div>
       <div
+        area="indicator"
         className="c7"
       >
         <div
           className="c8"
           color="black"
+          isOpen={false}
         >
           ▼
         </div>
@@ -322,6 +348,8 @@ exports[`Drawer simple 1`] = `
   </button>
   <div
     className="c9"
+    isOpen={false}
+    maxHeight={1000}
   >
     <div
       className="c10"
@@ -354,9 +382,6 @@ exports[`Drawer with overrides 1`] = `
   grid-template-rows: auto;
   grid-template-columns: auto 1fr auto;
   gap: 1em;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -371,25 +396,21 @@ exports[`Drawer with overrides 1`] = `
   margin: 0 calc(1em * 0.35 / 2);
 }
 
-.c4::before {
+.c4 ::before {
   content: '';
   display: block;
   background: black;
   height: calc(1em / 16);
   width: 1em;
-  -webkit-transform: translateY(calc(-4 * 1em / 16)) scaleX(1.35);
-  -ms-transform: translateY(calc(-4 * 1em / 16)) scaleX(1.35);
   transform: translateY(calc(-4 * 1em / 16)) scaleX(1.35);
 }
 
-.c4::after {
+.c4 ::after {
   content: '';
   display: block;
   background: black;
   height: calc(1em / 16);
   width: 1em;
-  -webkit-transform: translateY(calc(3 * 1em / 16)) scaleX(0.51);
-  -ms-transform: translateY(calc(3 * 1em / 16)) scaleX(0.51);
   transform: translateY(calc(3 * 1em / 16)) scaleX(0.51);
 }
 
@@ -401,11 +422,7 @@ exports[`Drawer with overrides 1`] = `
   margin: 0 0.5em;
   font-size: 0.5em;
   color: black;
-  -webkit-transition: -webkit-transform 0.5s ease;
-  -webkit-transition: transform 0.5s ease;
   transition: transform 0.5s ease;
-  -webkit-transform: scaleX(2);
-  -ms-transform: scaleX(2);
   transform: scaleX(2);
 }
 
@@ -417,14 +434,13 @@ exports[`Drawer with overrides 1`] = `
   border: 0;
 }
 
-.c1:hover {
+.c1 :hover {
   cursor: pointer;
 }
 
 .c9 {
   overflow-y: hidden;
   width: 100%;
-  -webkit-transition: max-height 0.5s ease;
   transition: max-height 0.5s ease;
   max-height: 0px;
 }
@@ -444,13 +460,33 @@ exports[`Drawer with overrides 1`] = `
   width="300px"
 >
   <button
+    background="magenta"
     className="c1"
     color="black"
+    isOpen={false}
     onClick={[Function]}
     title="FILTER"
   >
     <div
+      alignItems="center"
+      areas={
+        [
+          [
+            "icon",
+            "title",
+            "indicator",
+          ],
+        ]
+      }
       className="c2"
+      columns={
+        [
+          "auto",
+          "1fr",
+          "auto",
+        ]
+      }
+      gap="1em"
       rows={
         [
           "auto",
@@ -458,6 +494,7 @@ exports[`Drawer with overrides 1`] = `
       }
     >
       <div
+        area="icon"
         className="c3"
       >
         <div
@@ -466,7 +503,9 @@ exports[`Drawer with overrides 1`] = `
         />
       </div>
       <div
+        area="title"
         className="c5"
+        justifySelf="left"
       >
         <div
           className="c6"
@@ -476,11 +515,13 @@ exports[`Drawer with overrides 1`] = `
         </div>
       </div>
       <div
+        area="indicator"
         className="c7"
       >
         <div
           className="c8"
           color="black"
+          isOpen={false}
         >
           ▼
         </div>
@@ -489,6 +530,8 @@ exports[`Drawer with overrides 1`] = `
   </button>
   <div
     className="c9"
+    isOpen={false}
+    maxHeight={1000}
   >
     <div
       className="c10"

@@ -11,16 +11,8 @@ exports[`Test default 1`] = `
   height: 100%;
   padding-left: calc(1em * 41 / (16 * 1.2));
   overflow: hidden;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
   justify-content: center;
   gap: 0.5em;
   background: #f0f0f0;
@@ -30,7 +22,7 @@ exports[`Test default 1`] = `
   border-bottom-left-radius: 0.75em;
 }
 
-.c0 > * {
+.c0 >* {
   display: block;
   padding: 0;
   margin: 0;
@@ -41,16 +33,16 @@ exports[`Test default 1`] = `
   cursor: pointer;
 }
 
-.c0 > label {
+.c0 >label {
   font-size: 1.2em;
   font-weight: bolder;
 }
 
-.c0 > span {
+.c0 >span {
   font-size: 1em;
 }
 
-.c0::before {
+.c0 ::before {
   content: '';
   position: absolute;
   top: 0;
@@ -61,12 +53,14 @@ exports[`Test default 1`] = `
   background: #e0e0e0;
 }
 
-.c0:focus-visible {
+.c0 :focus-visible {
   outline: 1px #e0e0e0 solid;
 }
 
 <button
+  background="#f0f0f0"
   className="c0"
+  flashColor="#e0e0e0"
   height="100%"
   id="id1"
   onClick={[Function]}
@@ -92,16 +86,8 @@ exports[`Test hii 1`] = `
   height: 67px;
   padding-left: calc(1em * 41 / (16 * 1.2));
   overflow: hidden;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
   justify-content: center;
   gap: 0.5em;
   background: #DCE5E7;
@@ -111,7 +97,7 @@ exports[`Test hii 1`] = `
   border-bottom-left-radius: 0.75em;
 }
 
-.c0 > * {
+.c0 >* {
   display: block;
   padding: 0;
   margin: 0;
@@ -122,16 +108,16 @@ exports[`Test hii 1`] = `
   cursor: pointer;
 }
 
-.c0 > label {
+.c0 >label {
   font-size: 1.2em;
   font-weight: bolder;
 }
 
-.c0 > span {
+.c0 >span {
   font-size: 1em;
 }
 
-.c0::before {
+.c0 ::before {
   content: '';
   position: absolute;
   top: 0;
@@ -142,12 +128,14 @@ exports[`Test hii 1`] = `
   background: #80CC72;
 }
 
-.c0:focus-visible {
+.c0 :focus-visible {
   outline: 1px #80CC72 solid;
 }
 
 <button
+  background="#DCE5E7"
   className="c0"
+  flashColor="#80CC72"
   height="67px"
   id="id2"
   onClick={[Function]}
@@ -176,16 +164,8 @@ exports[`Test orientation: right 1`] = `
   height: 67px;
   padding-left: calc(1em * 41 / (16 * 1.2));
   overflow: hidden;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
   justify-content: center;
   gap: 0.5em;
   background: #DCE5E7;
@@ -195,7 +175,7 @@ exports[`Test orientation: right 1`] = `
   border-bottom-left-radius: 0;
 }
 
-.c0 > * {
+.c0 >* {
   display: block;
   padding: 0;
   margin: 0;
@@ -206,16 +186,16 @@ exports[`Test orientation: right 1`] = `
   cursor: pointer;
 }
 
-.c0 > label {
+.c0 >label {
   font-size: 1.2em;
   font-weight: bolder;
 }
 
-.c0 > span {
+.c0 >span {
   font-size: 1em;
 }
 
-.c0::before {
+.c0 ::before {
   content: '';
   position: absolute;
   top: 0;
@@ -226,12 +206,14 @@ exports[`Test orientation: right 1`] = `
   background: #80CC72;
 }
 
-.c0:focus-visible {
+.c0 :focus-visible {
   outline: 1px #80CC72 solid;
 }
 
 <button
+  background="#DCE5E7"
   className="c0"
+  flashColor="#80CC72"
   height="67px"
   id="id3"
   onClick={[Function]}

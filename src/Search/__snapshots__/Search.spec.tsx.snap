@@ -2,19 +2,10 @@
 
 exports[`Test default 1`] = `
 .c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   width: 100%;
   min-width: 250px;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
   justify-content: space-between;
   border: 1px solid black;
   border-radius: 10px;
@@ -22,38 +13,28 @@ exports[`Test default 1`] = `
   background: transparent;
 }
 
-.c0 > * {
+.c0 >* {
   margin: 0.5em;
   padding: 0.5em;
 }
 
 .c1 {
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
   flex-grow: 1;
-  -webkit-flex-shrink: 1;
-  -ms-flex-negative: 1;
   flex-shrink: 1;
   border: 0;
   font: inherit;
 }
 
-.c1:focus {
+.c1 :focus {
   box-shadow: inset 0 0 0 1px black;
   border-radius: 7px;
   outline: 0;
 }
 
-.c2 {
+.c3 {
   position: relative;
   font: inherit;
-  -webkit-box-flex: 0;
-  -webkit-flex-grow: 0;
-  -ms-flex-positive: 0;
   flex-grow: 0;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
   flex-shrink: 0;
   width: 2em;
   height: 2em;
@@ -62,28 +43,28 @@ exports[`Test default 1`] = `
 }
 
 .c2,
-.c2::before,
-.c2::after {
+.c3 ::before,
+.c3 ::after {
   box-sizing: border-box;
 }
 
-.c2:focus {
+.c3 :focus {
   outline: 0;
 }
 
-.c2:focus::before,
-.c2:focus::after {
+.c3 :focus ::before,
+.c3 :focus ::after {
   box-shadow: 0 0 5px 1px black;
 }
 
-.c2::before,
-.c2::after {
+.c3 ::before,
+.c3 ::after {
   content: '';
   display: block;
   position: absolute;
 }
 
-.c2::before {
+.c3 ::before {
   left: 0;
   top: 0;
   width: 80%;
@@ -92,21 +73,16 @@ exports[`Test default 1`] = `
   border-radius: 50%;
 }
 
-.c2::after {
+.c3 ::after {
   right: 0;
   bottom: 0;
   height: calc(4em / 16);
-  width: calc(1.41 * 100% - 1.41 * 40% - 40%);
   background: black;
-  -webkit-transform: rotateZ(40deg);
-  -ms-transform: rotateZ(40deg);
   transform: rotateZ(40deg);
-  -webkit-transform-origin: bottom right;
-  -ms-transform-origin: bottom right;
   transform-origin: bottom right;
 }
 
-.c2:hover {
+.c3 :hover {
   cursor: pointer;
 }
 
@@ -123,7 +99,7 @@ exports[`Test default 1`] = `
     type="search"
   />
   <button
-    className="c2"
+    className="c2 c3"
     color="black"
   />
 </form>
@@ -131,19 +107,10 @@ exports[`Test default 1`] = `
 
 exports[`Test with props 1`] = `
 .c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   width: 100%;
   min-width: 250px;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
   justify-content: space-between;
   border: 1px solid black;
   border-radius: 10px;
@@ -151,38 +118,28 @@ exports[`Test with props 1`] = `
   background: red;
 }
 
-.c0 > * {
+.c0 >* {
   margin: 0.5em;
   padding: 0.5em;
 }
 
 .c1 {
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
   flex-grow: 1;
-  -webkit-flex-shrink: 1;
-  -ms-flex-negative: 1;
   flex-shrink: 1;
   border: 0;
   font: inherit;
 }
 
-.c1:focus {
+.c1 :focus {
   box-shadow: inset 0 0 0 1px green;
   border-radius: 7px;
   outline: 0;
 }
 
-.c2 {
+.c3 {
   position: relative;
   font: inherit;
-  -webkit-box-flex: 0;
-  -webkit-flex-grow: 0;
-  -ms-flex-positive: 0;
   flex-grow: 0;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
   flex-shrink: 0;
   width: 2em;
   height: 2em;
@@ -191,28 +148,28 @@ exports[`Test with props 1`] = `
 }
 
 .c2,
-.c2::before,
-.c2::after {
+.c3 ::before,
+.c3 ::after {
   box-sizing: border-box;
 }
 
-.c2:focus {
+.c3 :focus {
   outline: 0;
 }
 
-.c2:focus::before,
-.c2:focus::after {
+.c3 :focus ::before,
+.c3 :focus ::after {
   box-shadow: 0 0 5px 1px green;
 }
 
-.c2::before,
-.c2::after {
+.c3 ::before,
+.c3 ::after {
   content: '';
   display: block;
   position: absolute;
 }
 
-.c2::before {
+.c3 ::before {
   left: 0;
   top: 0;
   width: 80%;
@@ -221,21 +178,16 @@ exports[`Test with props 1`] = `
   border-radius: 50%;
 }
 
-.c2::after {
+.c3 ::after {
   right: 0;
   bottom: 0;
   height: calc(4em / 16);
-  width: calc(1.41 * 100% - 1.41 * 40% - 40%);
   background: green;
-  -webkit-transform: rotateZ(40deg);
-  -ms-transform: rotateZ(40deg);
   transform: rotateZ(40deg);
-  -webkit-transform-origin: bottom right;
-  -ms-transform-origin: bottom right;
   transform-origin: bottom right;
 }
 
-.c2:hover {
+.c3 :hover {
   cursor: pointer;
 }
 
@@ -253,7 +205,7 @@ exports[`Test with props 1`] = `
     type="search"
   />
   <button
-    className="c2"
+    className="c2 c3"
     color="green"
   />
 </form>

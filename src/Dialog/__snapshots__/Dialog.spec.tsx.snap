@@ -9,8 +9,6 @@ exports[`Dialog default 1`] = `
   margin: 0 auto;
   border: 0;
   box-shadow: 5px 5px 5px #90909090;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
   width: fit-content;
 }
 
@@ -37,8 +35,8 @@ exports[`Dialog default 1`] = `
   background: transparent;
 }
 
-.c2::before,
-.c2::after {
+.c2:before,
+.c2:after {
   content: '';
   position: absolute;
   left: 0;
@@ -47,15 +45,11 @@ exports[`Dialog default 1`] = `
   background: black;
 }
 
-.c2::before {
-  -webkit-transform: translateX(-0.3075em) rotateZ(45deg);
-  -ms-transform: translateX(-0.3075em) rotateZ(45deg);
+.c2:before {
   transform: translateX(-0.3075em) rotateZ(45deg);
 }
 
-.c2::after {
-  -webkit-transform: translateX(-0.3075em) rotateZ(-45deg);
-  -ms-transform: translateX(-0.3075em) rotateZ(-45deg);
+.c2:after {
   transform: translateX(-0.3075em) rotateZ(-45deg);
 }
 
@@ -67,7 +61,13 @@ exports[`Dialog default 1`] = `
 }
 
 <dialog
+  border="0"
+  borderRadius="20px"
+  boxShadow="5px 5px 5px #90909090"
   className="c0"
+  margin="0 auto"
+  modalBackdropColor="unset"
+  padding="0"
   width="fit-content"
 >
   <form
@@ -93,8 +93,6 @@ exports[`Dialog no close 1`] = `
   margin: 0 auto;
   border: 0;
   box-shadow: 5px 5px 5px #90909090;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
   width: fit-content;
 }
 
@@ -118,7 +116,13 @@ exports[`Dialog no close 1`] = `
 }
 
 <dialog
+  border="0"
+  borderRadius="20px"
+  boxShadow="5px 5px 5px #90909090"
   className="c0"
+  margin="0 auto"
+  modalBackdropColor="unset"
+  padding="0"
   width="fit-content"
 >
   <form
@@ -146,7 +150,7 @@ exports[`Dialog style overrides 1`] = `
 }
 
 .c0::backdrop {
-  background: rgba(0,255,0,0.05);
+  background: rgba(0, 255, 0, 0.05);
 }
 
 .c1 {
@@ -168,8 +172,8 @@ exports[`Dialog style overrides 1`] = `
   background: transparent;
 }
 
-.c2::before,
-.c2::after {
+.c2:before,
+.c2:after {
   content: '';
   position: absolute;
   left: 0;
@@ -178,15 +182,11 @@ exports[`Dialog style overrides 1`] = `
   background: black;
 }
 
-.c2::before {
-  -webkit-transform: translateX(-0.3075em) rotateZ(45deg);
-  -ms-transform: translateX(-0.3075em) rotateZ(45deg);
+.c2:before {
   transform: translateX(-0.3075em) rotateZ(45deg);
 }
 
-.c2::after {
-  -webkit-transform: translateX(-0.3075em) rotateZ(-45deg);
-  -ms-transform: translateX(-0.3075em) rotateZ(-45deg);
+.c2:after {
   transform: translateX(-0.3075em) rotateZ(-45deg);
 }
 
@@ -198,8 +198,14 @@ exports[`Dialog style overrides 1`] = `
 }
 
 <dialog
+  border="1px solid black"
+  borderRadius="10px"
+  boxShadow="10px 10px 10px #90909090"
   className="c0"
   height="500px"
+  margin="1em"
+  modalBackdropColor="rgba(0, 255, 0, 0.05)"
+  padding="1em"
   width="500px"
 >
   <form

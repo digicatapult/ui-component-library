@@ -31,7 +31,7 @@ describe('Grid', () => {
           <Grid.Panel area="footer">
             <Footer />
           </Grid.Panel>
-        </Grid>
+        </Grid>,
       )
       .toJSON()
     expect(tree).toMatchSnapshot()
@@ -70,7 +70,7 @@ describe('Grid', () => {
           <Grid.Panel area="footer">
             <Footer />
           </Grid.Panel>
-        </Grid>
+        </Grid>,
       )
       .toJSON()
     expect(tree).toMatchSnapshot()

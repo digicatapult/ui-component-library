@@ -1,5 +1,5 @@
 import React from 'react'
-import { Story } from '@storybook/react'
+import { Story, StoryObj } from '@storybook/react'
 
 import Link from './index.js'
 
@@ -31,26 +31,15 @@ export default {
   },
 }
 
-const DefaultStoryTemplate: Story = (args) => {
-  return (
-    <Link
-      text={args.text}
-      href={args.href}
-      openInNewTab={args.openInNewTab}
-      color={args.color}
-      visitedColor={args.visitedColor}
-      iconHeight={args.iconHeight}
-      iconMargin={args.iconMargin}
-    />
-  )
+export const Default: StoryObj = {
+  args: {
+    text: 'Digital Catapult',
+    href: 'https://www.digicatapult.org.uk/',
+  },
 }
-export const Default = DefaultStoryTemplate.bind({})
-Default.args = {
-  text: 'Digital Catapult',
-  href: 'https://www.digicatapult.org.uk/',
-}
-export const HII = DefaultStoryTemplate.bind({})
-HII.args = {
-  text: 'Link to project',
-  href: 'https://gtr.ukri.org/projects?ref=EP%2FG06279X%2F1',
+export const HII: StoryObj = {
+  args: {
+    text: 'Link to project',
+    href: 'https://gtr.ukri.org/projects?ref=EP%2FG06279X%2F1',
+  },
 }

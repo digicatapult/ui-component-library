@@ -22,7 +22,7 @@ export interface AProps {
 const A = styled.a<AProps>`
   color: ${({ color }) => color};
 
-  :visited {
+  &:visited {
     color: ${({ visitedColor }) => visitedColor};
   }
 `

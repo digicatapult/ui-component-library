@@ -8,12 +8,12 @@ exports[`HelpContainer default 1`] = `
   height: auto;
   margin: 0;
   border-radius: 1em;
-  box-shadow: 0px 4px 5px rgba(0,0,0,0.1);
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.1);
   position: relative;
   box-sizing: border-box;
 }
 
-.c0::before {
+.c0:before {
   content: '';
   position: absolute;
   width: 0;
@@ -22,13 +22,18 @@ exports[`HelpContainer default 1`] = `
   border: 0.8em solid #f0f0f0;
   rotate: 45deg;
   border-bottom-right-radius: 0.8em;
-  box-shadow: 4px 4px 5px rgba(0,0,0,0.1);
+  box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.1);
   right: 2em;
 }
 
 <div
+  background="#f0f0f0"
+  borderRadius="1em"
   className="c0"
   height="auto"
+  margin="0"
+  padding="1em"
+  tailPosition="bottomRight"
   width="auto"
 >
   Some content
@@ -43,12 +48,12 @@ exports[`HelpContainer overrides 1`] = `
   height: auto;
   margin: 0;
   border-radius: 1em;
-  box-shadow: 0px 4px 5px rgba(0,0,0,0.1);
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.1);
   position: relative;
   box-sizing: border-box;
 }
 
-.c0::before {
+.c0:before {
   content: '';
   position: absolute;
   width: 0;
@@ -57,13 +62,18 @@ exports[`HelpContainer overrides 1`] = `
   border: 0.8em solid #FFF;
   rotate: 45deg;
   border-bottom-right-radius: 0.8em;
-  box-shadow: 4px 4px 5px rgba(0,0,0,0.1);
+  box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.1);
   left: 2em;
 }
 
 <div
+  background="#FFF"
+  borderRadius="1em"
   className="c0"
   height="auto"
+  margin="0"
+  padding="1em"
+  tailPosition="bottomLeft"
   width="28ch"
 >
   Some content

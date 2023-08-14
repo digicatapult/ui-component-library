@@ -30,7 +30,7 @@ const Grid: Grid = Object.assign(
   },
   {
     Panel,
-  }
+  },
 )
 
 Grid.Panel = Panel

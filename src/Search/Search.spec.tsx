@@ -10,7 +10,7 @@ describe('Test', () => {
   test('default', () => {
     const submitEvents: SubmitValue[] = []
     const instance = renderer.create(
-      <Search onSubmit={(v) => submitEvents.push(v)} />
+      <Search onSubmit={(v) => submitEvents.push(v)} />,
     )
 
     const tree = instance.toJSON()
@@ -25,7 +25,7 @@ describe('Test', () => {
         color="green"
         background="red"
         onSubmit={(v) => submitEvents.push(v)}
-      />
+      />,
     )
 
     const tree = instance.toJSON()
@@ -40,7 +40,7 @@ describe('Test', () => {
         color="green"
         background="red"
         onSubmit={(v) => submitEvents.push(v)}
-      />
+      />,
     )
 
     await act(() => {
@@ -61,7 +61,7 @@ describe('Test', () => {
         color="green"
         background="red"
         onSubmit={(v) => submitEvents.push(v)}
-      />
+      />,
     )
 
     await act(() => {
@@ -94,7 +94,7 @@ describe('Test', () => {
         color="green"
         background="red"
         onSubmit={(v) => submitEvents.push(v)}
-      />
+      />,
     )
 
     const eventMock = {
@@ -131,7 +131,7 @@ describe('Test', () => {
         color="green"
         background="red"
         onSubmit={(v) => submitEvents.push(v)}
-      />
+      />,
     )
 
     await act(() => {
@@ -167,7 +167,7 @@ describe('Test', () => {
         color="green"
         background="red"
         onSubmit={(v) => submitEvents.push(v)}
-      />
+      />,
     )
 
     await act(() => {

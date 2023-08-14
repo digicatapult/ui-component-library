@@ -26,7 +26,7 @@ describe('Test', () => {
           fontColor="#FFF"
           fontWeight="bold"
           onClick={clickHandler}
-        />
+        />,
       )
       .toJSON()
     expect(tree).toMatchSnapshot()

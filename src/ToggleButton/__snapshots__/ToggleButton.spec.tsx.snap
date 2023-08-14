@@ -12,10 +12,17 @@ exports[`Test default 1`] = `
 }
 
 <button
+  borderRadius=""
   className="c0"
+  closeBackground="#FFF"
+  closeContent="?"
+  fontColor="black"
   fontWeight="inherit"
   height="auto"
+  isOpen={false}
   onClick={[MockFunction]}
+  openBackground="lightgray"
+  openContent="X"
   width="auto"
 >
   ?
@@ -35,10 +42,17 @@ exports[`Test hii 1`] = `
 }
 
 <button
+  borderRadius="1.25em"
   className="c0"
+  closeBackground="#27847A"
+  closeContent="?"
+  fontColor="#FFF"
   fontWeight="bold"
   height="2.5em"
+  isOpen={false}
   onClick={[MockFunction]}
+  openBackground="#000"
+  openContent="X"
   width="2.5em"
 >
   ?

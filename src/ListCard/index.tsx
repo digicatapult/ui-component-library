@@ -33,7 +33,7 @@ const ListCard = React.forwardRef<HTMLButtonElement, ListCardProps>(
       height = '100%',
       onClick,
     },
-    listCardRef
+    listCardRef,
   ) => {
     const [id] = useId()
 
@@ -52,7 +52,7 @@ const ListCard = React.forwardRef<HTMLButtonElement, ListCardProps>(
         {subtitle && <span>{subtitle}</span>}
       </Wrapper>
     )
-  }
+  },
 )
 
 const Wrapper = styled.button<WrapperProps>`
@@ -103,7 +103,7 @@ const Wrapper = styled.button<WrapperProps>`
     font-size: 1em;
   }
 
-  ::before {
+  &::before {
     content: '';
     position: absolute;
     top: 0;
@@ -115,7 +115,7 @@ const Wrapper = styled.button<WrapperProps>`
     background: ${({ flashColor }) => flashColor};
   }
 
-  :focus-visible {
+  &:focus-visible {
     outline: 1px ${({ flashColor }) => flashColor} solid;
   }
 `

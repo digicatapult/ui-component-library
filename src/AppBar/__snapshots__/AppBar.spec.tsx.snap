@@ -2,20 +2,11 @@
 
 exports[`AppBar default - custom width 1`] = `
 .c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
   flex-direction: row;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
   justify-content: space-between;
   box-sizing: border-box;
-  -webkit-transition: box-shadow 1s cubic-bezier(0.8,1,0.2,1) 3s;
-  transition: box-shadow 1s cubic-bezier(0.8,1,0.2,1) 3s;
+  transition: box-shadow 1s cubic-bezier(0.8, 1, 0.2, 1) 3s;
   width: 50%;
   box-shadow: none;
   background-color: #FFFE;
@@ -24,24 +15,13 @@ exports[`AppBar default - custom width 1`] = `
 
 .c1 {
   position: relative;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
   flex-direction: row;
   padding: 0px 25px;
   margin: 0;
   list-style-type: none;
   width: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
   justify-content: flex-start;
   height: 100%;
   min-height: 74px;
@@ -52,7 +32,6 @@ exports[`AppBar default - custom width 1`] = `
 .c3 {
   display: inline-block;
   text-align: center;
-  -webkit-text-decoration: none;
   text-decoration: none;
   text-transform: uppercase;
   color: inherit;
@@ -66,7 +45,6 @@ exports[`AppBar default - custom width 1`] = `
 .c4 {
   display: inline-block;
   text-align: center;
-  -webkit-text-decoration: none;
   text-decoration: none;
   text-transform: uppercase;
   color: inherit;
@@ -76,7 +54,7 @@ exports[`AppBar default - custom width 1`] = `
   font-size: 1em;
   line-height: 74px;
   margin-top: 4px;
-  background: linear-gradient(360deg,#DFE667 -408.97%,rgba(223,230,103,0) 78.21%);
+  background: linear-gradient(360deg, #DFE667 -408.97%, rgba(223, 230, 103, 0) 78.21%);
   border-bottom: 4px solid #000;
 }
 
@@ -86,16 +64,16 @@ exports[`AppBar default - custom width 1`] = `
   margin: 0;
   padding: 0;
   cursor: pointer;
-  -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
 
 .c2:hover {
-  background-color: rgba(40,30,30,0.1);
+  background-color: rgba(40, 30, 30, 0.1);
 }
 
 <div
   className="c0"
+  shadow={false}
   width="50%"
 >
   <ul
@@ -107,6 +85,7 @@ exports[`AppBar default - custom width 1`] = `
       <a
         className="c3"
         href="#"
+        shadow={false}
         width="50%"
       >
         what we do
@@ -118,6 +97,7 @@ exports[`AppBar default - custom width 1`] = `
       <a
         className="c3"
         href="#"
+        shadow={false}
         width="50%"
       >
         maps
@@ -127,8 +107,10 @@ exports[`AppBar default - custom width 1`] = `
       className="c2"
     >
       <a
+        active={true}
         className="c4"
         href="#"
+        shadow={false}
         width="50%"
       >
         contact us
@@ -140,20 +122,11 @@ exports[`AppBar default - custom width 1`] = `
 
 exports[`AppBar default - fixed 1`] = `
 .c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
   flex-direction: row;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
   justify-content: space-between;
   box-sizing: border-box;
-  -webkit-transition: box-shadow 1s cubic-bezier(0.8,1,0.2,1) 3s;
-  transition: box-shadow 1s cubic-bezier(0.8,1,0.2,1) 3s;
+  transition: box-shadow 1s cubic-bezier(0.8, 1, 0.2, 1) 3s;
   width: 50%;
   box-shadow: none;
   background-color: #FFFE;
@@ -162,24 +135,13 @@ exports[`AppBar default - fixed 1`] = `
 
 .c1 {
   position: relative;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
   flex-direction: row;
   padding: 0px 25px;
   margin: 0;
   list-style-type: none;
   width: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
   justify-content: flex-start;
   height: 100%;
   min-height: 74px;
@@ -190,7 +152,6 @@ exports[`AppBar default - fixed 1`] = `
 .c3 {
   display: inline-block;
   text-align: center;
-  -webkit-text-decoration: none;
   text-decoration: none;
   text-transform: uppercase;
   color: inherit;
@@ -204,7 +165,6 @@ exports[`AppBar default - fixed 1`] = `
 .c4 {
   display: inline-block;
   text-align: center;
-  -webkit-text-decoration: none;
   text-decoration: none;
   text-transform: uppercase;
   color: inherit;
@@ -214,7 +174,7 @@ exports[`AppBar default - fixed 1`] = `
   font-size: 1em;
   line-height: 74px;
   margin-top: 4px;
-  background: linear-gradient(360deg,#DFE667 -408.97%,rgba(223,230,103,0) 78.21%);
+  background: linear-gradient(360deg, #DFE667 -408.97%, rgba(223, 230, 103, 0) 78.21%);
   border-bottom: 4px solid #000;
 }
 
@@ -224,16 +184,17 @@ exports[`AppBar default - fixed 1`] = `
   margin: 0;
   padding: 0;
   cursor: pointer;
-  -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
 
 .c2:hover {
-  background-color: rgba(40,30,30,0.1);
+  background-color: rgba(40, 30, 30, 0.1);
 }
 
 <div
   className="c0"
+  fixed={true}
+  shadow={false}
   width="50%"
 >
   <ul
@@ -244,7 +205,9 @@ exports[`AppBar default - fixed 1`] = `
     >
       <a
         className="c3"
+        fixed={true}
         href="#"
+        shadow={false}
         width="50%"
       >
         what we do
@@ -255,7 +218,9 @@ exports[`AppBar default - fixed 1`] = `
     >
       <a
         className="c3"
+        fixed={true}
         href="#"
+        shadow={false}
         width="50%"
       >
         maps
@@ -265,8 +230,11 @@ exports[`AppBar default - fixed 1`] = `
       className="c2"
     >
       <a
+        active={true}
         className="c4"
+        fixed={true}
         href="#"
+        shadow={false}
         width="50%"
       >
         contact us
@@ -278,20 +246,11 @@ exports[`AppBar default - fixed 1`] = `
 
 exports[`AppBar default - no shadow 1`] = `
 .c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
   flex-direction: row;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
   justify-content: space-between;
   box-sizing: border-box;
-  -webkit-transition: box-shadow 1s cubic-bezier(0.8,1,0.2,1) 3s;
-  transition: box-shadow 1s cubic-bezier(0.8,1,0.2,1) 3s;
+  transition: box-shadow 1s cubic-bezier(0.8, 1, 0.2, 1) 3s;
   width: 100%;
   box-shadow: none;
   background-color: #FFFE;
@@ -300,24 +259,13 @@ exports[`AppBar default - no shadow 1`] = `
 
 .c1 {
   position: relative;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
   flex-direction: row;
   padding: 0px 25px;
   margin: 0;
   list-style-type: none;
   width: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
   justify-content: flex-start;
   height: 100%;
   min-height: 74px;
@@ -328,7 +276,6 @@ exports[`AppBar default - no shadow 1`] = `
 .c3 {
   display: inline-block;
   text-align: center;
-  -webkit-text-decoration: none;
   text-decoration: none;
   text-transform: uppercase;
   color: inherit;
@@ -342,7 +289,6 @@ exports[`AppBar default - no shadow 1`] = `
 .c4 {
   display: inline-block;
   text-align: center;
-  -webkit-text-decoration: none;
   text-decoration: none;
   text-transform: uppercase;
   color: inherit;
@@ -352,7 +298,7 @@ exports[`AppBar default - no shadow 1`] = `
   font-size: 1em;
   line-height: 74px;
   margin-top: 4px;
-  background: linear-gradient(360deg,#DFE667 -408.97%,rgba(223,230,103,0) 78.21%);
+  background: linear-gradient(360deg, #DFE667 -408.97%, rgba(223, 230, 103, 0) 78.21%);
   border-bottom: 4px solid #000;
 }
 
@@ -362,16 +308,16 @@ exports[`AppBar default - no shadow 1`] = `
   margin: 0;
   padding: 0;
   cursor: pointer;
-  -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
 
 .c2:hover {
-  background-color: rgba(40,30,30,0.1);
+  background-color: rgba(40, 30, 30, 0.1);
 }
 
 <div
   className="c0"
+  shadow={false}
 >
   <ul
     className="c1"
@@ -382,6 +328,7 @@ exports[`AppBar default - no shadow 1`] = `
       <a
         className="c3"
         href="#"
+        shadow={false}
       >
         what we do
       </a>
@@ -392,6 +339,7 @@ exports[`AppBar default - no shadow 1`] = `
       <a
         className="c3"
         href="#"
+        shadow={false}
       >
         maps
       </a>
@@ -400,8 +348,10 @@ exports[`AppBar default - no shadow 1`] = `
       className="c2"
     >
       <a
+        active={true}
         className="c4"
         href="#"
+        shadow={false}
       >
         contact us
       </a>
@@ -412,20 +362,11 @@ exports[`AppBar default - no shadow 1`] = `
 
 exports[`AppBar default 1`] = `
 .c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
   flex-direction: row;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
   justify-content: space-between;
   box-sizing: border-box;
-  -webkit-transition: box-shadow 1s cubic-bezier(0.8,1,0.2,1) 3s;
-  transition: box-shadow 1s cubic-bezier(0.8,1,0.2,1) 3s;
+  transition: box-shadow 1s cubic-bezier(0.8, 1, 0.2, 1) 3s;
   width: 100%;
   box-shadow: none;
   background-color: #FFFE;
@@ -434,24 +375,13 @@ exports[`AppBar default 1`] = `
 
 .c1 {
   position: relative;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
   flex-direction: row;
   padding: 0px 25px;
   margin: 0;
   list-style-type: none;
   width: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
   justify-content: flex-start;
   height: 100%;
   min-height: 74px;
@@ -462,7 +392,6 @@ exports[`AppBar default 1`] = `
 .c3 {
   display: inline-block;
   text-align: center;
-  -webkit-text-decoration: none;
   text-decoration: none;
   text-transform: uppercase;
   color: inherit;
@@ -472,14 +401,13 @@ exports[`AppBar default 1`] = `
   font-size: 1em;
   line-height: 74px;
   margin-top: 4px;
-  background: linear-gradient(360deg,#DFE667 -408.97%,rgba(223,230,103,0) 78.21%);
+  background: linear-gradient(360deg, #DFE667 -408.97%, rgba(223, 230, 103, 0) 78.21%);
   border-bottom: 4px solid #000;
 }
 
 .c4 {
   display: inline-block;
   text-align: center;
-  -webkit-text-decoration: none;
   text-decoration: none;
   text-transform: uppercase;
   color: inherit;
@@ -496,12 +424,11 @@ exports[`AppBar default 1`] = `
   margin: 0;
   padding: 0;
   cursor: pointer;
-  -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
 
 .c2:hover {
-  background-color: rgba(40,30,30,0.1);
+  background-color: rgba(40, 30, 30, 0.1);
 }
 
 <div
@@ -514,6 +441,7 @@ exports[`AppBar default 1`] = `
       className="c2"
     >
       <a
+        active={true}
         className="c3"
         href="#"
       >
@@ -546,20 +474,11 @@ exports[`AppBar default 1`] = `
 
 exports[`AppBar hii 1`] = `
 .c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
   flex-direction: row;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
   justify-content: space-between;
   box-sizing: border-box;
-  -webkit-transition: box-shadow 1s cubic-bezier(0.8,1,0.2,1) 3s;
-  transition: box-shadow 1s cubic-bezier(0.8,1,0.2,1) 3s;
+  transition: box-shadow 1s cubic-bezier(0.8, 1, 0.2, 1) 3s;
   width: 100%;
   box-shadow: none;
   background-color: #27847A;
@@ -568,24 +487,13 @@ exports[`AppBar hii 1`] = `
 
 .c1 {
   position: relative;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
   flex-direction: row;
   padding: 0px 25px;
   margin: 0;
   list-style-type: none;
   width: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
   justify-content: flex-start;
   height: 100%;
   min-height: 74px;
@@ -596,7 +504,6 @@ exports[`AppBar hii 1`] = `
 .c3 {
   display: inline-block;
   text-align: center;
-  -webkit-text-decoration: none;
   text-decoration: none;
   text-transform: uppercase;
   color: inherit;
@@ -610,7 +517,6 @@ exports[`AppBar hii 1`] = `
 .c4 {
   display: inline-block;
   text-align: center;
-  -webkit-text-decoration: none;
   text-decoration: none;
   text-transform: uppercase;
   color: inherit;
@@ -620,7 +526,7 @@ exports[`AppBar hii 1`] = `
   font-size: 1em;
   line-height: 74px;
   margin-top: 4px;
-  background: linear-gradient(360deg,#DFE667 -408.97%,rgba(223,230,103,0) 78.21%);
+  background: linear-gradient(360deg, #DFE667 -408.97%, rgba(223, 230, 103, 0) 78.21%);
   border-bottom: 4px solid #FFF;
 }
 
@@ -630,16 +536,16 @@ exports[`AppBar hii 1`] = `
   margin: 0;
   padding: 0;
   cursor: pointer;
-  -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
 
 .c2:hover {
-  background-color: rgba(40,30,30,0.1);
+  background-color: rgba(40, 30, 30, 0.1);
 }
 
 <div
   className="c0"
+  shadow={false}
 >
   <ul
     className="c1"
@@ -650,6 +556,7 @@ exports[`AppBar hii 1`] = `
       <a
         className="c3"
         href="#"
+        shadow={false}
       >
         what we do
       </a>
@@ -658,8 +565,10 @@ exports[`AppBar hii 1`] = `
       className="c2"
     >
       <a
+        active={true}
         className="c4"
         href="#"
+        shadow={false}
       >
         maps
       </a>
@@ -670,6 +579,7 @@ exports[`AppBar hii 1`] = `
       <a
         className="c3"
         href="#"
+        shadow={false}
       >
         contact us
       </a>

@@ -11,7 +11,7 @@ describe('Drawer', () => {
       .create(
         <Drawer>
           <DrawerContentMock />
-        </Drawer>
+        </Drawer>,
       )
       .toJSON()
     expect(tree).toMatchSnapshot()
@@ -21,7 +21,7 @@ describe('Drawer', () => {
     const instance = renderer.create(
       <Drawer>
         <DrawerContentMock />
-      </Drawer>
+      </Drawer>,
     )
 
     await act(() => {
@@ -37,7 +37,7 @@ describe('Drawer', () => {
       .create(
         <Drawer title="FILTER" width="300px" background="magenta">
           <DrawerContentMock />
-        </Drawer>
+        </Drawer>,
       )
       .toJSON()
     expect(tree).toMatchSnapshot()

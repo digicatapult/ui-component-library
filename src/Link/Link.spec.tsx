@@ -20,7 +20,7 @@ describe('Link', () => {
           visitedColor="purple"
           iconHeight="0.5em"
           iconMargin="0"
-        />
+        />,
       )
       .toJSON()
     expect(tree).toMatchSnapshot()

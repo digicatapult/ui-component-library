@@ -70,7 +70,7 @@ const Row = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  ::after {
+  &::after {
     content: '';
     height: 24px;
     width: 24px;

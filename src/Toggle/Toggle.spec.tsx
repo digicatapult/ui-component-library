@@ -22,7 +22,7 @@ describe('Test', () => {
           checkedBackground="#000"
           borderRadius="1.25em"
           onChange={changeHandler}
-        />
+        />,
       )
       .toJSON()
     expect(tree).toMatchSnapshot()

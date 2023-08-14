@@ -10,7 +10,7 @@ describe('Dialog', () => {
     const instance = renderer.create(
       <Dialog>
         <MockContent />
-      </Dialog>
+      </Dialog>,
     )
     const tree = instance.toJSON()
     expect(tree).toMatchSnapshot()
@@ -20,7 +20,7 @@ describe('Dialog', () => {
     const instance = renderer.create(
       <Dialog includeClose={false}>
         <MockContent />
-      </Dialog>
+      </Dialog>,
     )
     const tree = instance.toJSON()
     expect(tree).toMatchSnapshot()
@@ -39,7 +39,7 @@ describe('Dialog', () => {
         height="500px"
       >
         <MockContent />
-      </Dialog>
+      </Dialog>,
     )
     const tree = instance.toJSON()
     expect(tree).toMatchSnapshot()

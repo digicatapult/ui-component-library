@@ -26,7 +26,7 @@ describe('Test', () => {
           height="67px"
           width="467px"
           onClick={clickHandler}
-        />
+        />,
       )
       .toJSON()
     expect(tree).toMatchSnapshot()
@@ -45,7 +45,7 @@ describe('Test', () => {
           height="67px"
           width="467px"
           onClick={clickHandler}
-        />
+        />,
       )
       .toJSON()
     expect(tree).toMatchSnapshot()
@@ -63,7 +63,7 @@ describe('Test', () => {
         height="67px"
         width="467px"
         onClick={clickHandler}
-      />
+      />,
     )
 
     await act(() => {

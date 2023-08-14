@@ -71,7 +71,7 @@ const Search: React.FC<SearchProps> = ({
         setSearch(terms)
         setHasSubmitted(false)
       },
-      [setSearch, setHasSubmitted, lexer]
+      [setSearch, setHasSubmitted, lexer],
     )
 
   const handleSubmit = useCallback(
@@ -85,7 +85,7 @@ const Search: React.FC<SearchProps> = ({
         setHasSubmitted(true)
       }
     },
-    [search, hasSubmitted, setHasSubmitted, onSubmit]
+    [search, hasSubmitted, setHasSubmitted, onSubmit],
   )
 
   useEffect(() => {
@@ -132,7 +132,7 @@ const SearchInput = styled.input<SearchInputProps>`
   border: 0;
   font: inherit;
 
-  :focus {
+  &:focus {
     box-shadow: inset 0 0 0 1px ${({ color }) => color};
     border-radius: 7px;
     outline: 0;
@@ -149,24 +149,24 @@ const SearchIcon = styled.button<SearchIconProps>`
   background: transparent;
   border: 0;
 
-  &, ::before, ::after {
+  &, &:before, &:after {
     box-sizing: border-box;
   }
 
-  :focus {
-    ::before, ::after {
+  &:focus {
+    &:before, &:after {
       box-shadow: 0 0 5px 1px ${({ color }) => color};
     }
     outline: 0;
   }
 
-  ::before, ::after {
+  &:before, &:after {
     content: '';
     display: block;
     position: absolute;
   }
 
-  ::before {
+  &:before {
     left: 0;
     top: 0;
     width: 80%;
@@ -175,7 +175,7 @@ const SearchIcon = styled.button<SearchIconProps>`
     border-radius: 50%;
   }
 
-  ::after {
+  &:after {
     right: 0;
     bottom: 0;
     height: calc(4em / 16);
@@ -185,7 +185,7 @@ const SearchIcon = styled.button<SearchIconProps>`
     transform-origin: bottom right
   }
 
-  :hover {
+  &:hover {
     cursor: pointer;
   }
 `

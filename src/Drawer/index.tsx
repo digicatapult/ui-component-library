@@ -115,7 +115,7 @@ const DrawerHeaderIcon = styled.div<DrawerIconProps>`
   width: 1em;
   margin: 0 calc(1em * 0.35 / 2);
 
-  ::before {
+  &::before {
     content: '';
     display: block;
     background: ${({ color }) => color};
@@ -124,7 +124,7 @@ const DrawerHeaderIcon = styled.div<DrawerIconProps>`
     transform: translateY(calc(-4 * 1em / 16)) scaleX(1.35);
   }
 
-  ::after {
+  &::after {
     content: '';
     display: block;
     background: ${({ color }) => color};
@@ -153,7 +153,7 @@ const DrawerHeaderWrapper = styled('button')<DrawerHeaderProps>`
   padding: 8px 16px;
   border: 0;
 
-  :hover {
+  &:hover {
     cursor: pointer;
   }
 `

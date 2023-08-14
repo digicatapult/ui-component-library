@@ -13,7 +13,7 @@ exports[`HelpContainer default 1`] = `
   box-sizing: border-box;
 }
 
-.c0 ::before {
+.c0:before {
   content: '';
   position: absolute;
   width: 0;
@@ -53,7 +53,7 @@ exports[`HelpContainer overrides 1`] = `
   box-sizing: border-box;
 }
 
-.c0 ::before {
+.c0:before {
   content: '';
   position: absolute;
   width: 0;

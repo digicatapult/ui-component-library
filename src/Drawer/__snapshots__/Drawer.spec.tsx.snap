@@ -34,7 +34,7 @@ exports[`Drawer onClick 1`] = `
   margin: 0 calc(1em * 0.35 / 2);
 }
 
-.c4 ::before {
+.c4::before {
   content: '';
   display: block;
   background: black;
@@ -43,7 +43,7 @@ exports[`Drawer onClick 1`] = `
   transform: translateY(calc(-4 * 1em / 16)) scaleX(1.35);
 }
 
-.c4 ::after {
+.c4::after {
   content: '';
   display: block;
   background: black;
@@ -72,7 +72,7 @@ exports[`Drawer onClick 1`] = `
   border: 0;
 }
 
-.c1 :hover {
+.c1:hover {
   cursor: pointer;
 }
 
@@ -216,7 +216,7 @@ exports[`Drawer simple 1`] = `
   margin: 0 calc(1em * 0.35 / 2);
 }
 
-.c4 ::before {
+.c4::before {
   content: '';
   display: block;
   background: black;
@@ -225,7 +225,7 @@ exports[`Drawer simple 1`] = `
   transform: translateY(calc(-4 * 1em / 16)) scaleX(1.35);
 }
 
-.c4 ::after {
+.c4::after {
   content: '';
   display: block;
   background: black;
@@ -254,7 +254,7 @@ exports[`Drawer simple 1`] = `
   border: 0;
 }
 
-.c1 :hover {
+.c1:hover {
   cursor: pointer;
 }
 
@@ -396,7 +396,7 @@ exports[`Drawer with overrides 1`] = `
   margin: 0 calc(1em * 0.35 / 2);
 }
 
-.c4 ::before {
+.c4::before {
   content: '';
   display: block;
   background: black;
@@ -405,7 +405,7 @@ exports[`Drawer with overrides 1`] = `
   transform: translateY(calc(-4 * 1em / 16)) scaleX(1.35);
 }
 
-.c4 ::after {
+.c4::after {
   content: '';
   display: block;
   background: black;
@@ -434,7 +434,7 @@ exports[`Drawer with overrides 1`] = `
   border: 0;
 }
 
-.c1 :hover {
+.c1:hover {
   cursor: pointer;
 }
 

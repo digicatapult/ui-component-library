@@ -5,7 +5,7 @@ exports[`Link default 1`] = `
   color: black;
 }
 
-.c0 :visited {
+.c0:visited {
   color: black;
 }
 
@@ -40,7 +40,7 @@ exports[`Link overrides 1`] = `
   color: blue;
 }
 
-.c0 :visited {
+.c0:visited {
   color: purple;
 }
 

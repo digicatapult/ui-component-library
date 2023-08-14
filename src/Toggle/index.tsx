@@ -51,11 +51,11 @@ const HiddenCheckbox = styled.input<ToggleProps>`
   width: 0;
   visibility: hidden;
 
-  :checked + label {
+  &:checked + label {
     background: ${({ checkedBackground }) => checkedBackground};
   }
 
-  :checked + label:after {
+  &:checked + label:after {
     left: calc(100% - ${({ padding }) => padding}px);
     transform: translateX(-100%);
   }
@@ -70,7 +70,7 @@ const Label = styled.label<ToggleProps>`
   border-radius: ${({ borderRadius }) => borderRadius};
   position: relative;
 
-  :after {
+  &:after {
     content: '';
     position: absolute;
     top: ${({ padding }) => padding}px;
@@ -82,7 +82,7 @@ const Label = styled.label<ToggleProps>`
     transition: 0.3s;
   }
 
-  :active:after {
+  &:active:after {
     width: 60%;
   }
 `

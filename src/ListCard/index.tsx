@@ -103,7 +103,7 @@ const Wrapper = styled.button<WrapperProps>`
     font-size: 1em;
   }
 
-  ::before {
+  &::before {
     content: '';
     position: absolute;
     top: 0;
@@ -115,7 +115,7 @@ const Wrapper = styled.button<WrapperProps>`
     background: ${({ flashColor }) => flashColor};
   }
 
-  :focus-visible {
+  &:focus-visible {
     outline: 1px ${({ flashColor }) => flashColor} solid;
   }
 `

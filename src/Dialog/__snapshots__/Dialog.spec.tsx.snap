@@ -12,7 +12,7 @@ exports[`Dialog default 1`] = `
   width: fit-content;
 }
 
-.c0 ::backdrop {
+.c0::backdrop {
   background: unset;
 }
 
@@ -35,8 +35,8 @@ exports[`Dialog default 1`] = `
   background: transparent;
 }
 
-.c2 ::before,
-.c2 ::after {
+.c2:before,
+.c2:after {
   content: '';
   position: absolute;
   left: 0;
@@ -45,11 +45,11 @@ exports[`Dialog default 1`] = `
   background: black;
 }
 
-.c2 ::before {
+.c2:before {
   transform: translateX(-0.3075em) rotateZ(45deg);
 }
 
-.c2 ::after {
+.c2:after {
   transform: translateX(-0.3075em) rotateZ(-45deg);
 }
 
@@ -96,7 +96,7 @@ exports[`Dialog no close 1`] = `
   width: fit-content;
 }
 
-.c0 ::backdrop {
+.c0::backdrop {
   background: unset;
 }
 
@@ -149,7 +149,7 @@ exports[`Dialog style overrides 1`] = `
   height: 500px;
 }
 
-.c0 ::backdrop {
+.c0::backdrop {
   background: rgba(0, 255, 0, 0.05);
 }
 
@@ -172,8 +172,8 @@ exports[`Dialog style overrides 1`] = `
   background: transparent;
 }
 
-.c2 ::before,
-.c2 ::after {
+.c2:before,
+.c2:after {
   content: '';
   position: absolute;
   left: 0;
@@ -182,11 +182,11 @@ exports[`Dialog style overrides 1`] = `
   background: black;
 }
 
-.c2 ::before {
+.c2:before {
   transform: translateX(-0.3075em) rotateZ(45deg);
 }
 
-.c2 ::after {
+.c2:after {
   transform: translateX(-0.3075em) rotateZ(-45deg);
 }
 

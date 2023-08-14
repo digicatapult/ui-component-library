@@ -8,11 +8,11 @@ exports[`Test default 1`] = `
   visibility: hidden;
 }
 
-.c0 :checked+label {
+.c0:checked+label {
   background: green;
 }
 
-.c0 :checked+label:after {
+.c0:checked+label:after {
   left: calc(100% - 5px);
   transform: translateX(-100%);
 }
@@ -35,7 +35,7 @@ exports[`Test default 1`] = `
   position: relative;
 }
 
-.c0 :after {
+.c0:after {
   content: '';
   position: absolute;
   top: 5px;
@@ -47,7 +47,7 @@ exports[`Test default 1`] = `
   transition: 0.3s;
 }
 
-.c0 :active:after {
+.c0:active:after {
   width: 60%;
 }
 
@@ -73,11 +73,11 @@ exports[`Test with props 1`] = `
   visibility: hidden;
 }
 
-.c0 :checked+label {
+.c0:checked+label {
   background: #000;
 }
 
-.c0 :checked+label:after {
+.c0:checked+label:after {
   left: calc(100% - 5px);
   transform: translateX(-100%);
 }
@@ -100,7 +100,7 @@ exports[`Test with props 1`] = `
   position: relative;
 }
 
-.c0 :after {
+.c0:after {
   content: '';
   position: absolute;
   top: 5px;
@@ -112,7 +112,7 @@ exports[`Test with props 1`] = `
   transition: 0.3s;
 }
 
-.c0 :active:after {
+.c0:active:after {
   width: 60%;
 }
 

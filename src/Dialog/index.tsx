@@ -70,7 +70,7 @@ const Wrapper = styled.dialog<DialogProps>`
   height: ${({ height }) => height};
   max-height: ${({ maxHeight }) => maxHeight};
 
-  ::backdrop {
+  &::backdrop {
     background: ${({ modalBackdropColor }) => modalBackdropColor};
   }
 `
@@ -93,8 +93,8 @@ const CloseButton = styled.button`
   padding: 0;
   background: transparent;
 
-  ::before,
-  ::after {
+  &:before,
+  &:after {
     content: '';
     position: absolute;
     left: 0;
@@ -103,11 +103,11 @@ const CloseButton = styled.button`
     background: black;
   }
 
-  ::before {
+  &:before {
     transform: translateX(-0.3075em) rotateZ(45deg);
   }
 
-  ::after {
+  &:after {
     transform: translateX(-0.3075em) rotateZ(-45deg);
   }
 `

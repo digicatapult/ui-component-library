@@ -60,7 +60,7 @@ const Wrapper = styled.div<HelpContainerProps>`
   position: relative;
   box-sizing: border-box;
 
-  ::before {
+  &:before {
     content: '';
     position: absolute;
     width: 0;

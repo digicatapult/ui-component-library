@@ -3,11 +3,14 @@ import type { DecodeRequest, DecodeResponse } from './types'
 
 import React, { useState, useEffect, useRef, useCallback } from 'react'
 
+import { createWorker } from './worker.util.js'
+import { getUserMedia } from './userMedia.util.js'
+
 export interface QRReaderProps {
   onResult: (result: string) => void
-  showViewfinder: boolean
   scanDelay?: number
-  width?: number
+  viewFinderColor?: string
+  viewFinderVariant?: 'viewfinder-cross-med' | 'viewfinder-none'
   className?: string
 }
 
@@ -16,19 +19,19 @@ const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
 const QRReader: React.FC<QRReaderProps> = ({
   onResult,
   scanDelay = 500,
-  showViewfinder = true,
+  viewFinderColor = '#55555580',
+  viewFinderVariant = 'viewfinder-cross-med',
   className,
 }) => {
   const [result, setResult] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
   const videoRef = useRef<HTMLVideoElement>(null)
   const canvasRef = useRef<HTMLCanvasElement>(null)
-  const streamRef = useRef<MediaStream | null>(null)
   const workerRef = useRef<Worker | null>(null)
 
   // kick off the webworker that will process qr decode requests
   useEffect(() => {
-    const worker = new Worker(new URL('./qrWorker.js', import.meta.url))
+    const worker = createWorker()
     workerRef.current = worker
 
     return () => {
@@ -39,19 +42,19 @@ const QRReader: React.FC<QRReaderProps> = ({
   // hook to initialise the media loop
   useEffect(() => {
     const constraints = { video: { facingMode: 'environment' } }
+    let stream: MediaStream | null = null
 
-    navigator.mediaDevices
-      .getUserMedia(constraints)
-      .then((stream) => {
+    getUserMedia(constraints)
+      .then((mediaStream) => {
         const video = videoRef.current
         if (!video) {
           // this should never happen
           throw new Error('Video was not initialised as expected')
         }
 
-        video.srcObject = stream
+        video.srcObject = mediaStream
         video.play()
-        streamRef.current = stream
+        stream = mediaStream
       })
       .catch((err) => {
         // TODO: trigger an error state and render a fallback
@@ -60,8 +63,6 @@ const QRReader: React.FC<QRReaderProps> = ({
       })
 
     return () => {
-      // Cleanup function to stop the stream when the component is unmounted
-      const stream = streamRef.current
       if (!stream) {
         return
       }
@@ -70,7 +71,7 @@ const QRReader: React.FC<QRReaderProps> = ({
         track.stop()
       })
     }
-  }, [videoRef, streamRef, setError])
+  }, [setError])
 
   const parseCurrentFrame = useCallback(async () => {
     const canvas = canvasRef.current
@@ -125,7 +126,7 @@ const QRReader: React.FC<QRReaderProps> = ({
       worker.postMessage(message)
     })
     return result
-  }, [canvasRef, videoRef, workerRef])
+  }, [])
 
   // start the decoding loop. Note we store the result in local state so that we don't need to restart the loop just because the onResult handler changes
   useEffect(() => {
@@ -160,18 +161,25 @@ const QRReader: React.FC<QRReaderProps> = ({
   return error ? (
     <div className={className}>{error}</div>
   ) : (
-    <Wrapper className={className} showViewfinder={showViewfinder}>
+    <Wrapper
+      className={className}
+      showViewfinder={viewFinderVariant === 'viewfinder-cross-med'}
+      viewFinderColor={viewFinderColor}
+    >
       <Video ref={videoRef} muted={true} />
       <canvas ref={canvasRef} hidden={true} />
     </Wrapper>
   )
 }
 
-const Wrapper = styled.div<{ showViewfinder: boolean }>`
+const Wrapper = styled.div<{
+  showViewfinder: boolean
+  viewFinderColor: string
+}>`
   width: 100%;
   position: relative;
 
-  ${({ showViewfinder }) =>
+  ${({ showViewfinder, viewFinderColor }) =>
     showViewfinder
       ? `
   &:before {
@@ -182,15 +190,16 @@ const Wrapper = styled.div<{ showViewfinder: boolean }>`
     left: 10%;
     right: 10%;
     bottom: 10%;
+    opacity: 0.2;
     background:
-      linear-gradient(to right, #555555 4px, transparent 4px) 0 0,
-      linear-gradient(to right, #555555 4px, transparent 4px) 0 100%,
-      linear-gradient(to left, #555555 4px, transparent 4px) 100% 0,
-      linear-gradient(to left, #555555 4px, transparent 4px) 100% 100%,
-      linear-gradient(to bottom, #555555 4px, transparent 4px) 0 0,
-      linear-gradient(to bottom, #555555 4px, transparent 4px) 100% 0,
-      linear-gradient(to top, #555555 4px, transparent 4px) 0 100%,
-      linear-gradient(to top, #555555 4px, transparent 4px) 100% 100%;
+      linear-gradient(to right, ${viewFinderColor} 4px, transparent 4px) 0 0,
+      linear-gradient(to right, ${viewFinderColor} 4px, transparent 4px) 0 100%,
+      linear-gradient(to left, ${viewFinderColor} 4px, transparent 4px) 100% 0,
+      linear-gradient(to left, ${viewFinderColor} 4px, transparent 4px) 100% 100%,
+      linear-gradient(to bottom, ${viewFinderColor} 4px, transparent 4px) 0 0,
+      linear-gradient(to bottom, ${viewFinderColor} 4px, transparent 4px) 100% 0,
+      linear-gradient(to top, ${viewFinderColor} 4px, transparent 4px) 0 100%,
+      linear-gradient(to top, ${viewFinderColor} 4px, transparent 4px) 100% 100%;
 
     background-repeat: no-repeat;
     background-size: 20px 20px;
@@ -204,10 +213,11 @@ const Wrapper = styled.div<{ showViewfinder: boolean }>`
     left: 10%;
     right: 10%;
     bottom: 10%;
+    opacity: 0.2;
     background:
-      linear-gradient(to right, #555555 4px, transparent 4px)
+      linear-gradient(to right, ${viewFinderColor} 4px, transparent 4px)
         calc(50% + 30px - 2px) 50%,
-      linear-gradient(to bottom, #555555 4px, transparent 4px) 50%
+      linear-gradient(to bottom, ${viewFinderColor} 4px, transparent 4px) 50%
         calc(50% + 30px - 2px);
 
     background-repeat: no-repeat;

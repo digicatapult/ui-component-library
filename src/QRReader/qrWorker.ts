@@ -2,6 +2,8 @@ import type { DecodeRequest, DecodeResponse } from './types'
 
 import jsQR from 'jsqr'
 
+// note this is intentionally defensive to ensure any message received
+// is responded to. jsQR *might* throw
 self.onmessage = ({ data }: { data: DecodeRequest }) => {
   let response: DecodeResponse
   try {

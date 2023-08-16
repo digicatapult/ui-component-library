@@ -62,6 +62,14 @@ export const NoViewFinder: StoryObj<typeof QRReader> = {
   },
 }
 
+export const Mirrored: StoryObj<typeof QRReader> = {
+  ...Default,
+  args: {
+    onResult: action('result'),
+    mirror: true,
+  },
+}
+
 const QRStyled = styled(QRReader)`
   width: 400px;
 `

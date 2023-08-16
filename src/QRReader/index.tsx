@@ -12,6 +12,7 @@ export interface QRReaderProps {
   viewFinderColor?: string
   viewFinderVariant?: 'viewfinder-cross-med' | 'viewfinder-none'
   className?: string
+  mirror?: boolean
 }
 
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
@@ -22,6 +23,7 @@ const QRReader: React.FC<QRReaderProps> = ({
   viewFinderColor = '#55555580',
   viewFinderVariant = 'viewfinder-cross-med',
   className,
+  mirror = false,
 }) => {
   const [result, setResult] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
@@ -163,24 +165,24 @@ const QRReader: React.FC<QRReaderProps> = ({
   ) : (
     <Wrapper
       className={className}
-      showViewfinder={viewFinderVariant === 'viewfinder-cross-med'}
-      viewFinderColor={viewFinderColor}
+      $showViewfinder={viewFinderVariant === 'viewfinder-cross-med'}
+      $viewFinderColor={viewFinderColor}
     >
-      <Video ref={videoRef} muted={true} />
+      <Video ref={videoRef} muted={true} $mirror={mirror} />
       <canvas ref={canvasRef} hidden={true} />
     </Wrapper>
   )
 }
 
 const Wrapper = styled.div<{
-  showViewfinder: boolean
-  viewFinderColor: string
+  $showViewfinder: boolean
+  $viewFinderColor: string
 }>`
   width: 100%;
   position: relative;
 
-  ${({ showViewfinder, viewFinderColor }) =>
-    showViewfinder
+  ${({ $showViewfinder, $viewFinderColor }) =>
+    $showViewfinder
       ? `
   &:before {
     content: '';
@@ -192,14 +194,14 @@ const Wrapper = styled.div<{
     bottom: 10%;
     opacity: 0.2;
     background:
-      linear-gradient(to right, ${viewFinderColor} 4px, transparent 4px) 0 0,
-      linear-gradient(to right, ${viewFinderColor} 4px, transparent 4px) 0 100%,
-      linear-gradient(to left, ${viewFinderColor} 4px, transparent 4px) 100% 0,
-      linear-gradient(to left, ${viewFinderColor} 4px, transparent 4px) 100% 100%,
-      linear-gradient(to bottom, ${viewFinderColor} 4px, transparent 4px) 0 0,
-      linear-gradient(to bottom, ${viewFinderColor} 4px, transparent 4px) 100% 0,
-      linear-gradient(to top, ${viewFinderColor} 4px, transparent 4px) 0 100%,
-      linear-gradient(to top, ${viewFinderColor} 4px, transparent 4px) 100% 100%;
+      linear-gradient(to right, ${$viewFinderColor} 4px, transparent 4px) 0 0,
+      linear-gradient(to right, ${$viewFinderColor} 4px, transparent 4px) 0 100%,
+      linear-gradient(to left, ${$viewFinderColor} 4px, transparent 4px) 100% 0,
+      linear-gradient(to left, ${$viewFinderColor} 4px, transparent 4px) 100% 100%,
+      linear-gradient(to bottom, ${$viewFinderColor} 4px, transparent 4px) 0 0,
+      linear-gradient(to bottom, ${$viewFinderColor} 4px, transparent 4px) 100% 0,
+      linear-gradient(to top, ${$viewFinderColor} 4px, transparent 4px) 0 100%,
+      linear-gradient(to top, ${$viewFinderColor} 4px, transparent 4px) 100% 100%;
 
     background-repeat: no-repeat;
     background-size: 20px 20px;
@@ -215,9 +217,9 @@ const Wrapper = styled.div<{
     bottom: 10%;
     opacity: 0.2;
     background:
-      linear-gradient(to right, ${viewFinderColor} 4px, transparent 4px)
+      linear-gradient(to right, ${$viewFinderColor} 4px, transparent 4px)
         calc(50% + 30px - 2px) 50%,
-      linear-gradient(to bottom, ${viewFinderColor} 4px, transparent 4px) 50%
+      linear-gradient(to bottom, ${$viewFinderColor} 4px, transparent 4px) 50%
         calc(50% + 30px - 2px);
 
     background-repeat: no-repeat;
@@ -226,8 +228,9 @@ const Wrapper = styled.div<{
       : ''}
 `
 
-const Video = styled.video`
+const Video = styled.video<{ $mirror: boolean }>`
   width: 100%;
+  ${({ $mirror }) => ($mirror ? 'transform:  scaleX(-1);' : '')}
 `
 
 export default QRReader

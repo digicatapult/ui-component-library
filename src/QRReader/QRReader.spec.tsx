@@ -25,4 +25,11 @@ describe('QRReader', () => {
       .toJSON()
     expect(tree).toMatchSnapshot()
   })
+
+  test('mirrored', () => {
+    const tree = renderer
+      .create(<QRReader onResult={() => {}} mirror={true} />)
+      .toJSON()
+    expect(tree).toMatchSnapshot()
+  })
 })

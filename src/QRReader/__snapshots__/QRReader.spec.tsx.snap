@@ -1,0 +1,178 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`QRReader default 1`] = `
+.c0 {
+  width: 100%;
+  position: relative;
+}
+
+.c0:before {
+  content: '';
+  position: absolute;
+  display: inline-block;
+  top: 10%;
+  left: 10%;
+  right: 10%;
+  bottom: 10%;
+  opacity: 0.2;
+  background: linear-gradient(to right, #55555580 4px, transparent 4px) 0 0,linear-gradient(to right, #55555580 4px, transparent 4px) 0 100%,linear-gradient(to left, #55555580 4px, transparent 4px) 100% 0,linear-gradient(to left, #55555580 4px, transparent 4px) 100% 100%,linear-gradient(to bottom, #55555580 4px, transparent 4px) 0 0,linear-gradient(to bottom, #55555580 4px, transparent 4px) 100% 0,linear-gradient(to top, #55555580 4px, transparent 4px) 0 100%,linear-gradient(to top, #55555580 4px, transparent 4px) 100% 100%;
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+}
+
+.c0:after {
+  content: '';
+  position: absolute;
+  display: inline-block;
+  top: 10%;
+  left: 10%;
+  right: 10%;
+  bottom: 10%;
+  opacity: 0.2;
+  background: linear-gradient(to right, #55555580 4px, transparent 4px) calc(50% + 30px - 2px) 50%,linear-gradient(to bottom, #55555580 4px, transparent 4px) 50% calc(50% + 30px - 2px);
+  background-repeat: no-repeat;
+  background-size: 60px 60px;
+}
+
+.c1 {
+  width: 100%;
+}
+
+<div
+  className="c0"
+>
+  <video
+    className="c1"
+    muted={true}
+  />
+  <canvas
+    hidden={true}
+  />
+</div>
+`;
+
+exports[`QRReader mirrored 1`] = `
+.c0 {
+  width: 100%;
+  position: relative;
+}
+
+.c0:before {
+  content: '';
+  position: absolute;
+  display: inline-block;
+  top: 10%;
+  left: 10%;
+  right: 10%;
+  bottom: 10%;
+  opacity: 0.2;
+  background: linear-gradient(to right, #55555580 4px, transparent 4px) 0 0,linear-gradient(to right, #55555580 4px, transparent 4px) 0 100%,linear-gradient(to left, #55555580 4px, transparent 4px) 100% 0,linear-gradient(to left, #55555580 4px, transparent 4px) 100% 100%,linear-gradient(to bottom, #55555580 4px, transparent 4px) 0 0,linear-gradient(to bottom, #55555580 4px, transparent 4px) 100% 0,linear-gradient(to top, #55555580 4px, transparent 4px) 0 100%,linear-gradient(to top, #55555580 4px, transparent 4px) 100% 100%;
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+}
+
+.c0:after {
+  content: '';
+  position: absolute;
+  display: inline-block;
+  top: 10%;
+  left: 10%;
+  right: 10%;
+  bottom: 10%;
+  opacity: 0.2;
+  background: linear-gradient(to right, #55555580 4px, transparent 4px) calc(50% + 30px - 2px) 50%,linear-gradient(to bottom, #55555580 4px, transparent 4px) 50% calc(50% + 30px - 2px);
+  background-repeat: no-repeat;
+  background-size: 60px 60px;
+}
+
+.c1 {
+  width: 100%;
+  transform: scaleX(-1);
+}
+
+<div
+  className="c0"
+>
+  <video
+    className="c1"
+    muted={true}
+  />
+  <canvas
+    hidden={true}
+  />
+</div>
+`;
+
+exports[`QRReader modified viewfinder color 1`] = `
+.c0 {
+  width: 100%;
+  position: relative;
+}
+
+.c0:before {
+  content: '';
+  position: absolute;
+  display: inline-block;
+  top: 10%;
+  left: 10%;
+  right: 10%;
+  bottom: 10%;
+  opacity: 0.2;
+  background: linear-gradient(to right, red 4px, transparent 4px) 0 0,linear-gradient(to right, red 4px, transparent 4px) 0 100%,linear-gradient(to left, red 4px, transparent 4px) 100% 0,linear-gradient(to left, red 4px, transparent 4px) 100% 100%,linear-gradient(to bottom, red 4px, transparent 4px) 0 0,linear-gradient(to bottom, red 4px, transparent 4px) 100% 0,linear-gradient(to top, red 4px, transparent 4px) 0 100%,linear-gradient(to top, red 4px, transparent 4px) 100% 100%;
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+}
+
+.c0:after {
+  content: '';
+  position: absolute;
+  display: inline-block;
+  top: 10%;
+  left: 10%;
+  right: 10%;
+  bottom: 10%;
+  opacity: 0.2;
+  background: linear-gradient(to right, red 4px, transparent 4px) calc(50% + 30px - 2px) 50%,linear-gradient(to bottom, red 4px, transparent 4px) 50% calc(50% + 30px - 2px);
+  background-repeat: no-repeat;
+  background-size: 60px 60px;
+}
+
+.c1 {
+  width: 100%;
+}
+
+<div
+  className="c0"
+>
+  <video
+    className="c1"
+    muted={true}
+  />
+  <canvas
+    hidden={true}
+  />
+</div>
+`;
+
+exports[`QRReader no viewfinder 1`] = `
+.c0 {
+  width: 100%;
+  position: relative;
+}
+
+.c1 {
+  width: 100%;
+}
+
+<div
+  className="c0"
+>
+  <video
+    className="c1"
+    muted={true}
+  />
+  <canvas
+    hidden={true}
+  />
+</div>
+`;

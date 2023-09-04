@@ -22,7 +22,7 @@ jobs:
     name: Run lint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
         with:
           node-version: 16.x
@@ -44,7 +44,7 @@ jobs:
     name: Run dependency check
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
         with:
           node-version: 16.x
@@ -70,7 +70,7 @@ jobs:
       is_prerelease: ${{ steps.get_version.outputs.IS_PRERELEASE }}
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - run: git fetch --depth=1 --tags origin
       - name: Install yq
         run: sudo snap install yq
@@ -87,7 +87,7 @@ jobs:
     name: Run tests
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
         with:
           node-version: 16.x
@@ -118,7 +118,7 @@ jobs:
     if: ${{ needs.check-version.outputs.is_new_version == 'true' }}
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
         with:
           node-version: '16.x'

@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input hidden 1`] = `
+.c0 {
+  width: 200px;
+  height: 35px;
+  margin-bottom: 5px;
+  text-align: center;
+  border-radius: 2px;
+  border: 1px solid var(--black, #000);
+  background: var(--white, #fff);
+}
+
+<input
+  className="c0"
+  name="hidden-b"
+  type="hidden"
+/>
+`;
+
+exports[`Input style overrides 1`] = `
+.c0 {
+  width: 200px;
+  height: 35px;
+  margin-bottom: 5px;
+  text-align: center;
+  border-radius: 2px;
+  border: 1px solid var(--black, #000);
+  background: var(--white, #fff);
+}
+
+<input
+  className="c0"
+  name="override-a"
+  styles={
+    {
+      "background": "red",
+      "height": "100px",
+    }
+  }
+  type="text"
+/>
+`;
+
+exports[`Input text 1`] = `
+.c0 {
+  width: 200px;
+  height: 35px;
+  margin-bottom: 5px;
+  text-align: center;
+  border-radius: 2px;
+  border: 1px solid var(--black, #000);
+  background: var(--white, #fff);
+}
+
+<input
+  className="c0"
+  name="text-c"
+  type="text"
+/>
+`;

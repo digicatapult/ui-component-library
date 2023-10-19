@@ -8,8 +8,8 @@ export default {
   title: 'Components/FormGroup',
   component: FormGroup,
   argTypes: {
-    onSubmit: { action: 'clicked' }
-  }
+    onSubmit: { action: 'clicked' },
+  },
 }
 
 const DefaultStoryTemplate = () => (

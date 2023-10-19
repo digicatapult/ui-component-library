@@ -3,7 +3,7 @@ import React from 'react'
 import Input, { InputTextProps } from './index.js'
 
 export default {
-  title: 'Components/HelpContainer',
+  title: 'Components/Input',
   component: Input,
   argTypes: {
     name: {

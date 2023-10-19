@@ -13,10 +13,12 @@ export default {
 }
 
 const DefaultStoryTemplate = () => (
-  <FormGroup onSubmit={(e) => {
-    e.preventDefault()
-    action('submit')(e.target)
-  }}}
+  <FormGroup
+    onSubmit={(e) => {
+      e.preventDefault()
+      action('submit')(e.target)
+    }}
+  >
     <InputText type="text" name="test-a" />
     <br />
     <button type="submit">submit</button>

@@ -7,15 +7,17 @@ export default {
   title: 'Components/FormGroup',
   component: FormGroup,
   argTypes: {
-    onSubmit: {}
+    onSubmit: {},
   },
 }
 
-const DefaultStoryTemplate = (args: FormGroupProps) => <FormGroup onSubmit={args.onSubmit}>
-  <InputText type='text' name='test-a'/>
-  <br />
-  <button type='submit'>submit</button>
-</FormGroup>
+const DefaultStoryTemplate = (args: FormGroupProps) => (
+  <FormGroup onSubmit={args.onSubmit}>
+    <InputText type="text" name="test-a" />
+    <br />
+    <button type="submit">submit</button>
+  </FormGroup>
+)
 
 export const Default = DefaultStoryTemplate.bind({})
 
@@ -23,5 +25,5 @@ Default.args = {
   onSubmit: (e) => {
     e.preventDefault()
     window.alert(`submitted: ${e.target}`)
-  }
+  },
 }

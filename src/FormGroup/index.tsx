@@ -5,8 +5,11 @@ export interface FormGroupProps {
   onSubmit: (e: React.FormEvent) => void
 }
 
-const FormGroup: React.FC<React.PropsWithChildren<FormGroupProps>> = ({ children, ...props }) => {
+const FormGroup: React.FC<React.PropsWithChildren<FormGroupProps>> = ({
+  children,
+  ...props
+}) => {
   return <form onSubmit={props.onSubmit}>{children}</form>
 }
 
-export default FormGroup 
+export default FormGroup

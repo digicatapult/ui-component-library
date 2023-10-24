@@ -18,8 +18,8 @@ export const Default = DefaultStoryTemplate.bind({})
 Default.args = {
   headers: ['Timestamp', 'Subject', 'HTML'],
   rows: [
-    [new Date().toISOString(), 'example-1', <p>paragraph</p>],
-    [new Date().toISOString(), 'example-2', <button>button</button>],
-    [new Date().toISOString(), 'example-3', <h3>heading #3</h3>],
+    ['2010-01-01T00:00:00.000Z', 'example-1', <p>paragraph</p>],
+    ['2011-01-01T00:00:00.000Z', 'example-2', <button>button</button>],
+    ['2012-01-01T00:00:00.000Z', 'example-3', <h3>heading #3</h3>],
   ],
 }

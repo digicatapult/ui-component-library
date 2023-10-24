@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export interface InputTextProps {
+export interface InputTextProps
+  extends React.InputHTMLAttributes<InputTextProps> {
   styles?: React.CSSProperties
   width?: string
   type: 'hidden' | 'text'

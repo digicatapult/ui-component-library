@@ -15,15 +15,15 @@ const defaultStyle = `color: var(--Black, #000);font-family: Roboto Mono;font-si
 
 const Table: React.FC<React.PropsWithChildren<TableProps>> = (props) => (
   <Wrapper {...props}>
-    <TR style={props.styles?.tr}>
+    <TR key={Math.random().toString()} style={props.styles?.tr}>
       {props.headers.map((header: string) => (
-        <TH style={props.styles?.th || {}}>{header}</TH>
+        <TH key={Math.random().toString()} style={props.styles?.th || {}}>{header}</TH>
       ))}
     </TR>
     {props.rows.map((row: RowValue[]) => (
-      <TR style={props.styles?.tr}>
+      <TR key={Math.random().toString()} style={props.styles?.tr}>
         {row.map((value: RowValue) => (
-          <TD>{value}</TD>
+          <TD key={Math.random().toString()}>{value}</TD>
         ))}
       </TR>
     ))}

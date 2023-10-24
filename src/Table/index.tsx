@@ -17,7 +17,9 @@ const Table: React.FC<React.PropsWithChildren<TableProps>> = (props) => (
   <Wrapper {...props}>
     <TR key={Math.random().toString()} style={props.styles?.tr}>
       {props.headers.map((header: string) => (
-        <TH key={Math.random().toString()} style={props.styles?.th || {}}>{header}</TH>
+        <TH key={Math.random().toString()} style={props.styles?.th || {}}>
+          {header}
+        </TH>
       ))}
     </TR>
     {props.rows.map((row: RowValue[]) => (

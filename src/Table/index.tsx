@@ -11,6 +11,7 @@ export interface TableProps {
 }
 
 type RowValue = React.ReactNode | number | string | null | undefined
+const defaultStyle = `color: var(--Black, #000);font-family: Roboto Mono;font-size: 16px;font-style: normal;text-align: left;font-weight: 400;line-height: normal;`
 
 const Table: React.FC<React.PropsWithChildren<TableProps>> = (props) => (
   <Wrapper {...props}>
@@ -30,21 +31,17 @@ const Table: React.FC<React.PropsWithChildren<TableProps>> = (props) => (
 )
 
 const TH = styled('th')`
-  color: var(--Black, #000);
-  font-family: Roboto Mono;
-  font-size: 16px;
-  font-style: normal;
-  text-align: left;
-  font-weight: 400;
-  line-height: normal;
+  ${defaultStyle}
   text-decoration-line: underline;
 `
-const TD = styled('td')``
+const TD = styled('td')`
+  ${defaultStyle}
+`
 const TR = styled('tr')``
 
 const Wrapper = styled('table')<TableProps>`
   width: ${({ width }) => width || '100%'};
-  border: none;
+  border-collapse: collapse;
 `
 
 export default Table

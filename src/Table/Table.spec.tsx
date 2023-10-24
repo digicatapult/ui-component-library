@@ -10,9 +10,9 @@ describe('Table', () => {
       <Table
         headers={['Timestamp', 'Subject', 'HTML']}
         rows={[
-          [new Date().toISOString(), 'test-1', <h1>html element</h1>],
-          [new Date().toISOString(), 'test-2', <p>paragraph</p>],
-          [new Date().toISOString(), 'test-3', <button>button</button>],
+          ['2010-01-01T00:00:00.000Z', 'example-1', <p>paragraph</p>],
+          ['2011-01-01T00:00:00.000Z', 'example-2', <button>button</button>],
+          ['2012-01-01T00:00:00.000Z', 'example-3', <h3>heading #3</h3>],
         ]}
       />,
     )

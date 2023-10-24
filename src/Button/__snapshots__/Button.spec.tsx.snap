@@ -3,6 +3,7 @@
 exports[`Input default 1`] = `
 .c0 {
   height: 30px;
+  cursor: pointer;
   border-radius: 8px;
   border: 1px solid #000;
   padding: 0px 15px;
@@ -22,6 +23,7 @@ exports[`Input default 1`] = `
 exports[`Input style overrides 1`] = `
 .c0 {
   height: 30px;
+  cursor: pointer;
   border-radius: 8px;
   border: 1px solid #000;
   padding: 0px 15px;
@@ -47,6 +49,7 @@ exports[`Input style overrides 1`] = `
 exports[`Input submit 1`] = `
 .c0 {
   height: 30px;
+  cursor: pointer;
   border-radius: 8px;
   border: 1px solid #000;
   padding: 0px 15px;

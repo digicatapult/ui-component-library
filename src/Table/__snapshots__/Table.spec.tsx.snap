@@ -1,0 +1,151 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table default 1`] = `
+.c1 {
+  color: var(--Black, #000);
+  font-family: Roboto Mono;
+  font-size: 16px;
+  font-style: normal;
+  text-align: left;
+  font-weight: 400;
+  line-height: normal;
+  text-decoration-line: underline;
+}
+
+.c2 {
+  color: var(--Black, #000);
+  font-family: Roboto Mono;
+  font-size: 16px;
+  font-style: normal;
+  text-align: left;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.c0 {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+<table
+  className="c0"
+  headers={
+    [
+      "Timestamp",
+      "Subject",
+      "HTML",
+    ]
+  }
+  rows={
+    [
+      [
+        "2010-01-01T00:00:00.000Z",
+        "example-1",
+        <p>
+          paragraph
+        </p>,
+      ],
+      [
+        "2011-01-01T00:00:00.000Z",
+        "example-2",
+        <button>
+          button
+        </button>,
+      ],
+      [
+        "2012-01-01T00:00:00.000Z",
+        "example-3",
+        <h3>
+          heading #3
+        </h3>,
+      ],
+    ]
+  }
+>
+  <tr
+    className=""
+  >
+    <th
+      className="c1"
+      style={{}}
+    >
+      Timestamp
+    </th>
+    <th
+      className="c1"
+      style={{}}
+    >
+      Subject
+    </th>
+    <th
+      className="c1"
+      style={{}}
+    >
+      HTML
+    </th>
+  </tr>
+  <tr
+    className=""
+  >
+    <td
+      className="c2"
+    >
+      2010-01-01T00:00:00.000Z
+    </td>
+    <td
+      className="c2"
+    >
+      example-1
+    </td>
+    <td
+      className="c2"
+    >
+      <p>
+        paragraph
+      </p>
+    </td>
+  </tr>
+  <tr
+    className=""
+  >
+    <td
+      className="c2"
+    >
+      2011-01-01T00:00:00.000Z
+    </td>
+    <td
+      className="c2"
+    >
+      example-2
+    </td>
+    <td
+      className="c2"
+    >
+      <button>
+        button
+      </button>
+    </td>
+  </tr>
+  <tr
+    className=""
+  >
+    <td
+      className="c2"
+    >
+      2012-01-01T00:00:00.000Z
+    </td>
+    <td
+      className="c2"
+    >
+      example-3
+    </td>
+    <td
+      className="c2"
+    >
+      <h3>
+        heading #3
+      </h3>
+    </td>
+  </tr>
+</table>
+`;

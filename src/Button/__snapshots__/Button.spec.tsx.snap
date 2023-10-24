@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input default 1`] = `
+.c0 {
+  height: 30px;
+  cursor: pointer;
+  border-radius: 8px;
+  border: 1px solid #000;
+  padding: 0px 15px;
+  background: #fff;
+  margin-right: 3px;
+  box-shadow: 0px 2px 0px 0px #000;
+}
+
+<button
+  className="c0"
+  name="default"
+>
+  default
+</button>
+`;
+
+exports[`Input style overrides 1`] = `
+.c0 {
+  height: 30px;
+  cursor: pointer;
+  border-radius: 8px;
+  border: 1px solid #000;
+  padding: 0px 15px;
+  background: #fff;
+  margin-right: 3px;
+  box-shadow: 0px 2px 0px 0px #000;
+}
+
+<button
+  className="c0"
+  name="override-a"
+  styles={
+    {
+      "background": "red",
+      "height": "100px",
+    }
+  }
+>
+  press me
+</button>
+`;
+
+exports[`Input submit 1`] = `
+.c0 {
+  height: 30px;
+  cursor: pointer;
+  border-radius: 8px;
+  border: 1px solid #000;
+  padding: 0px 15px;
+  background: #fff;
+  margin-right: 3px;
+  box-shadow: 0px 2px 0px 0px #000;
+}
+
+<button
+  className="c0"
+  type="submit"
+>
+  press me
+</button>
+`;

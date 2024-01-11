@@ -149,18 +149,22 @@ const SearchIcon = styled.button<SearchIconProps>`
   background: transparent;
   border: 0;
 
-  &, &:before, &:after {
+  &,
+  &:before,
+  &:after {
     box-sizing: border-box;
   }
 
   &:focus {
-    &:before, &:after {
+    &:before,
+    &:after {
       box-shadow: 0 0 5px 1px ${({ color }) => color};
     }
     outline: 0;
   }
 
-  &:before, &:after {
+  &:before,
+  &:after {
     content: '';
     display: block;
     position: absolute;
@@ -179,10 +183,10 @@ const SearchIcon = styled.button<SearchIconProps>`
     right: 0;
     bottom: 0;
     height: calc(4em / 16);
-    width calc(1.41 * 100% - 1.41 * 40% - 40%);
+    width: calc(1.41 * 100% - 1.41 * 40% - 40%);
     background: ${({ color }) => color};
     transform: rotateZ(40deg);
-    transform-origin: bottom right
+    transform-origin: bottom right;
   }
 
   &:hover {

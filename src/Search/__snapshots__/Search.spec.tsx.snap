@@ -77,6 +77,7 @@ exports[`Test default 1`] = `
   right: 0;
   bottom: 0;
   height: calc(4em / 16);
+  width: calc(1.41 * 100% - 1.41 * 40% - 40%);
   background: black;
   transform: rotateZ(40deg);
   transform-origin: bottom right;
@@ -182,6 +183,7 @@ exports[`Test with props 1`] = `
   right: 0;
   bottom: 0;
   height: calc(4em / 16);
+  width: calc(1.41 * 100% - 1.41 * 40% - 40%);
   background: green;
   transform: rotateZ(40deg);
   transform-origin: bottom right;

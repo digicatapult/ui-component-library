@@ -20,6 +20,10 @@
   "testPathIgnorePatterns": [
     "<rootDir>/lib/"
   ],
+  "setupFiles": [
+    "dotenv/config",
+    "./jest-setup.ts"
+  ],
   "testEnvironment": "jsdom",
   "moduleNameMapper": {
     "^(\\.{1,2}/.*\\.util)\\.js$": "$1.mock",

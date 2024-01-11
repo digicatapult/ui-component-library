@@ -31,7 +31,7 @@ exports[`Test default 1`] = `
   outline: 0;
 }
 
-.c3 {
+.c2 {
   position: relative;
   font: inherit;
   flex-grow: 0;
@@ -43,28 +43,28 @@ exports[`Test default 1`] = `
 }
 
 .c2,
-.c3:before,
-.c3:after {
+.c2:before,
+.c2:after {
   box-sizing: border-box;
 }
 
-.c3:focus {
+.c2:focus {
   outline: 0;
 }
 
-.c3:focus:before,
-.c3:focus:after {
+.c2:focus:before,
+.c2:focus:after {
   box-shadow: 0 0 5px 1px black;
 }
 
-.c3:before,
-.c3:after {
+.c2:before,
+.c2:after {
   content: '';
   display: block;
   position: absolute;
 }
 
-.c3:before {
+.c2:before {
   left: 0;
   top: 0;
   width: 80%;
@@ -73,7 +73,7 @@ exports[`Test default 1`] = `
   border-radius: 50%;
 }
 
-.c3:after {
+.c2:after {
   right: 0;
   bottom: 0;
   height: calc(4em / 16);
@@ -82,7 +82,7 @@ exports[`Test default 1`] = `
   transform-origin: bottom right;
 }
 
-.c3:hover {
+.c2:hover {
   cursor: pointer;
 }
 
@@ -99,7 +99,7 @@ exports[`Test default 1`] = `
     type="search"
   />
   <button
-    className="c2 c3"
+    className="c2"
     color="black"
   />
 </form>
@@ -136,7 +136,7 @@ exports[`Test with props 1`] = `
   outline: 0;
 }
 
-.c3 {
+.c2 {
   position: relative;
   font: inherit;
   flex-grow: 0;
@@ -148,28 +148,28 @@ exports[`Test with props 1`] = `
 }
 
 .c2,
-.c3:before,
-.c3:after {
+.c2:before,
+.c2:after {
   box-sizing: border-box;
 }
 
-.c3:focus {
+.c2:focus {
   outline: 0;
 }
 
-.c3:focus:before,
-.c3:focus:after {
+.c2:focus:before,
+.c2:focus:after {
   box-shadow: 0 0 5px 1px green;
 }
 
-.c3:before,
-.c3:after {
+.c2:before,
+.c2:after {
   content: '';
   display: block;
   position: absolute;
 }
 
-.c3:before {
+.c2:before {
   left: 0;
   top: 0;
   width: 80%;
@@ -178,7 +178,7 @@ exports[`Test with props 1`] = `
   border-radius: 50%;
 }
 
-.c3:after {
+.c2:after {
   right: 0;
   bottom: 0;
   height: calc(4em / 16);
@@ -187,7 +187,7 @@ exports[`Test with props 1`] = `
   transform-origin: bottom right;
 }
 
-.c3:hover {
+.c2:hover {
   cursor: pointer;
 }
 
@@ -205,7 +205,7 @@ exports[`Test with props 1`] = `
     type="search"
   />
   <button
-    className="c2 c3"
+    className="c2"
     color="green"
   />
 </form>

@@ -21,11 +21,11 @@
     "clean": "rm -rf ./lib",
     "build": "npm run clean && tsc",
     "build:watch": "npm run clean && tsc --watch",
-    "coverage": "jest --coverage --setupFiles dotenv/config",
+    "coverage": "jest --coverage",
     "depcheck": "depcheck",
     "lint": "eslint .",
     "storybook": "storybook dev -p 9000",
-    "test": "jest --setupFiles dotenv/config"
+    "test": "jest"
   },
   "peerDependencies": {
     "react": "^18.2.0"

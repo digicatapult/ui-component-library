@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Props } from './types.js'
+import { AppBarProps, AppBarItemProps } from './types.js'
 
 // TODO props per dom element as well as all for appbar
 // TODO abstract into small component for reusing?
@@ -9,7 +9,7 @@ const Wrapper = styled('div')`
   justify-content: space-between;
   box-sizing: border-box;
   transition: box-shadow 1s cubic-bezier(0.8, 1, 0.2, 1) 3s;
-  ${({ shadow, width, color, theme }: Props) => `
+  ${({ shadow, width, color, theme }: AppBarProps) => `
     width: ${width || '100%'};
     box-shadow: ${
       shadow || false
@@ -22,7 +22,7 @@ const Wrapper = styled('div')`
 `
 
 const ToolBar = styled('ul')`
-  ${({ fixed, direction }: Props) => `
+  ${({ fixed, direction }: AppBarProps) => `
     position: ${fixed ? 'fixed' : 'relative'};
     flex-direction: ${direction || 'row'};
   `}
@@ -51,7 +51,7 @@ const Link = styled('a')`
   font-size: 1em;
   line-height: 74px;
 
-  ${({ active, theme }: Props) =>
+  ${({ active, theme }: AppBarItemProps) =>
     active
       ? `
       margin-top: 4px;

@@ -17,6 +17,20 @@ describe('AppBar', () => {
       .toJSON()
     expect(tree).toMatchSnapshot()
   })
+  test('default with links', () => {
+    const tree = renderer
+      .create(
+        <AppBar>
+          <AppBar.Item active={true} href="/what-we-do">
+            what we do
+          </AppBar.Item>
+          <AppBar.Item href="/map">maps</AppBar.Item>
+          <AppBar.Item href="/contact">contact us</AppBar.Item>
+        </AppBar>,
+      )
+      .toJSON()
+    expect(tree).toMatchSnapshot()
+  })
   test('default - fixed', () => {
     const tree = renderer
       .create(

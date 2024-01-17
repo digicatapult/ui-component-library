@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Link default 1`] = `
+.c0 {
+  box-sizing: border-box;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  width: 4em;
+  font-size: calc(4em / 4);
+  text-transform: uppercase;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  border: calc(4em * 0.065) solid #101010;
+  color: #efefef;
+  background: #1E5CbA;
+}
+
+<div
+  bgColor="#1E5CbA"
+  className="c0"
+  color="#efefef"
+  fullName="A A"
+  outlineColor="#101010"
+  size="4em"
+>
+  <p>
+    AA
+  </p>
+</div>
+`;
+
+exports[`Link overrides 1`] = `
+.c0 {
+  box-sizing: border-box;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  font-size: calc(70px / 4);
+  text-transform: uppercase;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  border: calc(70px * 0.065) solid white;
+  color: #1a1a1a;
+  background: #9edcfa;
+}
+
+<div
+  bgColor="#9edcfa"
+  className="c0"
+  color="#1a1a1a"
+  fullName="bruce wayne"
+  outlineColor="white"
+  size="70px"
+>
+  <p>
+    bw
+  </p>
+</div>
+`;

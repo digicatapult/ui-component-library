@@ -1,5 +1,5 @@
 import React from 'react'
-import { Story, Meta } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 
 import AppBar from './index.js'
 
@@ -46,13 +46,15 @@ export default {
   },
 } as Meta<React.ComponentProps<typeof AppBar>>
 
-export const Default: Story<typeof AppBar> = (props) => (
+export const Default: StoryFn<typeof AppBar> = (props) => (
   <AppBar {...props}>
-    <AppBar.Item active={true}>item one</AppBar.Item>
-    <AppBar.Item>item two</AppBar.Item>
+    <AppBar.Item active={true} href=".">
+      item one
+    </AppBar.Item>
+    <AppBar.Item href=".">item two</AppBar.Item>
   </AppBar>
 )
-export const HII: Story<typeof AppBar> = () => (
+export const HII: StoryFn<typeof AppBar> = () => (
   <AppBar
     shadow={false}
     theme={{
@@ -60,8 +62,10 @@ export const HII: Story<typeof AppBar> = () => (
       accent: '#FFF',
     }}
   >
-    <AppBar.Item active={true}>what we do</AppBar.Item>
-    <AppBar.Item>maps</AppBar.Item>
-    <AppBar.Item>contact us</AppBar.Item>
+    <AppBar.Item active={true} href=".">
+      what we do
+    </AppBar.Item>
+    <AppBar.Item href=".">maps</AppBar.Item>
+    <AppBar.Item href=".">contact us</AppBar.Item>
   </AppBar>
 )

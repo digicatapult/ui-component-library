@@ -1,3 +1,4 @@
+import React from 'react'
 import styled from 'styled-components'
 
 const Ul = styled('ul')`
@@ -13,19 +14,39 @@ const Title = styled('h2')`
   font-size: 16px;
   font-weight: normal;
   color: #bdc3c7;
+  align-items: center;
+  padding: 5px 5px;
+  border-radius: 60px;
+  color: ${(props: React.CSSProperties) => props.color || 'black' };
+  border:  ${(props: React.CSSProperties) => props.border || 'none' };
+  opacity: 0.3;
+`
+
+const Status = styled('h1')`
+  text-transform: uppercase;
+  color: ${(props: React.CSSProperties) => props.color || 'black' };
+  text-align: right;
+  width: 100px;
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  font-weight: 400;
 `
 
 const Label = styled('label')`
-  min-height: 88px;
-  max-height: 92px;
+  min-height: 100px;
   width: 100%;
   display: block;
-  color: #a7a7a7;
+  color: ${(props: React.CSSProperties) => props.color || '#a7a7a7'};
   font-size: 11px;
   font-weight: 300;
   cursor: pointer;
   position: relative;
-  padding: 25px 5px 0px 50px;
+  padding: 5px 5px 0px 50px;
   box-sizing: border-box;
   overflow: hidden;
 
@@ -35,14 +56,14 @@ const Label = styled('label')`
 
   &::before {
     content: '';
-    width: 19px;
-    height: 19px;
-    border: 2px solid #000;
+    width: 12px;
+    height: 12px;
+    opacity: 1;
     display: block;
     position: absolute;
     left: 20px;
     top: 20px;
-    background: red;
+    background: ${(props: React.CSSProperties) => props.color|| 'black' };
     transition: border 0.7s ease;
     border-radius: 100%;
     z-index: 99999;
@@ -51,19 +72,14 @@ const Label = styled('label')`
   &::after {
     content: '';
     width: 2px;
-    height: 97px;
-    background-color: red;
+    opacity: 0.3;
+    height: 100px;
+    background: ${(props: React.CSSProperties) => props.color || 'black' };
     position: absolute;
-    left: 30px;
-    top: -5px;
+    left: 25px;
+    top: 0px;
   }
 `
-/**
-  ${({ fixed, direction }: Props) => `
-    position: ${fixed ? 'fixed' : 'relative'};
-    flex-direction: ${direction || 'row'};
-  `}
- */
 
 const Input = styled('input')`
   display: none;
@@ -73,12 +89,11 @@ const Container = styled('div')`
   box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   left: 0px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding: 5px;
+  background: ${(props: React.CSSProperties)  => props.background || 'none' };
 
   ${Input}:checked + ${Label} ${Title} {
-    color: #000;
-    border-bottom: 2px solid #a7a7a7;
+    opacity: 1;
   }
 
   ${Input}:checked + ${Label} {
@@ -89,31 +104,16 @@ const Container = styled('div')`
   }
 
   ${Input}:checked + ${Label}:before {
-    background-color: green;
-    border: 2px solid #a7a7a7;
+    opacity: 1;
   }
 
   ${Input}:checked + ${Label}:after {
-    background: green;
+    opacity: 1;
   }
 `
-
-/**
-  &:first-child ${Label} {
-    border-right: 8px solid orange;
-  }
-
-  &:last-child ${Label} {
-    border-right: 8px solid navy;
-  }
- */
 const Li = styled('li')`
-  border-radius: 60px;
-  border: 1px solid #33e58c;
-
-  background: #0c3b38;
   &:first-child ${Label}:before {
-    top: 20px;
+    top: 10px;
   }
   &:first-child ${Label}:after {
     top: 20px;
@@ -121,32 +121,41 @@ const Li = styled('li')`
   }
 
   &:last-child ${Label}:before {
-    top: 60%;
+    top: 30%;
   }
   &:last-child ${Label}:after {
-    top: -22px;
+    top: -60px;
   }
 `
 
 const Heading = styled('h1')`
-  font-size: 20px;
+  padding: 0px 10px;
+  font-family: Roboto;
+  font-size: 16px;
   font-style: normal;
   font-weight: 700;
-  line-height: 0px; /* 0% */
-`
+  color: ${(props: React.CSSProperties)  => props.color || 'black' };
 
-const TextBlock = styled('div')`
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-item: center;
+  text-transform: uppercase;
+`
+const BlankText = styled('div')`
   width: 100%;
-  height: 11px;
-  flex-shrink: 0;
-  background: linear-gradient(
-    94deg,
-    #d7d7d7 2.29%,
-    rgba(233, 233, 233, 0.52) 25.76%,
-    rgba(204, 204, 204, 0.69) 48.75%,
-    rgba(230, 230, 230, 0.87) 74.56%,
-    #dbdbdb 92.39%
-  );
+  height: 8px;
+  background: rgba(0, 0, 0, 0.1);
 `
 
-export { Heading, Li, Ul, Title, Label, Container, Input, TextBlock }
+const IconWrapper = styled('div')`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25px;
+  width: 25px;
+  border: ${(props: React.CSSProperties) => props.border || 'none' };
+  border-radius: 60px;
+`
+
+export { Heading, Li, Ul, Title, Label, Container, Input, BlankText, Status, IconWrapper}

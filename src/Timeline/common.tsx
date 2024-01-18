@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
 const Ul = styled('ul')`
-  list-style: none; 
+  list-style: none;
   margin: 0px;
-  padding: 0px; 
+  padding: 0px;
 `
 const Title = styled('h2')`
   display: flex;
@@ -26,16 +26,15 @@ const Label = styled('label')`
   cursor: pointer;
   position: relative;
   padding: 25px 5px 0px 50px;
-  box-sizing:  border-box;
+  box-sizing: border-box;
   overflow: hidden;
-  
 
   &:hover {
-    background: rgba(255,125,125, 0.2);
+    background: rgba(255, 125, 125, 0.2);
   }
 
   &::before {
-    content:"";
+    content: '';
     width: 19px;
     height: 19px;
     border: 2px solid #000;
@@ -44,14 +43,13 @@ const Label = styled('label')`
     left: 20px;
     top: 20px;
     background: red;
-    transition: border .7s ease;
-    border-radius: 100%; 
+    transition: border 0.7s ease;
+    border-radius: 100%;
     z-index: 99999;
-  } 
-
+  }
 
   &::after {
-    content:"";
+    content: '';
     width: 2px;
     height: 97px;
     background-color: red;
@@ -85,11 +83,11 @@ const Container = styled('div')`
 
   ${Input}:checked + ${Label} {
     &:hover {
-     background: rgba(125,255,125, 0.2);
+      background: rgba(125, 255, 125, 0.2);
     }
     max-height: 300px;
   }
-  
+
   ${Input}:checked + ${Label}:before {
     background-color: green;
     border: 2px solid #a7a7a7;
@@ -110,6 +108,10 @@ const Container = styled('div')`
   }
  */
 const Li = styled('li')`
+  border-radius: 60px;
+  border: 1px solid #33e58c;
+
+  background: #0c3b38;
   &:first-child ${Label}:before {
     top: 20px;
   }
@@ -123,7 +125,7 @@ const Li = styled('li')`
   }
   &:last-child ${Label}:after {
     top: -22px;
-  } 
+  }
 `
 
 const Heading = styled('h1')`
@@ -137,7 +139,14 @@ const TextBlock = styled('div')`
   width: 100%;
   height: 11px;
   flex-shrink: 0;
-  background: linear-gradient(94deg, #D7D7D7 2.29%, rgba(233, 233, 233, 0.52) 25.76%, rgba(204, 204, 204, 0.69) 48.75%, rgba(230, 230, 230, 0.87) 74.56%, #DBDBDB 92.39%);
+  background: linear-gradient(
+    94deg,
+    #d7d7d7 2.29%,
+    rgba(233, 233, 233, 0.52) 25.76%,
+    rgba(204, 204, 204, 0.69) 48.75%,
+    rgba(230, 230, 230, 0.87) 74.56%,
+    #dbdbdb 92.39%
+  );
 `
 
-export { Heading, Li, Ul, Title, Label, Container,Input, TextBlock } 
+export { Heading, Li, Ul, Title, Label, Container, Input, TextBlock }

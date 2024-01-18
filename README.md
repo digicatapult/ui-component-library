@@ -176,3 +176,4 @@ npm run depcheck
 [ ] - should have a version of each html default e.g. checkbox/radio/h1
 [ ] - sort typography - got out of sync or we are not using, should have headings,sub,etc
 [ ] - publish storybook
+[ ] - export icons in a nice way once there are more than 5

@@ -15,7 +15,15 @@ export default {
       control: {
         type: 'select',
       },
-      options: [null, 'rounded', 'square', 'roundedShadow', 'squareShadow'],
+      options: [
+        null,
+        'rounded',
+        'square',
+        'roundedShadow',
+        'squareShadow',
+        'roundedPronounced',
+        'roundedPronouncedShadow',
+      ],
     },
   },
 }

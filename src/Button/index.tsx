@@ -65,7 +65,7 @@ const SquareButton = styled.button`
 `
 
 const RoundedButton = styled(SquareButton)`
-  border-radius: 0.6em;
+  border-radius: 8px;
 `
 
 const SquareShadowButton = styled(SquareButton)`

@@ -57,6 +57,26 @@ describe('Input', () => {
     expect(tree).toMatchSnapshot()
   })
 
+  test('roundedPronounced', () => {
+    const instance = renderer.create(
+      <Button name="default" variant="roundedPronounced">
+        default
+      </Button>,
+    )
+    const tree = instance.toJSON()
+    expect(tree).toMatchSnapshot()
+  })
+
+  test('roundedPronouncedShadow', () => {
+    const instance = renderer.create(
+      <Button name="default" variant="roundedPronounced">
+        default
+      </Button>,
+    )
+    const tree = instance.toJSON()
+    expect(tree).toMatchSnapshot()
+  })
+
   test('style overrides', () => {
     const instance = renderer.create(
       <Button name="override-a" styles={{ height: '100px', background: 'red' }}>

@@ -46,6 +46,48 @@ exports[`Input rounded 1`] = `
 </button>
 `;
 
+exports[`Input roundedPronounced 1`] = `
+.c0 {
+  height: 30px;
+  cursor: pointer;
+  border: 1px solid #000;
+  padding: 0px 15px;
+  background: #fff;
+}
+
+.c1 {
+  border-radius: 4em;
+}
+
+<button
+  className="c0 c1"
+  name="default"
+>
+  default
+</button>
+`;
+
+exports[`Input roundedPronouncedShadow 1`] = `
+.c0 {
+  height: 30px;
+  cursor: pointer;
+  border: 1px solid #000;
+  padding: 0px 15px;
+  background: #fff;
+}
+
+.c1 {
+  border-radius: 4em;
+}
+
+<button
+  className="c0 c1"
+  name="default"
+>
+  default
+</button>
+`;
+
 exports[`Input roundedShadow 1`] = `
 .c0 {
   height: 30px;

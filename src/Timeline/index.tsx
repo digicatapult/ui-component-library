@@ -12,7 +12,7 @@ export interface TimelineProps {
   onClick?: (e: any) => void
 }
 
-interface Timeline extends React.FC<React.PropsWithChildren<TimelineProps>> {
+export interface Timeline extends React.FC<React.PropsWithChildren<TimelineProps>> {
   Item: React.FC<React.PropsWithChildren<ItemProps>>
 }
 
@@ -20,7 +20,7 @@ const Timeline: Timeline = Object.assign(
   (props: React.PropsWithChildren<TimelineProps>) => {
     const { children, ...rest } = props
     return (
-      <Container {...props}>
+      <Container {...rest}>
         <Heading>{props.name}</Heading>
         <Ul>{props.children}</Ul>
       </Container>
@@ -28,5 +28,7 @@ const Timeline: Timeline = Object.assign(
   },
   { Item },
 )
+
+Timeline.Item = Item
 
 export default Timeline

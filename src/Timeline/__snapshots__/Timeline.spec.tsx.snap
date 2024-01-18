@@ -1,0 +1,182 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Timeline default 1`] = `
+.c2 {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c9 {
+  display: flex;
+  margin-top: 0px;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: normal;
+  color: #bdc3c7;
+}
+
+.c7 {
+  min-height: 88px;
+  max-height: 92px;
+  width: 100%;
+  display: block;
+  color: #a7a7a7;
+  font-size: 11px;
+  font-weight: 300;
+  cursor: pointer;
+  position: relative;
+  padding: 25px 5px 0px 50px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.c7:hover {
+  background: rgba(255, 125, 125, 0.2);
+}
+
+.c7::before {
+  content: '';
+  width: 19px;
+  height: 19px;
+  border: 2px solid #000;
+  display: block;
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  background: red;
+  transition: border 0.7s ease;
+  border-radius: 100%;
+  z-index: 99999;
+}
+
+.c7::after {
+  content: '';
+  width: 2px;
+  height: 97px;
+  background-color: red;
+  position: absolute;
+  left: 30px;
+  top: -5px;
+}
+
+.c5 {
+  display: none;
+}
+
+.c0 {
+  box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  left: 0px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.c0 .c4:checked+.c6 .c8 {
+  color: #000;
+  border-bottom: 2px solid #a7a7a7;
+}
+
+.c0 .c4:checked+.c6 {
+  max-height: 300px;
+}
+
+.c0 .c4:checked+.c6:hover {
+  background: rgba(125, 255, 125, 0.2);
+}
+
+.c0 .c4:checked+.c6:before {
+  background-color: green;
+  border: 2px solid #a7a7a7;
+}
+
+.c0 .c4:checked+.c6:after {
+  background: green;
+}
+
+.c3 {
+  border-radius: 60px;
+  border: 1px solid #33e58c;
+  background: #0c3b38;
+}
+
+.c3:first-child .c6:before {
+  top: 20px;
+}
+
+.c3:first-child .c6:after {
+  top: 20px;
+  height: 200px;
+}
+
+.c3:last-child .c6:before {
+  top: 60%;
+}
+
+.c3:last-child .c6:after {
+  top: -22px;
+}
+
+.c1 {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 0px;
+}
+
+.c10 {
+  width: 100%;
+  height: 11px;
+  flex-shrink: 0;
+  background: linear-gradient(     94deg,     #d7d7d7 2.29%,     rgba(233, 233, 233, 0.52) 25.76%,     rgba(204, 204, 204, 0.69) 48.75%,     rgba(230, 230, 230, 0.87) 74.56%,     #dbdbdb 92.39%   );
+}
+
+<div
+  className="c0"
+>
+  <h1
+    className="c1"
+  />
+  <ul
+    className="c2"
+  >
+    <li
+      className="c3"
+    >
+      <input
+        checked={false}
+        className="c4 c5"
+        type="checkbox"
+      />
+      <label
+        className="c6 c7"
+      >
+        <h2
+          className="c8 c9"
+        >
+          test
+          <svg
+            fill="none"
+            height="21"
+            viewBox="0 0 18 21"
+            width="18"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7.5 0C9.22674 2.05911e-08 10.9268 0.425849 12.4497 1.23983C13.9725 2.0538 15.2711 3.23078 16.2304 4.66651C17.1898 6.10224 17.7802 7.7524 17.9494 9.47082C18.1187 11.1892 17.8615 12.9229 17.2007 14.5182C16.5399 16.1135 15.4959 17.5212 14.1611 18.6166C12.8263 19.712 11.242 20.4614 9.54845 20.7982C7.85489 21.1351 6.1044 21.0491 4.45201 20.5479C2.79963 20.0466 1.29637 19.1456 0.075381 17.9246L7.5 10.5V0Z"
+              fill="red"
+            />
+          </svg>
+        </h2>
+        <div
+          className="c10"
+        />
+        <div
+          className="c10"
+        />
+      </label>
+    </li>
+  </ul>
+</div>
+`;

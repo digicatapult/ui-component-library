@@ -1,5 +1,4 @@
 import React, { PropsWithChildren } from 'react'
-import styled from 'styled-components'
 
 import Checked from '../Icons/Checked.js'
 import InProgress from '../Icons/InProgress.js'
@@ -11,7 +10,6 @@ export interface ItemProps {
   action?: () => void
 }
 
-// TODO remove this, just to prove that ts extension works.
 const Item: React.FC<PropsWithChildren<ItemProps>> = ({
   children,
   title,
@@ -37,7 +35,5 @@ const Item: React.FC<PropsWithChildren<ItemProps>> = ({
     </Li>
   )
 }
-
-const Wrapper = styled('div')<ItemProps>``
 
 export default Item

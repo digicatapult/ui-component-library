@@ -1,7 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 
-type buttonVariant = 'rounded' | 'square' | 'roundedShadow' | 'squareShadow'
+type buttonVariant =
+  | 'rounded'
+  | 'square'
+  | 'roundedShadow'
+  | 'squareShadow'
+  // NEW
+  | 'roundedPronounced'
+  | 'roundedPronouncedShadow'
 
 export type ButtonTextProps = {
   styles?: React.CSSProperties
@@ -24,15 +31,23 @@ const ButtonBasic: React.FC<React.PropsWithChildren<ButtonTextProps>> = ({
     case 'rounded':
       Button = RoundedButton
       break
-    case 'roundedShadow':
-      Button = RoundedShadowButton
-      break
     case 'square':
       Button = SquareButton
+      break
+    case 'roundedShadow':
+      Button = RoundedShadowButton
       break
     case 'squareShadow':
       Button = SquareShadowButton
       break
+    // NEW
+    case 'roundedPronounced':
+      Button = RoundedPronouncedButton
+      break
+    case 'roundedPronouncedShadow':
+      Button = RoundedPronouncedShadowButton
+      break
+
     default:
       Button = RoundedShadowButton
       break
@@ -49,15 +64,25 @@ const SquareButton = styled.button`
   background: #fff;
 `
 
-const SquareShadowButton = styled(SquareButton)`
-  box-shadow: 0px 2px 0px 0px #000;
-`
-
 const RoundedButton = styled(SquareButton)`
   border-radius: 8px;
 `
 
+const SquareShadowButton = styled(SquareButton)`
+  box-shadow: 0px 2px 0px 0px #000;
+`
+
 const RoundedShadowButton = styled(RoundedButton)`
+  box-shadow: 0px 2px 0px 0px #000;
+`
+
+// NEW
+
+const RoundedPronouncedButton = styled(SquareButton)`
+  border-radius: 4em;
+`
+
+const RoundedPronouncedShadowButton = styled(RoundedPronouncedButton)`
   box-shadow: 0px 2px 0px 0px #000;
 `
 

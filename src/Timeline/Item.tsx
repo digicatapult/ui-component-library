@@ -1,50 +1,56 @@
-import React, { PropsWithChildren } from 'react'
+import React, { BaseSyntheticEvent, PropsWithChildren } from 'react'
 
-import Checked from '../Icons/Checked.js'
-import InProgress from '../Icons/InProgress.js'
-import { Li, Input, Title, Label, Status, BlankText, IconWrapper } from './common.js'
+import { InProgressIcon, CheckedIcon } from '../index.js'
 import { variants } from './index.js'
+import {
+  Li,
+  Input,
+  Title,
+  Label,
+  Status,
+  BlankText,
+  IconWrapper,
+} from './common.js'
 
 export interface ItemProps {
   title: string
-  checked: boolean
-  variant?: any
+  checked?: boolean
+  variant?: 'hyproof' | 'default'
   color?: string
-  subStatus?: 'pending' | 'completed' | 'calculating' | ('submitted' & string)
-  action?: () => void
+  status?: 'pending' | 'completed' | 'calculating' | 'submitted'
 }
-
-const renderBlankText = () => <>
-  <BlankText />
-  <br />
-  <BlankText />
-</>
 
 const Item: React.FC<PropsWithChildren<ItemProps>> = ({
   children,
+  checked = false,
   ...props
 }: PropsWithChildren<ItemProps>) => {
-    const styling: any = props?.variant ? variants[props.variant as 'hyproof'] : {}
+  const styling: any = props.variant ? variants[props.variant] : {}
   return (
     <Li>
-      <Input type={'checkbox'} checked={props.checked} />
+      <Input onChange={() => { console.log('asd')}} type={'checkbox'} checked={checked} />
       <Label {...styling}>
         <Title {...styling}>
           {props.title}
           <Status {...styling}>
-            {props.subStatus}
-            <IconWrapper {...props}>
-              {props.checked
-                ? <Checked color={props.color} />
-                : <InProgress color={props.color} />
-              }
+            {props.status}
+            <IconWrapper {...styling}>
+              {checked ? (
+                <CheckedIcon {...styling} />
+              ) : (
+                <InProgressIcon {...styling} />
+              )}
             </IconWrapper>
           </Status>
         </Title>
         {children ? (
           children
         ) : (
-          renderBlankText()
+          <>
+            <BlankText />
+            <br />
+            <BlankText />
+          </>
         )}
       </Label>
     </Li>

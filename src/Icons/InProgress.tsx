@@ -1,6 +1,10 @@
 import React from 'react'
 
-export default function ({ color = 'black' }: { color: string | undefined }): React.ReactElement {
+export default function ({
+  color = 'black',
+}: {
+  color: string | undefined
+}): React.ReactElement {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

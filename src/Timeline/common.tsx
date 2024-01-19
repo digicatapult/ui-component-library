@@ -17,24 +17,21 @@ const Title = styled('h2')`
   align-items: center;
   padding: 5px 5px;
   border-radius: 60px;
-  color: ${(props: React.CSSProperties) => props.color || 'black' };
-  border:  ${(props: React.CSSProperties) => props.border || 'none' };
+  color: ${(props: React.CSSProperties) => props.color || 'black'};
+  border: ${(props: React.CSSProperties) => props.border || 'none'};
   opacity: 0.3;
 `
 
-const Status = styled('h1')`
-  text-transform: uppercase;
-  color: ${(props: React.CSSProperties) => props.color || 'black' };
-  text-align: right;
-  width: 100px;
-  font-family: Roboto;
-  font-size: 12px;
-  font-style: normal;
+const Status = styled('header')`
   display: flex;
   flex-direction: row;
+  justify-content: flex-end;
   align-items: center;
   gap: 10px;
-  font-weight: 400;
+  text-transform: uppercase;
+  color: ${(props: React.CSSProperties) => props.color || 'black'};
+  text-align: right;
+  font-size: 12px;
 `
 
 const Label = styled('label')`
@@ -46,7 +43,7 @@ const Label = styled('label')`
   font-weight: 300;
   cursor: pointer;
   position: relative;
-  padding: 5px 5px 0px 50px;
+  padding: 0px 10px 0px 50px;
   box-sizing: border-box;
   overflow: hidden;
 
@@ -58,12 +55,12 @@ const Label = styled('label')`
     content: '';
     width: 12px;
     height: 12px;
-    opacity: 1;
+    opacity: 0.3;
     display: block;
     position: absolute;
     left: 20px;
-    top: 20px;
-    background: ${(props: React.CSSProperties) => props.color|| 'black' };
+    top: 10px;
+    background: ${(props: React.CSSProperties) => props.color || 'black'};
     transition: border 0.7s ease;
     border-radius: 100%;
     z-index: 99999;
@@ -74,7 +71,7 @@ const Label = styled('label')`
     width: 2px;
     opacity: 0.3;
     height: 100px;
-    background: ${(props: React.CSSProperties) => props.color || 'black' };
+    background: ${(props: React.CSSProperties) => props.color || 'black'};
     position: absolute;
     left: 25px;
     top: 0px;
@@ -90,7 +87,7 @@ const Container = styled('div')`
   overflow: hidden;
   left: 0px;
   padding: 5px;
-  background: ${(props: React.CSSProperties)  => props.background || 'none' };
+  background: ${(props: React.CSSProperties) => props.background || 'none'};
 
   ${Input}:checked + ${Label} ${Title} {
     opacity: 1;
@@ -124,7 +121,7 @@ const Li = styled('li')`
     top: 30%;
   }
   &:last-child ${Label}:after {
-    top: -60px;
+    top: -70px;
   }
 `
 
@@ -134,7 +131,7 @@ const Heading = styled('h1')`
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
-  color: ${(props: React.CSSProperties)  => props.color || 'black' };
+  color: ${(props: React.CSSProperties) => props.color || 'black'};
 
   display: flex;
   flex-direction: row;
@@ -154,8 +151,19 @@ const IconWrapper = styled('div')`
   align-items: center;
   height: 25px;
   width: 25px;
-  border: ${(props: React.CSSProperties) => props.border || 'none' };
+  border: ${(props: React.CSSProperties) => props.border || 'none'};
   border-radius: 60px;
 `
 
-export { Heading, Li, Ul, Title, Label, Container, Input, BlankText, Status, IconWrapper}
+export {
+  Heading,
+  Li,
+  Ul,
+  Title,
+  Label,
+  Container,
+  Input,
+  BlankText,
+  Status,
+  IconWrapper,
+}

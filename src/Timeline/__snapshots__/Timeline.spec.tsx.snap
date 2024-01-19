@@ -15,11 +15,28 @@ exports[`Timeline default renders basic Timeline with a single Timeline.Item 1`]
   font-size: 16px;
   font-weight: normal;
   color: #bdc3c7;
+  align-items: center;
+  padding: 5px 5px;
+  border-radius: 60px;
+  color: black;
+  border: none;
+  opacity: 0.3;
+}
+
+.c10 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  text-transform: uppercase;
+  color: black;
+  text-align: right;
+  font-size: 12px;
 }
 
 .c7 {
-  min-height: 88px;
-  max-height: 92px;
+  min-height: 100px;
   width: 100%;
   display: block;
   color: #a7a7a7;
@@ -27,7 +44,7 @@ exports[`Timeline default renders basic Timeline with a single Timeline.Item 1`]
   font-weight: 300;
   cursor: pointer;
   position: relative;
-  padding: 25px 5px 0px 50px;
+  padding: 0px 10px 0px 50px;
   box-sizing: border-box;
   overflow: hidden;
 }
@@ -38,14 +55,14 @@ exports[`Timeline default renders basic Timeline with a single Timeline.Item 1`]
 
 .c7::before {
   content: '';
-  width: 19px;
-  height: 19px;
-  border: 2px solid #000;
+  width: 12px;
+  height: 12px;
+  opacity: 0.3;
   display: block;
   position: absolute;
   left: 20px;
-  top: 20px;
-  background: red;
+  top: 10px;
+  background: black;
   transition: border 0.7s ease;
   border-radius: 100%;
   z-index: 99999;
@@ -54,11 +71,12 @@ exports[`Timeline default renders basic Timeline with a single Timeline.Item 1`]
 .c7::after {
   content: '';
   width: 2px;
-  height: 97px;
-  background-color: red;
+  opacity: 0.3;
+  height: 100px;
+  background: black;
   position: absolute;
-  left: 30px;
-  top: -5px;
+  left: 25px;
+  top: 0px;
 }
 
 .c5 {
@@ -69,13 +87,12 @@ exports[`Timeline default renders basic Timeline with a single Timeline.Item 1`]
   box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   left: 0px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding: 5px;
+  background: none;
 }
 
 .c0 .c4:checked+.c6 .c8 {
-  color: #000;
-  border-bottom: 2px solid #a7a7a7;
+  opacity: 1;
 }
 
 .c0 .c4:checked+.c6 {
@@ -87,22 +104,15 @@ exports[`Timeline default renders basic Timeline with a single Timeline.Item 1`]
 }
 
 .c0 .c4:checked+.c6:before {
-  background-color: green;
-  border: 2px solid #a7a7a7;
+  opacity: 1;
 }
 
 .c0 .c4:checked+.c6:after {
-  background: green;
-}
-
-.c3 {
-  border-radius: 60px;
-  border: 1px solid #33e58c;
-  background: #0c3b38;
+  opacity: 1;
 }
 
 .c3:first-child .c6:before {
-  top: 20px;
+  top: 10px;
 }
 
 .c3:first-child .c6:after {
@@ -111,25 +121,41 @@ exports[`Timeline default renders basic Timeline with a single Timeline.Item 1`]
 }
 
 .c3:last-child .c6:before {
-  top: 60%;
+  top: 30%;
 }
 
 .c3:last-child .c6:after {
-  top: -22px;
+  top: -70px;
 }
 
 .c1 {
-  font-size: 20px;
+  padding: 0px 10px;
+  font-family: Roboto;
+  font-size: 16px;
   font-style: normal;
   font-weight: 700;
-  line-height: 0px;
+  color: black;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-item: center;
+  text-transform: uppercase;
 }
 
-.c10 {
+.c12 {
   width: 100%;
-  height: 11px;
-  flex-shrink: 0;
-  background: linear-gradient(     94deg,     #d7d7d7 2.29%,     rgba(233, 233, 233, 0.52) 25.76%,     rgba(204, 204, 204, 0.69) 48.75%,     rgba(230, 230, 230, 0.87) 74.56%,     #dbdbdb 92.39%   );
+  height: 8px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.c11 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25px;
+  width: 25px;
+  border: none;
+  border-radius: 60px;
 }
 
 <div
@@ -147,6 +173,7 @@ exports[`Timeline default renders basic Timeline with a single Timeline.Item 1`]
       <input
         checked={false}
         className="c4 c5"
+        onChange={[Function]}
         type="checkbox"
       />
       <label
@@ -156,24 +183,33 @@ exports[`Timeline default renders basic Timeline with a single Timeline.Item 1`]
           className="c8 c9"
         >
           timeline-item-basic
-          <svg
-            fill="none"
-            height="21"
-            viewBox="0 0 18 21"
-            width="18"
-            xmlns="http://www.w3.org/2000/svg"
+          <header
+            className="c10"
           >
-            <path
-              d="M7.5 0C9.22674 2.05911e-08 10.9268 0.425849 12.4497 1.23983C13.9725 2.0538 15.2711 3.23078 16.2304 4.66651C17.1898 6.10224 17.7802 7.7524 17.9494 9.47082C18.1187 11.1892 17.8615 12.9229 17.2007 14.5182C16.5399 16.1135 15.4959 17.5212 14.1611 18.6166C12.8263 19.712 11.242 20.4614 9.54845 20.7982C7.85489 21.1351 6.1044 21.0491 4.45201 20.5479C2.79963 20.0466 1.29637 19.1456 0.075381 17.9246L7.5 10.5V0Z"
-              fill="red"
-            />
-          </svg>
+            <div
+              className="c11"
+            >
+              <svg
+                fill="none"
+                height="18"
+                viewBox="0 0 17 21"
+                width="18"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M7.5 0C9.22674 2.05911e-08 10.9268 0.425849 12.4497 1.23983C13.9725 2.0538 15.2711 3.23078 16.2304 4.66651C17.1898 6.10224 17.7802 7.7524 17.9494 9.47082C18.1187 11.1892 17.8615 12.9229 17.2007 14.5182C16.5399 16.1135 15.4959 17.5212 14.1611 18.6166C12.8263 19.712 11.242 20.4614 9.54845 20.7982C7.85489 21.1351 6.1044 21.0491 4.45201 20.5479C2.79963 20.0466 1.29637 19.1456 0.075381 17.9246L7.5 10.5V0Z"
+                  fill="black"
+                />
+              </svg>
+            </div>
+          </header>
         </h2>
         <div
-          className="c10"
+          className="c12"
         />
+        <br />
         <div
-          className="c10"
+          className="c12"
         />
       </label>
     </li>
@@ -196,11 +232,28 @@ exports[`Timeline default renders mixture of timelines complete/not-complete 1`]
   font-size: 16px;
   font-weight: normal;
   color: #bdc3c7;
+  align-items: center;
+  padding: 5px 5px;
+  border-radius: 60px;
+  color: black;
+  border: none;
+  opacity: 0.3;
+}
+
+.c10 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  text-transform: uppercase;
+  color: black;
+  text-align: right;
+  font-size: 12px;
 }
 
 .c7 {
-  min-height: 88px;
-  max-height: 92px;
+  min-height: 100px;
   width: 100%;
   display: block;
   color: #a7a7a7;
@@ -208,7 +261,7 @@ exports[`Timeline default renders mixture of timelines complete/not-complete 1`]
   font-weight: 300;
   cursor: pointer;
   position: relative;
-  padding: 25px 5px 0px 50px;
+  padding: 0px 10px 0px 50px;
   box-sizing: border-box;
   overflow: hidden;
 }
@@ -219,14 +272,14 @@ exports[`Timeline default renders mixture of timelines complete/not-complete 1`]
 
 .c7::before {
   content: '';
-  width: 19px;
-  height: 19px;
-  border: 2px solid #000;
+  width: 12px;
+  height: 12px;
+  opacity: 0.3;
   display: block;
   position: absolute;
   left: 20px;
-  top: 20px;
-  background: red;
+  top: 10px;
+  background: black;
   transition: border 0.7s ease;
   border-radius: 100%;
   z-index: 99999;
@@ -235,11 +288,12 @@ exports[`Timeline default renders mixture of timelines complete/not-complete 1`]
 .c7::after {
   content: '';
   width: 2px;
-  height: 97px;
-  background-color: red;
+  opacity: 0.3;
+  height: 100px;
+  background: black;
   position: absolute;
-  left: 30px;
-  top: -5px;
+  left: 25px;
+  top: 0px;
 }
 
 .c5 {
@@ -250,13 +304,12 @@ exports[`Timeline default renders mixture of timelines complete/not-complete 1`]
   box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   left: 0px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding: 5px;
+  background: none;
 }
 
 .c0 .c4:checked+.c6 .c8 {
-  color: #000;
-  border-bottom: 2px solid #a7a7a7;
+  opacity: 1;
 }
 
 .c0 .c4:checked+.c6 {
@@ -268,22 +321,15 @@ exports[`Timeline default renders mixture of timelines complete/not-complete 1`]
 }
 
 .c0 .c4:checked+.c6:before {
-  background-color: green;
-  border: 2px solid #a7a7a7;
+  opacity: 1;
 }
 
 .c0 .c4:checked+.c6:after {
-  background: green;
-}
-
-.c3 {
-  border-radius: 60px;
-  border: 1px solid #33e58c;
-  background: #0c3b38;
+  opacity: 1;
 }
 
 .c3:first-child .c6:before {
-  top: 20px;
+  top: 10px;
 }
 
 .c3:first-child .c6:after {
@@ -292,25 +338,41 @@ exports[`Timeline default renders mixture of timelines complete/not-complete 1`]
 }
 
 .c3:last-child .c6:before {
-  top: 60%;
+  top: 30%;
 }
 
 .c3:last-child .c6:after {
-  top: -22px;
+  top: -70px;
 }
 
 .c1 {
-  font-size: 20px;
+  padding: 0px 10px;
+  font-family: Roboto;
+  font-size: 16px;
   font-style: normal;
   font-weight: 700;
-  line-height: 0px;
+  color: black;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-item: center;
+  text-transform: uppercase;
 }
 
-.c10 {
+.c12 {
   width: 100%;
-  height: 11px;
-  flex-shrink: 0;
-  background: linear-gradient(     94deg,     #d7d7d7 2.29%,     rgba(233, 233, 233, 0.52) 25.76%,     rgba(204, 204, 204, 0.69) 48.75%,     rgba(230, 230, 230, 0.87) 74.56%,     #dbdbdb 92.39%   );
+  height: 8px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.c11 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25px;
+  width: 25px;
+  border: none;
+  border-radius: 60px;
 }
 
 <div
@@ -328,6 +390,7 @@ exports[`Timeline default renders mixture of timelines complete/not-complete 1`]
       <input
         checked={false}
         className="c4 c5"
+        onChange={[Function]}
         type="checkbox"
       />
       <label
@@ -337,24 +400,33 @@ exports[`Timeline default renders mixture of timelines complete/not-complete 1`]
           className="c8 c9"
         >
           timeline-item-not-complete
-          <svg
-            fill="none"
-            height="21"
-            viewBox="0 0 18 21"
-            width="18"
-            xmlns="http://www.w3.org/2000/svg"
+          <header
+            className="c10"
           >
-            <path
-              d="M7.5 0C9.22674 2.05911e-08 10.9268 0.425849 12.4497 1.23983C13.9725 2.0538 15.2711 3.23078 16.2304 4.66651C17.1898 6.10224 17.7802 7.7524 17.9494 9.47082C18.1187 11.1892 17.8615 12.9229 17.2007 14.5182C16.5399 16.1135 15.4959 17.5212 14.1611 18.6166C12.8263 19.712 11.242 20.4614 9.54845 20.7982C7.85489 21.1351 6.1044 21.0491 4.45201 20.5479C2.79963 20.0466 1.29637 19.1456 0.075381 17.9246L7.5 10.5V0Z"
-              fill="red"
-            />
-          </svg>
+            <div
+              className="c11"
+            >
+              <svg
+                fill="none"
+                height="18"
+                viewBox="0 0 17 21"
+                width="18"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M7.5 0C9.22674 2.05911e-08 10.9268 0.425849 12.4497 1.23983C13.9725 2.0538 15.2711 3.23078 16.2304 4.66651C17.1898 6.10224 17.7802 7.7524 17.9494 9.47082C18.1187 11.1892 17.8615 12.9229 17.2007 14.5182C16.5399 16.1135 15.4959 17.5212 14.1611 18.6166C12.8263 19.712 11.242 20.4614 9.54845 20.7982C7.85489 21.1351 6.1044 21.0491 4.45201 20.5479C2.79963 20.0466 1.29637 19.1456 0.075381 17.9246L7.5 10.5V0Z"
+                  fill="black"
+                />
+              </svg>
+            </div>
+          </header>
         </h2>
         <div
-          className="c10"
+          className="c12"
         />
+        <br />
         <div
-          className="c10"
+          className="c12"
         />
       </label>
     </li>
@@ -364,6 +436,7 @@ exports[`Timeline default renders mixture of timelines complete/not-complete 1`]
       <input
         checked={true}
         className="c4 c5"
+        onChange={[Function]}
         type="checkbox"
       />
       <label
@@ -373,19 +446,27 @@ exports[`Timeline default renders mixture of timelines complete/not-complete 1`]
           className="c8 c9"
         >
           timeline-item-complete
-          <svg
-            fill="none"
-            height="13"
-            viewBox="0 0 17 13"
-            width="17"
-            xmlns="http://www.w3.org/2000/svg"
+          <header
+            className="c10"
           >
-            <path
-              d="M1 5.5L6 10.5L15.5 1"
-              stroke="green"
-              stroke-width="2.5"
-            />
-          </svg>
+            <div
+              className="c11"
+            >
+              <svg
+                fill="none"
+                height="13"
+                viewBox="0 0 17 13"
+                width="17"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1 5.5L6 10.5L15.5 1"
+                  stroke="#a7a7a7"
+                  strokeWidth="2.5"
+                />
+              </svg>
+            </div>
+          </header>
         </h2>
         <h1>
           header
@@ -411,11 +492,28 @@ exports[`Timeline default renders text block if no children present in Timeline.
   font-size: 16px;
   font-weight: normal;
   color: #bdc3c7;
+  align-items: center;
+  padding: 5px 5px;
+  border-radius: 60px;
+  color: black;
+  border: none;
+  opacity: 0.3;
+}
+
+.c10 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  text-transform: uppercase;
+  color: black;
+  text-align: right;
+  font-size: 12px;
 }
 
 .c7 {
-  min-height: 88px;
-  max-height: 92px;
+  min-height: 100px;
   width: 100%;
   display: block;
   color: #a7a7a7;
@@ -423,7 +521,7 @@ exports[`Timeline default renders text block if no children present in Timeline.
   font-weight: 300;
   cursor: pointer;
   position: relative;
-  padding: 25px 5px 0px 50px;
+  padding: 0px 10px 0px 50px;
   box-sizing: border-box;
   overflow: hidden;
 }
@@ -434,14 +532,14 @@ exports[`Timeline default renders text block if no children present in Timeline.
 
 .c7::before {
   content: '';
-  width: 19px;
-  height: 19px;
-  border: 2px solid #000;
+  width: 12px;
+  height: 12px;
+  opacity: 0.3;
   display: block;
   position: absolute;
   left: 20px;
-  top: 20px;
-  background: red;
+  top: 10px;
+  background: black;
   transition: border 0.7s ease;
   border-radius: 100%;
   z-index: 99999;
@@ -450,11 +548,12 @@ exports[`Timeline default renders text block if no children present in Timeline.
 .c7::after {
   content: '';
   width: 2px;
-  height: 97px;
-  background-color: red;
+  opacity: 0.3;
+  height: 100px;
+  background: black;
   position: absolute;
-  left: 30px;
-  top: -5px;
+  left: 25px;
+  top: 0px;
 }
 
 .c5 {
@@ -465,13 +564,12 @@ exports[`Timeline default renders text block if no children present in Timeline.
   box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   left: 0px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding: 5px;
+  background: none;
 }
 
 .c0 .c4:checked+.c6 .c8 {
-  color: #000;
-  border-bottom: 2px solid #a7a7a7;
+  opacity: 1;
 }
 
 .c0 .c4:checked+.c6 {
@@ -483,22 +581,15 @@ exports[`Timeline default renders text block if no children present in Timeline.
 }
 
 .c0 .c4:checked+.c6:before {
-  background-color: green;
-  border: 2px solid #a7a7a7;
+  opacity: 1;
 }
 
 .c0 .c4:checked+.c6:after {
-  background: green;
-}
-
-.c3 {
-  border-radius: 60px;
-  border: 1px solid #33e58c;
-  background: #0c3b38;
+  opacity: 1;
 }
 
 .c3:first-child .c6:before {
-  top: 20px;
+  top: 10px;
 }
 
 .c3:first-child .c6:after {
@@ -507,25 +598,41 @@ exports[`Timeline default renders text block if no children present in Timeline.
 }
 
 .c3:last-child .c6:before {
-  top: 60%;
+  top: 30%;
 }
 
 .c3:last-child .c6:after {
-  top: -22px;
+  top: -70px;
 }
 
 .c1 {
-  font-size: 20px;
+  padding: 0px 10px;
+  font-family: Roboto;
+  font-size: 16px;
   font-style: normal;
   font-weight: 700;
-  line-height: 0px;
+  color: black;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-item: center;
+  text-transform: uppercase;
 }
 
-.c10 {
+.c12 {
   width: 100%;
-  height: 11px;
-  flex-shrink: 0;
-  background: linear-gradient(     94deg,     #d7d7d7 2.29%,     rgba(233, 233, 233, 0.52) 25.76%,     rgba(204, 204, 204, 0.69) 48.75%,     rgba(230, 230, 230, 0.87) 74.56%,     #dbdbdb 92.39%   );
+  height: 8px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.c11 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25px;
+  width: 25px;
+  border: none;
+  border-radius: 60px;
 }
 
 <div
@@ -543,6 +650,7 @@ exports[`Timeline default renders text block if no children present in Timeline.
       <input
         checked={false}
         className="c4 c5"
+        onChange={[Function]}
         type="checkbox"
       />
       <label
@@ -552,24 +660,33 @@ exports[`Timeline default renders text block if no children present in Timeline.
           className="c8 c9"
         >
           timeline-item-3
-          <svg
-            fill="none"
-            height="21"
-            viewBox="0 0 18 21"
-            width="18"
-            xmlns="http://www.w3.org/2000/svg"
+          <header
+            className="c10"
           >
-            <path
-              d="M7.5 0C9.22674 2.05911e-08 10.9268 0.425849 12.4497 1.23983C13.9725 2.0538 15.2711 3.23078 16.2304 4.66651C17.1898 6.10224 17.7802 7.7524 17.9494 9.47082C18.1187 11.1892 17.8615 12.9229 17.2007 14.5182C16.5399 16.1135 15.4959 17.5212 14.1611 18.6166C12.8263 19.712 11.242 20.4614 9.54845 20.7982C7.85489 21.1351 6.1044 21.0491 4.45201 20.5479C2.79963 20.0466 1.29637 19.1456 0.075381 17.9246L7.5 10.5V0Z"
-              fill="red"
-            />
-          </svg>
+            <div
+              className="c11"
+            >
+              <svg
+                fill="none"
+                height="18"
+                viewBox="0 0 17 21"
+                width="18"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M7.5 0C9.22674 2.05911e-08 10.9268 0.425849 12.4497 1.23983C13.9725 2.0538 15.2711 3.23078 16.2304 4.66651C17.1898 6.10224 17.7802 7.7524 17.9494 9.47082C18.1187 11.1892 17.8615 12.9229 17.2007 14.5182C16.5399 16.1135 15.4959 17.5212 14.1611 18.6166C12.8263 19.712 11.242 20.4614 9.54845 20.7982C7.85489 21.1351 6.1044 21.0491 4.45201 20.5479C2.79963 20.0466 1.29637 19.1456 0.075381 17.9246L7.5 10.5V0Z"
+                  fill="black"
+                />
+              </svg>
+            </div>
+          </header>
         </h2>
         <div
-          className="c10"
+          className="c12"
         />
+        <br />
         <div
-          className="c10"
+          className="c12"
         />
       </label>
     </li>
@@ -592,11 +709,28 @@ exports[`Timeline default renders timeline items with multiple children 1`] = `
   font-size: 16px;
   font-weight: normal;
   color: #bdc3c7;
+  align-items: center;
+  padding: 5px 5px;
+  border-radius: 60px;
+  color: black;
+  border: none;
+  opacity: 0.3;
+}
+
+.c10 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  text-transform: uppercase;
+  color: black;
+  text-align: right;
+  font-size: 12px;
 }
 
 .c7 {
-  min-height: 88px;
-  max-height: 92px;
+  min-height: 100px;
   width: 100%;
   display: block;
   color: #a7a7a7;
@@ -604,7 +738,7 @@ exports[`Timeline default renders timeline items with multiple children 1`] = `
   font-weight: 300;
   cursor: pointer;
   position: relative;
-  padding: 25px 5px 0px 50px;
+  padding: 0px 10px 0px 50px;
   box-sizing: border-box;
   overflow: hidden;
 }
@@ -615,14 +749,14 @@ exports[`Timeline default renders timeline items with multiple children 1`] = `
 
 .c7::before {
   content: '';
-  width: 19px;
-  height: 19px;
-  border: 2px solid #000;
+  width: 12px;
+  height: 12px;
+  opacity: 0.3;
   display: block;
   position: absolute;
   left: 20px;
-  top: 20px;
-  background: red;
+  top: 10px;
+  background: black;
   transition: border 0.7s ease;
   border-radius: 100%;
   z-index: 99999;
@@ -631,11 +765,12 @@ exports[`Timeline default renders timeline items with multiple children 1`] = `
 .c7::after {
   content: '';
   width: 2px;
-  height: 97px;
-  background-color: red;
+  opacity: 0.3;
+  height: 100px;
+  background: black;
   position: absolute;
-  left: 30px;
-  top: -5px;
+  left: 25px;
+  top: 0px;
 }
 
 .c5 {
@@ -646,13 +781,12 @@ exports[`Timeline default renders timeline items with multiple children 1`] = `
   box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   left: 0px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding: 5px;
+  background: none;
 }
 
 .c0 .c4:checked+.c6 .c8 {
-  color: #000;
-  border-bottom: 2px solid #a7a7a7;
+  opacity: 1;
 }
 
 .c0 .c4:checked+.c6 {
@@ -664,22 +798,15 @@ exports[`Timeline default renders timeline items with multiple children 1`] = `
 }
 
 .c0 .c4:checked+.c6:before {
-  background-color: green;
-  border: 2px solid #a7a7a7;
+  opacity: 1;
 }
 
 .c0 .c4:checked+.c6:after {
-  background: green;
-}
-
-.c3 {
-  border-radius: 60px;
-  border: 1px solid #33e58c;
-  background: #0c3b38;
+  opacity: 1;
 }
 
 .c3:first-child .c6:before {
-  top: 20px;
+  top: 10px;
 }
 
 .c3:first-child .c6:after {
@@ -688,23 +815,39 @@ exports[`Timeline default renders timeline items with multiple children 1`] = `
 }
 
 .c3:last-child .c6:before {
-  top: 60%;
+  top: 30%;
 }
 
 .c3:last-child .c6:after {
-  top: -22px;
+  top: -70px;
 }
 
 .c1 {
-  font-size: 20px;
+  padding: 0px 10px;
+  font-family: Roboto;
+  font-size: 16px;
   font-style: normal;
   font-weight: 700;
-  line-height: 0px;
+  color: black;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-item: center;
+  text-transform: uppercase;
+}
+
+.c11 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25px;
+  width: 25px;
+  border: none;
+  border-radius: 60px;
 }
 
 <div
   className="c0"
-  name="default"
 >
   <h1
     className="c1"
@@ -720,6 +863,7 @@ exports[`Timeline default renders timeline items with multiple children 1`] = `
       <input
         checked={true}
         className="c4 c5"
+        onChange={[Function]}
         type="checkbox"
       />
       <label
@@ -729,19 +873,27 @@ exports[`Timeline default renders timeline items with multiple children 1`] = `
           className="c8 c9"
         >
           timeline-item-1
-          <svg
-            fill="none"
-            height="13"
-            viewBox="0 0 17 13"
-            width="17"
-            xmlns="http://www.w3.org/2000/svg"
+          <header
+            className="c10"
           >
-            <path
-              d="M1 5.5L6 10.5L15.5 1"
-              stroke="green"
-              stroke-width="2.5"
-            />
-          </svg>
+            <div
+              className="c11"
+            >
+              <svg
+                fill="none"
+                height="13"
+                viewBox="0 0 17 13"
+                width="17"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1 5.5L6 10.5L15.5 1"
+                  stroke="#a7a7a7"
+                  strokeWidth="2.5"
+                />
+              </svg>
+            </div>
+          </header>
         </h2>
         <button>
           test me
@@ -766,6 +918,7 @@ exports[`Timeline default renders timeline items with multiple children 1`] = `
       <input
         checked={true}
         className="c4 c5"
+        onChange={[Function]}
         type="checkbox"
       />
       <label
@@ -775,19 +928,27 @@ exports[`Timeline default renders timeline items with multiple children 1`] = `
           className="c8 c9"
         >
           timeline-item-2
-          <svg
-            fill="none"
-            height="13"
-            viewBox="0 0 17 13"
-            width="17"
-            xmlns="http://www.w3.org/2000/svg"
+          <header
+            className="c10"
           >
-            <path
-              d="M1 5.5L6 10.5L15.5 1"
-              stroke="green"
-              stroke-width="2.5"
-            />
-          </svg>
+            <div
+              className="c11"
+            >
+              <svg
+                fill="none"
+                height="13"
+                viewBox="0 0 17 13"
+                width="17"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1 5.5L6 10.5L15.5 1"
+                  stroke="#a7a7a7"
+                  strokeWidth="2.5"
+                />
+              </svg>
+            </div>
+          </header>
         </h2>
         <h2>
           header

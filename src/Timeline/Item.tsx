@@ -28,7 +28,7 @@ const Item: React.FC<PropsWithChildren<ItemProps>> = ({
   const styling: any = props.variant ? variants[props.variant] : {}
   return (
     <Li>
-      <Input onChange={() => { console.log('asd')}} type={'checkbox'} checked={checked} />
+      <Input onChange={() => {}} type={'checkbox'} checked={checked} />
       <Label {...styling}>
         <Title {...styling}>
           {props.title}

@@ -50,11 +50,7 @@ const items: Array<{
 const DefaultStoryTemplate = (props: TimelineProps) => (
   <Timeline {...props}>
     {items.map(({ message, ...rest }) => (
-      <Timeline.Item
-        key={rest.title}
-        {...props}
-        {...rest}
-      >
+      <Timeline.Item key={rest.title} {...props} {...rest}>
         {message && <p>{message}</p>}
       </Timeline.Item>
     ))}

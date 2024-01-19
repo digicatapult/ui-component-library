@@ -170,10 +170,9 @@ npm run depcheck
 
 #### TODOs
 [ ] - re-organize components e.g. maybe group like actionable vs view, etc
-[ ] - Tooggle/ToggleButton mayne it can be combined
-[ ] - QR reader / Map + other components that use externals
-[ ] - more configurable basic components e.g. button/input
-[ ] - should have a version of each html default e.g. checkbox/radio/h1
+[ ] - QR reader / Map + other components that use externals (into one folder?)
+[ ] - more configurable basic components e.g. button/input 
+[ ] - create themes [default, hyproof] along with the rename of HII to HyProof
+[ ] - have a version of each html default e.g. checkbox/radio/h1
 [ ] - sort typography - got out of sync or we are not using, should have headings,sub,etc
 [ ] - publish storybook
-[ ] - export icons in a nice way once there are more than 5

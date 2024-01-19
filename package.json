@@ -1,6 +1,6 @@
 {
   "name": "@digicatapult/ui-component-library",
-  "version": "0.14.4",
+  "version": "0.14.5",
   "description": "UI Component Library",
   "author": "Digital Catapult (https://www.digicatapult.org.uk)",
   "license": "Apache-2.0",
@@ -51,7 +51,7 @@
     "@types/jest": "^29.5.11",
     "@types/mapbox-gl": "^2.7.19",
     "@types/moo": "^0.5.9",
-    "@types/node": "^20.11.3",
+    "@types/node": "^20.11.4",
     "@types/prop-types": "^15.7.11",
     "@types/react": "^18.2.48",
     "@types/react-test-renderer": "^18.0.7",

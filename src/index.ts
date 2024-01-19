@@ -23,4 +23,5 @@ export { default as Input } from './Input/index.js'
 export { default as Table } from './Table/index.js'
 export { default as Button } from './Button/index.js'
 export { default as Timeline } from './Timeline/index.js'
+export { default as UserIcon } from './UserIcon/index.js'
 export { CheckedIcon, InProgressIcon, PadlockIcon }

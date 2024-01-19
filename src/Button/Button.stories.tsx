@@ -11,22 +11,40 @@ export default {
     name: {
       control: 'text',
     },
+    variant: {
+      control: {
+        type: 'select',
+      },
+      options: [
+        null,
+        'rounded',
+        'square',
+        'roundedShadow',
+        'squareShadow',
+        'roundedPronounced',
+        'roundedPronouncedShadow',
+      ],
+    },
   },
 }
 
-const DefaultStoryTemplate = (args: ButtonTextProps) => (
-  <Button
-    onClick={(e) => {
-      action('submit')(e)
-    }}
-    {...args}
-  >
-    press me
-  </Button>
-)
+const DefaultStoryTemplate = (args: ButtonTextProps) => {
+  console.log(args)
+  return (
+    <Button
+      onClick={(e) => {
+        action('submit')(e)
+      }}
+      {...args}
+    >
+      press me
+    </Button>
+  )
+}
 
 export const Default = DefaultStoryTemplate.bind({})
 
 Default.args = {
   type: 'submit',
+  variant: null,
 }

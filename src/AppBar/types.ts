@@ -1,9 +1,5 @@
-import React, { PropsWithChildren } from 'react'
-
-// TODO create css type, react might have it // break it down
-export interface Props {
+export type AppBarProps = {
   shadow?: boolean
-  active?: boolean
   fixed?: boolean
   color?: string
   width?: string
@@ -13,11 +9,10 @@ export interface Props {
   }
 }
 
-export interface IAppBar {
-  (args: PropsWithChildren<Props> & Props): React.ReactElement
-  Item: React.FC<PropsWithChildren<Props>>
-}
-
-export interface IItem {
-  (args: PropsWithChildren<Props> & Props): React.ReactElement
+export type AppBarItemProps = {
+  href?: string
+  active?: boolean
+  theme?: {
+    [key: string]: string
+  }
 }

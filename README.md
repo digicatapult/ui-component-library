@@ -4,7 +4,7 @@ React components built for Digital Catapult projects 🧠
 
 ## Installation / Adding to the Package.json
 
-`@digicatapult/ui-component-library` are available as an [npm package](https://www.npmjs.com/package/@digicatapult/ui-component-library). This should get instlled along with `n` In order to use your local version in the project please use `npm link` more on it -> [here](https://docs.npmjs.com/cli/v10/commands/npm-link) and below in this document
+`@digicatapult/ui-component-library` are available as an [npm package](https://www.npmjs.com/package/@digicatapult/ui-component-library). This should get installed along with `n` In order to use your local version in the project please use `npm link` more on it -> [here](https://docs.npmjs.com/cli/v10/commands/npm-link) and below in this document
 
 ```sh
 // with npm

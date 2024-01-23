@@ -2,9 +2,9 @@
 
 React components built for Digital Catapult projects 🧠
 
-## Installation
+## Installation / Adding to the Package.json
 
-`@digicatapult/ui-component-library` are available as an [npm package](https://www.npmjs.com/package/@digicatapult/ui-component-library).
+`@digicatapult/ui-component-library` are available as an [npm package](https://www.npmjs.com/package/@digicatapult/ui-component-library). This should get installed along with `n` In order to use your local version in the project please use `npm link` more on it -> [here](https://docs.npmjs.com/cli/v10/commands/npm-link) and below in this document
 
 ```sh
 // with npm
@@ -19,10 +19,17 @@ import ReactDOM from 'react-dom'
 import { Button } from '@digicatapult/ui-component-library'
 
 function App() {
-  return <Button>hello</Button>
+  return <Button onClick={(e) => window.alert(e)}>My Button</Button>
 }
 
 ReactDOM.render(<App />, document.querySelector('#app'))
+```
+
+## Accessing storybook locally
+
+```sh
+npm run storybook
+# and if browser won't open visit http://localhost:9000/ url
 ```
 
 ## Documentation

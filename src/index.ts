@@ -1,3 +1,7 @@
+import CheckedIcon from './Icons/Checked.js'
+import InProgressIcon from './Icons/InProgress.js'
+import PadlockIcon from './Icons/Padlock.js'
+
 export { default as TestComponent } from './TestComponent/index.js'
 export { default as Grid } from './Grid/index.js'
 export { default as Drawer } from './Drawer/index.js'
@@ -18,4 +22,6 @@ export { default as FormGroup } from './FormGroup/index.js'
 export { default as Input } from './Input/index.js'
 export { default as Table } from './Table/index.js'
 export { default as Button } from './Button/index.js'
+export { default as Timeline } from './Timeline/index.js'
 export { default as UserIcon } from './UserIcon/index.js'
+export { CheckedIcon, InProgressIcon, PadlockIcon }

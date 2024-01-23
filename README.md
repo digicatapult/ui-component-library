@@ -167,12 +167,3 @@ npm run test -u
 ```bash
 npm run depcheck
 ```
-
-#### TODOs
-[ ] - re-organize components e.g. maybe group like actionable vs view, etc
-[ ] - QR reader / Map + other components that use externals (into one folder?)
-[ ] - more configurable basic components e.g. button/input 
-[ ] - create themes [default, hyproof] along with the rename of HII to HyProof
-[ ] - have a version of each html default e.g. checkbox/radio/h1
-[ ] - sort typography - got out of sync or we are not using, should have headings,sub,etc
-[ ] - publish storybook

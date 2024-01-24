@@ -84,7 +84,6 @@ exports[`Timeline default renders basic Timeline with a single Timeline.Item 1`]
 }
 
 .c0 {
-  box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   left: 0px;
   padding: 5px;
@@ -301,7 +300,6 @@ exports[`Timeline default renders mixture of timelines complete/not-complete 1`]
 }
 
 .c0 {
-  box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   left: 0px;
   padding: 5px;
@@ -561,7 +559,6 @@ exports[`Timeline default renders text block if no children present in Timeline.
 }
 
 .c0 {
-  box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   left: 0px;
   padding: 5px;
@@ -778,7 +775,6 @@ exports[`Timeline default renders timeline items with multiple children 1`] = `
 }
 
 .c0 {
-  box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   left: 0px;
   padding: 5px;

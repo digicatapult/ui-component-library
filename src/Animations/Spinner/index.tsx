@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 
-
 export type SpinnerProps = {
   styles?: React.CSSProperties
   text?: string
@@ -17,19 +16,19 @@ const sizeToPixel = {
 
 const Spinner: React.FC<SpinnerProps> = ({ text, ...props }) => {
   return (
-      <Wrapper>
-        <Animation {...props} />
-        <Label>{text}</Label>
-      </Wrapper>
+    <Wrapper>
+      <Animation {...props} />
+      <Label>{text}</Label>
+    </Wrapper>
   )
 }
 
 const Animation = styled('div')`
   border: 10px solid #f3f3f3;
   border-radius: 50%;
-  border-top: 10px solid ${(props: SpinnerProps) => props.color || '#3498db' };
+  border-top: 10px solid ${(props: SpinnerProps) => props.color || '#3498db'};
   width: ${(props: SpinnerProps) => sizeToPixel[props.size || 'small']};
-  height: ${(props: SpinnerProps) => sizeToPixel[props.size || 'small' ]};
+  height: ${(props: SpinnerProps) => sizeToPixel[props.size || 'small']};
   margin: auto;
   padding: auto;
   -webkit-animation: spin 1.75s linear infinite; /* Safari */

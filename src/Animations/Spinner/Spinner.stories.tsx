@@ -14,13 +14,7 @@ export default {
       control: {
         type: 'radio',
       },
-      options: [
-        '#a7a7a7',
-        '#fff',
-        '#00ff00',
-        '#33e58c',
-        'red',
-      ],
+      options: ['#a7a7a7', '#fff', '#00ff00', '#33e58c', 'red'],
     },
   },
 }
@@ -37,22 +31,22 @@ Default.args = {
 export const Small = DefaultStoryTemplate.bind({})
 Small.args = {
   size: 'small',
-  text: 'this is small spinner example'
+  text: 'this is small spinner example',
 }
 
 export const Medium = DefaultStoryTemplate.bind({})
 Medium.args = {
   size: 'medium',
-  text: 'this is medium spinner example'
+  text: 'this is medium spinner example',
 }
 export const Large = DefaultStoryTemplate.bind({})
 Small.args = {
   size: 'large',
-  text: 'this is large spinner example'
+  text: 'this is large spinner example',
 }
 
 export const HyProof = DefaultStoryTemplate.bind({})
 HyProof.args = {
   color: '#33e58c',
-  text: 'this is hyproof spinner example'
+  text: 'this is hyproof spinner example',
 }

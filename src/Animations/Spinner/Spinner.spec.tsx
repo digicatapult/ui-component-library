@@ -13,28 +13,30 @@ describe('Spinner', () => {
   })
 
   test('with color and text props', () => {
-    const instance = renderer.create(<Spinner color="#ff00ff" text="this is a test" />)
+    const instance = renderer.create(
+      <Spinner color="#ff00ff" text="this is a test" />,
+    )
     const tree = instance.toJSON()
 
     expect(tree).toMatchSnapshot()
   })
 
   test('renders a small spinner', () => {
-    const instance = renderer.create(<Spinner size='small' />)
+    const instance = renderer.create(<Spinner size="small" />)
 
     const tree = instance.toJSON()
     expect(tree).toMatchSnapshot()
   })
 
   test('renders a medium spinner', () => {
-    const instance = renderer.create(<Spinner size='medium' />)
+    const instance = renderer.create(<Spinner size="medium" />)
 
     const tree = instance.toJSON()
     expect(tree).toMatchSnapshot()
   })
 
   test('renders a large spinner', () => {
-    const instance = renderer.create(<Spinner size='large' />)
+    const instance = renderer.create(<Spinner size="large" />)
 
     const tree = instance.toJSON()
     expect(tree).toMatchSnapshot()

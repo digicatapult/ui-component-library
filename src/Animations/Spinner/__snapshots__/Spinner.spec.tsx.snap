@@ -1,0 +1,177 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Spinner default 1`] = `
+.c1 {
+  border: 10px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 10px solid #3498db;
+  width: 10px;
+  height: 10px;
+  margin: auto;
+  padding: auto;
+  -webkit-animation: spin 1.75s linear infinite;
+  animation: spin 1.75s linear infinite;
+}
+
+.c0 {
+  align-self: center;
+  justify-self: center;
+}
+
+.c2 {
+  text-align: center;
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+  />
+  <h2
+    className="c2"
+  />
+</div>
+`;
+
+exports[`Spinner renders a large spinner 1`] = `
+.c1 {
+  border: 10px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 10px solid #3498db;
+  width: 50px;
+  height: 50px;
+  margin: auto;
+  padding: auto;
+  -webkit-animation: spin 1.75s linear infinite;
+  animation: spin 1.75s linear infinite;
+}
+
+.c0 {
+  align-self: center;
+  justify-self: center;
+}
+
+.c2 {
+  text-align: center;
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+    size="large"
+  />
+  <h2
+    className="c2"
+  />
+</div>
+`;
+
+exports[`Spinner renders a medium spinner 1`] = `
+.c1 {
+  border: 10px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 10px solid #3498db;
+  width: 30px;
+  height: 30px;
+  margin: auto;
+  padding: auto;
+  -webkit-animation: spin 1.75s linear infinite;
+  animation: spin 1.75s linear infinite;
+}
+
+.c0 {
+  align-self: center;
+  justify-self: center;
+}
+
+.c2 {
+  text-align: center;
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+    size="medium"
+  />
+  <h2
+    className="c2"
+  />
+</div>
+`;
+
+exports[`Spinner renders a small spinner 1`] = `
+.c1 {
+  border: 10px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 10px solid #3498db;
+  width: 10px;
+  height: 10px;
+  margin: auto;
+  padding: auto;
+  -webkit-animation: spin 1.75s linear infinite;
+  animation: spin 1.75s linear infinite;
+}
+
+.c0 {
+  align-self: center;
+  justify-self: center;
+}
+
+.c2 {
+  text-align: center;
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+    size="small"
+  />
+  <h2
+    className="c2"
+  />
+</div>
+`;
+
+exports[`Spinner with color and text props 1`] = `
+.c1 {
+  border: 10px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 10px solid #ff00ff;
+  width: 10px;
+  height: 10px;
+  margin: auto;
+  padding: auto;
+  -webkit-animation: spin 1.75s linear infinite;
+  animation: spin 1.75s linear infinite;
+}
+
+.c0 {
+  align-self: center;
+  justify-self: center;
+}
+
+.c2 {
+  text-align: center;
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+    color="#ff00ff"
+  />
+  <h2
+    className="c2"
+  >
+    this is a test
+  </h2>
+</div>
+`;

@@ -83,7 +83,6 @@ const Input = styled('input')`
 `
 
 const Container = styled('div')`
-  box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   left: 0px;
   padding: 5px;

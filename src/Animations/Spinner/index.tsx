@@ -24,34 +24,27 @@ const Spinner: React.FC<SpinnerProps> = ({ text, ...props }) => {
 }
 
 const Animation = styled('div')`
-  border: 10px solid #f3f3f3;
-  border-radius: 50%;
-  border-top: 10px solid ${(props: SpinnerProps) => props.color || '#3498db'};
-  width: ${(props: SpinnerProps) => sizeToPixel[props.size || 'small']};
-  height: ${(props: SpinnerProps) => sizeToPixel[props.size || 'small']};
-  margin: auto;
-  padding: auto;
-  -webkit-animation: spin 1.75s linear infinite; /* Safari */
-  animation: spin 1.75s linear infinite;
-  }
-
-  /* Safari */
-  @-webkit-keyframes spin {
-  0% { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); }
+    border: 5px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 5px solid ${(props: SpinnerProps) => props.color || '#3498db'};
+    width: ${(props: SpinnerProps) => sizeToPixel[props.size || 'small']};
+    height: ${(props: SpinnerProps) => sizeToPixel[props.size || 'small']};
+    margin: auto;
+    padding: auto;
+    animation: spin 1.75s linear infinite;
   }
 
   @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
   }
 `
-const Wrapper = styled.div`
+const Wrapper = styled('div')`
   align-self: center;
   justify-self: center;
 `
 
-const Label = styled.h2`
+const Label = styled('div')`
   text-align: center;
 `
 

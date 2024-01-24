@@ -1,5 +1,4 @@
 import React from 'react'
-import { action } from '@storybook/addon-actions'
 
 import Spinner, { SpinnerProps } from './index.js'
 
@@ -12,7 +11,7 @@ export default {
     },
     color: {
       control: {
-        type: 'radio',
+        type: 'select',
       },
       options: ['#a7a7a7', '#fff', '#00ff00', '#33e58c', 'red'],
     },
@@ -40,7 +39,7 @@ Medium.args = {
   text: 'this is medium spinner example',
 }
 export const Large = DefaultStoryTemplate.bind({})
-Small.args = {
+Large.args = {
   size: 'large',
   text: 'this is large spinner example',
 }

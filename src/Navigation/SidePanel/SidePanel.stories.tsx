@@ -19,18 +19,20 @@ export default {
 }
 
 const DefaultStoryTemplate = (args: SidePanelProps) => {
-  return <SidePanel {...args} />
+  return (
+    <SidePanel {...args}>
+      <SidePanel.Item title="Heidi" subtitle={'The Hydrogen Producer'} />
+      <SidePanel.Item title="Heidi" subtitle={'The Hydrogen Producer'} />
+      <SidePanel.Item title="Heidi" subtitle={'The Hydrogen Producer'} />
+    </SidePanel>
+  )
 }
 
 export const Default = DefaultStoryTemplate.bind({})
 Default.args = {
-  color: '#a7a7a7',
   heading: 'Certificate Viewing (Hydrogen Producer)',
-  width: 250,
+  width: 300,
 }
 
 export const HyProof = DefaultStoryTemplate.bind({})
-HyProof.args = {
-  color: '#33e58c',
-  text: 'this is hyproof SidePanel example',
-}
+HyProof.args = {}

@@ -3,41 +3,31 @@ import styled from 'styled-components'
 import { SidePanelProps } from '.'
 
 export const Heading = styled('div')`
-  color: #4A4A4A;
+  color: #4a4a4a;
   font-family: Roboto;
+  margin-bottom: 59px;
+  max-width: 80%;
   font-size: 24px;
-  line-height: 45px; 
+  line-height: 45px;
 `
 
 export const Panel = styled('div')`
   position: absolute;
-  width: ${((props: SidePanelProps) => props.width || 300)}px; 
-  max-width: ${((props: SidePanelProps) => props.width || 300)}px;
-  height: ${window.visualViewport?.height}px;
-  animation: ${((props: SidePanelProps) => props.orientation || 'left')} 1s ease-out infinite;
-  border-right: solid 1px black;
   padding: 20px;
   padding-top: 50px
-
-  @keyframes left {
-    0% {
-      transform: translate(-300px, 0px);
-    }
-    100% {
-      transform: translate(0px, 0px);
-      position: relative;
-    }
-  }
+  width: ${(props: any) => props.width || 300}px; 
+  max-width: ${(props: any) => props.width || 300}px;
+  height: ${window.visualViewport?.height}px;
+  animation: ${(props: any) => props.orientation || 'right'} 1s ease-out infinite;
+  box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.1);
 
   @keyframes right {
     0% { transform: translate(${(window.visualViewport?.width || 0) + 300}px, 0px); }
-    100% {
-      transform: translate(${(window.visualViewport?.width || 0) - 300}px, 0px);
-      position: relative;
-    }
+    100% { transform: translate(${(window.visualViewport?.width || 0) - 300}px, 0px); position: relative; }
   }
-`
-  
-export const Label = styled('div')`
-  text-align: center;
+
+  @keyframes left {
+    0% { transform: translate(-300px, 0px); }
+    100% { transform: translate(0px, 0px); position: relative; }
+  }
 `

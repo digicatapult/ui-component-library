@@ -1,27 +1,32 @@
 import React from 'react'
 
-import { Label, Heading, Panel } from './common.js'
+import { Heading, Panel } from './common.js'
 import Card from '../../ListCard/index.js'
 import Avatar from '../../UserIcon/index.js'
 
 export type SidePanelProps = {
   styles?: React.CSSProperties
-  text?: string
   orientation?: 'left' | 'right'
-  width?: string
-  color?: string
+  width?: string | number
+  title: string
+  subtitle?: string
   heading?: string
-  size?: 'small' | 'medium' | 'large' | undefined
 }
 
-
 const Item: React.FC<React.PropsWithChildren<SidePanelProps>> = (props) => (
-  <Card 
-   {...props}
-   Icon={Avatar}
-   onClick={(e) => console.log(e)}
-   title='title'
-   subtitle='subtitle'
+  <Card
+    Icon={() => (
+      <Avatar
+        bgColor="#9edcfa"
+        color="#1a1a1a"
+        fullName="Heidi Heidi"
+        outlineColor="white"
+        size="70px"
+      />
+    )}
+    onClick={(e) => console.log(e)}
+    title={props.title}
+    subtitle={props.subtitle}
   />
 )
 
@@ -29,11 +34,14 @@ interface IItem {
   Item: typeof Item
 }
 
-const SidePanel: React.FC<React.PropsWithChildren<SidePanelProps>> & IItem = ({ text, ...props }) => {
+const SidePanel: React.FC<React.PropsWithChildren<SidePanelProps>> & IItem = ({
+  children,
+  ...props
+}) => {
   return (
-     <Panel {...props}>
+    <Panel {...props}>
       <Heading>{props.heading}</Heading>
-      <Label>{text}</Label>
+      {children}
     </Panel>
   )
 }

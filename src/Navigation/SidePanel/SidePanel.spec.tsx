@@ -6,7 +6,7 @@ import SidePanel from './index.js'
 
 describe('SidePanel', () => {
   test('default', () => {
-    const instance = renderer.create(<SidePanel />)
+    const instance = renderer.create(<SidePanel title="title" />)
     const tree = instance.toJSON()
 
     expect(tree).toMatchSnapshot()

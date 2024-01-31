@@ -2,6 +2,7 @@
 
 exports[`Test default 1`] = `
 .c0 {
+  background: none;
   border: 0;
   font: inherit;
   text-align: left;
@@ -15,7 +16,6 @@ exports[`Test default 1`] = `
   flex-direction: column;
   justify-content: center;
   gap: 0.5em;
-  background: #f0f0f0;
   border-top-left-radius: 0.75em;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
@@ -58,10 +58,11 @@ exports[`Test default 1`] = `
 }
 
 <button
-  background="#f0f0f0"
+  background="none"
   className="c0"
   flashColor="#e0e0e0"
   height="100%"
+  icon={false}
   id="id1"
   onClick={[Function]}
   orientation="left"
@@ -77,6 +78,7 @@ exports[`Test default 1`] = `
 
 exports[`Test hii 1`] = `
 .c0 {
+  background: #DCE5E7;
   border: 0;
   font: inherit;
   text-align: left;
@@ -90,7 +92,6 @@ exports[`Test hii 1`] = `
   flex-direction: column;
   justify-content: center;
   gap: 0.5em;
-  background: #DCE5E7;
   border-top-left-radius: 0.75em;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
@@ -137,6 +138,7 @@ exports[`Test hii 1`] = `
   className="c0"
   flashColor="#80CC72"
   height="67px"
+  icon={false}
   id="id2"
   onClick={[Function]}
   orientation="left"
@@ -155,6 +157,7 @@ exports[`Test hii 1`] = `
 
 exports[`Test orientation: right 1`] = `
 .c0 {
+  background: #DCE5E7;
   border: 0;
   font: inherit;
   text-align: right;
@@ -168,7 +171,6 @@ exports[`Test orientation: right 1`] = `
   flex-direction: column;
   justify-content: center;
   gap: 0.5em;
-  background: #DCE5E7;
   border-top-left-radius: 0;
   border-top-right-radius: 0.75em;
   border-bottom-right-radius: 0.75em;
@@ -215,6 +217,7 @@ exports[`Test orientation: right 1`] = `
   className="c0"
   flashColor="#80CC72"
   height="67px"
+  icon={false}
   id="id3"
   onClick={[Function]}
   orientation="right"

@@ -8,18 +8,28 @@ export type SidePanelProps = {
   styles?: React.CSSProperties
   orientation?: 'left' | 'right'
   width?: string | number
-  title: string
-  subtitle?: string
   heading?: string
+  onClick: () => void
 }
 
-const Item: React.FC<React.PropsWithChildren<SidePanelProps>> = (props) => (
+export interface IItem {
+  Item: typeof Item
+}
+
+type SidePanelItemProps = {
+  title: string
+  background: string
+  color?: string
+  subtitle?: string
+}
+
+const Item: React.FC<React.PropsWithChildren<SidePanelItemProps>> = (props) => (
   <Card
     Icon={() => (
       <Avatar
-        bgColor="#9edcfa"
-        color="#1a1a1a"
-        fullName="Heidi Heidi"
+        bgColor={props.background}
+        color={props.color}
+        fullName={props.title}
         outlineColor="white"
         size="70px"
       />
@@ -29,10 +39,6 @@ const Item: React.FC<React.PropsWithChildren<SidePanelProps>> = (props) => (
     subtitle={props.subtitle}
   />
 )
-
-interface IItem {
-  Item: typeof Item
-}
 
 const SidePanel: React.FC<React.PropsWithChildren<SidePanelProps>> & IItem = ({
   children,

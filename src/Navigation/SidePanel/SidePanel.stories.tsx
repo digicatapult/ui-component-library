@@ -18,20 +18,42 @@ export default {
   },
 }
 
+const fixtures = [
+  {
+    id: 'heidi',
+    title: 'Heidi Heidi',
+    subtitle: 'The Hydrogen Producer',
+    background: '#AAED93',
+  },
+  {
+    id: 'emma',
+    title: 'Emma Connor',
+    subtitle: 'The Energy Consumer',
+    background: '#FDB6D4',
+  },
+  {
+    id: 'reginald',
+    title: 'Reginald Reg',
+    subtitle: 'The Regulator',
+    background: '#FCF281',
+  },
+]
+
 const DefaultStoryTemplate = (args: SidePanelProps) => {
   return (
     <SidePanel {...args}>
-      <SidePanel.Item title="Heidi" subtitle={'The Hydrogen Producer'} />
-      <SidePanel.Item title="Heidi" subtitle={'The Hydrogen Producer'} />
-      <SidePanel.Item title="Heidi" subtitle={'The Hydrogen Producer'} />
+      {fixtures.map((item) => (
+        <SidePanel.Item {...item} />
+      ))}
     </SidePanel>
   )
 }
 
 export const Default = DefaultStoryTemplate.bind({})
 Default.args = {
+  orientation: 'left',
   heading: 'Certificate Viewing (Hydrogen Producer)',
-  width: 300,
+  width: 400,
 }
 
 export const HyProof = DefaultStoryTemplate.bind({})

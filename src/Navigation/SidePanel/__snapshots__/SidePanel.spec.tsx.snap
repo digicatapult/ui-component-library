@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SidePanel default 1`] = `
+.c1 {
+  color: #4a4a4a;
+  font-family: Roboto;
+  margin-bottom: 59px;
+  max-width: 80%;
+  font-size: 24px;
+  line-height: 45px;
+}
+
+.c0 {
+  position: absolute;
+  padding: 20px;
+  padding-top: 50px width:300px;
+  max-width: 300px;
+  height: px;
+  animation: right 1s ease-out infinite;
+  box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.1);
+}
+
+<div
+  className="c0"
+  title="title"
+>
+  <div
+    className="c1"
+  />
+</div>
+`;

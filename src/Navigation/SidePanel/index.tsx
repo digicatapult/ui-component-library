@@ -1,49 +1,51 @@
 import React from 'react'
 
 import { Heading, Panel } from './common.js'
-import Card from '../../ListCard/index.js'
+import ListCard, { ListCardProps } from '../../ListCard/index.js'
 import Avatar from '../../UserIcon/index.js'
 
-export type SidePanelProps = {
+export interface SidePanelProps {
   styles?: React.CSSProperties
   orientation?: 'left' | 'right'
-  width?: string | number
+  width?: string
   heading?: string
-  onClick: () => void
+  update?: (id: string, persona: Persona, e?: MouseEvent) => void
 }
 
-export interface IItem {
-  Item: typeof Item
-}
-
-type SidePanelItemProps = {
+export interface SidePanelItemProps extends SidePanelProps {
   title: string
   background: string
   color?: string
   subtitle?: string
 }
 
-const Item: React.FC<React.PropsWithChildren<SidePanelItemProps>> = (props) => (
-  <Card
+interface IItem {
+  Item: typeof Item
+}
+type Persona = Omit<ListCardProps, 'onClick'>
+type ISidePanel = React.FC<React.PropsWithChildren<SidePanelProps>>
+
+const Item: React.FC<React.PropsWithChildren<SidePanelItemProps>> = ({
+  update,
+  ...persona
+}) => (
+  <ListCard
     Icon={() => (
       <Avatar
-        bgColor={props.background}
-        color={props.color}
-        fullName={props.title}
+        bgColor={persona.background}
+        color={persona.color}
+        fullName={persona.title}
         outlineColor="white"
         size="70px"
       />
     )}
-    onClick={(e) => console.log(e)}
-    title={props.title}
-    subtitle={props.subtitle}
+    onClick={(name: string) => update && update(name, persona)}
+    title={persona.title}
+    subtitle={persona.subtitle}
   />
 )
 
-const SidePanel: React.FC<React.PropsWithChildren<SidePanelProps>> & IItem = ({
-  children,
-  ...props
-}) => {
+const SidePanel: ISidePanel & IItem = ({ children, ...props }) => {
   return (
     <Panel {...props}>
       <Heading>{props.heading}</Heading>

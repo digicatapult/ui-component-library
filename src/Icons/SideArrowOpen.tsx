@@ -3,13 +3,13 @@ import React from 'react'
 export default function ({
   color = '#686867',
 }: {
-  color: string | undefined
+  color?: string | undefined
 }): React.ReactElement {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="22"
-      height="25"
+      height="20"
       viewBox="0 0 22 25"
       fill="none"
     >

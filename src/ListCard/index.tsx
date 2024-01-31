@@ -11,7 +11,6 @@ export interface ListCardProps {
   flashColor?: string
   width?: string
   background?: string
-
   Icon?: React.FC | typeof Avatar
   height?: string
   onClick: (title: string) => void
@@ -87,7 +86,7 @@ const Row = styled('div')`
   flex-direction: row;
   background: #d9d9d9;
   border-radius: 60px;
-  margin: 2px;
+  margin: 5px;
   padding: 8px;
 `
 
@@ -141,11 +140,12 @@ const Wrapper = styled.button<WrapperProps>`
   &::before {
     content: '';
     position: absolute;
+    display: ${(props: any) => (props.icon ? 'none' : '')};
     top: 0;
     bottom: 0;
     left: ${({ orientation }) => (orientation === 'right' ? 'unset' : '0')};
     right: ${({ orientation }) => (orientation === 'left' ? 'unset' : '0')};
-    width: ${(props: any) => (props.icon ? '0em' : '1em')};
+    width: 1em;
     background: ${({ flashColor }) => flashColor};
   }
 

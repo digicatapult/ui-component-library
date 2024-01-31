@@ -2,6 +2,8 @@ import React, { useRef } from 'react'
 import styled from 'styled-components'
 import { useId } from 'react-id-generator'
 
+import type Avatar from '../UserIcon/index.js'
+
 export interface ListCardProps {
   title: string
   subtitle?: string
@@ -9,6 +11,7 @@ export interface ListCardProps {
   flashColor?: string
   background?: string
   width?: string
+  Icon?: React.FC | typeof Avatar
   height?: string
   onClick: (title: string) => void
 }
@@ -30,6 +33,7 @@ const ListCard = React.forwardRef<HTMLButtonElement, ListCardProps>(
       subtitle = '',
       orientation = 'left',
       width = '100%',
+      Icon = undefined,
       height = '100%',
       onClick,
     },
@@ -38,22 +42,30 @@ const ListCard = React.forwardRef<HTMLButtonElement, ListCardProps>(
     const [id] = useId()
 
     return (
-      <Wrapper
-        ref={listCardRef}
-        orientation={orientation}
-        flashColor={flashColor}
-        background={background}
-        width={width}
-        height={height}
-        id={id}
-        onClick={() => onClick(title)}
-      >
-        <label htmlFor={id}>{title}</label>
-        {subtitle && <span>{subtitle}</span>}
-      </Wrapper>
+      <Row>
+        {Icon && <Icon />}
+        <Wrapper
+          ref={listCardRef}
+          orientation={orientation}
+          flashColor={flashColor}
+          background={background}
+          width={width}
+          height={height}
+          id={id}
+          onClick={() => onClick(title)}
+        >
+          <label htmlFor={id}>{title}</label>
+          {subtitle && <span>{subtitle}</span>}
+        </Wrapper>
+      </Row>
     )
   },
 )
+
+const Row = styled('div')`
+  display: flex;
+  flex-direction: row;
+`
 
 const Wrapper = styled.button<WrapperProps>`
   border: 0;

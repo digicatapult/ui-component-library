@@ -29,6 +29,9 @@ export const ItemWrapper = styled('div')`
 
 export const Panel = styled('div')`
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
   padding: 5px 25px;
   width: ${({ width }: any) => width || 300}px;
   height: ${viewPortH}px;

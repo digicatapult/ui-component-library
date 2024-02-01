@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { DetailedHTMLProps, useRef } from 'react'
 import styled from 'styled-components'
 import { useId } from 'react-id-generator'
 
@@ -17,15 +17,16 @@ export interface ListCardProps {
   onClick: (title: string) => void
 }
 
-interface WrapperProps extends React.DOMAttributes<HTMLButtonElement> {
+interface WrapperProps {
   background?: string
   orientation: 'left' | 'right'
   flashColor: string
   width: string
   height: string
+  isDefault?: boolean
 }
 
-const ListCard = React.forwardRef<HTMLButtonElement, ListCardProps>(
+const ListCard = React.forwardRef<HTMLDivElement, ListCardProps>(
   (
     {
       variant = 'default',
@@ -63,16 +64,16 @@ const ListCard = React.forwardRef<HTMLButtonElement, ListCardProps>(
   },
 )
 
-const Row = styled('div')`
+const Row = styled('div')<any>`
   display: flex;
   flex-direction: row;
   background: #d9d9d9;
-  border-radius: ${({ isDefault }) => (isDefault ? '0px' : '60px')};
+  border-radius: ${({ isDefault }: any) => (isDefault ? '0px' : '60px')};
   margin: 5px;
   padding: 8px;
 `
 
-const Wrapper = styled.button<WrapperProps>`
+const Wrapper = styled('div')<WrapperProps>`
   background: ${({ background }) => background};
   border: 0;
   font: inherit;

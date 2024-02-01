@@ -6,6 +6,7 @@ import type Avatar from '../UserIcon/index.js'
 
 export interface ListCardProps {
   title: string
+  variant?: 'default' | 'hyproof'
   subtitle?: string
   orientation?: 'left' | 'right'
   flashColor?: string
@@ -17,7 +18,6 @@ export interface ListCardProps {
 }
 
 interface WrapperProps extends React.DOMAttributes<HTMLButtonElement> {
-  icon: boolean
   background?: string
   orientation: 'left' | 'right'
   flashColor: string
@@ -28,55 +28,37 @@ interface WrapperProps extends React.DOMAttributes<HTMLButtonElement> {
 const ListCard = React.forwardRef<HTMLButtonElement, ListCardProps>(
   (
     {
+      variant = 'default',
       flashColor = '#e0e0e0',
-      background = 'none',
+      background = 'inherit',
       title,
       subtitle = '',
       orientation = 'left',
       width = '100%',
-      Icon = undefined,
-      height = '100%',
+      Icon = null,
       onClick,
     },
     listCardRef,
   ) => {
     const [id] = useId()
 
-    if (Icon)
-      return (
-        <Row>
-          {Icon && <Icon />}
-          <Wrapper
-            icon={true}
-            ref={listCardRef}
-            orientation={orientation}
-            background={background}
-            flashColor={flashColor}
-            width={width}
-            height={'60px'}
-            id={id}
-            onClick={() => onClick(title)}
-          >
-            <label htmlFor={id}>{title}</label>
-            {subtitle && <span>{subtitle}</span>}
-          </Wrapper>
-        </Row>
-      )
     return (
-      <Wrapper
-        icon={Icon ? true : false}
-        ref={listCardRef}
-        orientation={orientation}
-        background={background}
-        flashColor={flashColor}
-        width={width}
-        height={height}
-        id={id}
-        onClick={() => onClick(title)}
-      >
-        <label htmlFor={id}>{title}</label>
-        {subtitle && <span>{subtitle}</span>}
-      </Wrapper>
+      <Row isDefault={variant === 'default'}>
+        {Icon && <Icon />}
+        <Wrapper
+          ref={listCardRef}
+          orientation={orientation}
+          background={background}
+          flashColor={flashColor}
+          width={width}
+          height={'60px'}
+          id={id}
+          onClick={() => onClick(title)}
+        >
+          <label htmlFor={id}>{title}</label>
+          {subtitle && <span>{subtitle}</span>}
+        </Wrapper>
+      </Row>
     )
   },
 )
@@ -85,7 +67,7 @@ const Row = styled('div')`
   display: flex;
   flex-direction: row;
   background: #d9d9d9;
-  border-radius: 60px;
+  border-radius: ${({ isDefault }) => (isDefault ? '0px' : '60px')};
   margin: 5px;
   padding: 8px;
 `

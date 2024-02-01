@@ -20,7 +20,7 @@ export const Button = styled('div')`
   cursor: pointer;
 `
 
-export const ItemWrapper = styled('fragment')`
+export const ItemWrapper = styled('div')`
   transition: all 0.3s ease-out;
   &:hover {
     opacity: 0.7;

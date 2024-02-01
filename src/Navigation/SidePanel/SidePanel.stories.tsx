@@ -1,11 +1,20 @@
 import React from 'react'
+import { action } from '@storybook/addon-actions'
 
 import SidePanel, { SidePanelProps } from './index.js'
+import { hyproof, basic } from './fixtures.js'
+
+const fixtures = { hyproof, default: basic }
 
 export default {
   title: 'Components/Navigation/SidePanel',
   component: SidePanel,
   argTypes: {
+    variant: {
+      options: ['default', 'hyproof'],
+      control: { type: 'radio' },
+    },
+    update: { action: 'submit' },
     heading: {
       control: 'text',
     },
@@ -18,32 +27,21 @@ export default {
   },
 }
 
-const fixtures = [
-  {
-    id: 'heidi',
-    title: 'Heidi Heidi',
-    subtitle: 'The Hydrogen Producer',
-    background: '#AAED93',
-  },
-  {
-    id: 'emma',
-    title: 'Emma Connor',
-    subtitle: 'The Energy Consumer',
-    background: '#FDB6D4',
-  },
-  {
-    id: 'reginald',
-    title: 'Reginald Reg',
-    subtitle: 'The Regulator',
-    background: '#FCF281',
-  },
-]
-
 const DefaultStoryTemplate = (args: SidePanelProps) => {
+  const [current, setCurrent] = React.useState({})
+
   return (
-    <SidePanel {...args}>
-      {fixtures.map((item) => (
-        <SidePanel.Item {...item} />
+    <SidePanel {...args} {...current}>
+      {fixtures[args.variant || 'default'].map((item) => (
+        <SidePanel.Item
+          {...args}
+          update={(name, persona) => {
+            setCurrent({ current: name, ...persona })
+            action(name)
+          }}
+          key={item.name}
+          {...item}
+        />
       ))}
     </SidePanel>
   )
@@ -51,10 +49,14 @@ const DefaultStoryTemplate = (args: SidePanelProps) => {
 
 export const Default = DefaultStoryTemplate.bind({})
 Default.args = {
-  orientation: 'left',
-  heading: 'Certificate Viewing (Hydrogen Producer)',
-  width: 400,
+  variant: 'default',
+  heading: 'Basic Side Panel',
+  width: 300,
 }
 
 export const HyProof = DefaultStoryTemplate.bind({})
-HyProof.args = {}
+HyProof.args = {
+  variant: 'hyproof',
+  heading: 'HyProof Certificate Viewing',
+  width: 400,
+}

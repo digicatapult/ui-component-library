@@ -31,13 +31,12 @@ const DefaultStoryTemplate = (args: SidePanelProps) => {
   const [current, setCurrent] = React.useState({})
 
   return (
-    <SidePanel {...args} {...current}>
+    <SidePanel {...args} {...current} callback={action('open')}>
       {fixtures[args.variant || 'default'].map((item) => (
         <SidePanel.Item
           {...args}
           update={(name, persona) => {
             setCurrent({ current: name, ...persona })
-            action(name)
           }}
           key={item.name}
           {...item}

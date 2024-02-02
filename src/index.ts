@@ -1,6 +1,9 @@
 import CheckedIcon from './Icons/Checked.js'
 import InProgressIcon from './Icons/InProgress.js'
 import PadlockIcon from './Icons/Padlock.js'
+import LeftArrowIcon from './Icons/Left-Arrow.js'
+import RightArrowIcon from './Icons/Right-Arrow.js'
+import RefreshIcon from './Icons/Refresh.js'
 
 export { default as TestComponent } from './TestComponent/index.js'
 export { default as Grid } from './Grid/index.js'
@@ -25,5 +28,5 @@ export { default as Timeline } from './Timeline/index.js'
 export { default as UserIcon } from './UserIcon/index.js'
 export { default as Spinner } from './Animations/Spinner/index.js'
 
-export { CheckedIcon, InProgressIcon, PadlockIcon }
+export { CheckedIcon, InProgressIcon, PadlockIcon, LeftArrowIcon, RightArrowIcon, RefreshIcon }
 export * from './Heading/index.js'

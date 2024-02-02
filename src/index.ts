@@ -26,6 +26,7 @@ export { default as Button } from './Button/index.js'
 export { default as Timeline } from './Timeline/index.js'
 export { default as UserIcon } from './UserIcon/index.js'
 export { default as Spinner } from './Animations/Spinner/index.js'
+export { default as SidePanel } from './Navigation/SidePanel/index.js'
 
 export { CheckedIcon, InProgressIcon, PadlockIcon, SideArrowOpenIcon, SideArrowCloseIcon }
 export * from './Heading/index.js'

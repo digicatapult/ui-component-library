@@ -29,7 +29,6 @@ export default {
 }
 
 const DefaultStoryTemplate = (args: ButtonTextProps) => {
-  console.log(args)
   return (
     <Button
       onClick={(e) => {

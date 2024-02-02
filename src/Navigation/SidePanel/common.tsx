@@ -13,10 +13,10 @@ export const Heading = styled('div')`
 
 export const Button = styled('div')`
   position: relative;
-  margin-left: ${({ isOpen }: any) => (isOpen ? 5 : 20)}px;
+  margin-left: ${({ style: { isOpen }}: any) => (isOpen ? 5 : 20)}px;
   transition: all 0.5s ease-out-in;
   top: 10%;
-  left: ${({ width }: any) => width || 300}px;
+  left: ${({ style: { width }}: any) => width || 300}px;
   cursor: pointer;
 `
 
@@ -33,9 +33,9 @@ export const Panel = styled('div')`
   flex-direction: column;
   gap: 1em;
   padding: 5px 25px;
-  width: ${({ width }: any) => width || 300}px;
+  width: ${({ style: { width }}: any) => width || 300}px;
   height: ${viewPortH}px;
-  left: ${({ isOpen, width }: any) => (isOpen ? '0px' : `-${width + 50}px`)};
+  left: ${({ style: { isOpen, width }}: any) => (isOpen ? '0px' : `-${width + 50}px`)};
   top: 0px;
   box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.1);
   transition: all 0.7s ease-in-out;

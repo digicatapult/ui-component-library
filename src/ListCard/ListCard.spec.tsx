@@ -66,6 +66,7 @@ describe('Test', () => {
       />,
     )
 
+    console.log(instance.root.findByType('button').props)
     await act(() => {
       instance.root.findByType('button').props.onClick({})
     })

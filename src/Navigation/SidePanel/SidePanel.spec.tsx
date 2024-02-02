@@ -7,8 +7,16 @@ import SidePanel from './index.js'
 describe('SidePanel', () => {
   test('default', () => {
     const instance = renderer.create(
-      <SidePanel update={(id) => window.alert(id)} heading={'test heading'}>
+      <SidePanel heading={'test heading'}>
         <SidePanel.Item
+          update={(name) => window.alert(name)}
+          name="unit"
+          background="green"
+          title="test no sub"
+        />
+        <SidePanel.Item
+          update={(name) => window.alert(name)}
+          name="test"
           background="red"
           title="test-tittle suite"
           subtitle="this is subtitle"

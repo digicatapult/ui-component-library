@@ -13,7 +13,7 @@ describe('Link', () => {
     const tree = renderer
       .create(
         <UserIcon
-          name={'bruce wayne'}
+          fullName={'bruce wayne'}
           size={'70px'}
           color={'#1a1a1a'}
           bgColor={'#9edcfa'}

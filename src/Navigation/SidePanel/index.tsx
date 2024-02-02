@@ -7,10 +7,11 @@ import Avatar from '../../UserIcon/index.js'
 
 export interface SidePanelProps {
   heading?: string
+  title?: string
   variant?: 'default' | 'hyproof'
   width?: string
   isOpen?: boolean
-  update: (name: string, persona: Persona, e?: MouseEvent) => void
+  update?: (name: string, persona: Persona, e?: MouseEvent) => void
 }
 
 export interface SidePanelItemProps extends SidePanelProps {
@@ -25,7 +26,7 @@ interface IItem {
   Item: typeof Item
 }
 type Persona = Omit<ListCardProps, 'onClick'>
-type ISidePanel = React.FC<React.PropsWithChildren<SidePanelProps & any>>
+type ISidePanel = React.FC<React.PropsWithChildren<SidePanelProps>>
 
 const Item: React.FC<React.PropsWithChildren<SidePanelItemProps>> = ({
   update = () => {},
@@ -59,9 +60,16 @@ const Item: React.FC<React.PropsWithChildren<SidePanelItemProps>> = ({
 const SidePanel: ISidePanel & IItem = ({ children, heading, ...props }) => {
   const [show, setShow] = React.useState(false)
 
+  const style = { width: props.width, isOpen: show } as React.CSSProperties
   return (
-    <Panel onAnimationEnd={() => setShow(true)} {...props} isOpen={show}>
-      <Button onClick={() => setShow(!show)} {...props}>
+    <Panel
+      onAnimationEnd={() => setShow(true)}
+      style={style}
+    >
+      <Button
+        onClick={() => setShow(!show)}
+        style={style}
+      >
         {show ? <SideArrowOpenIcon /> : <SideArrowCloseIcon />}
       </Button>
       <Heading>{`${heading} (${props.title})`}</Heading>

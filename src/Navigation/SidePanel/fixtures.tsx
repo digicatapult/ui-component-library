@@ -16,20 +16,26 @@ export const basic = [
 
 export const hyproof = [
   {
-    name: 'heidi',
+    id: 'heidi',
     title: 'Heidi Heidi',
     subtitle: 'The Hydrogen Producer',
+    background: '#9EDCFA',
+  },
+  {
+    id: 'emma',
+    title: 'Emma Emma',
+    subtitle: 'The Energy Producer',
     background: '#AAED93',
   },
   {
-    name: 'emma',
-    title: 'Emma Connor',
-    subtitle: 'The Energy Consumer',
+    id: 'conor',
+    title: 'Conor Conor',
+    subtitle: 'The Hydrogen Consumer',
     background: '#FDB6D4',
   },
   {
-    name: 'reginald',
-    title: 'Reginald Reg',
+    id: 'reginald',
+    title: 'Reginald Reginald',
     subtitle: 'The Regulator',
     background: '#FCF281',
   },

@@ -20,7 +20,7 @@ exports[`Link default 1`] = `
   bgColor="#1E5CbA"
   className="c0"
   color="#efefef"
-  name="A A"
+  fullName="A A"
   outlineColor="#101010"
   size="4em"
 >
@@ -50,7 +50,7 @@ exports[`Link overrides 1`] = `
   bgColor="#9edcfa"
   className="c0"
   color="#1a1a1a"
-  name="bruce wayne"
+  fullName="bruce wayne"
   outlineColor="white"
   size="70px"
 >

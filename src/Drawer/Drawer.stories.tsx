@@ -7,7 +7,7 @@ import Drawer from './index.js'
 import Dropdown from '../Dropdown/index.js'
 
 export default {
-  title: 'Components/Drawer',
+  title: 'Components/Navigation/Drawer',
   component: Drawer,
 } as Meta<React.ComponentProps<typeof Drawer>>
 

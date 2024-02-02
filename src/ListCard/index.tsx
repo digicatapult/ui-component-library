@@ -2,21 +2,27 @@ import React, { useRef } from 'react'
 import styled from 'styled-components'
 import { useId } from 'react-id-generator'
 
+import type Avatar from '../UserIcon/index.js'
+
 export interface ListCardProps {
   title: string
   subtitle?: string
   orientation?: 'left' | 'right'
   flashColor?: string
-  background?: string
   width?: string
+  background?: string
+  variant?: 'default' | 'hyproof'
+  Icon?: React.FC | typeof Avatar
   height?: string
   onClick: (title: string) => void
 }
 
 interface WrapperProps extends React.DOMAttributes<HTMLButtonElement> {
+  icon?: boolean
+  background?: string
   orientation: 'left' | 'right'
+  variant?: 'default' | 'hyproof'
   flashColor: string
-  background: string
   width: string
   height: string
 }
@@ -24,29 +30,51 @@ interface WrapperProps extends React.DOMAttributes<HTMLButtonElement> {
 const ListCard = React.forwardRef<HTMLButtonElement, ListCardProps>(
   (
     {
+      variant = 'default',
       flashColor = '#e0e0e0',
-      background = '#f0f0f0',
+      background = 'inherit',
       title,
       subtitle = '',
       orientation = 'left',
       width = '100%',
-      height = '100%',
+      Icon = null,
       onClick,
     },
     listCardRef,
   ) => {
     const [id] = useId()
 
+    if (variant === 'hyproof')
+      return (
+        <Row
+          className={variant}
+          onClick={() => onClick(title)}
+          ref={listCardRef}
+        >
+          {Icon && <Icon />}
+          <Wrapper
+            variant={variant}
+            orientation={orientation}
+            background={background}
+            flashColor={flashColor}
+            width={width}
+            height={'60px'}
+            id={id}
+          >
+            <label htmlFor={id}>{title}</label>
+            {subtitle && <span>{subtitle}</span>}
+          </Wrapper>
+        </Row>
+      )
     return (
       <Wrapper
-        ref={listCardRef}
-        orientation={orientation}
-        flashColor={flashColor}
-        background={background}
-        width={width}
-        height={height}
-        id={id}
         onClick={() => onClick(title)}
+        orientation={orientation}
+        background={background}
+        flashColor={flashColor}
+        width={width}
+        height={'60px'}
+        id={id}
       >
         <label htmlFor={id}>{title}</label>
         {subtitle && <span>{subtitle}</span>}
@@ -55,7 +83,26 @@ const ListCard = React.forwardRef<HTMLButtonElement, ListCardProps>(
   },
 )
 
-const Wrapper = styled.button<WrapperProps>`
+const Row = styled('button')`
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background: #d9d9d9;
+  border: none;
+  border-radius: ${({ className }: any) => {
+    switch (className) {
+      case 'hyproof':
+        return '60px'
+      default:
+        return '0px'
+    }
+  }};
+  margin: 5px;
+  padding: 8px;
+`
+
+const Wrapper = styled('button')<WrapperProps>`
+  background: ${({ background }) => background};
   border: 0;
   font: inherit;
   text-align: ${({ orientation }) => orientation};
@@ -71,8 +118,6 @@ const Wrapper = styled.button<WrapperProps>`
   flex-direction: column;
   justify-content: center;
   gap: 0.5em;
-
-  background: ${({ background }) => background};
 
   border-top-left-radius: ${({ orientation }) =>
     orientation === 'left' ? '0.75em' : '0'};
@@ -106,11 +151,18 @@ const Wrapper = styled.button<WrapperProps>`
   &::before {
     content: '';
     position: absolute;
+    display: ${({ variant }: any) => {
+      switch (variant) {
+        case 'hyproof':
+          return 'none'
+        default:
+          return ''
+      }
+    }};
     top: 0;
     bottom: 0;
     left: ${({ orientation }) => (orientation === 'right' ? 'unset' : '0')};
     right: ${({ orientation }) => (orientation === 'left' ? 'unset' : '0')};
-
     width: 1em;
     background: ${({ flashColor }) => flashColor};
   }

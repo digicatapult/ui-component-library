@@ -8,7 +8,7 @@ export default {
   title: 'Components/UserIcon',
   component: UserIcon,
   argTypes: {
-    fullName: {
+    name: {
       control: 'text',
     },
     size: {
@@ -36,7 +36,7 @@ export const HII: StoryObj = {
     </Wrapper>
   ),
   args: {
-    fullName: 'bruce wayne',
+    name: 'bruce wayne',
     size: '70px',
     color: '#1a1a1a',
     bgColor: '#9edcfa',

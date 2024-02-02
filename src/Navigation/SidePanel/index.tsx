@@ -6,6 +6,7 @@ import { SideArrowCloseIcon, SideArrowOpenIcon } from '../../index.js'
 import Avatar from '../../UserIcon/index.js'
 
 export interface SidePanelProps {
+  callback: (data: { [k: string]: string | number | boolean }) => void 
   heading?: string
   title?: string
   variant?: 'default' | 'hyproof'
@@ -57,12 +58,15 @@ const Item: React.FC<React.PropsWithChildren<SidePanelItemProps>> = ({
   </ItemWrapper>
 )
 
-const SidePanel: ISidePanel & IItem = ({ children, heading, ...props }) => {
+const SidePanel: ISidePanel & IItem = ({ children, update, callback, heading, ...props }) => {
   const [show, setShow] = React.useState(false)
 
   const style = { width: props.width, isOpen: show } as React.CSSProperties
   return (
-    <Panel onAnimationEnd={() => setShow(true)} style={style}>
+    <Panel onAnimationEnd={() => {
+      setShow(true)
+      return callback(props)
+    }} style={style}>
       <Button onClick={() => setShow(!show)} style={style}>
         {show ? <SideArrowOpenIcon /> : <SideArrowCloseIcon />}
       </Button>

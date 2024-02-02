@@ -62,14 +62,8 @@ const SidePanel: ISidePanel & IItem = ({ children, heading, ...props }) => {
 
   const style = { width: props.width, isOpen: show } as React.CSSProperties
   return (
-    <Panel
-      onAnimationEnd={() => setShow(true)}
-      style={style}
-    >
-      <Button
-        onClick={() => setShow(!show)}
-        style={style}
-      >
+    <Panel onAnimationEnd={() => setShow(true)} style={style}>
+      <Button onClick={() => setShow(!show)} style={style}>
         {show ? <SideArrowOpenIcon /> : <SideArrowCloseIcon />}
       </Button>
       <Heading>{`${heading} (${props.title})`}</Heading>

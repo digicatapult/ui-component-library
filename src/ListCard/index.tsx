@@ -44,35 +44,42 @@ const ListCard = React.forwardRef<HTMLButtonElement, ListCardProps>(
   ) => {
     const [id] = useId()
 
-    if (variant === 'hyproof') return (
-      <Row className={variant} onClick={() => onClick(title)} ref={listCardRef}>
-        {Icon && <Icon />}
-        <Wrapper
-          variant={variant}
-          orientation={orientation}
-          background={background}
-          flashColor={flashColor}
-          width={width}
-          height={'60px'}
-          id={id}
+    if (variant === 'hyproof')
+      return (
+        <Row
+          className={variant}
+          onClick={() => onClick(title)}
+          ref={listCardRef}
         >
-          <label htmlFor={id}>{title}</label>
-          {subtitle && <span>{subtitle}</span>}
-        </Wrapper>
-      </Row>
+          {Icon && <Icon />}
+          <Wrapper
+            variant={variant}
+            orientation={orientation}
+            background={background}
+            flashColor={flashColor}
+            width={width}
+            height={'60px'}
+            id={id}
+          >
+            <label htmlFor={id}>{title}</label>
+            {subtitle && <span>{subtitle}</span>}
+          </Wrapper>
+        </Row>
+      )
+    return (
+      <Wrapper
+        onClick={() => onClick(title)}
+        orientation={orientation}
+        background={background}
+        flashColor={flashColor}
+        width={width}
+        height={'60px'}
+        id={id}
+      >
+        <label htmlFor={id}>{title}</label>
+        {subtitle && <span>{subtitle}</span>}
+      </Wrapper>
     )
-    return <Wrapper
-    onClick={() => onClick(title)}
-      orientation={orientation}
-      background={background}
-      flashColor={flashColor}
-      width={width}
-      height={'60px'}
-      id={id}
-    >
-    <label htmlFor={id}>{title}</label>
-    {subtitle && <span>{subtitle}</span>}
-  </Wrapper>
   },
 )
 
@@ -81,9 +88,9 @@ const Row = styled('button')`
   flex-direction: row;
   width: 100%;
   background: #d9d9d9;
-  border: none; 
-  border-radius: ${({className}: any) => {
-    switch(className) {
+  border: none;
+  border-radius: ${({ className }: any) => {
+    switch (className) {
       case 'hyproof':
         return '60px'
       default:
@@ -144,8 +151,8 @@ const Wrapper = styled('button')<WrapperProps>`
   &::before {
     content: '';
     position: absolute;
-    display: ${({variant}: any) => {
-      switch(variant) {
+    display: ${({ variant }: any) => {
+      switch (variant) {
         case 'hyproof':
           return 'none'
         default:

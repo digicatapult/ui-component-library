@@ -38,6 +38,6 @@ export const Panel = styled('div')`
   left: ${({ style: { isOpen, width } }: any) =>
     isOpen ? '0px' : `-${width + 50}px`};
   top: 0px;
-  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: ${({ style: { variant }}: any) => variant === 'default' ? '0px 4px 5px rgba(0, 0, 0, 0.1)' : 'none'};
   transition: all 0.7s ease-in-out;
 `

@@ -7,9 +7,10 @@ import SidePanel from './index.js'
 describe('SidePanel', () => {
   test('default', () => {
     const instance = renderer.create(
-      <SidePanel heading={'test heading'}>
+      <SidePanel variant='default' heading={'test heading'}>
         <SidePanel.Item
           update={(name) => window.alert(name)}
+          variant='default'
           name="unit"
           background="green"
           title="test no sub"
@@ -17,6 +18,31 @@ describe('SidePanel', () => {
         <SidePanel.Item
           update={(name) => window.alert(name)}
           name="test"
+          variant='default'
+          background="red"
+          title="test-tittle suite"
+          subtitle="this is subtitle"
+        />
+      </SidePanel>,
+    )
+    const tree = instance.toJSON()
+
+    expect(tree).toMatchSnapshot()
+  })
+  test('hyproof', () => {
+    const instance = renderer.create(
+      <SidePanel variant='hyproof' heading={'test heading'}>
+        <SidePanel.Item
+          update={(name) => window.alert(name)}
+          variant='hyproof'
+          name="unit"
+          background="green"
+          title="test no sub"
+        />
+        <SidePanel.Item
+          update={(name) => window.alert(name)}
+          name="test"
+          variant='hyproof'
           background="red"
           title="test-tittle suite"
           subtitle="this is subtitle"

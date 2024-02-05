@@ -24,7 +24,7 @@ exports[`SidePanel default 1`] = `
 }
 
 .c3:hover {
-  opacity: 0.7;
+  opacity: 0.5;
 }
 
 .c0 {
@@ -146,6 +146,11 @@ exports[`SidePanel default 1`] = `
   </div>
   <div
     className="c3"
+    style={
+      {
+        "opacity": "none",
+      }
+    }
   >
     <button
       background="inherit"
@@ -166,6 +171,11 @@ exports[`SidePanel default 1`] = `
   </div>
   <div
     className="c3"
+    style={
+      {
+        "opacity": "none",
+      }
+    }
   >
     <button
       background="inherit"
@@ -214,7 +224,7 @@ exports[`SidePanel hyproof 1`] = `
 }
 
 .c3:hover {
-  opacity: 0.7;
+  opacity: 0.5;
 }
 
 .c0 {
@@ -236,10 +246,10 @@ exports[`SidePanel hyproof 1`] = `
   flex-direction: row;
   width: 100%;
   background: #d9d9d9;
+  overflow: hidden;
   border: none;
   border-radius: 60px;
-  margin: 5px;
-  padding: 8px;
+  padding: 5px;
 }
 
 .c6 {
@@ -376,6 +386,11 @@ exports[`SidePanel hyproof 1`] = `
   </div>
   <div
     className="c3"
+    style={
+      {
+        "opacity": "none",
+      }
+    }
   >
     <button
       className="c4 hyproof"
@@ -412,6 +427,11 @@ exports[`SidePanel hyproof 1`] = `
   </div>
   <div
     className="c3"
+    style={
+      {
+        "opacity": "none",
+      }
+    }
   >
     <button
       className="c4 hyproof"

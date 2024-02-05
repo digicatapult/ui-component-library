@@ -88,6 +88,7 @@ const Row = styled('button')`
   flex-direction: row;
   width: 100%;
   background: #d9d9d9;
+  overflow: hidden;
   border: none;
   border-radius: ${({ className }: any) => {
     switch (className) {
@@ -97,8 +98,7 @@ const Row = styled('button')`
         return '0px'
     }
   }};
-  margin: 5px;
-  padding: 8px;
+  padding: 5px;
 `
 
 const Wrapper = styled('button')<WrapperProps>`

@@ -8,6 +8,7 @@ import Avatar from '../../UserIcon/index.js'
 export interface SidePanelProps {
   heading?: string
   title?: string
+  active?: boolean
   variant: 'default' | 'hyproof'
   width?: string
   isOpen?: boolean
@@ -34,7 +35,7 @@ const Item: React.FC<React.PropsWithChildren<SidePanelItemProps>> = ({
   variant = 'default',
   ...props
 }) => (
-  <ItemWrapper>
+  <ItemWrapper style={{ opacity: props.active ? '0.6' : 'none' }}>
     <ListCard
       variant={variant}
       Icon={() => {

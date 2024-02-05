@@ -7,10 +7,10 @@ import SidePanel from './index.js'
 describe('SidePanel', () => {
   test('default', () => {
     const instance = renderer.create(
-      <SidePanel variant='default' heading={'test heading'}>
+      <SidePanel variant="default" heading={'test heading'}>
         <SidePanel.Item
           update={(name) => window.alert(name)}
-          variant='default'
+          variant="default"
           name="unit"
           background="green"
           title="test no sub"
@@ -18,7 +18,7 @@ describe('SidePanel', () => {
         <SidePanel.Item
           update={(name) => window.alert(name)}
           name="test"
-          variant='default'
+          variant="default"
           background="red"
           title="test-tittle suite"
           subtitle="this is subtitle"
@@ -31,10 +31,10 @@ describe('SidePanel', () => {
   })
   test('hyproof', () => {
     const instance = renderer.create(
-      <SidePanel variant='hyproof' heading={'test heading'}>
+      <SidePanel variant="hyproof" heading={'test heading'}>
         <SidePanel.Item
           update={(name) => window.alert(name)}
-          variant='hyproof'
+          variant="hyproof"
           name="unit"
           background="green"
           title="test no sub"
@@ -42,7 +42,7 @@ describe('SidePanel', () => {
         <SidePanel.Item
           update={(name) => window.alert(name)}
           name="test"
-          variant='hyproof'
+          variant="hyproof"
           background="red"
           title="test-tittle suite"
           subtitle="this is subtitle"

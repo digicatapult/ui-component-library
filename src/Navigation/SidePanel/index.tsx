@@ -67,7 +67,11 @@ const SidePanel: ISidePanel & IItem = ({
 }) => {
   const [show, setShow] = React.useState(false)
 
-  const style = { variant: props.variant, width: props.width, isOpen: show } as React.CSSProperties
+  const style = {
+    variant: props.variant,
+    width: props.width,
+    isOpen: show,
+  } as React.CSSProperties
   return (
     <Panel onAnimationEnd={() => setShow(true)} style={style}>
       <Button

@@ -8,7 +8,7 @@ import Avatar from '../../UserIcon/index.js'
 export interface SidePanelProps {
   heading?: string
   title?: string
-  variant?: 'default' | 'hyproof'
+  variant: 'default' | 'hyproof'
   width?: string
   isOpen?: boolean
   callback?: (data: { [k: string]: string | number | boolean }) => void
@@ -67,7 +67,11 @@ const SidePanel: ISidePanel & IItem = ({
 }) => {
   const [show, setShow] = React.useState(false)
 
-  const style = { width: props.width, isOpen: show } as React.CSSProperties
+  const style = {
+    variant: props.variant,
+    width: props.width,
+    isOpen: show,
+  } as React.CSSProperties
   return (
     <Panel onAnimationEnd={() => setShow(true)} style={style}>
       <Button

@@ -12,7 +12,6 @@ export interface ListCardProps {
   width?: string
   background?: string
   variant?: 'default' | 'hyproof'
-  id?: string
   Icon?: React.FC | typeof Avatar
   height?: string
   onClick: (title: string) => void

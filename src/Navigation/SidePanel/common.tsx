@@ -17,13 +17,23 @@ export const Button = styled('div')`
   transition: all 0.5s ease-out-in;
   top: 10%;
   left: ${({ style: { width } }: any) => width || 300}px;
+  animation: indicate 1s infinite;
+
+  @keyframes indicate {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0.3;
+    }
+  }
   cursor: pointer;
 `
 
 export const ItemWrapper = styled('div')`
   transition: all 0.3s ease-out;
   &:hover {
-    opacity: 0.5;
+    opacity: 0.7;
   }
 `
 
@@ -31,7 +41,7 @@ export const Panel = styled('div')`
   position: absolute;
   display: flex;
   flex-direction: column;
-  gap: 1em;
+  gap: 0.2em;
   padding: 5px 25px;
   width: ${({ style: { width } }: any) => width || 300}px;
   height: ${viewPortH}px;

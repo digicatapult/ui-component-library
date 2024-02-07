@@ -28,15 +28,20 @@ export default {
 }
 
 const DefaultStoryTemplate = (args: SidePanelProps) => {
-  const [current, setCurrent] = React.useState({})
+  const [items] = React.useState(fixtures[args.variant || 'default'])
+  const [current, setCurrent] = React.useState({
+    current: 'heidi',
+    title: 'Heidi Heidi',
+  })
 
   return (
     <SidePanel {...args} {...current} callback={action('open')}>
-      {fixtures[args.variant || 'default'].map((item) => (
+      {items.map((item) => (
         <SidePanel.Item
+          active={current === item.title || false}
           {...args}
           update={(name, persona) => {
-            setCurrent({ current: name, ...persona })
+            setCurrent({ current: name || '', ...persona })
           }}
           key={item.name}
           {...item}
@@ -56,6 +61,6 @@ Default.args = {
 export const HyProof = DefaultStoryTemplate.bind({})
 HyProof.args = {
   variant: 'hyproof',
-  heading: 'HyProof Certificate Viewing',
+  heading: 'HyProof Variant',
   width: 400,
 }

@@ -12,6 +12,7 @@ export interface ListCardProps {
   width?: string
   background?: string
   variant?: 'default' | 'hyproof'
+  id?: string
   Icon?: React.FC | typeof Avatar
   height?: string
   onClick: (title: string) => void
@@ -86,8 +87,11 @@ const ListCard = React.forwardRef<HTMLButtonElement, ListCardProps>(
 const Row = styled('button')`
   display: flex;
   flex-direction: row;
-  width: 100%;
+  align-items: center;
+  justify-content: flex-start;
   background: #d9d9d9;
+  box-sizing: content-box;
+  width: 90%;
   overflow: hidden;
   border: none;
   border-radius: ${({ className }: any) => {
@@ -107,11 +111,11 @@ const Wrapper = styled('button')<WrapperProps>`
   font: inherit;
   text-align: ${({ orientation }) => orientation};
   cursor: pointer;
-
   position: relative;
-  width: ${({ width }) => width};
-  height: ${({ height }) => height};
-  padding-left: calc(1em * 41 / (16 * 1.2));
+  width: ${({ width, variant }) => (variant === 'hyproof' ? '80%' : width)};
+  height: ${({ height, variant }) => (variant === 'hyproof' ? '' : height)};
+  padding-left: ${({ variant }) =>
+    variant === 'hyproof' ? '10px' : 'calc(1em * 41 / (16 * 1.2))'};
   overflow: hidden;
 
   display: flex;

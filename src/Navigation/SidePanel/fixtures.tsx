@@ -20,7 +20,6 @@ export const hyproof = [
     title: 'Heidi Heidi',
     subtitle: 'The Hydrogen Producer',
     background: '#9EDCFA',
-    active: true,
   },
   {
     id: 'emma',

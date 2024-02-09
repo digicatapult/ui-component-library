@@ -8,6 +8,7 @@ export interface ListCardProps {
   title: string
   subtitle?: string
   orientation?: 'left' | 'right'
+  active?: boolean
   flashColor?: string
   width?: string
   background?: string
@@ -17,8 +18,14 @@ export interface ListCardProps {
   onClick: (title: string) => void
 }
 
+interface RowProps extends React.DOMAttributes<HTMLButtonElement> {
+  active: boolean
+  background: string
+}
+
 interface WrapperProps extends React.DOMAttributes<HTMLButtonElement> {
   icon?: boolean
+  active?: boolean
   background?: string
   orientation: 'left' | 'right'
   variant?: 'default' | 'hyproof'
@@ -31,6 +38,7 @@ const ListCard = React.forwardRef<HTMLButtonElement, ListCardProps>(
   (
     {
       variant = 'default',
+      active = false,
       flashColor = '#e0e0e0',
       background = 'inherit',
       title,
@@ -44,11 +52,14 @@ const ListCard = React.forwardRef<HTMLButtonElement, ListCardProps>(
   ) => {
     const [id] = useId()
 
+    console.log({ variant, active })
     if (variant === 'hyproof')
       return (
         <Row
           className={variant}
           onClick={() => onClick(title)}
+          active={active}
+          background={flashColor}
           ref={listCardRef}
         >
           {Icon && <Icon />}
@@ -83,15 +94,18 @@ const ListCard = React.forwardRef<HTMLButtonElement, ListCardProps>(
   },
 )
 
-const Row = styled('button')`
+const Row = styled('button')<RowProps>`
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  background: #d9d9d9;
   box-sizing: content-box;
   width: 90%;
   overflow: hidden;
+  background: ${({ background, active }) => {
+    if (active) return background
+    return '#d9d9d9'
+  }};
   border: none;
   border-radius: ${({ className }: any) => {
     switch (className) {
@@ -105,9 +119,9 @@ const Row = styled('button')`
 `
 
 const Wrapper = styled('button')<WrapperProps>`
-  background: ${({ background }) => background};
   border: 0;
   font: inherit;
+  background: inherit;
   text-align: ${({ orientation }) => orientation};
   cursor: pointer;
   position: relative;

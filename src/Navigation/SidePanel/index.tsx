@@ -8,10 +8,10 @@ import Avatar from '../../UserIcon/index.js'
 export interface SidePanelProps {
   heading?: string
   title?: string
-  active?: boolean
   variant: 'default' | 'hyproof'
   width?: string
   isOpen?: boolean
+  active?: boolean
   callback?: (data: { [k: string]: string | number | boolean }) => void
   update?: (name: string, persona: Persona, e?: MouseEvent) => void
 }
@@ -20,6 +20,7 @@ export interface SidePanelItemProps extends SidePanelProps {
   name: string
   title: string
   background?: string
+  active?: boolean
   color?: string
   subtitle?: string
 }
@@ -32,12 +33,15 @@ type ISidePanel = React.FC<React.PropsWithChildren<SidePanelProps>>
 
 const Item: React.FC<React.PropsWithChildren<SidePanelItemProps>> = ({
   update = () => {},
+  active = false,
   variant = 'default',
   ...props
 }) => (
-  <ItemWrapper style={{ opacity: props.active ? '0.6' : 'none' }}>
+  <ItemWrapper>
     <ListCard
       variant={variant}
+      active={active}
+      flashColor={props.background}
       Icon={() => {
         if (variant === 'hyproof')
           return (
@@ -46,7 +50,7 @@ const Item: React.FC<React.PropsWithChildren<SidePanelItemProps>> = ({
               color={props.color}
               fullName={props.name}
               outlineColor="white"
-              size="70px"
+              size="60px"
             />
           )
       }}

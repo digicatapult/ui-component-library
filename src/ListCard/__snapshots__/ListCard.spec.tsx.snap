@@ -2,9 +2,9 @@
 
 exports[`Test default 1`] = `
 .c0 {
-  background: inherit;
   border: 0;
   font: inherit;
+  background: inherit;
   text-align: left;
   cursor: pointer;
   position: relative;
@@ -77,9 +77,9 @@ exports[`Test default 1`] = `
 
 exports[`Test hii 1`] = `
 .c0 {
-  background: #DCE5E7;
   border: 0;
   font: inherit;
+  background: inherit;
   text-align: left;
   cursor: pointer;
   position: relative;
@@ -155,9 +155,9 @@ exports[`Test hii 1`] = `
 
 exports[`Test orientation: right 1`] = `
 .c0 {
-  background: #DCE5E7;
   border: 0;
   font: inherit;
+  background: inherit;
   text-align: right;
   cursor: pointer;
   position: relative;

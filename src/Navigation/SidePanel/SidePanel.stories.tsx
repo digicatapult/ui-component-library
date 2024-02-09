@@ -29,19 +29,18 @@ export default {
 
 const DefaultStoryTemplate = (args: SidePanelProps) => {
   const [items] = React.useState(fixtures[args.variant || 'default'])
-  const [current, setCurrent] = React.useState({
-    current: 'heidi',
-    title: 'Heidi Heidi',
-  })
+  const [current, setCurrent] = React.useState('Heidi Heidi')
+  const persona = items.find(({ title }) => title === current)
 
+  console.log({ current })
   return (
-    <SidePanel {...args} {...current} callback={action('open')}>
+    <SidePanel {...args} {...persona} callback={action('open')}>
       {items.map((item) => (
         <SidePanel.Item
           active={current === item.title || false}
           {...args}
           update={(name, persona) => {
-            setCurrent({ current: name || '', ...persona })
+            setCurrent(name || '')
           }}
           key={item.name}
           {...item}

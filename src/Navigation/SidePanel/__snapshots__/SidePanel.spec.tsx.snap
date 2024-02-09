@@ -43,9 +43,9 @@ exports[`SidePanel default 1`] = `
 }
 
 .c4 {
-  background: inherit;
   border: 0;
   font: inherit;
+  background: inherit;
   text-align: left;
   cursor: pointer;
   position: relative;
@@ -91,11 +91,67 @@ exports[`SidePanel default 1`] = `
   left: 0;
   right: unset;
   width: 1em;
-  background: #e0e0e0;
+  background: green;
 }
 
 .c4:focus-visible {
-  outline: 1px #e0e0e0 solid;
+  outline: 1px green solid;
+}
+
+.c5 {
+  border: 0;
+  font: inherit;
+  background: inherit;
+  text-align: left;
+  cursor: pointer;
+  position: relative;
+  width: 100%;
+  height: 60px;
+  padding-left: calc(1em * 41 / (16 * 1.2));
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5em;
+  border-top-left-radius: 0.75em;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0.75em;
+}
+
+.c5 >* {
+  display: block;
+  padding: 0;
+  margin: 0;
+  width: 90%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+.c5 >label {
+  font-size: 1.2em;
+  font-weight: bolder;
+}
+
+.c5 >span {
+  font-size: 1em;
+}
+
+.c5::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: unset;
+  width: 1em;
+  background: red;
+}
+
+.c5:focus-visible {
+  outline: 1px red solid;
 }
 
 <div
@@ -147,16 +203,11 @@ exports[`SidePanel default 1`] = `
   </div>
   <div
     className="c3"
-    style={
-      {
-        "opacity": "none",
-      }
-    }
   >
     <button
       background="inherit"
       className="c4"
-      flashColor="#e0e0e0"
+      flashColor="green"
       height="60px"
       id="id1"
       onClick={[Function]}
@@ -172,16 +223,11 @@ exports[`SidePanel default 1`] = `
   </div>
   <div
     className="c3"
-    style={
-      {
-        "opacity": "none",
-      }
-    }
   >
     <button
       background="inherit"
-      className="c4"
-      flashColor="#e0e0e0"
+      className="c5"
+      flashColor="red"
       height="60px"
       id="id2"
       onClick={[Function]}
@@ -248,19 +294,19 @@ exports[`SidePanel hyproof 1`] = `
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  background: #d9d9d9;
   box-sizing: content-box;
   width: 90%;
   overflow: hidden;
+  background: #d9d9d9;
   border: none;
   border-radius: 60px;
   padding: 5px;
 }
 
 .c6 {
-  background: inherit;
   border: 0;
   font: inherit;
+  background: inherit;
   text-align: left;
   cursor: pointer;
   position: relative;
@@ -306,11 +352,67 @@ exports[`SidePanel hyproof 1`] = `
   left: 0;
   right: unset;
   width: 1em;
-  background: #e0e0e0;
+  background: green;
 }
 
 .c6:focus-visible {
-  outline: 1px #e0e0e0 solid;
+  outline: 1px green solid;
+}
+
+.c8 {
+  border: 0;
+  font: inherit;
+  background: inherit;
+  text-align: left;
+  cursor: pointer;
+  position: relative;
+  width: 80%;
+  padding-left: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5em;
+  border-top-left-radius: 0.75em;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0.75em;
+}
+
+.c8 >* {
+  display: block;
+  padding: 0;
+  margin: 0;
+  width: 90%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+.c8 >label {
+  font-size: 1.2em;
+  font-weight: bolder;
+}
+
+.c8 >span {
+  font-size: 1em;
+}
+
+.c8::before {
+  content: '';
+  position: absolute;
+  display: none;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: unset;
+  width: 1em;
+  background: red;
+}
+
+.c8:focus-visible {
+  outline: 1px red solid;
 }
 
 .c5 {
@@ -318,12 +420,12 @@ exports[`SidePanel hyproof 1`] = `
   display: grid;
   align-items: center;
   justify-content: center;
-  width: 70px;
-  font-size: calc(70px / 4);
+  width: 60px;
+  font-size: calc(60px / 4);
   text-transform: uppercase;
   aspect-ratio: 1/1;
   border-radius: 50%;
-  border: calc(70px * 0.065) solid white;
+  border: calc(60px * 0.065) solid white;
   background: green;
 }
 
@@ -332,12 +434,12 @@ exports[`SidePanel hyproof 1`] = `
   display: grid;
   align-items: center;
   justify-content: center;
-  width: 70px;
-  font-size: calc(70px / 4);
+  width: 60px;
+  font-size: calc(60px / 4);
   text-transform: uppercase;
   aspect-ratio: 1/1;
   border-radius: 50%;
-  border: calc(70px * 0.065) solid white;
+  border: calc(60px * 0.065) solid white;
   background: red;
 }
 
@@ -390,13 +492,10 @@ exports[`SidePanel hyproof 1`] = `
   </div>
   <div
     className="c3"
-    style={
-      {
-        "opacity": "none",
-      }
-    }
   >
     <button
+      active={false}
+      background="green"
       className="c4 hyproof"
       onClick={[Function]}
     >
@@ -405,7 +504,7 @@ exports[`SidePanel hyproof 1`] = `
         className="c5"
         fullName="unit"
         outlineColor="white"
-        size="70px"
+        size="60px"
       >
         <p>
           u
@@ -414,7 +513,7 @@ exports[`SidePanel hyproof 1`] = `
       <button
         background="inherit"
         className="c6"
-        flashColor="#e0e0e0"
+        flashColor="green"
         height="60px"
         id="id3"
         orientation="left"
@@ -431,13 +530,10 @@ exports[`SidePanel hyproof 1`] = `
   </div>
   <div
     className="c3"
-    style={
-      {
-        "opacity": "none",
-      }
-    }
   >
     <button
+      active={false}
+      background="red"
       className="c4 hyproof"
       onClick={[Function]}
     >
@@ -446,7 +542,7 @@ exports[`SidePanel hyproof 1`] = `
         className="c7"
         fullName="test"
         outlineColor="white"
-        size="70px"
+        size="60px"
       >
         <p>
           t
@@ -454,8 +550,8 @@ exports[`SidePanel hyproof 1`] = `
       </div>
       <button
         background="inherit"
-        className="c6"
-        flashColor="#e0e0e0"
+        className="c8"
+        flashColor="red"
         height="60px"
         id="id4"
         orientation="left"

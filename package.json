@@ -25,6 +25,7 @@
     "depcheck": "depcheck",
     "lint": "eslint .",
     "storybook": "storybook dev -p 9000",
+    "storybook:build": "storybook build -o ./build",
     "test": "jest"
   },
   "peerDependencies": {

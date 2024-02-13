@@ -135,6 +135,12 @@ jobs:
 
   deploy-pages:
     name: 'Deploy Storybook to Github pages'
+    needs:
+      - preconditions
+      - lint
+      - dependency-check
+      - test
+      - check-version
     runs-on: ubuntu-latest
     if: ${{ needs.check-version.outputs.is_new_version == 'true' }}
 

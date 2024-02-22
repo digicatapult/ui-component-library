@@ -17,7 +17,7 @@ export const Button = styled('div')`
   transition: all 0.5s ease-out-in;
   top: 10%;
   left: ${({ style: { width } }: any) => width || 300}px;
-  animation: indicate 1s infinite;
+  animation: indicate 1s 10;
 
   @keyframes indicate {
     0% {

@@ -14,19 +14,8 @@ export const Heading = styled('div')`
 export const Button = styled('div')`
   position: relative;
   margin-left: ${({ style: { isOpen } }: any) => (isOpen ? 5 : 20)}px;
-  transition: all 0.5s ease-out-in;
   top: 10%;
   left: ${({ style: { width } }: any) => width || 300}px;
-  animation: indicate 1s infinite;
-
-  @keyframes indicate {
-    0% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0.3;
-    }
-  }
   cursor: pointer;
 `
 

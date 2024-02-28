@@ -13,10 +13,8 @@ exports[`SidePanel default 1`] = `
 .c1 {
   position: relative;
   margin-left: 20px;
-  transition: all 0.5s ease-out-in;
   top: 10%;
   left: 300px;
-  animation: indicate 1s infinite;
   cursor: pointer;
 }
 
@@ -260,10 +258,8 @@ exports[`SidePanel hyproof 1`] = `
 .c1 {
   position: relative;
   margin-left: 20px;
-  transition: all 0.5s ease-out-in;
   top: 10%;
   left: 300px;
-  animation: indicate 1s infinite;
   cursor: pointer;
 }
 

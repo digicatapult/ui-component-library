@@ -2,10 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 
 import PadlockIcon from '../Icons/Padlock.js'
-import ClockIcon from '../Icons/Clock.js'
-import CertificateIssueIcon from '../Icons/Certificate-Issued.js'
-import CertificateRevokedIcon from '../Icons/Certificate-Revoked.js'
-import CertificateCO2Icon from '../Icons/Certificate-CO2.js'
+import ClockIcon from './index.js'
+import CertificateIssueIcon from './index.js'
+import CertificateRevokedIcon from './index.js'
+import CertificateCO2Icon from './index.js'
 import Table, { TableProps } from './index.js'
 
 export default {

@@ -1,151 +1,172 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Table default 1`] = `
-.c1 {
-  color: var(--Black, #000);
-  font-family: Roboto Mono;
-  font-size: 16px;
-  font-style: normal;
+.c3 {
+  border-bottom: solid 1px #FFF;
   text-align: left;
-  font-weight: 400;
-  line-height: normal;
-  text-decoration-line: underline;
+  padding: 2px 5px;
+  border-left: solid 1px #FFF;
+  background-color: #27847A;
+  color: #FFF;
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26x;
+}
+
+.c4 {
+  color: #1a1a1a;
+  font-family: Inter;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 0px;
+  padding: 5px;
+  height: 60px;
+  text-align: center;
 }
 
 .c2 {
-  color: var(--Black, #000);
-  font-family: Roboto Mono;
-  font-size: 16px;
-  font-style: normal;
-  text-align: left;
-  font-weight: 400;
-  line-height: normal;
+  background-color: #fff;
+  outline: thin solid #27847a;
+}
+
+.c1 {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 10px;
 }
 
 .c0 {
-  width: 100%;
-  border-collapse: collapse;
+  background-color: #27847a;
+  padding: 20px;
+  height: 1200px;
 }
 
-<table
+<div
   className="c0"
-  headers={
-    [
-      "Timestamp",
-      "Subject",
-      "HTML",
-    ]
-  }
-  rows={
-    [
+>
+  <table
+    className="c1"
+    headers={
       [
-        "2010-01-01T00:00:00.000Z",
-        "example-1",
+        "Timestamp",
+        "Subject",
+        "HTML",
+      ]
+    }
+    rows={
+      [
+        [
+          "2010-01-01T00:00:00.000Z",
+          "example-1",
+          <p>
+            paragraph
+          </p>,
+        ],
+        [
+          "2011-01-01T00:00:00.000Z",
+          "example-2",
+          <button>
+            button
+          </button>,
+        ],
+        [
+          "2012-01-01T00:00:00.000Z",
+          "example-3",
+          <h3>
+            heading #3
+          </h3>,
+        ],
+      ]
+    }
+  >
+    <tr
+      className="c2"
+    >
+      <th
+        className="c3"
+        style={{}}
+      >
+        Timestamp
+      </th>
+      <th
+        className="c3"
+        style={{}}
+      >
+        Subject
+      </th>
+      <th
+        className="c3"
+        style={{}}
+      >
+        HTML
+      </th>
+    </tr>
+    <tr
+      className="c2"
+    >
+      <td
+        className="c4"
+      >
+        2010-01-01T00:00:00.000Z
+      </td>
+      <td
+        className="c4"
+      >
+        example-1
+      </td>
+      <td
+        className="c4"
+      >
         <p>
           paragraph
-        </p>,
-      ],
-      [
-        "2011-01-01T00:00:00.000Z",
-        "example-2",
+        </p>
+      </td>
+    </tr>
+    <tr
+      className="c2"
+    >
+      <td
+        className="c4"
+      >
+        2011-01-01T00:00:00.000Z
+      </td>
+      <td
+        className="c4"
+      >
+        example-2
+      </td>
+      <td
+        className="c4"
+      >
         <button>
           button
-        </button>,
-      ],
-      [
-        "2012-01-01T00:00:00.000Z",
-        "example-3",
+        </button>
+      </td>
+    </tr>
+    <tr
+      className="c2"
+    >
+      <td
+        className="c4"
+      >
+        2012-01-01T00:00:00.000Z
+      </td>
+      <td
+        className="c4"
+      >
+        example-3
+      </td>
+      <td
+        className="c4"
+      >
         <h3>
           heading #3
-        </h3>,
-      ],
-    ]
-  }
->
-  <tr
-    className=""
-  >
-    <th
-      className="c1"
-      style={{}}
-    >
-      Timestamp
-    </th>
-    <th
-      className="c1"
-      style={{}}
-    >
-      Subject
-    </th>
-    <th
-      className="c1"
-      style={{}}
-    >
-      HTML
-    </th>
-  </tr>
-  <tr
-    className=""
-  >
-    <td
-      className="c2"
-    >
-      2010-01-01T00:00:00.000Z
-    </td>
-    <td
-      className="c2"
-    >
-      example-1
-    </td>
-    <td
-      className="c2"
-    >
-      <p>
-        paragraph
-      </p>
-    </td>
-  </tr>
-  <tr
-    className=""
-  >
-    <td
-      className="c2"
-    >
-      2011-01-01T00:00:00.000Z
-    </td>
-    <td
-      className="c2"
-    >
-      example-2
-    </td>
-    <td
-      className="c2"
-    >
-      <button>
-        button
-      </button>
-    </td>
-  </tr>
-  <tr
-    className=""
-  >
-    <td
-      className="c2"
-    >
-      2012-01-01T00:00:00.000Z
-    </td>
-    <td
-      className="c2"
-    >
-      example-3
-    </td>
-    <td
-      className="c2"
-    >
-      <h3>
-        heading #3
-      </h3>
-    </td>
-  </tr>
-</table>
+        </h3>
+      </td>
+    </tr>
+  </table>
+</div>
 `;

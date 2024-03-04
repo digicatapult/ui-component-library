@@ -1,59 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Table default 1`] = `
-.c3 {
-  border-bottom: solid 1px #fff;
-  text-align: left;
-  padding: 2px 5px;
-  border-left: solid 1px #fff;
-  background-color: #27847a;
-  color: #fff;
-  font-family: Roboto;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 26x;
-}
-
-.c5 {
-  color: #1a1a1a;
-  font-family: Inter;
-  font-size: 26px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 0px;
-  padding: 5px;
-  height: 60px;
-  text-align: center;
-}
-
-.c2 {
-  background-color: #fff;
-  outline: thin solid #27847a;
-}
-
 .c2:before {
   content: '';
   position: absolute;
 }
 
-.c4 {
-  background-color: #fff;
-  outline: thin solid #27847a;
-}
-
-.c4:before {
+.c3:before {
   content: '';
   position: absolute;
-  right: 30px;
+  right: 36px;
   border-bottom: 15px solid #eee;
   border-right: 15px solid #27847a;
 }
 
 .c1 {
   width: 100%;
-  border-collapse: separate;
-  border-spacing: 0 10px;
 }
 
 .c0 {
@@ -64,6 +26,7 @@ exports[`Table default 1`] = `
 
 <div
   className="c0"
+  color="hyproof"
 >
   <table
     className="c1"
@@ -99,45 +62,144 @@ exports[`Table default 1`] = `
         ],
       ]
     }
+    style={
+      {
+        "borderCollapse": "separate",
+        "borderSpacing": "0 10px",
+      }
+    }
   >
     <tr
       className="c2"
-      color="not-page"
+      style={
+        {
+          "backgroundColor": "#fff",
+          "outline": "thin solid #27847a",
+        }
+      }
     >
       <th
-        className="c3"
-        style={{}}
+        className=""
+        style={
+          {
+            "backgroundColor": "#27847a",
+            "borderBottom": "solid 1px #fff",
+            "borderLeft": "solid 1px #fff",
+            "color": "#fff",
+            "fontFamily": "Roboto",
+            "fontSize": "14px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "lineHeight": "26px",
+            "padding": "2px 5px",
+            "textAlign": "left",
+          }
+        }
       >
         Timestamp
       </th>
       <th
-        className="c3"
-        style={{}}
+        className=""
+        style={
+          {
+            "backgroundColor": "#27847a",
+            "borderBottom": "solid 1px #fff",
+            "borderLeft": "solid 1px #fff",
+            "color": "#fff",
+            "fontFamily": "Roboto",
+            "fontSize": "14px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "lineHeight": "26px",
+            "padding": "2px 5px",
+            "textAlign": "left",
+          }
+        }
       >
         Subject
       </th>
       <th
-        className="c3"
-        style={{}}
+        className=""
+        style={
+          {
+            "backgroundColor": "#27847a",
+            "borderBottom": "solid 1px #fff",
+            "borderLeft": "solid 1px #fff",
+            "color": "#fff",
+            "fontFamily": "Roboto",
+            "fontSize": "14px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "lineHeight": "26px",
+            "padding": "2px 5px",
+            "textAlign": "left",
+          }
+        }
       >
         HTML
       </th>
     </tr>
     <tr
-      className="c4"
+      className="c3"
+      color="not-page"
+      style={
+        {
+          "backgroundColor": "#fff",
+          "outline": "thin solid #27847a",
+        }
+      }
     >
       <td
-        className="c5"
+        className=""
+        style={
+          {
+            "color": "#1a1a1a",
+            "fontFamily": "Inter",
+            "fontSize": "26px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "height": "60px",
+            "lineHeight": "0px",
+            "padding": "5px",
+            "textAlign": "center",
+          }
+        }
       >
         2010-01-01T00:00:00.000Z
       </td>
       <td
-        className="c5"
+        className=""
+        style={
+          {
+            "color": "#1a1a1a",
+            "fontFamily": "Inter",
+            "fontSize": "26px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "height": "60px",
+            "lineHeight": "0px",
+            "padding": "5px",
+            "textAlign": "center",
+          }
+        }
       >
         example-1
       </td>
       <td
-        className="c5"
+        className=""
+        style={
+          {
+            "color": "#1a1a1a",
+            "fontFamily": "Inter",
+            "fontSize": "26px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "height": "60px",
+            "lineHeight": "0px",
+            "padding": "5px",
+            "textAlign": "center",
+          }
+        }
       >
         <p>
           paragraph
@@ -145,20 +207,66 @@ exports[`Table default 1`] = `
       </td>
     </tr>
     <tr
-      className="c4"
+      className="c3"
+      color="not-page"
+      style={
+        {
+          "backgroundColor": "#fff",
+          "outline": "thin solid #27847a",
+        }
+      }
     >
       <td
-        className="c5"
+        className=""
+        style={
+          {
+            "color": "#1a1a1a",
+            "fontFamily": "Inter",
+            "fontSize": "26px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "height": "60px",
+            "lineHeight": "0px",
+            "padding": "5px",
+            "textAlign": "center",
+          }
+        }
       >
         2011-01-01T00:00:00.000Z
       </td>
       <td
-        className="c5"
+        className=""
+        style={
+          {
+            "color": "#1a1a1a",
+            "fontFamily": "Inter",
+            "fontSize": "26px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "height": "60px",
+            "lineHeight": "0px",
+            "padding": "5px",
+            "textAlign": "center",
+          }
+        }
       >
         example-2
       </td>
       <td
-        className="c5"
+        className=""
+        style={
+          {
+            "color": "#1a1a1a",
+            "fontFamily": "Inter",
+            "fontSize": "26px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "height": "60px",
+            "lineHeight": "0px",
+            "padding": "5px",
+            "textAlign": "center",
+          }
+        }
       >
         <button>
           button
@@ -166,20 +274,66 @@ exports[`Table default 1`] = `
       </td>
     </tr>
     <tr
-      className="c4"
+      className="c3"
+      color="not-page"
+      style={
+        {
+          "backgroundColor": "#fff",
+          "outline": "thin solid #27847a",
+        }
+      }
     >
       <td
-        className="c5"
+        className=""
+        style={
+          {
+            "color": "#1a1a1a",
+            "fontFamily": "Inter",
+            "fontSize": "26px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "height": "60px",
+            "lineHeight": "0px",
+            "padding": "5px",
+            "textAlign": "center",
+          }
+        }
       >
         2012-01-01T00:00:00.000Z
       </td>
       <td
-        className="c5"
+        className=""
+        style={
+          {
+            "color": "#1a1a1a",
+            "fontFamily": "Inter",
+            "fontSize": "26px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "height": "60px",
+            "lineHeight": "0px",
+            "padding": "5px",
+            "textAlign": "center",
+          }
+        }
       >
         example-3
       </td>
       <td
-        className="c5"
+        className=""
+        style={
+          {
+            "color": "#1a1a1a",
+            "fontFamily": "Inter",
+            "fontSize": "26px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "height": "60px",
+            "lineHeight": "0px",
+            "padding": "5px",
+            "textAlign": "center",
+          }
+        }
       >
         <h3>
           heading #3
@@ -191,59 +345,21 @@ exports[`Table default 1`] = `
 `;
 
 exports[`Table hyproof 1`] = `
-.c3 {
-  border-bottom: solid 1px #fff;
-  text-align: left;
-  padding: 2px 5px;
-  border-left: solid 1px #fff;
-  background-color: #27847a;
-  color: #fff;
-  font-family: Roboto;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 26x;
-}
-
-.c5 {
-  color: #1a1a1a;
-  font-family: Inter;
-  font-size: 26px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 0px;
-  padding: 5px;
-  height: 60px;
-  text-align: center;
-}
-
-.c2 {
-  background-color: #fff;
-  outline: thin solid #27847a;
-}
-
 .c2:before {
   content: '';
   position: absolute;
 }
 
-.c4 {
-  background-color: #fff;
-  outline: thin solid #27847a;
-}
-
-.c4:before {
+.c3:before {
   content: '';
   position: absolute;
-  right: 30px;
+  right: 36px;
   border-bottom: 15px solid #eee;
   border-right: 15px solid #27847a;
 }
 
 .c1 {
   width: 100%;
-  border-collapse: separate;
-  border-spacing: 0 10px;
 }
 
 .c0 {
@@ -252,7 +368,7 @@ exports[`Table hyproof 1`] = `
   height: 1200px;
 }
 
-.c8 {
+.c6 {
   color: #6aa685;
   font-family: Inter;
   font-size: 16px;
@@ -261,7 +377,7 @@ exports[`Table hyproof 1`] = `
   line-height: 0px;
 }
 
-.c10 {
+.c8 {
   width: 90px;
   background-color: #27847a;
   color: #fff;
@@ -274,7 +390,7 @@ exports[`Table hyproof 1`] = `
   line-height: 10px;
 }
 
-.c11 {
+.c9 {
   width: 90px;
   background-color: red;
   color: #fff;
@@ -287,7 +403,7 @@ exports[`Table hyproof 1`] = `
   line-height: 10px;
 }
 
-.c9 {
+.c7 {
   color: #27847a;
   font-family: Inter;
   font-size: 12px;
@@ -296,14 +412,14 @@ exports[`Table hyproof 1`] = `
   line-height: 10px;
 }
 
-.c7 {
+.c5 {
   display: flex;
   flex-direction: row;
   gap: 5px;
   align-items: center;
 }
 
-.c6 {
+.c4 {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -312,6 +428,7 @@ exports[`Table hyproof 1`] = `
 
 <div
   className="c0"
+  color="hyproof"
 >
   <table
     className="c1"
@@ -368,53 +485,154 @@ exports[`Table hyproof 1`] = `
         ],
       ]
     }
+    style={
+      {
+        "borderCollapse": "separate",
+        "borderSpacing": "0 10px",
+      }
+    }
   >
     <tr
       className="c2"
-      color="not-page"
+      style={
+        {
+          "backgroundColor": "#fff",
+          "outline": "thin solid #27847a",
+        }
+      }
     >
       <th
-        className="c3"
-        style={{}}
+        className=""
+        style={
+          {
+            "backgroundColor": "#27847a",
+            "borderBottom": "solid 1px #fff",
+            "borderLeft": "solid 1px #fff",
+            "color": "#fff",
+            "fontFamily": "Roboto",
+            "fontSize": "14px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "lineHeight": "26px",
+            "padding": "2px 5px",
+            "textAlign": "left",
+          }
+        }
       >
         Date
       </th>
       <th
-        className="c3"
-        style={{}}
+        className=""
+        style={
+          {
+            "backgroundColor": "#27847a",
+            "borderBottom": "solid 1px #fff",
+            "borderLeft": "solid 1px #fff",
+            "color": "#fff",
+            "fontFamily": "Roboto",
+            "fontSize": "14px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "lineHeight": "26px",
+            "padding": "2px 5px",
+            "textAlign": "left",
+          }
+        }
       >
         H2 Batch size
       </th>
       <th
-        className="c3"
-        style={{}}
+        className=""
+        style={
+          {
+            "backgroundColor": "#27847a",
+            "borderBottom": "solid 1px #fff",
+            "borderLeft": "solid 1px #fff",
+            "color": "#fff",
+            "fontFamily": "Roboto",
+            "fontSize": "14px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "lineHeight": "26px",
+            "padding": "2px 5px",
+            "textAlign": "left",
+          }
+        }
       >
         Electric energy use
       </th>
       <th
-        className="c3"
-        style={{}}
+        className=""
+        style={
+          {
+            "backgroundColor": "#27847a",
+            "borderBottom": "solid 1px #fff",
+            "borderLeft": "solid 1px #fff",
+            "color": "#fff",
+            "fontFamily": "Roboto",
+            "fontSize": "14px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "lineHeight": "26px",
+            "padding": "2px 5px",
+            "textAlign": "left",
+          }
+        }
       >
         Electric energy use
       </th>
       <th
-        className="c3"
-        style={{}}
+        className=""
+        style={
+          {
+            "backgroundColor": "#27847a",
+            "borderBottom": "solid 1px #fff",
+            "borderLeft": "solid 1px #fff",
+            "color": "#fff",
+            "fontFamily": "Roboto",
+            "fontSize": "14px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "lineHeight": "26px",
+            "padding": "2px 5px",
+            "textAlign": "left",
+          }
+        }
       >
         Status
       </th>
     </tr>
     <tr
-      className="c4"
+      className="c3"
+      color="not-page"
+      style={
+        {
+          "backgroundColor": "#fff",
+          "outline": "thin solid #27847a",
+        }
+      }
     >
       <td
-        className="c5"
+        className=""
+        style={
+          {
+            "color": "#1a1a1a",
+            "fontFamily": "Inter",
+            "fontSize": "26px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "height": "60px",
+            "lineHeight": "0px",
+            "padding": "5px",
+            "textAlign": "center",
+          }
+        }
       >
         <div
-          className="c6"
+          className="c4"
         >
           <div
-            className="c7"
+            className="c5"
           >
             <svg
               fill="none"
@@ -449,13 +667,13 @@ exports[`Table hyproof 1`] = `
               />
             </svg>
             <div
-              className="c8"
+              className="c6"
             >
               UK-HYPROOF-0001
             </div>
           </div>
           <div
-            className="c7"
+            className="c5"
           >
             <svg
               fill="none"
@@ -479,7 +697,7 @@ exports[`Table hyproof 1`] = `
               />
             </svg>
             <div
-              className="c9"
+              className="c7"
             >
               2021/01/12, 22:50h
             </div>
@@ -487,25 +705,77 @@ exports[`Table hyproof 1`] = `
         </div>
       </td>
       <td
-        className="c5"
+        className=""
+        style={
+          {
+            "color": "#1a1a1a",
+            "fontFamily": "Inter",
+            "fontSize": "26px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "height": "60px",
+            "lineHeight": "0px",
+            "padding": "5px",
+            "textAlign": "center",
+          }
+        }
       >
         1.0 MWh
       </td>
       <td
-        className="c5"
+        className=""
+        style={
+          {
+            "color": "#1a1a1a",
+            "fontFamily": "Inter",
+            "fontSize": "26px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "height": "60px",
+            "lineHeight": "0px",
+            "padding": "5px",
+            "textAlign": "center",
+          }
+        }
       >
         4.2 MWh
       </td>
       <td
-        className="c5"
+        className=""
+        style={
+          {
+            "color": "#1a1a1a",
+            "fontFamily": "Inter",
+            "fontSize": "26px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "height": "60px",
+            "lineHeight": "0px",
+            "padding": "5px",
+            "textAlign": "center",
+          }
+        }
       >
         45g CO2e
       </td>
       <td
-        className="c5"
+        className=""
+        style={
+          {
+            "color": "#1a1a1a",
+            "fontFamily": "Inter",
+            "fontSize": "26px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "height": "60px",
+            "lineHeight": "0px",
+            "padding": "5px",
+            "textAlign": "center",
+          }
+        }
       >
         <div
-          className="c6"
+          className="c4"
         >
           <svg
             fill="none"
@@ -565,7 +835,7 @@ exports[`Table hyproof 1`] = `
             </defs>
           </svg>
           <div
-            className="c10"
+            className="c8"
             color="#27847a"
           >
             issued
@@ -574,16 +844,36 @@ exports[`Table hyproof 1`] = `
       </td>
     </tr>
     <tr
-      className="c4"
+      className="c3"
+      color="not-page"
+      style={
+        {
+          "backgroundColor": "#fff",
+          "outline": "thin solid #27847a",
+        }
+      }
     >
       <td
-        className="c5"
+        className=""
+        style={
+          {
+            "color": "#1a1a1a",
+            "fontFamily": "Inter",
+            "fontSize": "26px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "height": "60px",
+            "lineHeight": "0px",
+            "padding": "5px",
+            "textAlign": "center",
+          }
+        }
       >
         <div
-          className="c6"
+          className="c4"
         >
           <div
-            className="c7"
+            className="c5"
           >
             <svg
               fill="none"
@@ -618,13 +908,13 @@ exports[`Table hyproof 1`] = `
               />
             </svg>
             <div
-              className="c8"
+              className="c6"
             >
               UK-HYPROOF-0002
             </div>
           </div>
           <div
-            className="c7"
+            className="c5"
           >
             <svg
               fill="none"
@@ -648,7 +938,7 @@ exports[`Table hyproof 1`] = `
               />
             </svg>
             <div
-              className="c9"
+              className="c7"
             >
               2024/02/22, 22:50h
             </div>
@@ -656,25 +946,77 @@ exports[`Table hyproof 1`] = `
         </div>
       </td>
       <td
-        className="c5"
+        className=""
+        style={
+          {
+            "color": "#1a1a1a",
+            "fontFamily": "Inter",
+            "fontSize": "26px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "height": "60px",
+            "lineHeight": "0px",
+            "padding": "5px",
+            "textAlign": "center",
+          }
+        }
       >
         0.5 MWh
       </td>
       <td
-        className="c5"
+        className=""
+        style={
+          {
+            "color": "#1a1a1a",
+            "fontFamily": "Inter",
+            "fontSize": "26px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "height": "60px",
+            "lineHeight": "0px",
+            "padding": "5px",
+            "textAlign": "center",
+          }
+        }
       >
         4.2 MWh
       </td>
       <td
-        className="c5"
+        className=""
+        style={
+          {
+            "color": "#1a1a1a",
+            "fontFamily": "Inter",
+            "fontSize": "26px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "height": "60px",
+            "lineHeight": "0px",
+            "padding": "5px",
+            "textAlign": "center",
+          }
+        }
       >
         45g CO2e
       </td>
       <td
-        className="c5"
+        className=""
+        style={
+          {
+            "color": "#1a1a1a",
+            "fontFamily": "Inter",
+            "fontSize": "26px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "height": "60px",
+            "lineHeight": "0px",
+            "padding": "5px",
+            "textAlign": "center",
+          }
+        }
       >
         <div
-          className="c6"
+          className="c4"
         >
           <svg
             fill="none"
@@ -763,7 +1105,7 @@ exports[`Table hyproof 1`] = `
             />
           </svg>
           <div
-            className="c10"
+            className="c8"
             color="#27847a"
           >
             C.Embodiment
@@ -772,16 +1114,36 @@ exports[`Table hyproof 1`] = `
       </td>
     </tr>
     <tr
-      className="c4"
+      className="c3"
+      color="not-page"
+      style={
+        {
+          "backgroundColor": "#fff",
+          "outline": "thin solid #27847a",
+        }
+      }
     >
       <td
-        className="c5"
+        className=""
+        style={
+          {
+            "color": "#1a1a1a",
+            "fontFamily": "Inter",
+            "fontSize": "26px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "height": "60px",
+            "lineHeight": "0px",
+            "padding": "5px",
+            "textAlign": "center",
+          }
+        }
       >
         <div
-          className="c6"
+          className="c4"
         >
           <div
-            className="c7"
+            className="c5"
           >
             <svg
               fill="none"
@@ -816,13 +1178,13 @@ exports[`Table hyproof 1`] = `
               />
             </svg>
             <div
-              className="c8"
+              className="c6"
             >
               UK-HYPROOF-0006
             </div>
           </div>
           <div
-            className="c7"
+            className="c5"
           >
             <svg
               fill="none"
@@ -846,7 +1208,7 @@ exports[`Table hyproof 1`] = `
               />
             </svg>
             <div
-              className="c9"
+              className="c7"
             >
               2024/02/02, 22:50h
             </div>
@@ -854,25 +1216,77 @@ exports[`Table hyproof 1`] = `
         </div>
       </td>
       <td
-        className="c5"
+        className=""
+        style={
+          {
+            "color": "#1a1a1a",
+            "fontFamily": "Inter",
+            "fontSize": "26px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "height": "60px",
+            "lineHeight": "0px",
+            "padding": "5px",
+            "textAlign": "center",
+          }
+        }
       >
         2.0 MWh
       </td>
       <td
-        className="c5"
+        className=""
+        style={
+          {
+            "color": "#1a1a1a",
+            "fontFamily": "Inter",
+            "fontSize": "26px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "height": "60px",
+            "lineHeight": "0px",
+            "padding": "5px",
+            "textAlign": "center",
+          }
+        }
       >
         4.2 MWh
       </td>
       <td
-        className="c5"
+        className=""
+        style={
+          {
+            "color": "#1a1a1a",
+            "fontFamily": "Inter",
+            "fontSize": "26px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "height": "60px",
+            "lineHeight": "0px",
+            "padding": "5px",
+            "textAlign": "center",
+          }
+        }
       >
         45g CO2e
       </td>
       <td
-        className="c5"
+        className=""
+        style={
+          {
+            "color": "#1a1a1a",
+            "fontFamily": "Inter",
+            "fontSize": "26px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "height": "60px",
+            "lineHeight": "0px",
+            "padding": "5px",
+            "textAlign": "center",
+          }
+        }
       >
         <div
-          className="c6"
+          className="c4"
         >
           <svg
             fill="none"
@@ -919,7 +1333,7 @@ exports[`Table hyproof 1`] = `
             />
           </svg>
           <div
-            className="c11"
+            className="c9"
             color="red"
           >
             Revoked

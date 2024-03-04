@@ -1,5 +1,7 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { CSSProperties } from 'styled-components'
+
+import { styles } from './styles-map.js'
 
 export interface TableProps {
   styles?: {
@@ -8,30 +10,37 @@ export interface TableProps {
   }
   rows: RowValue[][]
   headers: string[]
-  isPage?: boolean
+  variant?: 'default' | 'hyproof'
 }
 
 type RowValue = React.ReactNode | number | string | null | undefined
 
-const Table: React.FC<React.PropsWithChildren<TableProps>> = (props) => {
+const Table: React.FC<React.PropsWithChildren<TableProps>> = ({
+  variant = 'hyproof',
+  ...props
+}) => {
+  const { td, tr, th, root } = styles[variant] as { [k: string]: CSSProperties }
+
   return (
-    <Background>
-      <Wrapper {...props}>
-        <TR
-          color={'not-page'}
-          key={Math.random().toString()}
-          style={props.styles?.tr}
-        >
+    <Background color={variant}>
+      <Wrapper {...props} style={root}>
+        <TR key={Math.random().toString()} style={tr}>
           {props.headers.map((header: string) => (
-            <TH key={Math.random().toString()} style={props.styles?.th || {}}>
+            <TH key={Math.random().toString()} style={th}>
               {header}
             </TH>
           ))}
         </TR>
         {props.rows.map((row: RowValue[]) => (
-          <TR key={Math.random().toString()} style={props.styles?.tr}>
+          <TR
+            key={Math.random().toString()}
+            style={tr}
+            color={variant === 'hyproof' ? 'not-page' : 'none'}
+          >
             {row.map((value: RowValue) => (
-              <TD key={Math.random().toString()}>{value}</TD>
+              <TD style={td} key={Math.random().toString()}>
+                {value}
+              </TD>
             ))}
           </TR>
         ))}
@@ -40,58 +49,30 @@ const Table: React.FC<React.PropsWithChildren<TableProps>> = (props) => {
   )
 }
 
-const TH = styled('th')`
-  border-bottom: solid 1px #fff;
-  text-align: left;
-  padding: 2px 5px;
-  border-left: solid 1px #fff;
-  background-color: #27847a;
-  color: #fff;
+const TH = styled('th')``
 
-  font-family: Roboto;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 26x; /* 171.429% */
-`
-
-const TD = styled('td')`
-  color: #1a1a1a;
-
-  font-family: Inter;
-  font-size: 26px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 0px; /* 0% */
-  padding: 5px;
-  height: 60px;
-  text-align: center;
-`
+const TD = styled('td')``
 
 const TR = styled('tr')`
-  background-color: #fff;
-  outline: thin solid #27847a;
-
   &:before {
     content: '';
     position: absolute;
     ${(props) =>
-      props.color !== 'not-page' &&
+      props.color === 'not-page' &&
       `
-    right: 30px;
-    border-bottom: 15px solid #eee;
-    border-right: 15px solid #27847a`};
+  right: 36px;
+  border-bottom: 15px solid #eee;
+  border-right: 15px solid #27847a`};
   }
 `
 
 const Wrapper = styled('table')<TableProps>`
   width: ${({ width }) => width || '100%'};
-  border-collapse: separate;
-  border-spacing: 0 10px;
 `
 
 const Background = styled('div')`
-  background-color: #27847a;
+  background-color: ${(props) =>
+    props.color === 'hyproof' ? '#27847a' : 'none'};
   padding: 20px;
   height: 1200px;
 `

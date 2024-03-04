@@ -21,7 +21,6 @@ exports[`Table default 1`] = `
 .c0 {
   background-color: #27847a;
   padding: 20px;
-  height: 1200px;
 }
 
 <div
@@ -365,7 +364,6 @@ exports[`Table hyproof 1`] = `
 .c0 {
   background-color: #27847a;
   padding: 20px;
-  height: 1200px;
 }
 
 .c6 {

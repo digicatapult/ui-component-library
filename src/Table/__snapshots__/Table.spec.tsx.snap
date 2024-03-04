@@ -35,7 +35,6 @@ exports[`Table default 1`] = `
 .c2:before {
   content: '';
   position: absolute;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
 }
 
 .c4 {
@@ -46,9 +45,9 @@ exports[`Table default 1`] = `
 .c4:before {
   content: '';
   position: absolute;
-  border-bottom: 10px solid #eee;
-  border-left: 10px solid #27847a;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  right: 30px;
+  border-bottom: 15px solid #eee;
+  border-right: 15px solid #27847a;
 }
 
 .c1 {
@@ -192,6 +191,67 @@ exports[`Table default 1`] = `
 `;
 
 exports[`Table hyproof 1`] = `
+.c3 {
+  border-bottom: solid 1px #fff;
+  text-align: left;
+  padding: 2px 5px;
+  border-left: solid 1px #fff;
+  background-color: #27847a;
+  color: #fff;
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26x;
+}
+
+.c5 {
+  color: #1a1a1a;
+  font-family: Inter;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 0px;
+  padding: 5px;
+  height: 60px;
+  text-align: center;
+}
+
+.c2 {
+  background-color: #fff;
+  outline: thin solid #27847a;
+}
+
+.c2:before {
+  content: '';
+  position: absolute;
+}
+
+.c4 {
+  background-color: #fff;
+  outline: thin solid #27847a;
+}
+
+.c4:before {
+  content: '';
+  position: absolute;
+  right: 30px;
+  border-bottom: 15px solid #eee;
+  border-right: 15px solid #27847a;
+}
+
+.c1 {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+}
+
+.c0 {
+  background-color: #27847a;
+  padding: 20px;
+  height: 1200px;
+}
+
 .c8 {
   color: #6aa685;
   font-family: Inter;
@@ -248,68 +308,6 @@ exports[`Table hyproof 1`] = `
   justify-content: center;
   align-items: center;
   flex-direction: column;
-}
-
-.c3 {
-  border-bottom: solid 1px #fff;
-  text-align: left;
-  padding: 2px 5px;
-  border-left: solid 1px #fff;
-  background-color: #27847a;
-  color: #fff;
-  font-family: Roboto;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 26x;
-}
-
-.c5 {
-  color: #1a1a1a;
-  font-family: Inter;
-  font-size: 26px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 0px;
-  padding: 5px;
-  height: 60px;
-  text-align: center;
-}
-
-.c2 {
-  background-color: #fff;
-  outline: thin solid #27847a;
-}
-
-.c2:before {
-  content: '';
-  position: absolute;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
-}
-
-.c4 {
-  background-color: #fff;
-  outline: thin solid #27847a;
-}
-
-.c4:before {
-  content: '';
-  position: absolute;
-  border-bottom: 10px solid #eee;
-  border-left: 10px solid #27847a;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
-}
-
-.c1 {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0 10px;
-}
-
-.c0 {
-  background-color: #27847a;
-  padding: 20px;
-  height: 1200px;
 }
 
 <div

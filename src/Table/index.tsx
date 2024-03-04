@@ -74,7 +74,6 @@ const Background = styled('div')`
   background-color: ${(props) =>
     props.color === 'hyproof' ? '#27847a' : 'none'};
   padding: 20px;
-  height: 1200px;
 `
 
 export default Table

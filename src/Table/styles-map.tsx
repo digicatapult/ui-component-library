@@ -2,7 +2,7 @@ export const styles = {
   default: {
     root: {
       borderCollapse: 'collapse',
-      outline: 'thin solid red',
+      outline: 'thin solid #000',
     },
     td: {
       color: 'var(--Black, #000)',

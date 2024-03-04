@@ -1,0 +1,62 @@
+export const styles = {
+  default: {
+    root: {
+      borderCollapse: 'collapse',
+      outline: 'thin solid #000',
+    },
+    td: {
+      color: 'var(--Black, #000)',
+      fontFamily: 'Roboto Mono',
+      fontSize: '16px',
+      fontStyle: 'normal',
+      textAlign: 'left',
+      fontWeight: 400,
+      lineHeight: 'normal',
+    },
+    tr: {},
+    th: {
+      color: 'var(--Black, #000)',
+      fontFamily: 'Roboto Mono',
+      fontSize: '16px',
+      fontStyle: 'normal',
+      textAlign: 'left',
+      fontWeight: 400,
+      lineHeight: 'normal',
+      textDecorationLine: 'underline',
+    },
+  },
+  hyproof: {
+    root: {
+      borderCollapse: 'separate',
+      borderSpacing: '0 10px',
+    },
+    tr: {
+      backgroundColor: '#fff',
+      outline: 'thin solid #27847a',
+    },
+    td: {
+      color: '#1a1a1a',
+      fontFamily: 'Inter',
+      fontSize: '26px',
+      fontStyle: 'normal',
+      fontWeight: '500',
+      lineHeight: '0px',
+      padding: '5px',
+      height: '60px',
+      textAlign: 'center',
+    },
+    th: {
+      borderBottom: 'solid 1px #fff',
+      textAlign: 'left',
+      padding: '2px 5px',
+      borderLeft: 'solid 1px #fff',
+      backgroundColor: '#27847a',
+      color: '#fff',
+      fontFamily: 'Roboto',
+      fontSize: '14px',
+      fontStyle: 'normal',
+      fontWeight: '500',
+      lineHeight: '26px',
+    },
+  },
+}

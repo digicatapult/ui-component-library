@@ -32,7 +32,6 @@ const DefaultStoryTemplate = (args: SidePanelProps) => {
   const [current, setCurrent] = React.useState('Heidi Heidi')
   const persona = items.find(({ title }) => title === current)
 
-  console.log({ current })
   return (
     <SidePanel {...args} {...persona} callback={action('open')}>
       {items.map((item) => (

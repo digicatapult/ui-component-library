@@ -52,7 +52,6 @@ const ListCard = React.forwardRef<HTMLButtonElement, ListCardProps>(
   ) => {
     const [id] = useId()
 
-    console.log({ variant, active })
     if (variant === 'hyproof')
       return (
         <Row

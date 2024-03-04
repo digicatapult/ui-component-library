@@ -1,151 +1,1344 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Table default 1`] = `
-.c1 {
-  color: var(--Black, #000);
-  font-family: Roboto Mono;
-  font-size: 16px;
-  font-style: normal;
-  text-align: left;
-  font-weight: 400;
-  line-height: normal;
-  text-decoration-line: underline;
+.c2:before {
+  content: '';
+  position: absolute;
 }
 
-.c2 {
-  color: var(--Black, #000);
-  font-family: Roboto Mono;
-  font-size: 16px;
-  font-style: normal;
-  text-align: left;
-  font-weight: 400;
-  line-height: normal;
+.c3:before {
+  content: '';
+  position: absolute;
+  right: 36px;
+  border-bottom: 15px solid #eee;
+  border-right: 15px solid #27847a;
+}
+
+.c1 {
+  width: 100%;
 }
 
 .c0 {
-  width: 100%;
-  border-collapse: collapse;
+  background-color: #27847a;
+  padding: 20px;
 }
 
-<table
+<div
   className="c0"
-  headers={
-    [
-      "Timestamp",
-      "Subject",
-      "HTML",
-    ]
-  }
-  rows={
-    [
+  color="hyproof"
+>
+  <table
+    className="c1"
+    headers={
       [
-        "2010-01-01T00:00:00.000Z",
-        "example-1",
+        "Timestamp",
+        "Subject",
+        "HTML",
+      ]
+    }
+    rows={
+      [
+        [
+          "2010-01-01T00:00:00.000Z",
+          "example-1",
+          <p>
+            paragraph
+          </p>,
+        ],
+        [
+          "2011-01-01T00:00:00.000Z",
+          "example-2",
+          <button>
+            button
+          </button>,
+        ],
+        [
+          "2012-01-01T00:00:00.000Z",
+          "example-3",
+          <h3>
+            heading #3
+          </h3>,
+        ],
+      ]
+    }
+    style={
+      {
+        "borderCollapse": "separate",
+        "borderSpacing": "0 10px",
+      }
+    }
+  >
+    <tr
+      className="c2"
+      style={
+        {
+          "backgroundColor": "#fff",
+          "outline": "thin solid #27847a",
+        }
+      }
+    >
+      <th
+        className=""
+        style={
+          {
+            "backgroundColor": "#27847a",
+            "borderBottom": "solid 1px #fff",
+            "borderLeft": "solid 1px #fff",
+            "color": "#fff",
+            "fontFamily": "Roboto",
+            "fontSize": "14px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "lineHeight": "26px",
+            "padding": "2px 5px",
+            "textAlign": "left",
+          }
+        }
+      >
+        Timestamp
+      </th>
+      <th
+        className=""
+        style={
+          {
+            "backgroundColor": "#27847a",
+            "borderBottom": "solid 1px #fff",
+            "borderLeft": "solid 1px #fff",
+            "color": "#fff",
+            "fontFamily": "Roboto",
+            "fontSize": "14px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "lineHeight": "26px",
+            "padding": "2px 5px",
+            "textAlign": "left",
+          }
+        }
+      >
+        Subject
+      </th>
+      <th
+        className=""
+        style={
+          {
+            "backgroundColor": "#27847a",
+            "borderBottom": "solid 1px #fff",
+            "borderLeft": "solid 1px #fff",
+            "color": "#fff",
+            "fontFamily": "Roboto",
+            "fontSize": "14px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "lineHeight": "26px",
+            "padding": "2px 5px",
+            "textAlign": "left",
+          }
+        }
+      >
+        HTML
+      </th>
+    </tr>
+    <tr
+      className="c3"
+      color="not-page"
+      style={
+        {
+          "backgroundColor": "#fff",
+          "outline": "thin solid #27847a",
+        }
+      }
+    >
+      <td
+        className=""
+        style={
+          {
+            "color": "#1a1a1a",
+            "fontFamily": "Inter",
+            "fontSize": "26px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "height": "60px",
+            "lineHeight": "0px",
+            "padding": "5px",
+            "textAlign": "center",
+          }
+        }
+      >
+        2010-01-01T00:00:00.000Z
+      </td>
+      <td
+        className=""
+        style={
+          {
+            "color": "#1a1a1a",
+            "fontFamily": "Inter",
+            "fontSize": "26px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "height": "60px",
+            "lineHeight": "0px",
+            "padding": "5px",
+            "textAlign": "center",
+          }
+        }
+      >
+        example-1
+      </td>
+      <td
+        className=""
+        style={
+          {
+            "color": "#1a1a1a",
+            "fontFamily": "Inter",
+            "fontSize": "26px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "height": "60px",
+            "lineHeight": "0px",
+            "padding": "5px",
+            "textAlign": "center",
+          }
+        }
+      >
         <p>
           paragraph
-        </p>,
-      ],
-      [
-        "2011-01-01T00:00:00.000Z",
-        "example-2",
+        </p>
+      </td>
+    </tr>
+    <tr
+      className="c3"
+      color="not-page"
+      style={
+        {
+          "backgroundColor": "#fff",
+          "outline": "thin solid #27847a",
+        }
+      }
+    >
+      <td
+        className=""
+        style={
+          {
+            "color": "#1a1a1a",
+            "fontFamily": "Inter",
+            "fontSize": "26px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "height": "60px",
+            "lineHeight": "0px",
+            "padding": "5px",
+            "textAlign": "center",
+          }
+        }
+      >
+        2011-01-01T00:00:00.000Z
+      </td>
+      <td
+        className=""
+        style={
+          {
+            "color": "#1a1a1a",
+            "fontFamily": "Inter",
+            "fontSize": "26px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "height": "60px",
+            "lineHeight": "0px",
+            "padding": "5px",
+            "textAlign": "center",
+          }
+        }
+      >
+        example-2
+      </td>
+      <td
+        className=""
+        style={
+          {
+            "color": "#1a1a1a",
+            "fontFamily": "Inter",
+            "fontSize": "26px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "height": "60px",
+            "lineHeight": "0px",
+            "padding": "5px",
+            "textAlign": "center",
+          }
+        }
+      >
         <button>
           button
-        </button>,
-      ],
-      [
-        "2012-01-01T00:00:00.000Z",
-        "example-3",
+        </button>
+      </td>
+    </tr>
+    <tr
+      className="c3"
+      color="not-page"
+      style={
+        {
+          "backgroundColor": "#fff",
+          "outline": "thin solid #27847a",
+        }
+      }
+    >
+      <td
+        className=""
+        style={
+          {
+            "color": "#1a1a1a",
+            "fontFamily": "Inter",
+            "fontSize": "26px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "height": "60px",
+            "lineHeight": "0px",
+            "padding": "5px",
+            "textAlign": "center",
+          }
+        }
+      >
+        2012-01-01T00:00:00.000Z
+      </td>
+      <td
+        className=""
+        style={
+          {
+            "color": "#1a1a1a",
+            "fontFamily": "Inter",
+            "fontSize": "26px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "height": "60px",
+            "lineHeight": "0px",
+            "padding": "5px",
+            "textAlign": "center",
+          }
+        }
+      >
+        example-3
+      </td>
+      <td
+        className=""
+        style={
+          {
+            "color": "#1a1a1a",
+            "fontFamily": "Inter",
+            "fontSize": "26px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "height": "60px",
+            "lineHeight": "0px",
+            "padding": "5px",
+            "textAlign": "center",
+          }
+        }
+      >
         <h3>
           heading #3
-        </h3>,
-      ],
-    ]
-  }
+        </h3>
+      </td>
+    </tr>
+  </table>
+</div>
+`;
+
+exports[`Table hyproof 1`] = `
+.c2:before {
+  content: '';
+  position: absolute;
+}
+
+.c3:before {
+  content: '';
+  position: absolute;
+  right: 36px;
+  border-bottom: 15px solid #eee;
+  border-right: 15px solid #27847a;
+}
+
+.c1 {
+  width: 100%;
+}
+
+.c0 {
+  background-color: #27847a;
+  padding: 20px;
+}
+
+.c6 {
+  color: #6aa685;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 0px;
+}
+
+.c8 {
+  width: 90px;
+  background-color: #27847a;
+  color: #fff;
+  border-radius: 60px;
+  text-align: center;
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 10px;
+}
+
+.c9 {
+  width: 90px;
+  background-color: red;
+  color: #fff;
+  border-radius: 60px;
+  text-align: center;
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 10px;
+}
+
+.c7 {
+  color: #27847a;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 10px;
+}
+
+.c5 {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  align-items: center;
+}
+
+.c4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+<div
+  className="c0"
+  color="hyproof"
 >
-  <tr
-    className=""
+  <table
+    className="c1"
+    headers={
+      [
+        "Date",
+        "H2 Batch size",
+        "Electric energy use",
+        "Electric energy use",
+        "Status",
+      ]
+    }
+    rows={
+      [
+        [
+          <NameCell
+            date="2021/01/12, 22:50h"
+            name="UK-HYPROOF-0001"
+          />,
+          "1.0 MWh",
+          "4.2 MWh",
+          "45g CO2e",
+          <StatusCell
+            Icon={[Function]}
+            status="issued"
+          />,
+        ],
+        [
+          <NameCell
+            date="2024/02/22, 22:50h"
+            name="UK-HYPROOF-0002"
+          />,
+          "0.5 MWh",
+          "4.2 MWh",
+          "45g CO2e",
+          <StatusCell
+            Icon={[Function]}
+            status="C.Embodiment"
+          />,
+        ],
+        [
+          <NameCell
+            date="2024/02/02, 22:50h"
+            name="UK-HYPROOF-0006"
+          />,
+          "2.0 MWh",
+          "4.2 MWh",
+          "45g CO2e",
+          <StatusCell
+            Icon={[Function]}
+            color="red"
+            status="Revoked"
+          />,
+        ],
+      ]
+    }
+    style={
+      {
+        "borderCollapse": "separate",
+        "borderSpacing": "0 10px",
+      }
+    }
   >
-    <th
-      className="c1"
-      style={{}}
-    >
-      Timestamp
-    </th>
-    <th
-      className="c1"
-      style={{}}
-    >
-      Subject
-    </th>
-    <th
-      className="c1"
-      style={{}}
-    >
-      HTML
-    </th>
-  </tr>
-  <tr
-    className=""
-  >
-    <td
+    <tr
       className="c2"
+      style={
+        {
+          "backgroundColor": "#fff",
+          "outline": "thin solid #27847a",
+        }
+      }
     >
-      2010-01-01T00:00:00.000Z
-    </td>
-    <td
-      className="c2"
+      <th
+        className=""
+        style={
+          {
+            "backgroundColor": "#27847a",
+            "borderBottom": "solid 1px #fff",
+            "borderLeft": "solid 1px #fff",
+            "color": "#fff",
+            "fontFamily": "Roboto",
+            "fontSize": "14px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "lineHeight": "26px",
+            "padding": "2px 5px",
+            "textAlign": "left",
+          }
+        }
+      >
+        Date
+      </th>
+      <th
+        className=""
+        style={
+          {
+            "backgroundColor": "#27847a",
+            "borderBottom": "solid 1px #fff",
+            "borderLeft": "solid 1px #fff",
+            "color": "#fff",
+            "fontFamily": "Roboto",
+            "fontSize": "14px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "lineHeight": "26px",
+            "padding": "2px 5px",
+            "textAlign": "left",
+          }
+        }
+      >
+        H2 Batch size
+      </th>
+      <th
+        className=""
+        style={
+          {
+            "backgroundColor": "#27847a",
+            "borderBottom": "solid 1px #fff",
+            "borderLeft": "solid 1px #fff",
+            "color": "#fff",
+            "fontFamily": "Roboto",
+            "fontSize": "14px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "lineHeight": "26px",
+            "padding": "2px 5px",
+            "textAlign": "left",
+          }
+        }
+      >
+        Electric energy use
+      </th>
+      <th
+        className=""
+        style={
+          {
+            "backgroundColor": "#27847a",
+            "borderBottom": "solid 1px #fff",
+            "borderLeft": "solid 1px #fff",
+            "color": "#fff",
+            "fontFamily": "Roboto",
+            "fontSize": "14px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "lineHeight": "26px",
+            "padding": "2px 5px",
+            "textAlign": "left",
+          }
+        }
+      >
+        Electric energy use
+      </th>
+      <th
+        className=""
+        style={
+          {
+            "backgroundColor": "#27847a",
+            "borderBottom": "solid 1px #fff",
+            "borderLeft": "solid 1px #fff",
+            "color": "#fff",
+            "fontFamily": "Roboto",
+            "fontSize": "14px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "lineHeight": "26px",
+            "padding": "2px 5px",
+            "textAlign": "left",
+          }
+        }
+      >
+        Status
+      </th>
+    </tr>
+    <tr
+      className="c3"
+      color="not-page"
+      style={
+        {
+          "backgroundColor": "#fff",
+          "outline": "thin solid #27847a",
+        }
+      }
     >
-      example-1
-    </td>
-    <td
-      className="c2"
+      <td
+        className=""
+        style={
+          {
+            "color": "#1a1a1a",
+            "fontFamily": "Inter",
+            "fontSize": "26px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "height": "60px",
+            "lineHeight": "0px",
+            "padding": "5px",
+            "textAlign": "center",
+          }
+        }
+      >
+        <div
+          className="c4"
+        >
+          <div
+            className="c5"
+          >
+            <svg
+              fill="none"
+              height="30"
+              viewBox="0 0 30 30"
+              width="30"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle
+                cx="15"
+                cy="15"
+                fill="#1F7D74"
+                r="15"
+              />
+              <path
+                d="M10.5105 14.1103V9.64133C10.5105 7.17319 12.5113 5.17236 14.9795 5.17236V5.17236C17.4476 5.17236 19.4484 7.17319 19.4484 9.64133V14.1103"
+                stroke="white"
+              />
+              <rect
+                fill="white"
+                height="10.0924"
+                rx="0.9"
+                stroke="white"
+                strokeWidth="1.08"
+                width="12.3269"
+                x="8.81588"
+                y="13.1606"
+              />
+              <path
+                d="M13.8451 18.3676C13.6134 18.02 13.4897 17.6117 13.4897 17.194C13.4897 16.6736 13.7837 16.1979 14.2492 15.9652L14.3132 15.9332C14.7326 15.7235 15.2262 15.7235 15.6456 15.9332L15.7096 15.9652C16.1751 16.1979 16.4691 16.6736 16.4691 17.194C16.4691 17.6117 16.3454 18.02 16.1137 18.3676L15.815 18.8156C15.7574 18.902 15.7407 19.0094 15.7692 19.1092L16.4691 21.5587H13.4897L14.1896 19.1092C14.2181 19.0094 14.2014 18.902 14.1438 18.8156L13.8451 18.3676Z"
+                fill="#1F7D74"
+              />
+            </svg>
+            <div
+              className="c6"
+            >
+              UK-HYPROOF-0001
+            </div>
+          </div>
+          <div
+            className="c5"
+          >
+            <svg
+              fill="none"
+              height="17"
+              viewBox="0 0 17 17"
+              width="17"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle
+                cx="8.5"
+                cy="8.5"
+                r="7.75"
+                stroke="#27847A"
+                stroke-width="1.5"
+              />
+              <path
+                d="M8.5 4.5V9L12.5 12.5"
+                stroke="#27847A"
+                stroke-linecap="round"
+                stroke-width="1.42857"
+              />
+            </svg>
+            <div
+              className="c7"
+            >
+              2021/01/12, 22:50h
+            </div>
+          </div>
+        </div>
+      </td>
+      <td
+        className=""
+        style={
+          {
+            "color": "#1a1a1a",
+            "fontFamily": "Inter",
+            "fontSize": "26px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "height": "60px",
+            "lineHeight": "0px",
+            "padding": "5px",
+            "textAlign": "center",
+          }
+        }
+      >
+        1.0 MWh
+      </td>
+      <td
+        className=""
+        style={
+          {
+            "color": "#1a1a1a",
+            "fontFamily": "Inter",
+            "fontSize": "26px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "height": "60px",
+            "lineHeight": "0px",
+            "padding": "5px",
+            "textAlign": "center",
+          }
+        }
+      >
+        4.2 MWh
+      </td>
+      <td
+        className=""
+        style={
+          {
+            "color": "#1a1a1a",
+            "fontFamily": "Inter",
+            "fontSize": "26px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "height": "60px",
+            "lineHeight": "0px",
+            "padding": "5px",
+            "textAlign": "center",
+          }
+        }
+      >
+        45g CO2e
+      </td>
+      <td
+        className=""
+        style={
+          {
+            "color": "#1a1a1a",
+            "fontFamily": "Inter",
+            "fontSize": "26px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "height": "60px",
+            "lineHeight": "0px",
+            "padding": "5px",
+            "textAlign": "center",
+          }
+        }
+      >
+        <div
+          className="c4"
+        >
+          <svg
+            fill="none"
+            height="40"
+            viewBox="0 0 32 40"
+            width="32"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              clip-path="url(#clip0_1874_501)"
+            >
+              <path
+                d="M30.1339 17.5435L30.0337 17.6038C29.8661 17.7172 29.7098 17.8521 29.5687 18.0105C28.8156 18.8598 28.7604 20.0871 29.3623 20.9885L29.3705 21.0028C29.9458 21.901 29.8344 23.0354 29.0915 23.8724C28.5591 24.4733 27.8192 24.7461 27.0762 24.6828L27.0537 24.6858C26.2873 24.5969 25.4575 24.8698 24.9066 25.4901C24.4417 26.0144 24.2506 26.6398 24.3078 27.2867L24.3139 27.3919C24.364 28.0317 24.1647 28.6898 23.7059 29.2069C22.8096 30.2166 21.2553 30.378 20.2446 29.4818L20.1792 29.4287C19.1736 28.7041 17.7633 28.8441 16.9233 29.7914C16.8292 29.8967 16.7465 30.0081 16.6749 30.1246L16.6443 30.1645C16.5155 30.3831 16.3469 30.611 16.1456 30.7878C15.1297 31.6779 13.5856 31.5768 12.6955 30.561C12.4839 30.3188 12.3276 30.048 12.2274 29.7618L12.1794 29.6555C12.0885 29.4746 11.973 29.303 11.834 29.1435C11.0859 28.2902 9.87493 28.0828 8.90511 28.5661L8.88978 28.5723C7.92712 29.0311 6.81525 28.7787 6.07741 27.9366C5.54804 27.3327 5.3692 26.5652 5.52454 25.8355V25.813C5.70849 25.0639 5.54089 24.2055 4.99415 23.5821C4.53223 23.0548 3.93542 22.7871 3.28649 22.7636L3.18123 22.7564C2.54047 22.7268 1.913 22.4468 1.4562 21.9256C0.566086 20.9098 0.683609 19.0989 1.69942 18.2078L1.93651 17.9431C2.69172 16.9273 2.44134 15.3443 1.52569 14.5083L1.46028 14.4552C0.376005 13.6499 0.21556 12.0955 1.01983 11.0113C1.43269 10.4553 2.03563 10.1252 2.67128 10.0435L2.77552 10.0271C3.42036 9.95151 3.99367 9.63573 4.41164 9.07366C4.90626 8.40736 5.00335 7.53871 4.7591 6.807L4.75706 6.78452C4.54347 6.07018 4.65895 5.29044 5.13824 4.6456C5.80557 3.74731 6.89291 3.40598 7.88931 3.78512L7.90566 3.79023C8.91125 4.1939 10.1018 3.88936 10.7783 2.97779C10.905 2.80815 11.0052 2.62726 11.0818 2.43923L11.1207 2.32886C11.1973 2.03556 11.3312 1.75248 11.5223 1.49393C12.3276 0.409656 13.8585 0.183807 14.9427 0.989095C15.1584 1.14852 15.3444 1.3621 15.4905 1.56956L15.5242 1.60635C15.606 1.71569 15.6969 1.81993 15.7991 1.91804C16.7127 2.79384 18.1302 2.81939 19.0744 2.01614L19.1347 1.95789C20.0688 0.982964 21.6313 1.01771 22.6063 1.95176C23.106 2.43003 23.3584 3.07079 23.3594 3.71154L23.3625 3.8168C23.3574 4.46676 23.5986 5.07379 24.1044 5.55921C24.7033 6.13354 25.5535 6.33793 26.3098 6.1877H26.3323C27.067 6.06609 27.8273 6.27866 28.4068 6.83357C29.2151 7.6082 29.4175 8.72927 28.9167 9.67149L28.9096 9.68682C28.3833 10.6342 28.5376 11.8533 29.3562 12.6382C29.5095 12.7843 29.676 12.907 29.8528 13.0061L29.9571 13.0582C30.2381 13.1716 30.5028 13.3392 30.7348 13.561C31.7097 14.495 31.7424 16.0433 30.8083 17.0182C30.6224 17.2114 30.3883 17.3698 30.1635 17.4893"
+                stroke="#27847A"
+                stroke-miterlimit="10"
+                stroke-width="1.2"
+              />
+              <path
+                d="M15.9904 25.0722C21.1874 25.0722 25.4004 20.8592 25.4004 15.6622C25.4004 10.4652 21.1874 6.2522 15.9904 6.2522C10.7934 6.2522 6.58035 10.4652 6.58035 15.6622C6.58035 20.8592 10.7934 25.0722 15.9904 25.0722Z"
+                stroke="#27847A"
+                stroke-miterlimit="10"
+                stroke-width="1.2"
+              />
+              <path
+                d="M13.2698 32.9943L10.8611 38.2399L8.69563 32.6448L2.90123 34.5865L5.30892 29.3398"
+                stroke="#27847A"
+                stroke-miterlimit="10"
+                stroke-width="1.2"
+              />
+              <path
+                d="M19.2718 32.9943L21.6805 38.2399L23.846 32.6448L29.6404 34.5865L27.2327 29.3398"
+                stroke="#27847A"
+                stroke-miterlimit="10"
+                stroke-width="1.2"
+              />
+              <path
+                d="M22.4499 13.0165L26.3752 9.09119L23.619 6.66919L20.1107 10.5107L22.4499 13.0165Z"
+                fill="#EFEFEF"
+              />
+              <path
+                d="M24.8444 8.03345L15.8237 18.724L12.8172 15.1605"
+                stroke="#27847A"
+                stroke-miterlimit="10"
+                stroke-width="1.2"
+              />
+            </g>
+            <defs>
+              <clipPath
+                id="clip0_1874_501"
+              >
+                <rect
+                  fill="white"
+                  height="39.5521"
+                  width="32"
+                />
+              </clipPath>
+            </defs>
+          </svg>
+          <div
+            className="c8"
+            color="#27847a"
+          >
+            issued
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr
+      className="c3"
+      color="not-page"
+      style={
+        {
+          "backgroundColor": "#fff",
+          "outline": "thin solid #27847a",
+        }
+      }
     >
-      <p>
-        paragraph
-      </p>
-    </td>
-  </tr>
-  <tr
-    className=""
-  >
-    <td
-      className="c2"
+      <td
+        className=""
+        style={
+          {
+            "color": "#1a1a1a",
+            "fontFamily": "Inter",
+            "fontSize": "26px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "height": "60px",
+            "lineHeight": "0px",
+            "padding": "5px",
+            "textAlign": "center",
+          }
+        }
+      >
+        <div
+          className="c4"
+        >
+          <div
+            className="c5"
+          >
+            <svg
+              fill="none"
+              height="30"
+              viewBox="0 0 30 30"
+              width="30"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle
+                cx="15"
+                cy="15"
+                fill="#1F7D74"
+                r="15"
+              />
+              <path
+                d="M10.5105 14.1103V9.64133C10.5105 7.17319 12.5113 5.17236 14.9795 5.17236V5.17236C17.4476 5.17236 19.4484 7.17319 19.4484 9.64133V14.1103"
+                stroke="white"
+              />
+              <rect
+                fill="white"
+                height="10.0924"
+                rx="0.9"
+                stroke="white"
+                strokeWidth="1.08"
+                width="12.3269"
+                x="8.81588"
+                y="13.1606"
+              />
+              <path
+                d="M13.8451 18.3676C13.6134 18.02 13.4897 17.6117 13.4897 17.194C13.4897 16.6736 13.7837 16.1979 14.2492 15.9652L14.3132 15.9332C14.7326 15.7235 15.2262 15.7235 15.6456 15.9332L15.7096 15.9652C16.1751 16.1979 16.4691 16.6736 16.4691 17.194C16.4691 17.6117 16.3454 18.02 16.1137 18.3676L15.815 18.8156C15.7574 18.902 15.7407 19.0094 15.7692 19.1092L16.4691 21.5587H13.4897L14.1896 19.1092C14.2181 19.0094 14.2014 18.902 14.1438 18.8156L13.8451 18.3676Z"
+                fill="#1F7D74"
+              />
+            </svg>
+            <div
+              className="c6"
+            >
+              UK-HYPROOF-0002
+            </div>
+          </div>
+          <div
+            className="c5"
+          >
+            <svg
+              fill="none"
+              height="17"
+              viewBox="0 0 17 17"
+              width="17"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle
+                cx="8.5"
+                cy="8.5"
+                r="7.75"
+                stroke="#27847A"
+                stroke-width="1.5"
+              />
+              <path
+                d="M8.5 4.5V9L12.5 12.5"
+                stroke="#27847A"
+                stroke-linecap="round"
+                stroke-width="1.42857"
+              />
+            </svg>
+            <div
+              className="c7"
+            >
+              2024/02/22, 22:50h
+            </div>
+          </div>
+        </div>
+      </td>
+      <td
+        className=""
+        style={
+          {
+            "color": "#1a1a1a",
+            "fontFamily": "Inter",
+            "fontSize": "26px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "height": "60px",
+            "lineHeight": "0px",
+            "padding": "5px",
+            "textAlign": "center",
+          }
+        }
+      >
+        0.5 MWh
+      </td>
+      <td
+        className=""
+        style={
+          {
+            "color": "#1a1a1a",
+            "fontFamily": "Inter",
+            "fontSize": "26px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "height": "60px",
+            "lineHeight": "0px",
+            "padding": "5px",
+            "textAlign": "center",
+          }
+        }
+      >
+        4.2 MWh
+      </td>
+      <td
+        className=""
+        style={
+          {
+            "color": "#1a1a1a",
+            "fontFamily": "Inter",
+            "fontSize": "26px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "height": "60px",
+            "lineHeight": "0px",
+            "padding": "5px",
+            "textAlign": "center",
+          }
+        }
+      >
+        45g CO2e
+      </td>
+      <td
+        className=""
+        style={
+          {
+            "color": "#1a1a1a",
+            "fontFamily": "Inter",
+            "fontSize": "26px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "height": "60px",
+            "lineHeight": "0px",
+            "padding": "5px",
+            "textAlign": "center",
+          }
+        }
+      >
+        <div
+          className="c4"
+        >
+          <svg
+            fill="none"
+            height="40"
+            viewBox="0 0 32 40"
+            width="32"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M30.1339 17.5436L30.0337 17.6039C29.8661 17.7173 29.7098 17.8522 29.5687 18.0106C28.8156 18.8599 28.7604 20.0872 29.3623 20.9886L29.3705 21.0029C29.9458 21.9011 29.8344 23.0355 29.0915 23.8725C28.5591 24.4734 27.8192 24.7462 27.0762 24.6829L27.0537 24.6859C26.2873 24.597 25.4575 24.8699 24.9066 25.4902C24.4417 26.0145 24.2506 26.6399 24.3078 27.2868L24.3139 27.392C24.364 28.0318 24.1647 28.6899 23.7059 29.207C22.8096 30.2167 21.2553 30.3781 20.2446 29.4819L20.1792 29.4288C19.1736 28.7042 17.7633 28.8442 16.9233 29.7915C16.8292 29.8968 16.7465 30.0082 16.6749 30.1247L16.6443 30.1646C16.5155 30.3832 16.3469 30.6111 16.1456 30.7879C15.1298 31.678 13.5856 31.5769 12.6955 30.5611C12.4839 30.3189 12.3276 30.0481 12.2274 29.7619L12.1794 29.6556C12.0885 29.4747 11.973 29.3031 11.834 29.1436C11.0859 28.2903 9.87494 28.0829 8.90511 28.5662L8.88978 28.5724C7.92712 29.0312 6.81525 28.7788 6.07741 27.9367C5.54804 27.3328 5.3692 26.5653 5.52454 25.8356V25.8131C5.70849 25.0641 5.54089 24.2056 4.99415 23.5822C4.53223 23.0549 3.93542 22.7872 3.28649 22.7637L3.18123 22.7565C2.54047 22.7269 1.913 22.4469 1.4562 21.9257C0.566086 20.9099 0.683609 19.099 1.69942 18.2079L1.93651 17.9432C2.69172 16.9274 2.44135 15.3444 1.52569 14.5084L1.46028 14.4553C0.376005 13.65 0.21556 12.0956 1.01983 11.0114C1.43269 10.4554 2.03564 10.1253 2.67128 10.0436L2.77552 10.0272C3.42036 9.95161 3.99367 9.63583 4.41164 9.07376C4.90626 8.40746 5.00335 7.53881 4.7591 6.8071L4.75706 6.78462C4.54348 6.07028 4.65895 5.29054 5.13824 4.6457C5.80557 3.74742 6.89291 3.40609 7.88931 3.78523L7.90566 3.79034C8.91125 4.194 10.1018 3.88946 10.7783 2.97789C10.9051 2.80825 11.0052 2.62737 11.0818 2.43933L11.1207 2.32896C11.1973 2.03567 11.3312 1.75259 11.5223 1.49404C12.3276 0.409761 13.8585 0.183912 14.9427 0.9892C15.1584 1.14862 15.3444 1.36221 15.4905 1.56966L15.5242 1.60645C15.606 1.7158 15.6969 1.82004 15.7991 1.91814C16.7127 2.79395 18.1302 2.81949 19.0744 2.01625L19.1347 1.958C20.0688 0.983069 21.6313 1.01781 22.6063 1.95187C23.106 2.43014 23.3584 3.07089 23.3594 3.71165L23.3625 3.81691C23.3574 4.46686 23.5986 5.07389 24.1044 5.55931C24.7033 6.13364 25.5535 6.33803 26.3098 6.18781H26.3323C27.067 6.0662 27.8273 6.27876 28.4068 6.83367C29.2151 7.6083 29.4175 8.72937 28.9167 9.6716L28.9096 9.68693C28.3833 10.6343 28.5376 11.8534 29.3562 12.6383C29.5095 12.7844 29.676 12.9071 29.8528 13.0062L29.9571 13.0583C30.2381 13.1717 30.5028 13.3393 30.7348 13.5611C31.7097 14.4952 31.7424 16.0434 30.8083 17.0183C30.6224 17.2115 30.3883 17.3699 30.1635 17.4894"
+              stroke="#27847A"
+              stroke-miterlimit="10"
+              stroke-width="1.03351"
+            />
+            <path
+              d="M15.9904 25.0723C21.1874 25.0723 25.4004 20.8593 25.4004 15.6623C25.4004 10.4652 21.1874 6.25223 15.9904 6.25223C10.7934 6.25223 6.58035 10.4652 6.58035 15.6623C6.58035 20.8593 10.7934 25.0723 15.9904 25.0723Z"
+              stroke="#27847A"
+              stroke-miterlimit="10"
+              stroke-width="1.03351"
+            />
+            <path
+              d="M13.2698 32.9943L10.8611 38.2399L8.69563 32.6448L2.90123 34.5865L5.30892 29.3398"
+              stroke="#27847A"
+              stroke-miterlimit="10"
+              stroke-width="1.03351"
+            />
+            <path
+              d="M19.2718 32.9943L21.6805 38.2399L23.846 32.6448L29.6404 34.5865L27.2327 29.3398"
+              stroke="#27847A"
+              stroke-miterlimit="10"
+              stroke-width="1.03351"
+            />
+            <path
+              clip-rule="evenodd"
+              d="M13.5521 20.4354L14.3664 19.621C14.495 19.4924 14.7036 19.4924 14.8323 19.621C14.9609 19.7497 14.9609 19.9582 14.8323 20.0869L14.0179 20.9012C13.8893 21.0299 13.6807 21.0299 13.5521 20.9013C13.4234 20.7726 13.4234 20.564 13.5521 20.4354Z"
+              fill="#27847A"
+              fill-rule="evenodd"
+            />
+            <path
+              clip-rule="evenodd"
+              d="M18.4377 19.622L19.2521 18.8076C19.3807 18.679 19.5893 18.679 19.7179 18.8076C19.8466 18.9362 19.8466 19.1448 19.7179 19.2735L18.9036 20.0878C18.775 20.2165 18.5664 20.2165 18.4377 20.0878C18.3091 19.9592 18.3091 19.7506 18.4377 19.622Z"
+              fill="#27847A"
+              fill-rule="evenodd"
+            />
+            <path
+              clip-rule="evenodd"
+              d="M15.9949 22.0643L16.8092 21.2499C16.9379 21.1213 17.1464 21.1213 17.2751 21.2499C17.4037 21.3786 17.4037 21.5871 17.2751 21.7158L16.4608 22.5301C16.3321 22.6588 16.1235 22.6588 15.9949 22.5301C15.8663 22.4015 15.8663 22.1929 15.9949 22.0643Z"
+              fill="#27847A"
+              fill-rule="evenodd"
+            />
+            <path
+              clip-rule="evenodd"
+              d="M13.5524 20.9013L12.738 20.0869C12.6094 19.9583 12.6094 19.7497 12.738 19.6211C12.8666 19.4924 13.0752 19.4924 13.2039 19.6211L14.0182 20.4354C14.1469 20.564 14.1469 20.7726 14.0182 20.9012C13.8896 21.0299 13.681 21.0299 13.5524 20.9013Z"
+              fill="#27847A"
+              fill-rule="evenodd"
+            />
+            <path
+              d="M18.3413 18.2253L19.0001 18.2254C19.0001 18.2251 19.0001 18.2257 19.0001 18.2254L19.0001 19.8549C19.0001 20.0368 18.8526 20.1843 18.6706 20.1843C18.4887 20.1843 18.3412 20.0368 18.3412 19.8549L18.3413 18.2253C18.3413 18.225 18.3413 18.2256 18.3413 18.2253Z"
+              fill="#27847A"
+            />
+            <path
+              d="M15.8987 18.2252L16.5575 18.2253C16.5575 18.225 16.5575 18.2255 16.5575 18.2253L16.5575 22.2975C16.5575 22.4794 16.41 22.6269 16.2281 22.6269C16.0461 22.6269 15.8987 22.4794 15.8987 22.2975L15.8987 18.2252C15.8987 18.225 15.8987 18.2255 15.8987 18.2252Z"
+              fill="#27847A"
+            />
+            <path
+              d="M13.4557 18.2251L14.1146 18.2252L14.1146 20.6691C14.1146 20.8511 13.9671 20.9985 13.7852 20.9985C13.6033 20.9985 13.4558 20.8511 13.4558 20.6691L13.4557 18.2251Z"
+              fill="#27847A"
+            />
+            <path
+              clip-rule="evenodd"
+              d="M20.2996 18.2263C20.2776 18.2263 20.2557 18.226 20.2339 18.2254L19.0004 18.2254L19.0004 15.8821C19.0004 15.7002 18.8529 15.5527 18.671 15.5527C18.489 15.5527 18.3416 15.7002 18.3416 15.8821L18.3416 18.2253L14.1146 18.2252L14.1147 16.6893C14.1147 16.5073 13.9672 16.3599 13.7853 16.3599C13.6033 16.3599 13.4558 16.5073 13.4558 16.6893L13.4558 18.2251L11.3421 18.2251L11.3218 18.2251C9.98385 18.2251 8.89923 17.1405 8.89923 15.8026C8.89923 14.4646 9.98385 13.38 11.3218 13.38C11.7203 13.38 12.0962 13.4762 12.4278 13.6466C12.3837 13.5114 12.3599 13.367 12.3599 13.2171C12.3599 12.4525 12.9796 11.8328 13.7442 11.8328C14.1296 11.8328 14.4782 11.9902 14.7291 12.2443C15.2259 11.1838 16.3028 10.4493 17.5513 10.4493C19.2053 10.4493 20.5581 11.7385 20.6599 13.3668C21.8382 13.541 22.7425 14.5566 22.7425 15.7834C22.7425 17.1325 21.6487 18.2263 20.2996 18.2263ZM15.8988 15.0249L15.8988 18.2045L16.5576 18.2044L16.5576 15.0249C16.5576 14.843 16.4101 14.6955 16.2282 14.6955C16.0463 14.6955 15.8988 14.843 15.8988 15.0249Z"
+              fill="#27847A"
+              fill-rule="evenodd"
+            />
+            <path
+              clip-rule="evenodd"
+              d="M18.438 20.0878L17.6237 19.2735C17.495 19.1448 17.495 18.9363 17.6237 18.8076C17.7523 18.679 17.9609 18.679 18.0895 18.8076L18.9039 19.6219C19.0325 19.7506 19.0325 19.9592 18.9039 20.0878C18.7753 20.2165 18.5667 20.2165 18.438 20.0878Z"
+              fill="#27847A"
+              fill-rule="evenodd"
+            />
+            <path
+              clip-rule="evenodd"
+              d="M15.9952 22.5301L15.1808 21.7158C15.0522 21.5872 15.0522 21.3786 15.1808 21.25C15.3095 21.1213 15.5181 21.1213 15.6467 21.25L16.4611 22.0643C16.5897 22.1929 16.5897 22.4015 16.4611 22.5301C16.3324 22.6588 16.1238 22.6588 15.9952 22.5301Z"
+              fill="#27847A"
+              fill-rule="evenodd"
+            />
+          </svg>
+          <div
+            className="c8"
+            color="#27847a"
+          >
+            C.Embodiment
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr
+      className="c3"
+      color="not-page"
+      style={
+        {
+          "backgroundColor": "#fff",
+          "outline": "thin solid #27847a",
+        }
+      }
     >
-      2011-01-01T00:00:00.000Z
-    </td>
-    <td
-      className="c2"
-    >
-      example-2
-    </td>
-    <td
-      className="c2"
-    >
-      <button>
-        button
-      </button>
-    </td>
-  </tr>
-  <tr
-    className=""
-  >
-    <td
-      className="c2"
-    >
-      2012-01-01T00:00:00.000Z
-    </td>
-    <td
-      className="c2"
-    >
-      example-3
-    </td>
-    <td
-      className="c2"
-    >
-      <h3>
-        heading #3
-      </h3>
-    </td>
-  </tr>
-</table>
+      <td
+        className=""
+        style={
+          {
+            "color": "#1a1a1a",
+            "fontFamily": "Inter",
+            "fontSize": "26px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "height": "60px",
+            "lineHeight": "0px",
+            "padding": "5px",
+            "textAlign": "center",
+          }
+        }
+      >
+        <div
+          className="c4"
+        >
+          <div
+            className="c5"
+          >
+            <svg
+              fill="none"
+              height="30"
+              viewBox="0 0 30 30"
+              width="30"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle
+                cx="15"
+                cy="15"
+                fill="#1F7D74"
+                r="15"
+              />
+              <path
+                d="M10.5105 14.1103V9.64133C10.5105 7.17319 12.5113 5.17236 14.9795 5.17236V5.17236C17.4476 5.17236 19.4484 7.17319 19.4484 9.64133V14.1103"
+                stroke="white"
+              />
+              <rect
+                fill="white"
+                height="10.0924"
+                rx="0.9"
+                stroke="white"
+                strokeWidth="1.08"
+                width="12.3269"
+                x="8.81588"
+                y="13.1606"
+              />
+              <path
+                d="M13.8451 18.3676C13.6134 18.02 13.4897 17.6117 13.4897 17.194C13.4897 16.6736 13.7837 16.1979 14.2492 15.9652L14.3132 15.9332C14.7326 15.7235 15.2262 15.7235 15.6456 15.9332L15.7096 15.9652C16.1751 16.1979 16.4691 16.6736 16.4691 17.194C16.4691 17.6117 16.3454 18.02 16.1137 18.3676L15.815 18.8156C15.7574 18.902 15.7407 19.0094 15.7692 19.1092L16.4691 21.5587H13.4897L14.1896 19.1092C14.2181 19.0094 14.2014 18.902 14.1438 18.8156L13.8451 18.3676Z"
+                fill="#1F7D74"
+              />
+            </svg>
+            <div
+              className="c6"
+            >
+              UK-HYPROOF-0006
+            </div>
+          </div>
+          <div
+            className="c5"
+          >
+            <svg
+              fill="none"
+              height="17"
+              viewBox="0 0 17 17"
+              width="17"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle
+                cx="8.5"
+                cy="8.5"
+                r="7.75"
+                stroke="#27847A"
+                stroke-width="1.5"
+              />
+              <path
+                d="M8.5 4.5V9L12.5 12.5"
+                stroke="#27847A"
+                stroke-linecap="round"
+                stroke-width="1.42857"
+              />
+            </svg>
+            <div
+              className="c7"
+            >
+              2024/02/02, 22:50h
+            </div>
+          </div>
+        </div>
+      </td>
+      <td
+        className=""
+        style={
+          {
+            "color": "#1a1a1a",
+            "fontFamily": "Inter",
+            "fontSize": "26px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "height": "60px",
+            "lineHeight": "0px",
+            "padding": "5px",
+            "textAlign": "center",
+          }
+        }
+      >
+        2.0 MWh
+      </td>
+      <td
+        className=""
+        style={
+          {
+            "color": "#1a1a1a",
+            "fontFamily": "Inter",
+            "fontSize": "26px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "height": "60px",
+            "lineHeight": "0px",
+            "padding": "5px",
+            "textAlign": "center",
+          }
+        }
+      >
+        4.2 MWh
+      </td>
+      <td
+        className=""
+        style={
+          {
+            "color": "#1a1a1a",
+            "fontFamily": "Inter",
+            "fontSize": "26px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "height": "60px",
+            "lineHeight": "0px",
+            "padding": "5px",
+            "textAlign": "center",
+          }
+        }
+      >
+        45g CO2e
+      </td>
+      <td
+        className=""
+        style={
+          {
+            "color": "#1a1a1a",
+            "fontFamily": "Inter",
+            "fontSize": "26px",
+            "fontStyle": "normal",
+            "fontWeight": "500",
+            "height": "60px",
+            "lineHeight": "0px",
+            "padding": "5px",
+            "textAlign": "center",
+          }
+        }
+      >
+        <div
+          className="c4"
+        >
+          <svg
+            fill="none"
+            height="40"
+            viewBox="0 0 32 40"
+            width="32"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M30.1339 17.5436L30.0337 17.6039C29.8661 17.7173 29.7098 17.8522 29.5687 18.0106C28.8156 18.8599 28.7604 20.0872 29.3623 20.9886L29.3705 21.0029C29.9458 21.9011 29.8344 23.0355 29.0915 23.8725C28.5591 24.4734 27.8192 24.7462 27.0762 24.6829L27.0538 24.6859C26.2873 24.597 25.4575 24.8699 24.9067 25.4902C24.4417 26.0145 24.2506 26.6399 24.3078 27.2868L24.3139 27.392C24.364 28.0318 24.1647 28.6899 23.7059 29.207C22.8096 30.2167 21.2553 30.3781 20.2446 29.4819L20.1792 29.4288C19.1736 28.7042 17.7633 28.8442 16.9233 29.7915C16.8292 29.8968 16.7465 30.0082 16.6749 30.1247L16.6443 30.1646C16.5155 30.3832 16.3469 30.6111 16.1456 30.7879C15.1298 31.678 13.5856 31.5769 12.6955 30.5611C12.484 30.3189 12.3276 30.0481 12.2274 29.7619L12.1794 29.6556C12.0885 29.4747 11.973 29.3031 11.834 29.1436C11.0859 28.2903 9.87494 28.0829 8.90512 28.5662L8.88979 28.5724C7.92713 29.0312 6.81526 28.7788 6.07741 27.9367C5.54805 27.3328 5.36921 26.5653 5.52455 25.8356V25.8131C5.70849 25.0641 5.5409 24.2056 4.99416 23.5822C4.53224 23.0549 3.93543 22.7872 3.2865 22.7637L3.18124 22.7565C2.54048 22.7269 1.91301 22.4469 1.4562 21.9257C0.566093 20.9099 0.683616 19.099 1.69942 18.2079L1.93651 17.9432C2.69173 16.9274 2.44135 15.3444 1.52569 14.5084L1.46029 14.4553C0.376012 13.65 0.215568 12.0956 1.01983 11.0114C1.4327 10.4554 2.03564 10.1253 2.67129 10.0436L2.77553 10.0272C3.42037 9.95161 3.99368 9.63583 4.41165 9.07376C4.90627 8.40746 5.00336 7.53881 4.75911 6.8071L4.75707 6.78462C4.54348 6.07028 4.65896 5.29054 5.13825 4.6457C5.80558 3.74742 6.89292 3.40609 7.88931 3.78523L7.90567 3.79034C8.91125 4.194 10.1018 3.88946 10.7783 2.97789C10.9051 2.80825 11.0052 2.62737 11.0819 2.43933L11.1207 2.32896C11.1973 2.03567 11.3312 1.75259 11.5223 1.49404C12.3276 0.409761 13.8585 0.183912 14.9427 0.9892C15.1584 1.14862 15.3444 1.36221 15.4905 1.56966L15.5242 1.60645C15.606 1.7158 15.6969 1.82004 15.7991 1.91814C16.7127 2.79395 18.1302 2.81949 19.0744 2.01625L19.1347 1.958C20.0688 0.983069 21.6313 1.01781 22.6063 1.95187C23.106 2.43014 23.3584 3.07089 23.3594 3.71165L23.3625 3.81691C23.3574 4.46686 23.5986 5.07389 24.1044 5.55931C24.7033 6.13364 25.5535 6.33803 26.3098 6.18781H26.3323C27.067 6.0662 27.8274 6.27876 28.4068 6.83367C29.2152 7.6083 29.4175 8.72937 28.9167 9.6716L28.9096 9.68693C28.3833 10.6343 28.5376 11.8534 29.3562 12.6383C29.5095 12.7844 29.676 12.9071 29.8528 13.0062L29.9571 13.0583C30.2381 13.1717 30.5028 13.3393 30.7348 13.5611C31.7097 14.4952 31.7424 16.0434 30.8084 17.0183C30.6224 17.2115 30.3883 17.3699 30.1635 17.4894"
+              stroke="#E34E4E"
+              stroke-miterlimit="10"
+              stroke-width="1.03351"
+            />
+            <path
+              d="M15.9904 25.0723C21.1874 25.0723 25.4004 20.8593 25.4004 15.6623C25.4004 10.4652 21.1874 6.25223 15.9904 6.25223C10.7934 6.25223 6.58036 10.4652 6.58036 15.6623C6.58036 20.8593 10.7934 25.0723 15.9904 25.0723Z"
+              stroke="#E34E4E"
+              stroke-miterlimit="10"
+              stroke-width="1.03351"
+            />
+            <path
+              d="M13.2698 32.9943L10.8611 38.2399L8.69563 32.6448L2.90123 34.5865L5.30892 29.3398"
+              stroke="#E34E4E"
+              stroke-miterlimit="10"
+              stroke-width="1.03351"
+            />
+            <path
+              d="M19.2718 32.9943L21.6805 38.2399L23.846 32.6448L29.6404 34.5865L27.2327 29.3398"
+              stroke="#E34E4E"
+              stroke-miterlimit="10"
+              stroke-width="1.03351"
+            />
+            <path
+              d="M13.1803 12.9578L18.9217 18.6992"
+              stroke="#E34E4E"
+              stroke-linecap="round"
+              stroke-width="1.3"
+            />
+            <path
+              d="M13.1803 18.6994L18.9217 12.958"
+              stroke="#E34E4E"
+              stroke-linecap="round"
+              stroke-width="1.3"
+            />
+          </svg>
+          <div
+            className="c9"
+            color="red"
+          >
+            Revoked
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
 `;

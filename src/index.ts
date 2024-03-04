@@ -3,6 +3,11 @@ import InProgressIcon from './Icons/InProgress.js'
 import PadlockIcon from './Icons/Padlock.js'
 import SideArrowCloseIcon from './Icons/SideArrowClose.js'
 import SideArrowOpenIcon from './Icons/SideArrowOpen.js'
+import ClockIcon from './Icons/Clock.js'
+import CertificateIssuedIcon from './Icons/Certificate-Issued.js'
+import CertificateCO2Icon from './Icons/Certificate-CO2.js'
+import CertificatePendingIcon from './Icons/Certificate-Pending.js'
+import CertificateRevokedIcon from './Icons/Certificate-Revoked.js'
 
 export { default as TestComponent } from './TestComponent/index.js'
 export { default as Grid } from './Grid/index.js'
@@ -28,5 +33,16 @@ export { default as UserIcon } from './UserIcon/index.js'
 export { default as Spinner } from './Animations/Spinner/index.js'
 export { default as SidePanel } from './Navigation/SidePanel/index.js'
 
-export { CheckedIcon, InProgressIcon, PadlockIcon, SideArrowOpenIcon, SideArrowCloseIcon }
+export {
+  CheckedIcon,
+  InProgressIcon,
+  PadlockIcon,
+  SideArrowOpenIcon,
+  SideArrowCloseIcon,
+  CertificateIssuedIcon,
+  ClockIcon,
+  CertificateCO2Icon,
+  CertificateRevokedIcon,
+  CertificatePendingIcon
+}
 export * from './Heading/index.js'

@@ -19,7 +19,7 @@ export default {
   },
 }
 
-export const NameCell = ({ name, date }: { name: string; date: string }) => (
+const NameCell = ({ name, date }: { name: string; date: string }) => (
   <Col>
     <Row>
       <PadlockIcon />
@@ -32,7 +32,7 @@ export const NameCell = ({ name, date }: { name: string; date: string }) => (
   </Col>
 )
 
-export const StatusCell = ({
+const StatusCell = ({
   color = '#27847a',
   Icon,
   status,

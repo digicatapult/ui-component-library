@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import { ClockIcon, PadlockIcon } from '../index.js'
+
 export interface TableProps {
   styles?: {
     tr: React.CSSProperties
@@ -8,59 +10,128 @@ export interface TableProps {
   }
   rows: RowValue[][]
   headers: string[]
+  isPage?: boolean
 }
 
 type RowValue = React.ReactNode | number | string | null | undefined
-const defaultStyle = `
-  color: var(--Black, #000);
-  font-family: Roboto Mono;
-  font-size: 16px;
-  font-style: normal;
-  text-align: left;
-  font-weight: 400;
-  line-height: normal;
-  text-decoration-line: underline;
-`
 
-const hyproof = `
-  border-bottom: solid 1px #FFF;
-  text-align: left;
-  padding: 2px 5px;
-  border-left: solid 1px #FFF;
-  background-color: #27847A;
-  color: #FFF;
-
-font-family: Roboto;
-font-size: 14px;
-font-style: normal;
-font-weight: 500;
-line-height: 26x; /* 171.429% */
-`
-
-const Table: React.FC<React.PropsWithChildren<TableProps>> = (props) => (
-  <Background>
-    <Wrapper {...props}>
-      <TR key={Math.random().toString()} style={props.styles?.tr}>
-        {props.headers.map((header: string) => (
-          <TH key={Math.random().toString()} style={props.styles?.th || {}}>
-            {header}
-          </TH>
-        ))}
-      </TR>
-      {props.rows.map((row: RowValue[]) => (
-        <TR key={Math.random().toString()} style={props.styles?.tr}>
-          {row.map((value: RowValue) => (
-            <TD key={Math.random().toString()}>{value}</TD>
-          ))}
-        </TR>
-      ))}
-    </Wrapper>
-  </Background>
+export const NameCell = ({ name, date }: { name: string; date: string }) => (
+  <Col>
+    <Row>
+      <PadlockIcon />
+      <Title>{name}</Title>
+    </Row>
+    <Row>
+      <ClockIcon />
+      <Date>{date}</Date>
+    </Row>
+  </Col>
 )
 
-const TH = styled('th')`
-  ${hyproof}
+export const StatusCell = ({
+  color = '#27847a',
+  Icon,
+  status,
+}: {
+  color?: string
+  Icon: React.FC
+  status: string
+}) => (
+  <Col>
+    <Icon />
+    <Status color={color}>{status}</Status>
+  </Col>
+)
+
+const Table: React.FC<React.PropsWithChildren<TableProps>> = (props) => {
+  return (
+    <Background>
+      <Wrapper {...props}>
+        <TR
+          color={'not-page'}
+          key={Math.random().toString()}
+          style={props.styles?.tr}
+        >
+          {props.headers.map((header: string) => (
+            <TH key={Math.random().toString()} style={props.styles?.th || {}}>
+              {header}
+            </TH>
+          ))}
+        </TR>
+        {props.rows.map((row: RowValue[]) => (
+          <TR key={Math.random().toString()} style={props.styles?.tr}>
+            {row.map((value: RowValue) => (
+              <TD key={Math.random().toString()}>{value}</TD>
+            ))}
+          </TR>
+        ))}
+      </Wrapper>
+    </Background>
+  )
+}
+
+const Title = styled('div')`
+  color: #6aa685;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 0px; /* 0% */
 `
+
+const Status = styled('div')`
+  width: 90px;
+  background-color: ${(props) => props.color || '#27847a'};
+  color: #fff;
+  border-radius: 60px;
+
+  text-align: center;
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 10px; /* 83.333% */
+`
+
+const Date = styled('div')`
+  color: #27847a;
+
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 10px; /* 83.333% */
+`
+
+const Row = styled('div')`
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  align-items: center;
+`
+
+const Col = styled('div')`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`
+
+const TH = styled('th')`
+  border-bottom: solid 1px #fff;
+  text-align: left;
+  padding: 2px 5px;
+  border-left: solid 1px #fff;
+  background-color: #27847a;
+  color: #fff;
+
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26x; /* 171.429% */
+`
+
 const TD = styled('td')`
   color: #1a1a1a;
 
@@ -73,9 +144,22 @@ const TD = styled('td')`
   height: 60px;
   text-align: center;
 `
+
 const TR = styled('tr')`
   background-color: #fff;
   outline: thin solid #27847a;
+
+  &:before {
+    content: '';
+    position: absolute;
+    ${(props) =>
+      props.color !== 'not-page' &&
+      `
+    border-bottom: 10px solid #eee;
+    border-left: 10px solid #27847a`};
+
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  }
 `
 
 const Wrapper = styled('table')<TableProps>`

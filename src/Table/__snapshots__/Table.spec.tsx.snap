@@ -9,18 +9,20 @@ exports[`Table default 1`] = `
 .c3:before {
   content: '';
   position: absolute;
-  right: 36px;
+  right: 0;
   border-bottom: 15px solid #eee;
   border-right: 15px solid #27847a;
 }
 
 .c1 {
+  position: relative;
+  box-sizing: border-box;
+  border: 5px solid transparent;
   width: 100%;
 }
 
 .c0 {
   background-color: #27847a;
-  padding: 20px;
 }
 
 <div
@@ -352,18 +354,20 @@ exports[`Table hyproof 1`] = `
 .c3:before {
   content: '';
   position: absolute;
-  right: 36px;
+  right: 0;
   border-bottom: 15px solid #eee;
   border-right: 15px solid #27847a;
 }
 
 .c1 {
+  position: relative;
+  box-sizing: border-box;
+  border: 5px solid transparent;
   width: 100%;
 }
 
 .c0 {
   background-color: #27847a;
-  padding: 20px;
 }
 
 .c6 {

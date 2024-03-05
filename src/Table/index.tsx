@@ -59,21 +59,22 @@ const TR = styled('tr')`
     position: absolute;
     ${(props) =>
       props.color === 'not-page' &&
-      `
-  right: 36px;
-  border-bottom: 15px solid #eee;
-  border-right: 15px solid #27847a`};
+      `right: 0;
+      border-bottom: 15px solid #eee;
+      border-right: 15px solid #27847a`};
   }
 `
 
 const Wrapper = styled('table')<TableProps>`
+  position: relative;
+  box-sizing: border-box;
+  border: 5px solid transparent;
   width: ${({ width }) => width || '100%'};
 `
 
 const Background = styled('div')`
   background-color: ${(props) =>
     props.color === 'hyproof' ? '#27847a' : 'none'};
-  padding: 20px;
 `
 
 export default Table

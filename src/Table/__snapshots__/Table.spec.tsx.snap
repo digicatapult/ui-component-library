@@ -142,13 +142,14 @@ exports[`Table default 1`] = `
     </tr>
     <tr
       className="c3"
-      color="not-page"
+      onClick={[Function]}
       style={
         {
           "backgroundColor": "#fff",
           "outline": "thin solid #27847a",
         }
       }
+      variant="hyproof"
     >
       <td
         className=""
@@ -209,13 +210,14 @@ exports[`Table default 1`] = `
     </tr>
     <tr
       className="c3"
-      color="not-page"
+      onClick={[Function]}
       style={
         {
           "backgroundColor": "#fff",
           "outline": "thin solid #27847a",
         }
       }
+      variant="hyproof"
     >
       <td
         className=""
@@ -276,13 +278,14 @@ exports[`Table default 1`] = `
     </tr>
     <tr
       className="c3"
-      color="not-page"
+      onClick={[Function]}
       style={
         {
           "backgroundColor": "#fff",
           "outline": "thin solid #27847a",
         }
       }
+      variant="hyproof"
     >
       <td
         className=""
@@ -426,6 +429,7 @@ exports[`Table hyproof 1`] = `
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  gap: 5px;
 }
 
 <div
@@ -606,13 +610,14 @@ exports[`Table hyproof 1`] = `
     </tr>
     <tr
       className="c3"
-      color="not-page"
+      onClick={[Function]}
       style={
         {
           "backgroundColor": "#fff",
           "outline": "thin solid #27847a",
         }
       }
+      variant="hyproof"
     >
       <td
         className=""
@@ -847,13 +852,14 @@ exports[`Table hyproof 1`] = `
     </tr>
     <tr
       className="c3"
-      color="not-page"
+      onClick={[Function]}
       style={
         {
           "backgroundColor": "#fff",
           "outline": "thin solid #27847a",
         }
       }
+      variant="hyproof"
     >
       <td
         className=""
@@ -1117,13 +1123,14 @@ exports[`Table hyproof 1`] = `
     </tr>
     <tr
       className="c3"
-      color="not-page"
+      onClick={[Function]}
       style={
         {
           "backgroundColor": "#fff",
           "outline": "thin solid #27847a",
         }
       }
+      variant="hyproof"
     >
       <td
         className=""

@@ -76,4 +76,5 @@ const Col = styled('div')`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  gap: 5px;
 `

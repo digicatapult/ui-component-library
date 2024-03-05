@@ -3,6 +3,9 @@ import styled, { CSSProperties } from 'styled-components'
 
 import { styles } from './styles-map.js'
 
+type Variants = 'default' | 'hyproof'
+type RowValue = React.ReactNode | number | string | null | undefined
+
 export interface TableProps {
   styles?: {
     tr: React.CSSProperties
@@ -10,13 +13,13 @@ export interface TableProps {
   }
   rows: RowValue[][]
   headers: string[]
-  variant?: 'default' | 'hyproof'
+  variant?: Variants
+  action?: (item: RowValue[]) => void
 }
-
-type RowValue = React.ReactNode | number | string | null | undefined
 
 const Table: React.FC<React.PropsWithChildren<TableProps>> = ({
   variant = 'hyproof',
+  action = (item) => item,
   ...props
 }) => {
   const { td, tr, th, root } = styles[variant] as { [k: string]: CSSProperties }
@@ -33,9 +36,10 @@ const Table: React.FC<React.PropsWithChildren<TableProps>> = ({
         </TR>
         {props.rows.map((row: RowValue[]) => (
           <TR
+            onClick={() => action(row)}
             key={Math.random().toString()}
             style={tr}
-            color={variant === 'hyproof' ? 'not-page' : 'none'}
+            variant={variant}
           >
             {row.map((value: RowValue) => (
               <TD style={td} key={Math.random().toString()}>
@@ -53,12 +57,12 @@ const TH = styled('th')``
 
 const TD = styled('td')``
 
-const TR = styled('tr')`
+const TR = styled('tr')<{ variant?: Variants }>`
   &:before {
     content: '';
     position: absolute;
     ${(props) =>
-      props.color === 'not-page' &&
+      props.variant === 'hyproof' &&
       `right: 0;
       border-bottom: 15px solid #eee;
       border-right: 15px solid #27847a`};

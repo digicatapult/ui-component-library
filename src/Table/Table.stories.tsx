@@ -34,7 +34,7 @@ Default.args = {
     ['2011-01-01T00:00:00.000Z', 'example-2', <button>button</button>],
     ['2012-01-01T00:00:00.000Z', 'example-3', <h3>heading #3</h3>],
   ],
-  action: (item) => console.log(item),
+  action: (item) => action('table row click')(item),
 }
 
 export const Hyproof = DefaultStoryTemplate.bind({})

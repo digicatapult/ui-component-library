@@ -11,11 +11,13 @@ exports[`SidePanel default 1`] = `
 }
 
 .c1 {
-  position: relative;
-  margin-left: 20px;
+  position: absolute;
   top: 10%;
-  left: 300px;
+  right: 0px;
   cursor: pointer;
+  transform: scaleX(1) translateX(100%);
+  transform-origin: 100%;
+  transition: transform 0.7s ease-in-out;
 }
 
 .c3 {
@@ -28,16 +30,18 @@ exports[`SidePanel default 1`] = `
 
 .c0 {
   position: absolute;
+  box-sizing: border-box;
+  width: 300px;
+  height: 100lvh;
+  left: 0px;
+  top: 0px;
   display: flex;
   flex-direction: column;
   gap: 0.2em;
   padding: 5px 25px;
-  width: 300px;
-  height: 0px;
-  left: -NaNpx;
-  top: 0px;
+  transform: translateX(     -300px   );
+  transition: transform 0.7s ease-in-out;
   box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.1);
-  transition: all 0.7s ease-in-out;
 }
 
 .c4 {
@@ -155,24 +159,12 @@ exports[`SidePanel default 1`] = `
 <div
   className="c0"
   onAnimationEnd={[Function]}
-  style={
-    {
-      "isOpen": false,
-      "variant": "default",
-      "width": undefined,
-    }
-  }
+  variant="default"
 >
   <div
     className="c1"
     onClick={[Function]}
-    style={
-      {
-        "isOpen": false,
-        "variant": "default",
-        "width": undefined,
-      }
-    }
+    variant="default"
   >
     <svg
       fill="none"
@@ -246,7 +238,7 @@ exports[`SidePanel default 1`] = `
 `;
 
 exports[`SidePanel hyproof 1`] = `
-.c2 {
+.c3 {
   color: #4a4a4a;
   font-family: Roboto;
   margin-bottom: 100px;
@@ -255,37 +247,47 @@ exports[`SidePanel hyproof 1`] = `
   line-height: 45px;
 }
 
-.c1 {
-  position: relative;
-  margin-left: 20px;
+.c2 {
+  position: absolute;
   top: 10%;
-  left: 300px;
+  right: 0px;
   cursor: pointer;
+  transform: scaleX(1) translateX(100%);
+  transform-origin: 100%;
+  transition: transform 0.7s ease-in-out;
 }
 
-.c3 {
+.c4 {
   transition: all 0.3s ease-out;
 }
 
-.c3:hover {
+.c4:hover {
   opacity: 0.7;
 }
 
 .c0 {
   position: absolute;
+  box-sizing: border-box;
+  width: 300px;
+  height: 100lvh;
+  left: 0px;
+  top: 0px;
   display: flex;
   flex-direction: column;
   gap: 0.2em;
   padding: 5px 25px;
-  width: 300px;
-  height: 0px;
-  left: -NaNpx;
-  top: 0px;
-  box-shadow: none;
-  transition: all 0.7s ease-in-out;
+  transform: translateX(     -300px   );
+  transition: transform 0.7s ease-in-out;
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.1);
 }
 
-.c4 {
+.c1 {
+  box-shadow: none;
+  background: rgba(255, 255, 255, 80%);
+  backdrop-filter: blur(10px);
+}
+
+.c5 {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -299,7 +301,7 @@ exports[`SidePanel hyproof 1`] = `
   padding: 5px;
 }
 
-.c6 {
+.c7 {
   border: 0;
   font: inherit;
   background: inherit;
@@ -319,7 +321,7 @@ exports[`SidePanel hyproof 1`] = `
   border-bottom-left-radius: 0.75em;
 }
 
-.c6 >* {
+.c7 >* {
   display: block;
   padding: 0;
   margin: 0;
@@ -330,16 +332,16 @@ exports[`SidePanel hyproof 1`] = `
   cursor: pointer;
 }
 
-.c6 >label {
+.c7 >label {
   font-size: 1.2em;
   font-weight: bolder;
 }
 
-.c6 >span {
+.c7 >span {
   font-size: 1em;
 }
 
-.c6::before {
+.c7::before {
   content: '';
   position: absolute;
   display: none;
@@ -351,11 +353,11 @@ exports[`SidePanel hyproof 1`] = `
   background: green;
 }
 
-.c6:focus-visible {
+.c7:focus-visible {
   outline: 1px green solid;
 }
 
-.c8 {
+.c9 {
   border: 0;
   font: inherit;
   background: inherit;
@@ -375,7 +377,7 @@ exports[`SidePanel hyproof 1`] = `
   border-bottom-left-radius: 0.75em;
 }
 
-.c8 >* {
+.c9 >* {
   display: block;
   padding: 0;
   margin: 0;
@@ -386,16 +388,16 @@ exports[`SidePanel hyproof 1`] = `
   cursor: pointer;
 }
 
-.c8 >label {
+.c9 >label {
   font-size: 1.2em;
   font-weight: bolder;
 }
 
-.c8 >span {
+.c9 >span {
   font-size: 1em;
 }
 
-.c8::before {
+.c9::before {
   content: '';
   position: absolute;
   display: none;
@@ -407,11 +409,11 @@ exports[`SidePanel hyproof 1`] = `
   background: red;
 }
 
-.c8:focus-visible {
+.c9:focus-visible {
   outline: 1px red solid;
 }
 
-.c5 {
+.c6 {
   box-sizing: border-box;
   display: grid;
   align-items: center;
@@ -425,7 +427,7 @@ exports[`SidePanel hyproof 1`] = `
   background: green;
 }
 
-.c7 {
+.c8 {
   box-sizing: border-box;
   display: grid;
   align-items: center;
@@ -440,26 +442,14 @@ exports[`SidePanel hyproof 1`] = `
 }
 
 <div
-  className="c0"
+  className="c0 c1"
   onAnimationEnd={[Function]}
-  style={
-    {
-      "isOpen": false,
-      "variant": "hyproof",
-      "width": undefined,
-    }
-  }
+  variant="hyproof"
 >
   <div
-    className="c1"
+    className="c2"
     onClick={[Function]}
-    style={
-      {
-        "isOpen": false,
-        "variant": "hyproof",
-        "width": undefined,
-      }
-    }
+    variant="hyproof"
   >
     <svg
       fill="none"
@@ -482,22 +472,22 @@ exports[`SidePanel hyproof 1`] = `
     </svg>
   </div>
   <div
-    className="c2"
+    className="c3"
   >
     test heading (undefined)
   </div>
   <div
-    className="c3"
+    className="c4"
   >
     <button
       active={false}
       background="green"
-      className="c4 hyproof"
+      className="c5 hyproof"
       onClick={[Function]}
     >
       <div
         bgColor="green"
-        className="c5"
+        className="c6"
         fullName="unit"
         outlineColor="white"
         size="60px"
@@ -508,7 +498,7 @@ exports[`SidePanel hyproof 1`] = `
       </div>
       <button
         background="inherit"
-        className="c6"
+        className="c7"
         flashColor="green"
         height="60px"
         id="id3"
@@ -525,17 +515,17 @@ exports[`SidePanel hyproof 1`] = `
     </button>
   </div>
   <div
-    className="c3"
+    className="c4"
   >
     <button
       active={false}
       background="red"
-      className="c4 hyproof"
+      className="c5 hyproof"
       onClick={[Function]}
     >
       <div
         bgColor="red"
-        className="c7"
+        className="c8"
         fullName="test"
         outlineColor="white"
         size="60px"
@@ -546,7 +536,7 @@ exports[`SidePanel hyproof 1`] = `
       </div>
       <button
         background="inherit"
-        className="c8"
+        className="c9"
         flashColor="red"
         height="60px"
         id="id4"

@@ -1,8 +1,14 @@
 import React from 'react'
 
-import { Heading, Button, Panel, ItemWrapper } from './common.js'
+import {
+  Heading,
+  Button,
+  DefaultPanel,
+  HiiVariantPanel,
+  ItemWrapper,
+} from './common.js'
 import ListCard, { ListCardProps } from '../../ListCard/index.js'
-import { SideArrowCloseIcon, SideArrowOpenIcon } from '../../index.js'
+import { SideArrowCloseIcon } from '../../index.js'
 import Avatar from '../../UserIcon/index.js'
 
 export interface SidePanelProps {
@@ -12,8 +18,7 @@ export interface SidePanelProps {
   width?: string
   isOpen?: boolean
   active?: boolean
-  callback?: (data: { [k: string]: string | number | boolean }) => void
-  update?: (name: string, persona: Persona, e?: MouseEvent) => void
+  callback?: (data: { isOpen: boolean }) => void
 }
 
 export interface SidePanelItemProps extends SidePanelProps {
@@ -23,13 +28,16 @@ export interface SidePanelItemProps extends SidePanelProps {
   active?: boolean
   color?: string
   subtitle?: string
+  update?: (name: string, persona: Persona, e?: MouseEvent) => void
 }
 
 interface IItem {
   Item: typeof Item
 }
 type Persona = Omit<ListCardProps, 'onClick'>
-type ISidePanel = React.FC<React.PropsWithChildren<SidePanelProps>>
+type ISidePanel = React.FC<
+  React.PropsWithChildren<SidePanelProps> & React.HTMLAttributes<HTMLDivElement>
+>
 
 const Item: React.FC<React.PropsWithChildren<SidePanelItemProps>> = ({
   update = () => {},
@@ -65,30 +73,35 @@ const Item: React.FC<React.PropsWithChildren<SidePanelItemProps>> = ({
 
 const SidePanel: ISidePanel & IItem = ({
   children,
-  update,
+  className,
   callback,
   heading,
   ...props
 }) => {
-  const [show, setShow] = React.useState(false)
+  const { variant, isOpen, width, title } = props
+  const [show, setShow] = React.useState(isOpen)
 
-  const style = {
-    variant: props.variant,
-    width: props.width,
-    isOpen: show,
-  } as React.CSSProperties
+  const Panel = variant === 'default' ? DefaultPanel : HiiVariantPanel
+
   return (
-    <Panel onAnimationEnd={() => setShow(true)} style={style}>
+    <Panel
+      onAnimationEnd={() => setShow(true)}
+      variant={variant}
+      isOpen={show}
+      width={width}
+      className={className}
+    >
       <Button
         onClick={() => {
           setShow(!show)
-          if (callback) return callback({ ...props, isOpen: !show })
+          if (callback) return callback({ isOpen: !show })
         }}
-        style={style}
+        {...props}
+        isOpen={show}
       >
-        {show ? <SideArrowOpenIcon /> : <SideArrowCloseIcon />}
+        <SideArrowCloseIcon />
       </Button>
-      <Heading>{`${heading} (${props.title})`}</Heading>
+      <Heading>{`${heading} (${title})`}</Heading>
       {children}
     </Panel>
   )

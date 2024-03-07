@@ -3,6 +3,7 @@ import { action } from '@storybook/addon-actions'
 
 import SidePanel, { SidePanelProps } from './index.js'
 import { hyproof, basic } from './fixtures.js'
+import { styled } from 'styled-components'
 
 const fixtures = { hyproof, default: basic }
 
@@ -53,12 +54,14 @@ export const Default = DefaultStoryTemplate.bind({})
 Default.args = {
   variant: 'default',
   heading: 'Basic Side Panel',
-  width: 300,
+  width: '300px',
+  isOpen: true,
 }
 
 export const HyProof = DefaultStoryTemplate.bind({})
 HyProof.args = {
   variant: 'hyproof',
   heading: 'HyProof Variant',
-  width: 400,
+  width: '400px',
+  isOpen: true,
 }

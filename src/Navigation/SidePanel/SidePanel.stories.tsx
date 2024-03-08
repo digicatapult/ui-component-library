@@ -39,7 +39,7 @@ const DefaultStoryTemplate = (args: SidePanelProps) => {
         <SidePanel.Item
           active={current === item.title || false}
           {...args}
-          update={(name, persona) => {
+          update={(name) => {
             setCurrent(name || '')
           }}
           key={item.name}

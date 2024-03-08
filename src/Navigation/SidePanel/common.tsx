@@ -28,7 +28,7 @@ export const ItemWrapper = styled('div')`
 `
 
 export const DefaultPanel = styled.div<SidePanelProps>`
-  position: absolute;
+  position: ${({ variant }) => (variant === 'hyproof' ? 'fixed' : 'absolute')};
   box-sizing: border-box;
   width: ${({ width }) => width || '300px'};
   height: 100lvh;
@@ -50,6 +50,6 @@ export const DefaultPanel = styled.div<SidePanelProps>`
 
 export const HiiVariantPanel = styled(DefaultPanel)<SidePanelProps>`
   box-shadow: none;
-  background: rgba(255, 255, 255, 80%);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 90%);
+  backdrop-filter: blur(5px);
 `

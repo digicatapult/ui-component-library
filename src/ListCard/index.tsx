@@ -4,7 +4,10 @@ import { useId } from 'react-id-generator'
 
 import type Avatar from '../UserIcon/index.js'
 
+import type { HTMLAttributes } from 'react'
+
 export interface ListCardProps {
+  className?: HTMLAttributes<HTMLButtonElement>['className']
   title: string
   subtitle?: string
   orientation?: 'left' | 'right'
@@ -18,9 +21,10 @@ export interface ListCardProps {
   onClick: (title: string) => void
 }
 
-interface RowProps extends React.DOMAttributes<HTMLButtonElement> {
+interface RowProps extends React.HTMLAttributes<HTMLButtonElement> {
   active: boolean
   background: string
+  variant: 'default' | 'hyproof'
 }
 
 interface WrapperProps extends React.DOMAttributes<HTMLButtonElement> {
@@ -37,6 +41,7 @@ interface WrapperProps extends React.DOMAttributes<HTMLButtonElement> {
 const ListCard = React.forwardRef<HTMLButtonElement, ListCardProps>(
   (
     {
+      className,
       variant = 'default',
       active = false,
       flashColor = '#e0e0e0',
@@ -55,17 +60,18 @@ const ListCard = React.forwardRef<HTMLButtonElement, ListCardProps>(
     if (variant === 'hyproof')
       return (
         <Row
-          className={variant}
+          className={className}
+          variant={variant}
           onClick={() => onClick(title)}
           active={active}
-          background={flashColor}
+          background={active ? flashColor : '#d9d9d9'}
           ref={listCardRef}
         >
           {Icon && <Icon />}
           <Wrapper
             variant={variant}
             orientation={orientation}
-            background={background}
+            background={'inherit'}
             flashColor={flashColor}
             width={width}
             height={'60px'}
@@ -78,6 +84,7 @@ const ListCard = React.forwardRef<HTMLButtonElement, ListCardProps>(
       )
     return (
       <Wrapper
+        className={className}
         onClick={() => onClick(title)}
         orientation={orientation}
         background={background}
@@ -93,7 +100,7 @@ const ListCard = React.forwardRef<HTMLButtonElement, ListCardProps>(
   },
 )
 
-const Row = styled('button')<RowProps>`
+const Row = styled.button<RowProps>`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -101,13 +108,11 @@ const Row = styled('button')<RowProps>`
   box-sizing: content-box;
   width: 90%;
   overflow: hidden;
-  background: ${({ background, active }) => {
-    if (active) return background
-    return '#d9d9d9'
-  }};
-  border: none;
-  border-radius: ${({ className }: any) => {
-    switch (className) {
+  background: ${({ background }) => background};
+  border: 2px solid
+    color-mix(in lab, ${({ background }) => background} 70%, black);
+  border-radius: ${({ variant }) => {
+    switch (variant) {
       case 'hyproof':
         return '60px'
       default:
@@ -117,10 +122,10 @@ const Row = styled('button')<RowProps>`
   padding: 5px;
 `
 
-const Wrapper = styled('button')<WrapperProps>`
+const Wrapper = styled.button<WrapperProps>`
+  background: ${({ background }) => background};
   border: 0;
   font: inherit;
-  background: inherit;
   text-align: ${({ orientation }) => orientation};
   cursor: pointer;
   position: relative;

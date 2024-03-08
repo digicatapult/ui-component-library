@@ -42,15 +42,10 @@ const Label = styled('label')`
   color: ${(props: React.CSSProperties) => props.color || '#a7a7a7'};
   font-size: 11px;
   font-weight: 300;
-  cursor: pointer;
   position: relative;
   padding: 0px 10px 0px 50px;
   box-sizing: border-box;
   overflow: hidden;
-
-  &:hover {
-    background: rgba(255, 125, 125, 0.2);
-  }
 
   &::before {
     content: '';
@@ -94,9 +89,6 @@ const Container = styled('div')`
   }
 
   ${Input}:checked + ${Label} {
-    &:hover {
-      background: rgba(125, 255, 125, 0.2);
-    }
     max-height: 300px;
   }
 

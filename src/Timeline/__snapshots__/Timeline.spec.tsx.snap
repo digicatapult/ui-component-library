@@ -42,15 +42,10 @@ exports[`Timeline default renders basic Timeline with a single Timeline.Item 1`]
   color: #a7a7a7;
   font-size: 11px;
   font-weight: 300;
-  cursor: pointer;
   position: relative;
   padding: 0px 10px 0px 50px;
   box-sizing: border-box;
   overflow: hidden;
-}
-
-.c7:hover {
-  background: rgba(255, 125, 125, 0.2);
 }
 
 .c7::before {
@@ -96,10 +91,6 @@ exports[`Timeline default renders basic Timeline with a single Timeline.Item 1`]
 
 .c0 .c4:checked+.c6 {
   max-height: 300px;
-}
-
-.c0 .c4:checked+.c6:hover {
-  background: rgba(125, 255, 125, 0.2);
 }
 
 .c0 .c4:checked+.c6:before {
@@ -258,15 +249,10 @@ exports[`Timeline default renders mixture of timelines complete/not-complete 1`]
   color: #a7a7a7;
   font-size: 11px;
   font-weight: 300;
-  cursor: pointer;
   position: relative;
   padding: 0px 10px 0px 50px;
   box-sizing: border-box;
   overflow: hidden;
-}
-
-.c7:hover {
-  background: rgba(255, 125, 125, 0.2);
 }
 
 .c7::before {
@@ -312,10 +298,6 @@ exports[`Timeline default renders mixture of timelines complete/not-complete 1`]
 
 .c0 .c4:checked+.c6 {
   max-height: 300px;
-}
-
-.c0 .c4:checked+.c6:hover {
-  background: rgba(125, 255, 125, 0.2);
 }
 
 .c0 .c4:checked+.c6:before {
@@ -517,15 +499,10 @@ exports[`Timeline default renders text block if no children present in Timeline.
   color: #a7a7a7;
   font-size: 11px;
   font-weight: 300;
-  cursor: pointer;
   position: relative;
   padding: 0px 10px 0px 50px;
   box-sizing: border-box;
   overflow: hidden;
-}
-
-.c7:hover {
-  background: rgba(255, 125, 125, 0.2);
 }
 
 .c7::before {
@@ -571,10 +548,6 @@ exports[`Timeline default renders text block if no children present in Timeline.
 
 .c0 .c4:checked+.c6 {
   max-height: 300px;
-}
-
-.c0 .c4:checked+.c6:hover {
-  background: rgba(125, 255, 125, 0.2);
 }
 
 .c0 .c4:checked+.c6:before {
@@ -733,15 +706,10 @@ exports[`Timeline default renders timeline items with multiple children 1`] = `
   color: #a7a7a7;
   font-size: 11px;
   font-weight: 300;
-  cursor: pointer;
   position: relative;
   padding: 0px 10px 0px 50px;
   box-sizing: border-box;
   overflow: hidden;
-}
-
-.c7:hover {
-  background: rgba(255, 125, 125, 0.2);
 }
 
 .c7::before {
@@ -787,10 +755,6 @@ exports[`Timeline default renders timeline items with multiple children 1`] = `
 
 .c0 .c4:checked+.c6 {
   max-height: 300px;
-}
-
-.c0 .c4:checked+.c6:hover {
-  background: rgba(125, 255, 125, 0.2);
 }
 
 .c0 .c4:checked+.c6:before {

@@ -6,7 +6,6 @@ type buttonVariant =
   | 'square'
   | 'roundedShadow'
   | 'squareShadow'
-  // NEW
   | 'roundedPronounced'
   | 'roundedPronouncedShadow'
 
@@ -40,7 +39,6 @@ const ButtonBasic: React.FC<React.PropsWithChildren<ButtonTextProps>> = ({
     case 'squareShadow':
       Button = SquareShadowButton
       break
-    // NEW
     case 'roundedPronounced':
       Button = RoundedPronouncedButton
       break
@@ -75,8 +73,6 @@ const SquareShadowButton = styled(SquareButton)`
 const RoundedShadowButton = styled(RoundedButton)`
   box-shadow: 0px 2px 0px 0px #000;
 `
-
-// NEW
 
 const RoundedPronouncedButton = styled(SquareButton)`
   border-radius: 4em;

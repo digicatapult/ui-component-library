@@ -45,9 +45,9 @@ exports[`SidePanel default 1`] = `
 }
 
 .c4 {
+  background: inherit;
   border: 0;
   font: inherit;
-  background: inherit;
   text-align: left;
   cursor: pointer;
   position: relative;
@@ -101,9 +101,9 @@ exports[`SidePanel default 1`] = `
 }
 
 .c5 {
+  background: inherit;
   border: 0;
   font: inherit;
-  background: inherit;
   text-align: left;
   cursor: pointer;
   position: relative;
@@ -266,7 +266,7 @@ exports[`SidePanel hyproof 1`] = `
 }
 
 .c0 {
-  position: absolute;
+  position: fixed;
   box-sizing: border-box;
   width: 300px;
   height: 100lvh;
@@ -283,8 +283,8 @@ exports[`SidePanel hyproof 1`] = `
 
 .c1 {
   box-shadow: none;
-  background: rgba(255, 255, 255, 80%);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 90%);
+  backdrop-filter: blur(5px);
 }
 
 .c5 {
@@ -296,15 +296,15 @@ exports[`SidePanel hyproof 1`] = `
   width: 90%;
   overflow: hidden;
   background: #d9d9d9;
-  border: none;
+  border: 2px solid color-mix(in lab, #d9d9d9 70%, black);
   border-radius: 60px;
   padding: 5px;
 }
 
 .c7 {
+  background: inherit;
   border: 0;
   font: inherit;
-  background: inherit;
   text-align: left;
   cursor: pointer;
   position: relative;
@@ -358,9 +358,9 @@ exports[`SidePanel hyproof 1`] = `
 }
 
 .c9 {
+  background: inherit;
   border: 0;
   font: inherit;
-  background: inherit;
   text-align: left;
   cursor: pointer;
   position: relative;
@@ -481,9 +481,10 @@ exports[`SidePanel hyproof 1`] = `
   >
     <button
       active={false}
-      background="green"
-      className="c5 hyproof"
+      background="#d9d9d9"
+      className="c5"
       onClick={[Function]}
+      variant="hyproof"
     >
       <div
         bgColor="green"
@@ -519,9 +520,10 @@ exports[`SidePanel hyproof 1`] = `
   >
     <button
       active={false}
-      background="red"
-      className="c5 hyproof"
+      background="#d9d9d9"
+      className="c5"
       onClick={[Function]}
+      variant="hyproof"
     >
       <div
         bgColor="red"

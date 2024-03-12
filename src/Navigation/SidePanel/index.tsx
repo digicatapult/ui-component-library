@@ -13,7 +13,6 @@ import Avatar from '../../UserIcon/index.js'
 
 export interface SidePanelProps {
   heading?: string
-  title?: string
   variant: 'default' | 'hyproof'
   width?: string
   isOpen?: boolean
@@ -78,7 +77,7 @@ const SidePanel: ISidePanel & IItem = ({
   heading,
   ...props
 }) => {
-  const { variant, isOpen, width, title } = props
+  const { variant, isOpen, width } = props
   const [show, setShow] = React.useState(isOpen)
 
   const Panel = variant === 'default' ? DefaultPanel : HiiVariantPanel
@@ -101,7 +100,7 @@ const SidePanel: ISidePanel & IItem = ({
       >
         <SideArrowCloseIcon />
       </Button>
-      <Heading>{`${heading} (${title})`}</Heading>
+      <Heading>{heading}</Heading>
       {children}
     </Panel>
   )

@@ -189,7 +189,7 @@ exports[`SidePanel default 1`] = `
   <div
     className="c2"
   >
-    test heading (undefined)
+    test heading
   </div>
   <div
     className="c3"
@@ -474,7 +474,7 @@ exports[`SidePanel hyproof 1`] = `
   <div
     className="c3"
   >
-    test heading (undefined)
+    test heading
   </div>
   <div
     className="c4"

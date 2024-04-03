@@ -4,6 +4,7 @@ import PadlockIcon from './Icons/Padlock.js'
 import SideArrowCloseIcon from './Icons/SideArrowClose.js'
 import SideArrowOpenIcon from './Icons/SideArrowOpen.js'
 import ClockIcon from './Icons/Clock.js'
+import RevokedTimelineIcon from './Icons/Timeline-Revoked.js'
 import CertificateIssuedIcon from './Icons/Certificate-Issued.js'
 import CertificateCO2Icon from './Icons/Certificate-CO2.js'
 import CertificatePendingIcon from './Icons/Certificate-Pending.js'
@@ -43,6 +44,7 @@ export {
   ClockIcon,
   CertificateCO2Icon,
   CertificateRevokedIcon,
-  CertificatePendingIcon
+  CertificatePendingIcon,
+  RevokedTimelineIcon
 }
 export * from './Heading/index.js'

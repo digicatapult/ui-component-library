@@ -6,7 +6,7 @@ export const styles = {
     },
     td: {
       color: 'var(--Black, #000)',
-      fontFamily: 'Roboto Mono',
+      fontFamily: 'Roboto',
       fontSize: '16px',
       fontStyle: 'normal',
       textAlign: 'left',
@@ -16,7 +16,7 @@ export const styles = {
     tr: {},
     th: {
       color: 'var(--Black, #000)',
-      fontFamily: 'Roboto Mono',
+      fontFamily: 'Roboto',
       fontSize: '16px',
       fontStyle: 'normal',
       textAlign: 'left',
@@ -36,7 +36,7 @@ export const styles = {
     },
     td: {
       color: '#1a1a1a',
-      fontFamily: 'Inter',
+      fontFamily: 'Roboto',
       fontSize: '26px',
       fontStyle: 'normal',
       fontWeight: '500',

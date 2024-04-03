@@ -1,6 +1,6 @@
 import React, { BaseSyntheticEvent, PropsWithChildren } from 'react'
 
-import { InProgressIcon, CheckedIcon } from '../index.js'
+import { InProgressIcon, CheckedIcon, RevokedTimelineIcon } from '../index.js'
 import { variants } from './index.js'
 import {
   Li,
@@ -15,6 +15,7 @@ import {
 export interface ItemProps {
   title: string
   checked?: boolean
+  revoked?: boolean
   variant?: 'hyproof' | 'default'
   color?: string
   status?: 'pending' | 'completed' | 'calculating' | 'submitted'
@@ -23,6 +24,7 @@ export interface ItemProps {
 const Item: React.FC<PropsWithChildren<ItemProps>> = ({
   children,
   checked = false,
+  revoked = false,
   ...props
 }: PropsWithChildren<ItemProps>) => {
   const styling: any = props.variant ? variants[props.variant] : {}
@@ -35,7 +37,9 @@ const Item: React.FC<PropsWithChildren<ItemProps>> = ({
           <Status {...styling}>
             {props.status}
             <IconWrapper {...styling}>
-              {checked ? (
+              {revoked ? (
+                <RevokedTimelineIcon />
+              ) : checked ? (
                 <CheckedIcon {...styling} />
               ) : (
                 <InProgressIcon {...styling} />

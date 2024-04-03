@@ -156,7 +156,7 @@ exports[`Table default 1`] = `
         style={
           {
             "color": "#1a1a1a",
-            "fontFamily": "Inter",
+            "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
             "fontWeight": "500",
@@ -174,7 +174,7 @@ exports[`Table default 1`] = `
         style={
           {
             "color": "#1a1a1a",
-            "fontFamily": "Inter",
+            "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
             "fontWeight": "500",
@@ -192,7 +192,7 @@ exports[`Table default 1`] = `
         style={
           {
             "color": "#1a1a1a",
-            "fontFamily": "Inter",
+            "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
             "fontWeight": "500",
@@ -224,7 +224,7 @@ exports[`Table default 1`] = `
         style={
           {
             "color": "#1a1a1a",
-            "fontFamily": "Inter",
+            "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
             "fontWeight": "500",
@@ -242,7 +242,7 @@ exports[`Table default 1`] = `
         style={
           {
             "color": "#1a1a1a",
-            "fontFamily": "Inter",
+            "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
             "fontWeight": "500",
@@ -260,7 +260,7 @@ exports[`Table default 1`] = `
         style={
           {
             "color": "#1a1a1a",
-            "fontFamily": "Inter",
+            "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
             "fontWeight": "500",
@@ -292,7 +292,7 @@ exports[`Table default 1`] = `
         style={
           {
             "color": "#1a1a1a",
-            "fontFamily": "Inter",
+            "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
             "fontWeight": "500",
@@ -310,7 +310,7 @@ exports[`Table default 1`] = `
         style={
           {
             "color": "#1a1a1a",
-            "fontFamily": "Inter",
+            "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
             "fontWeight": "500",
@@ -328,7 +328,7 @@ exports[`Table default 1`] = `
         style={
           {
             "color": "#1a1a1a",
-            "fontFamily": "Inter",
+            "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
             "fontWeight": "500",
@@ -375,7 +375,7 @@ exports[`Table hyproof 1`] = `
 
 .c6 {
   color: #6aa685;
-  font-family: Inter;
+  font-family: Roboto;
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
@@ -410,7 +410,7 @@ exports[`Table hyproof 1`] = `
 
 .c7 {
   color: #27847a;
-  font-family: Inter;
+  font-family: Roboto;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
@@ -624,7 +624,7 @@ exports[`Table hyproof 1`] = `
         style={
           {
             "color": "#1a1a1a",
-            "fontFamily": "Inter",
+            "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
             "fontWeight": "500",
@@ -716,7 +716,7 @@ exports[`Table hyproof 1`] = `
         style={
           {
             "color": "#1a1a1a",
-            "fontFamily": "Inter",
+            "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
             "fontWeight": "500",
@@ -734,7 +734,7 @@ exports[`Table hyproof 1`] = `
         style={
           {
             "color": "#1a1a1a",
-            "fontFamily": "Inter",
+            "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
             "fontWeight": "500",
@@ -752,7 +752,7 @@ exports[`Table hyproof 1`] = `
         style={
           {
             "color": "#1a1a1a",
-            "fontFamily": "Inter",
+            "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
             "fontWeight": "500",
@@ -770,7 +770,7 @@ exports[`Table hyproof 1`] = `
         style={
           {
             "color": "#1a1a1a",
-            "fontFamily": "Inter",
+            "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
             "fontWeight": "500",
@@ -866,7 +866,7 @@ exports[`Table hyproof 1`] = `
         style={
           {
             "color": "#1a1a1a",
-            "fontFamily": "Inter",
+            "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
             "fontWeight": "500",
@@ -958,7 +958,7 @@ exports[`Table hyproof 1`] = `
         style={
           {
             "color": "#1a1a1a",
-            "fontFamily": "Inter",
+            "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
             "fontWeight": "500",
@@ -976,7 +976,7 @@ exports[`Table hyproof 1`] = `
         style={
           {
             "color": "#1a1a1a",
-            "fontFamily": "Inter",
+            "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
             "fontWeight": "500",
@@ -994,7 +994,7 @@ exports[`Table hyproof 1`] = `
         style={
           {
             "color": "#1a1a1a",
-            "fontFamily": "Inter",
+            "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
             "fontWeight": "500",
@@ -1012,7 +1012,7 @@ exports[`Table hyproof 1`] = `
         style={
           {
             "color": "#1a1a1a",
-            "fontFamily": "Inter",
+            "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
             "fontWeight": "500",
@@ -1137,7 +1137,7 @@ exports[`Table hyproof 1`] = `
         style={
           {
             "color": "#1a1a1a",
-            "fontFamily": "Inter",
+            "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
             "fontWeight": "500",
@@ -1229,7 +1229,7 @@ exports[`Table hyproof 1`] = `
         style={
           {
             "color": "#1a1a1a",
-            "fontFamily": "Inter",
+            "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
             "fontWeight": "500",
@@ -1247,7 +1247,7 @@ exports[`Table hyproof 1`] = `
         style={
           {
             "color": "#1a1a1a",
-            "fontFamily": "Inter",
+            "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
             "fontWeight": "500",
@@ -1265,7 +1265,7 @@ exports[`Table hyproof 1`] = `
         style={
           {
             "color": "#1a1a1a",
-            "fontFamily": "Inter",
+            "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
             "fontWeight": "500",
@@ -1283,7 +1283,7 @@ exports[`Table hyproof 1`] = `
         style={
           {
             "color": "#1a1a1a",
-            "fontFamily": "Inter",
+            "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
             "fontWeight": "500",

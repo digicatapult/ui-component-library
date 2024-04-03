@@ -33,7 +33,7 @@ export const StatusCell = ({
 
 const Title = styled('div')`
   color: #6aa685;
-  font-family: Inter;
+  font-family: Roboto;
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
@@ -57,7 +57,7 @@ const Status = styled('div')`
 const Date = styled('div')`
   color: #27847a;
 
-  font-family: Inter;
+  font-family: Roboto;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;

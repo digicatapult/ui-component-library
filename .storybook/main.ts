@@ -1,6 +1,6 @@
 export default {
   stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
-  addons: ['@storybook/addon-essentials'],
+  addons: ['@storybook/addon-webpack5-compiler-babel', '@storybook/addon-essentials'],
 
   framework: {
     name: '@storybook/react-webpack5',

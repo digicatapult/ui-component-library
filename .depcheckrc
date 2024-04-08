@@ -1,5 +1,6 @@
 {
   "ignores": [
+    "@storybook/addon-webpack5-compiler-babel",
     "@storybook/addon-essentials",
     "@storybook/addon-actions",
     "@storybook/react-webpack5",

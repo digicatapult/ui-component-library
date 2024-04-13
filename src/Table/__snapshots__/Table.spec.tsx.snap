@@ -1,9 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Table default 1`] = `
+.c2:hover {
+  background-color: gray;
+}
+
 .c2:before {
   content: '';
   position: absolute;
+}
+
+.c3:hover {
+  background-color: gray;
 }
 
 .c3:before {
@@ -349,9 +357,17 @@ exports[`Table default 1`] = `
 `;
 
 exports[`Table hyproof 1`] = `
+.c2:hover {
+  background-color: gray;
+}
+
 .c2:before {
   content: '';
   position: absolute;
+}
+
+.c3:hover {
+  background-color: gray;
 }
 
 .c3:before {

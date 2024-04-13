@@ -58,6 +58,9 @@ const TH = styled('th')``
 const TD = styled('td')``
 
 const TR = styled('tr')<{ variant?: Variants }>`
+  &:hover {
+    background-color: gray;
+  }
   &:before {
     content: '';
     position: absolute;

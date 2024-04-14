@@ -164,6 +164,7 @@ exports[`Table default 1`] = `
         style={
           {
             "color": "#1a1a1a",
+            "cursor": "pointer",
             "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
@@ -182,6 +183,7 @@ exports[`Table default 1`] = `
         style={
           {
             "color": "#1a1a1a",
+            "cursor": "pointer",
             "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
@@ -200,6 +202,7 @@ exports[`Table default 1`] = `
         style={
           {
             "color": "#1a1a1a",
+            "cursor": "pointer",
             "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
@@ -232,6 +235,7 @@ exports[`Table default 1`] = `
         style={
           {
             "color": "#1a1a1a",
+            "cursor": "pointer",
             "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
@@ -250,6 +254,7 @@ exports[`Table default 1`] = `
         style={
           {
             "color": "#1a1a1a",
+            "cursor": "pointer",
             "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
@@ -268,6 +273,7 @@ exports[`Table default 1`] = `
         style={
           {
             "color": "#1a1a1a",
+            "cursor": "pointer",
             "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
@@ -300,6 +306,7 @@ exports[`Table default 1`] = `
         style={
           {
             "color": "#1a1a1a",
+            "cursor": "pointer",
             "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
@@ -318,6 +325,7 @@ exports[`Table default 1`] = `
         style={
           {
             "color": "#1a1a1a",
+            "cursor": "pointer",
             "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
@@ -336,6 +344,7 @@ exports[`Table default 1`] = `
         style={
           {
             "color": "#1a1a1a",
+            "cursor": "pointer",
             "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
@@ -640,6 +649,7 @@ exports[`Table hyproof 1`] = `
         style={
           {
             "color": "#1a1a1a",
+            "cursor": "pointer",
             "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
@@ -732,6 +742,7 @@ exports[`Table hyproof 1`] = `
         style={
           {
             "color": "#1a1a1a",
+            "cursor": "pointer",
             "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
@@ -750,6 +761,7 @@ exports[`Table hyproof 1`] = `
         style={
           {
             "color": "#1a1a1a",
+            "cursor": "pointer",
             "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
@@ -768,6 +780,7 @@ exports[`Table hyproof 1`] = `
         style={
           {
             "color": "#1a1a1a",
+            "cursor": "pointer",
             "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
@@ -786,6 +799,7 @@ exports[`Table hyproof 1`] = `
         style={
           {
             "color": "#1a1a1a",
+            "cursor": "pointer",
             "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
@@ -882,6 +896,7 @@ exports[`Table hyproof 1`] = `
         style={
           {
             "color": "#1a1a1a",
+            "cursor": "pointer",
             "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
@@ -974,6 +989,7 @@ exports[`Table hyproof 1`] = `
         style={
           {
             "color": "#1a1a1a",
+            "cursor": "pointer",
             "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
@@ -992,6 +1008,7 @@ exports[`Table hyproof 1`] = `
         style={
           {
             "color": "#1a1a1a",
+            "cursor": "pointer",
             "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
@@ -1010,6 +1027,7 @@ exports[`Table hyproof 1`] = `
         style={
           {
             "color": "#1a1a1a",
+            "cursor": "pointer",
             "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
@@ -1028,6 +1046,7 @@ exports[`Table hyproof 1`] = `
         style={
           {
             "color": "#1a1a1a",
+            "cursor": "pointer",
             "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
@@ -1153,6 +1172,7 @@ exports[`Table hyproof 1`] = `
         style={
           {
             "color": "#1a1a1a",
+            "cursor": "pointer",
             "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
@@ -1245,6 +1265,7 @@ exports[`Table hyproof 1`] = `
         style={
           {
             "color": "#1a1a1a",
+            "cursor": "pointer",
             "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
@@ -1263,6 +1284,7 @@ exports[`Table hyproof 1`] = `
         style={
           {
             "color": "#1a1a1a",
+            "cursor": "pointer",
             "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
@@ -1281,6 +1303,7 @@ exports[`Table hyproof 1`] = `
         style={
           {
             "color": "#1a1a1a",
+            "cursor": "pointer",
             "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
@@ -1299,6 +1322,7 @@ exports[`Table hyproof 1`] = `
         style={
           {
             "color": "#1a1a1a",
+            "cursor": "pointer",
             "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",

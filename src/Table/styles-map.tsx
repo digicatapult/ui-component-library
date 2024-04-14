@@ -44,6 +44,7 @@ export const styles = {
       padding: '5px',
       height: '60px',
       textAlign: 'center',
+      cursor: 'pointer',
     },
     th: {
       borderBottom: 'solid 1px #fff',

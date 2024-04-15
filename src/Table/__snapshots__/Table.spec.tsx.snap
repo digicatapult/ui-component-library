@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Table default 1`] = `
-.c2:hover {
-  background-color: gray;
+.c2 {
+  background-color: inherit;
 }
 
 .c2:before {
@@ -10,8 +10,12 @@ exports[`Table default 1`] = `
   position: absolute;
 }
 
-.c3:hover {
-  background-color: gray;
+.c2:hover {
+  background-color: inherit;
+}
+
+.c3 {
+  background-color: #ffffff;
 }
 
 .c3:before {
@@ -20,6 +24,10 @@ exports[`Table default 1`] = `
   right: 0;
   border-bottom: 15px solid #eee;
   border-right: 15px solid #27847a;
+}
+
+.c3:hover {
+  background-color: #eee;
 }
 
 .c1 {
@@ -366,8 +374,8 @@ exports[`Table default 1`] = `
 `;
 
 exports[`Table hyproof 1`] = `
-.c2:hover {
-  background-color: gray;
+.c2 {
+  background-color: inherit;
 }
 
 .c2:before {
@@ -375,8 +383,12 @@ exports[`Table hyproof 1`] = `
   position: absolute;
 }
 
-.c3:hover {
-  background-color: gray;
+.c2:hover {
+  background-color: inherit;
+}
+
+.c3 {
+  background-color: #ffffff;
 }
 
 .c3:before {
@@ -385,6 +397,10 @@ exports[`Table hyproof 1`] = `
   right: 0;
   border-bottom: 15px solid #eee;
   border-right: 15px solid #27847a;
+}
+
+.c3:hover {
+  background-color: #eee;
 }
 
 .c1 {

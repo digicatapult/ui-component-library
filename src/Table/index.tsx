@@ -58,9 +58,6 @@ const TH = styled('th')``
 const TD = styled('td')``
 
 const TR = styled('tr')<{ variant?: Variants }>`
-  &:hover {
-    background-color: gray;
-  }
   &:before {
     content: '';
     position: absolute;
@@ -69,6 +66,12 @@ const TR = styled('tr')<{ variant?: Variants }>`
       `right: 0;
       border-bottom: 15px solid #eee;
       border-right: 15px solid #27847a`};
+  }
+  background-color: ${(props) =>
+    props.variant === 'hyproof' ? '#ffffff' : 'inherit'};
+  &:hover {
+    background-color: ${(props) =>
+      props.variant === 'hyproof' ? '#eee' : 'inherit'}; // <-- AddColor
   }
 `
 

@@ -71,7 +71,7 @@ const TR = styled('tr')<{ variant?: Variants }>`
     props.variant === 'hyproof' ? '#ffffff' : 'inherit'};
   &:hover {
     background-color: ${(props) =>
-      props.variant === 'hyproof' ? '#eee' : 'inherit'}; // <-- AddColor
+      props.variant === 'hyproof' ? '#d6fae8' : 'inherit'};
   }
 `
 

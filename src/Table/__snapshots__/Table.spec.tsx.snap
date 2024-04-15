@@ -27,7 +27,7 @@ exports[`Table default 1`] = `
 }
 
 .c3:hover {
-  background-color: #eee;
+  background-color: #d6fae8;
 }
 
 .c1 {
@@ -396,7 +396,7 @@ exports[`Table hyproof 1`] = `
 }
 
 .c3:hover {
-  background-color: #eee;
+  background-color: #d6fae8;
 }
 
 .c1 {

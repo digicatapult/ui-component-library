@@ -90,7 +90,6 @@ exports[`Table default 1`] = `
       className="c2"
       style={
         {
-          "backgroundColor": "#fff",
           "outline": "thin solid #27847a",
         }
       }
@@ -161,7 +160,6 @@ exports[`Table default 1`] = `
       onClick={[Function]}
       style={
         {
-          "backgroundColor": "#fff",
           "outline": "thin solid #27847a",
         }
       }
@@ -232,7 +230,6 @@ exports[`Table default 1`] = `
       onClick={[Function]}
       style={
         {
-          "backgroundColor": "#fff",
           "outline": "thin solid #27847a",
         }
       }
@@ -303,7 +300,6 @@ exports[`Table default 1`] = `
       onClick={[Function]}
       style={
         {
-          "backgroundColor": "#fff",
           "outline": "thin solid #27847a",
         }
       }
@@ -543,7 +539,6 @@ exports[`Table hyproof 1`] = `
       className="c2"
       style={
         {
-          "backgroundColor": "#fff",
           "outline": "thin solid #27847a",
         }
       }
@@ -654,7 +649,6 @@ exports[`Table hyproof 1`] = `
       onClick={[Function]}
       style={
         {
-          "backgroundColor": "#fff",
           "outline": "thin solid #27847a",
         }
       }
@@ -901,7 +895,6 @@ exports[`Table hyproof 1`] = `
       onClick={[Function]}
       style={
         {
-          "backgroundColor": "#fff",
           "outline": "thin solid #27847a",
         }
       }
@@ -1177,7 +1170,6 @@ exports[`Table hyproof 1`] = `
       onClick={[Function]}
       style={
         {
-          "backgroundColor": "#fff",
           "outline": "thin solid #27847a",
         }
       }

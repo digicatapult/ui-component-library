@@ -1,9 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Table default 1`] = `
+.c2 {
+  background-color: inherit;
+}
+
 .c2:before {
   content: '';
   position: absolute;
+}
+
+.c2:hover {
+  background-color: inherit;
+}
+
+.c3 {
+  background-color: #ffffff;
 }
 
 .c3:before {
@@ -12,6 +24,10 @@ exports[`Table default 1`] = `
   right: 0;
   border-bottom: 15px solid #eee;
   border-right: 15px solid #27847a;
+}
+
+.c3:hover {
+  background-color: #d6fae8;
 }
 
 .c1 {
@@ -74,7 +90,6 @@ exports[`Table default 1`] = `
       className="c2"
       style={
         {
-          "backgroundColor": "#fff",
           "outline": "thin solid #27847a",
         }
       }
@@ -145,7 +160,6 @@ exports[`Table default 1`] = `
       onClick={[Function]}
       style={
         {
-          "backgroundColor": "#fff",
           "outline": "thin solid #27847a",
         }
       }
@@ -156,6 +170,7 @@ exports[`Table default 1`] = `
         style={
           {
             "color": "#1a1a1a",
+            "cursor": "pointer",
             "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
@@ -174,6 +189,7 @@ exports[`Table default 1`] = `
         style={
           {
             "color": "#1a1a1a",
+            "cursor": "pointer",
             "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
@@ -192,6 +208,7 @@ exports[`Table default 1`] = `
         style={
           {
             "color": "#1a1a1a",
+            "cursor": "pointer",
             "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
@@ -213,7 +230,6 @@ exports[`Table default 1`] = `
       onClick={[Function]}
       style={
         {
-          "backgroundColor": "#fff",
           "outline": "thin solid #27847a",
         }
       }
@@ -224,6 +240,7 @@ exports[`Table default 1`] = `
         style={
           {
             "color": "#1a1a1a",
+            "cursor": "pointer",
             "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
@@ -242,6 +259,7 @@ exports[`Table default 1`] = `
         style={
           {
             "color": "#1a1a1a",
+            "cursor": "pointer",
             "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
@@ -260,6 +278,7 @@ exports[`Table default 1`] = `
         style={
           {
             "color": "#1a1a1a",
+            "cursor": "pointer",
             "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
@@ -281,7 +300,6 @@ exports[`Table default 1`] = `
       onClick={[Function]}
       style={
         {
-          "backgroundColor": "#fff",
           "outline": "thin solid #27847a",
         }
       }
@@ -292,6 +310,7 @@ exports[`Table default 1`] = `
         style={
           {
             "color": "#1a1a1a",
+            "cursor": "pointer",
             "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
@@ -310,6 +329,7 @@ exports[`Table default 1`] = `
         style={
           {
             "color": "#1a1a1a",
+            "cursor": "pointer",
             "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
@@ -328,6 +348,7 @@ exports[`Table default 1`] = `
         style={
           {
             "color": "#1a1a1a",
+            "cursor": "pointer",
             "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
@@ -349,9 +370,21 @@ exports[`Table default 1`] = `
 `;
 
 exports[`Table hyproof 1`] = `
+.c2 {
+  background-color: inherit;
+}
+
 .c2:before {
   content: '';
   position: absolute;
+}
+
+.c2:hover {
+  background-color: inherit;
+}
+
+.c3 {
+  background-color: #ffffff;
 }
 
 .c3:before {
@@ -360,6 +393,10 @@ exports[`Table hyproof 1`] = `
   right: 0;
   border-bottom: 15px solid #eee;
   border-right: 15px solid #27847a;
+}
+
+.c3:hover {
+  background-color: #d6fae8;
 }
 
 .c1 {
@@ -502,7 +539,6 @@ exports[`Table hyproof 1`] = `
       className="c2"
       style={
         {
-          "backgroundColor": "#fff",
           "outline": "thin solid #27847a",
         }
       }
@@ -613,7 +649,6 @@ exports[`Table hyproof 1`] = `
       onClick={[Function]}
       style={
         {
-          "backgroundColor": "#fff",
           "outline": "thin solid #27847a",
         }
       }
@@ -624,6 +659,7 @@ exports[`Table hyproof 1`] = `
         style={
           {
             "color": "#1a1a1a",
+            "cursor": "pointer",
             "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
@@ -716,6 +752,7 @@ exports[`Table hyproof 1`] = `
         style={
           {
             "color": "#1a1a1a",
+            "cursor": "pointer",
             "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
@@ -734,6 +771,7 @@ exports[`Table hyproof 1`] = `
         style={
           {
             "color": "#1a1a1a",
+            "cursor": "pointer",
             "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
@@ -752,6 +790,7 @@ exports[`Table hyproof 1`] = `
         style={
           {
             "color": "#1a1a1a",
+            "cursor": "pointer",
             "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
@@ -770,6 +809,7 @@ exports[`Table hyproof 1`] = `
         style={
           {
             "color": "#1a1a1a",
+            "cursor": "pointer",
             "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
@@ -855,7 +895,6 @@ exports[`Table hyproof 1`] = `
       onClick={[Function]}
       style={
         {
-          "backgroundColor": "#fff",
           "outline": "thin solid #27847a",
         }
       }
@@ -866,6 +905,7 @@ exports[`Table hyproof 1`] = `
         style={
           {
             "color": "#1a1a1a",
+            "cursor": "pointer",
             "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
@@ -958,6 +998,7 @@ exports[`Table hyproof 1`] = `
         style={
           {
             "color": "#1a1a1a",
+            "cursor": "pointer",
             "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
@@ -976,6 +1017,7 @@ exports[`Table hyproof 1`] = `
         style={
           {
             "color": "#1a1a1a",
+            "cursor": "pointer",
             "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
@@ -994,6 +1036,7 @@ exports[`Table hyproof 1`] = `
         style={
           {
             "color": "#1a1a1a",
+            "cursor": "pointer",
             "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
@@ -1012,6 +1055,7 @@ exports[`Table hyproof 1`] = `
         style={
           {
             "color": "#1a1a1a",
+            "cursor": "pointer",
             "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
@@ -1126,7 +1170,6 @@ exports[`Table hyproof 1`] = `
       onClick={[Function]}
       style={
         {
-          "backgroundColor": "#fff",
           "outline": "thin solid #27847a",
         }
       }
@@ -1137,6 +1180,7 @@ exports[`Table hyproof 1`] = `
         style={
           {
             "color": "#1a1a1a",
+            "cursor": "pointer",
             "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
@@ -1229,6 +1273,7 @@ exports[`Table hyproof 1`] = `
         style={
           {
             "color": "#1a1a1a",
+            "cursor": "pointer",
             "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
@@ -1247,6 +1292,7 @@ exports[`Table hyproof 1`] = `
         style={
           {
             "color": "#1a1a1a",
+            "cursor": "pointer",
             "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
@@ -1265,6 +1311,7 @@ exports[`Table hyproof 1`] = `
         style={
           {
             "color": "#1a1a1a",
+            "cursor": "pointer",
             "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",
@@ -1283,6 +1330,7 @@ exports[`Table hyproof 1`] = `
         style={
           {
             "color": "#1a1a1a",
+            "cursor": "pointer",
             "fontFamily": "Roboto",
             "fontSize": "26px",
             "fontStyle": "normal",

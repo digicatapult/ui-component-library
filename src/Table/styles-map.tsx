@@ -31,7 +31,6 @@ export const styles = {
       borderSpacing: '0 10px',
     },
     tr: {
-      backgroundColor: '#fff',
       outline: 'thin solid #27847a',
     },
     td: {
@@ -44,6 +43,7 @@ export const styles = {
       padding: '5px',
       height: '60px',
       textAlign: 'center',
+      cursor: 'pointer',
     },
     th: {
       borderBottom: 'solid 1px #fff',

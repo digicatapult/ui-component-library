@@ -67,6 +67,12 @@ const TR = styled('tr')<{ variant?: Variants }>`
       border-bottom: 15px solid #eee;
       border-right: 15px solid #27847a`};
   }
+  background-color: ${(props) =>
+    props.variant === 'hyproof' ? '#ffffff' : 'inherit'};
+  &:hover {
+    background-color: ${(props) =>
+      props.variant === 'hyproof' ? '#d6fae8' : 'inherit'};
+  }
 `
 
 const Wrapper = styled('table')<TableProps>`

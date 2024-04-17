@@ -33,8 +33,8 @@ export default {
     variant: {
       control: {
         type: 'radio',
-        options: ['default', 'inverted'], // TODO  invert accent and primarhy colors
       },
+      options: ['default', 'inverted'], // TODO  invert accent and primary colors
     },
   },
   args: {

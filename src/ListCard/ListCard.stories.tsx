@@ -22,8 +22,8 @@ export default {
     orientation: {
       control: {
         type: 'select',
-        options: ['left', 'right'],
       },
+      options: ['left', 'right'],
     },
     flashColor: {
       control: {

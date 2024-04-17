@@ -14,8 +14,8 @@ export default {
     variant: {
       control: {
         type: 'select',
-        options: ['default', 'hii'],
       },
+      options: ['default', 'hii'],
     },
     placeholder: {
       control: {

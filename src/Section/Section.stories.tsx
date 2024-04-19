@@ -20,8 +20,8 @@ export default {
     headingLevel: {
       control: {
         type: 'select',
-        options: [1, 2, 3, 4, 5, 6],
       },
+      options: [1, 2, 3, 4, 5, 6],
     },
     background: {
       control: {

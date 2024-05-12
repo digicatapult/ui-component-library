@@ -1,6 +1,6 @@
 {
   "name": "@digicatapult/ui-component-library",
-  "version": "0.19.41",
+  "version": "0.19.42",
   "description": "UI Component Library",
   "author": "Digital Catapult (https://www.digicatapult.org.uk)",
   "license": "Apache-2.0",
@@ -38,7 +38,7 @@
     "moo": "^0.5.2",
     "react-id-generator": "^3.0.2",
     "react-select": "^5.8.0",
-    "styled-components": "^6.1.10"
+    "styled-components": "^6.1.11"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.24.5",

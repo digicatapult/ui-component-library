@@ -1,6 +1,6 @@
 {
   "name": "@digicatapult/ui-component-library",
-  "version": "0.19.61",
+  "version": "0.19.62",
   "description": "UI Component Library",
   "author": "Digital Catapult (https://www.digicatapult.org.uk)",
   "license": "Apache-2.0",
@@ -41,9 +41,9 @@
     "styled-components": "^6.1.11"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.24.6",
-    "@babel/preset-react": "^7.24.6",
-    "@babel/preset-typescript": "^7.24.6",
+    "@babel/preset-env": "^7.24.7",
+    "@babel/preset-react": "^7.24.7",
+    "@babel/preset-typescript": "^7.24.7",
     "@storybook/addon-actions": "^8.1.5",
     "@storybook/addon-essentials": "^8.1.5",
     "@storybook/addon-webpack5-compiler-babel": "^3.0.3",

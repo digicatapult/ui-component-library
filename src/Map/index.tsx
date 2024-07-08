@@ -217,7 +217,12 @@ const Map: React.FC<Props> = (props) => {
             linear: markerLinear,
             maxZoom: markerMaxZoom,
             speed: markerSpeed,
-            padding: markerPadding,
+            padding: {
+              top: markerPadding,
+              bottom: markerPadding,
+              left: markerPadding,
+              right: markerPadding,
+            },
           })
         }
       }
@@ -317,7 +322,7 @@ const Map: React.FC<Props> = (props) => {
           if (features[0].geometry.type === 'Point') {
             map.easeTo({
               center: features[0].geometry.coordinates as LngLatLike,
-              zoom: zoom,
+              zoom: zoom ?? undefined,
             })
           }
         })

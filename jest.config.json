@@ -1,13 +1,8 @@
 {
   "cacheDirectory": ".jest-cache",
   "coverageDirectory": ".jest-coverage",
-  "coveragePathIgnorePatterns": [
-    "<rootDir>/lib/"
-  ],
-  "coverageReporters": [
-    "html",
-    "text"
-  ],
+  "coveragePathIgnorePatterns": ["<rootDir>/lib/"],
+  "coverageReporters": ["html", "text"],
   "coverageThreshold": {
     "global": {
       "branches": 100,
@@ -17,13 +12,8 @@
     }
   },
   "preset": "ts-jest/presets/default-esm",
-  "testPathIgnorePatterns": [
-    "<rootDir>/lib/"
-  ],
-  "setupFiles": [
-    "dotenv/config",
-    "./jest-setup.ts"
-  ],
+  "testPathIgnorePatterns": ["<rootDir>/lib/"],
+  "setupFiles": ["./jest-setup.ts"],
   "testEnvironment": "jsdom",
   "moduleNameMapper": {
     "^(\\.{1,2}/.*\\.util)\\.js$": "$1.mock",

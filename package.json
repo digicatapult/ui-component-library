@@ -1,6 +1,6 @@
 {
   "name": "@digicatapult/ui-component-library",
-  "version": "0.19.126",
+  "version": "0.19.127",
   "description": "UI Component Library",
   "author": "Digital Catapult (https://www.digicatapult.org.uk)",
   "license": "Apache-2.0",
@@ -37,18 +37,18 @@
     "mapbox-gl": "^3.6.0",
     "moo": "^0.5.2",
     "react-id-generator": "^3.0.2",
-    "react-select": "^5.8.0",
+    "react-select": "^5.8.1",
     "styled-components": "^6.1.13"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.25.4",
     "@babel/preset-react": "^7.24.7",
     "@babel/preset-typescript": "^7.24.7",
-    "@storybook/addon-actions": "^8.3.1",
-    "@storybook/addon-essentials": "^8.3.1",
+    "@storybook/addon-actions": "^8.3.2",
+    "@storybook/addon-essentials": "^8.3.2",
     "@storybook/addon-webpack5-compiler-babel": "^3.0.3",
-    "@storybook/react": "^8.3.1",
-    "@storybook/react-webpack5": "^8.3.1",
+    "@storybook/react": "^8.3.2",
+    "@storybook/react-webpack5": "^8.3.2",
     "@types/geojson": "^7946.0.14",
     "@types/jest": "^29.5.13",
     "@types/mapbox-gl": "^3.4.0",
@@ -77,7 +77,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-test-renderer": "^18.3.1",
-    "storybook": "^8.3.1",
+    "storybook": "^8.3.2",
     "ts-jest": "^29.2.5",
     "typescript": "^5.6.2"
   }

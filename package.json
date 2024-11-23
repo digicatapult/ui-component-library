@@ -1,6 +1,6 @@
 {
   "name": "@digicatapult/ui-component-library",
-  "version": "0.19.174",
+  "version": "0.19.175",
   "description": "UI Component Library",
   "author": "Digital Catapult (https://www.digicatapult.org.uk)",
   "license": "Apache-2.0",
@@ -47,11 +47,11 @@
     "@eslint/compat": "^1.2.3",
     "@eslint/eslintrc": "^3.2.0",
     "@eslint/js": "^9.15.0",
-    "@storybook/addon-actions": "^8.4.4",
-    "@storybook/addon-essentials": "^8.4.4",
+    "@storybook/addon-actions": "^8.4.5",
+    "@storybook/addon-essentials": "^8.4.5",
     "@storybook/addon-webpack5-compiler-babel": "^3.0.3",
-    "@storybook/react": "^8.4.4",
-    "@storybook/react-webpack5": "^8.4.4",
+    "@storybook/react": "^8.4.5",
+    "@storybook/react-webpack5": "^8.4.5",
     "@types/geojson": "^7946.0.14",
     "@types/jest": "^29.5.14",
     "@types/mapbox-gl": "^3.4.1",
@@ -80,7 +80,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-test-renderer": "^18.3.1",
-    "storybook": "^8.4.4",
+    "storybook": "^8.4.5",
     "ts-jest": "^29.2.5",
     "typescript": "^5.6.3"
   }

@@ -1,6 +1,6 @@
 {
   "name": "@digicatapult/ui-component-library",
-  "version": "0.19.183",
+  "version": "0.19.184",
   "description": "UI Component Library",
   "author": "Digital Catapult (https://www.digicatapult.org.uk)",
   "license": "Apache-2.0",
@@ -76,7 +76,7 @@
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "jest-styled-components": "^7.2.0",
-    "prettier": "^3.4.1",
+    "prettier": "^3.4.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-test-renderer": "^18.3.1",
